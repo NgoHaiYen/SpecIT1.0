@@ -8,13 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>A2 Screen</title>
 
-    <link href="../../css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
-    <link href="../../css/bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
-    <link href="../css/popup.css" rel="stylesheet" type="text/css">
-    <link href="../css/a2srceen.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
+    <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <link href="css/a2srceen.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container-fluid">
+
+    <include file="navigationbar.jsp"/>
+
     <div class="row">
         <div class="col-xs-12">
             <!-- Main content folded in a panel GROUP -->
@@ -119,11 +122,11 @@
 
 <script src="../js/jquery.min.js"></script>
 
-<script src="../../css/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../js/ckeditor/ckeditor.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/ckeditor/ckeditor.js"></script>
 
-<script src="../../css/bootstrap/js/bootstrap-select.min.js"></script>
-<script src ="../../js/popup.js"></script>
+<script src="bootstrap/js/bootstrap-select.min.js"></script>
+<script src ="js/popup.js"></script>
 <script>
     CKEDITOR.replace('nd');
 </script>

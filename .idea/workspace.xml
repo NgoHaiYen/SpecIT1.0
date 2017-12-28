@@ -7,156 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/jsp/check.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bootstrap/css/bootstrap-select.min.css" afterPath="$PROJECT_DIR$/web/bootstrap/css/bootstrap-select.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bootstrap/js/moment.js" afterPath="$PROJECT_DIR$/web/bootstrap/js/moment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/a2srceen.css" afterPath="$PROJECT_DIR$/web/css/a2srceen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/CHANGES.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/CHANGES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/LICENSE.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/build-config.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/build-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/contents.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/contents.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/af.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/af.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ar.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/az.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/az.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/bg.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/bn.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/bn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/bs.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/bs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ca.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/cs.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/cy.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/cy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/da.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/de-ch.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/de-ch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/de.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/el.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/en-au.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/en-au.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/en-ca.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/en-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/en-gb.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/en-gb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/en.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/eo.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/eo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/es-mx.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/es-mx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/es.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/et.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/eu.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/fa.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/fi.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/fo.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/fo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/fr-ca.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/fr-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/fr.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/gl.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/gu.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/gu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/he.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/hi.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/hi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/hr.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/hu.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/id.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/is.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/is.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/it.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ja.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ka.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ka.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/km.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ko.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ku.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/lt.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/lv.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/mk.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/mk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/mn.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/mn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ms.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/nb.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/nl.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/no.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/oc.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/oc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/pl.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/pt-br.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/pt-br.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/pt.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ro.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ru.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/si.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sk.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sl.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sq.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sr-latn.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sr-latn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sr.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/sv.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/th.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/tr.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/tt.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/tt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/ug.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/ug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/uk.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/vi.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/zh-cn.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/zh-cn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/lang/zh.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/lang/zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/CHANGELOG.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/LICENSE.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/README.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/dialogs/dialog.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/dialogs/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/dialogs/toolbar.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/dialogs/toolbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/tableselection/styles/tableselection.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/tableselection/styles/tableselection.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/LICENSE.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/README.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/ciframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/dialogs/wsc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/css/samples.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/css/samples.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/index.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/js/sample.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/js/sample.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/ajax.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/api.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/appendto.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/appendto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/assets/posteddata.php" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/assets/posteddata.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/datafiltering.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/datafiltering.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/dialog/assets/my_dialog.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/dialog/assets/my_dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/dialog/dialog.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/dialog/dialog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/divreplace.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/divreplace.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/enterkey/enterkey.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/enterkey/enterkey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/htmlwriter/outputforflash.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/htmlwriter/outputforflash.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/htmlwriter/outputhtml.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/htmlwriter/outputhtml.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/index.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlineall.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlineall.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlinebycode.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlinebycode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlinetextarea.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/inlinetextarea.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/jquery.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/jquery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/magicline/magicline.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/magicline/magicline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/readonly.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/readonly.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/replacebyclass.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/replacebyclass.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/replacebycode.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/replacebycode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample_posteddata.php" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/sample_posteddata.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/tabindex.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/tabindex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/toolbar/toolbar.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/toolbar/toolbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/uicolor.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/uicolor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/uilanguages.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/uilanguages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/wysiwygarea/fullpage.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/wysiwygarea/fullpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/old/xhtmlstyle.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/old/xhtmlstyle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/css/fontello.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/css/fontello.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/index.html" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_ie.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_ie8.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_iequirks.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/dialog_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_gecko.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_gecko.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_ie.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_ie8.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_iequirks.css" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/editor_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/readme.md" afterPath="$PROJECT_DIR$/web/css/ckeditor/skins/moono-lisa/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/ckeditor/styles.js" afterPath="$PROJECT_DIR$/web/css/ckeditor/styles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/main.css" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/popup.css" afterPath="$PROJECT_DIR$/web/css/popup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/slidebar.css" afterPath="$PROJECT_DIR$/web/css/slidebar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/dataTables.bootstrap.min.js" afterPath="$PROJECT_DIR$/web/js/dataTables.bootstrap.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/A2Screen.jsp" afterPath="$PROJECT_DIR$/web/jsp/A2Screen.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/add.jsp" afterPath="$PROJECT_DIR$/web/jsp/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/login.jsp" afterPath="$PROJECT_DIR$/web/jsp/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/list.jsp" afterPath="$PROJECT_DIR$/web/jsp/list.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -200,21 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpecIT.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SpecIT.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/add.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1548">
-              <caret line="104" column="17" lean-forward="false" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+            <state relative-caret-position="288">
+              <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -225,21 +70,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/jsp/check.jsp">
+      <file leaf-file-name="chatbox.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/chatbox.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="-1086">
+              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigationbar.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="A2Screen.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/A2Screen.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="34" column="39" lean-forward="false" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigationbar.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/jsp/navigationbar.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="612">
+              <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -272,9 +150,14 @@
       <find>../..</find>
       <find>../../</find>
       <find>css/bootstrap</find>
+      <find>../css</find>
+      <find>&quot;css/bootstrap</find>
+      <find>../</find>
     </findStrings>
     <replaceStrings>
       <replace>bootstrap</replace>
+      <replace>css</replace>
+      <replace>&quot;bootstrap</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -298,7 +181,9 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/check.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/A2Screen.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/add.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
       </list>
     </option>
   </component>
@@ -368,12 +253,6 @@
               <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
@@ -634,7 +513,7 @@
       <updated>1514446420626</updated>
       <workItem from="1514446428059" duration="747000" />
       <workItem from="1514447241629" duration="30000" />
-      <workItem from="1514447405040" duration="6100000" />
+      <workItem from="1514447405040" duration="6982000" />
     </task>
     <task id="LOCAL-00001" summary="add from older project">
       <created>1514453270189</created>
@@ -661,10 +540,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6877000" />
+    <option name="totallyTimeSpent" value="7759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="44" width="1303" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -683,10 +563,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2690513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2690513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20557769" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20557769" sideWeight="0.49074075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940239" sideWeight="0.5092593" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -763,30 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/chatbox.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -807,14 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/A2Screen.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -861,14 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/navigationbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/a2srceen.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -877,16 +717,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/A2Screen.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/add.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1548">
-          <caret line="104" column="17" lean-forward="false" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+        <state relative-caret-position="288">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/chatbox.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1086">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="34" column="39" lean-forward="false" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/navigationbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

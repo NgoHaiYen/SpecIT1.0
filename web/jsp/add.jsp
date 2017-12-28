@@ -17,6 +17,8 @@
 
 </head>
 <body>
+    <include file="navigationbar.jsp"/>
+
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
