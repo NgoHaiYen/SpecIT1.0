@@ -1,0 +1,25 @@
+.container-fluid {
+    border-top: 3px solid #0F35F7;
+    margin: auto;
+}
+.row {
+    width: 1400px;
+    margin: auto;
+
+}
+.header {
+    height: 100px;
+    background: #c9cccf;
+}
+.panel-body {
+    width: 1400px;
+    margin: auto;
+}
+.newrow {
+    width: 150px;
+}
+
+
+.custom {
+    width: 190px !important;
+}
