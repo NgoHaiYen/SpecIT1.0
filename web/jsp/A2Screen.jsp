@@ -29,12 +29,12 @@
                             <div class="col-xs-6"></div>
                             <div class="col-xs-6">
                                 <!-- Buttons -->
-                                <button type="button" class="btn btn-default custom" id="priority-change"> <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên </button>
-                                <button type="button" class="btn btn-default custom" id="depart-change"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
-                                <button type="button" class="btn btn-default custom" id="time-change"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
-                                <button type="button" class="btn btn-default custom" id="relevant-change"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
+                                <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn"> <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên </button>
+                                <button type="button" class="btn btn-default custom" id="depart-change" name="depart-btn"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
+                                <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
+                                <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
                                 <!-- Change State button-->
-                                <select class="selectpicker custom" title="Thay đổi trạng thái">
+                                <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn">
                                     <option data-icon="glyphicon-pencil">New</option>
                                     <option data-icon="glyphicon-play">Inprogress</option>
                                     <option data-icon="glyphicon-ok">Resolved</option>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <button type="submit" class="btn btn-primary" onclick=""> <span class="	glyphicon glyphicon-send"></span> Click to submit</button>
+                            <button type="submit" class="btn btn-primary" onclick="" id="submit" name="submit-btn"> <span class="	glyphicon glyphicon-send"></span> Click to submit</button>
                         </div>
                     </div>
                 </div>
