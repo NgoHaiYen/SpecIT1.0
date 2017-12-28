@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-info custom"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
+                            <button type="submit" class="btn btn-info custom" id="send" name ="send-btn"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
                             <button disabled type="submit" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                         </div>
                     </div> 
