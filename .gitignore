@@ -1,4 +1,4 @@
-*.property
+*.properties
 
 # Package Files #
 *.jar
@@ -10,3 +10,4 @@
 
 .idea/
 out/
+target/
