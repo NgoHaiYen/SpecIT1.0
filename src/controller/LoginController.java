@@ -1,5 +1,8 @@
 package controller;
 
+import database.LoginDb;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,28 +15,26 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        while (session == null) {
-            session = request.getSession();
-        }
-        if (session.getAttribute("username") == null) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.setCharacterEncoding("utf-8");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        LoginDb loginDb = new LoginDb();
+        if (loginDb.checkLogin(username, password)){
+            session.setAttribute("username", username);
+            response.sendRedirect(request.getContextPath() + "/LoginController");
             return;
-        } else {
-            response.sendRedirect(request.getContextPath() + "/ListUserController");
-            return;
         }
+        RequestDispatcher rs = request.getRequestDispatcher("jsp/login.jsp");
+        rs.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        while (session == null) {
-            session = request.getSession();
-        }
         if (session.getAttribute("username") == null) {
-            request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
+            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
             return;
         } else {
-            response.sendRedirect(request.getContextPath() + "/ListUserController");
+            response.sendRedirect(request.getContextPath() + "/LoginController");
             return;
         }
     }

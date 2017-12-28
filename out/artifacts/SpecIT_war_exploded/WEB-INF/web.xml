@@ -5,13 +5,13 @@
          version="3.1">
 
     <servlet>
-        <display-name>ahuhu</display-name>
-        <servlet-name>ahihi</servlet-name>
+        <display-name>LoginController</display-name>
+        <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ahihi</servlet-name>
-        <url-pattern>/ohno</url-pattern>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>  <!--định tuyến -->
     </servlet-mapping>
 
 </web-app>
