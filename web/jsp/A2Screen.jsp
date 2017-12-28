@@ -12,6 +12,9 @@
     <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
     <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/a2srceen.css" rel="stylesheet" type="text/css">
+
+    <!--popup -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -33,6 +36,35 @@
                                 <button type="button" class="btn btn-default custom" id="depart-change" name="depart-btn"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
                                 <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
                                 <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
+                                <!-- Trigger the modal assign with a button-->
+                                <button type="button" class="btn btn-default custom" data-toggle="modal" data-target="#assignModal"><span class="glyphicon glyphicon-pencil"></span>Assign</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="assignModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Assign</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Chọn người thực hiện:</p>
+                                                <!-- Lay du lieu tu csdl tu day-->
+                                                <select class="selectpicker">
+                                                    <option>Mustard</option>
+                                                    <option>Ketchup</option>
+                                                    <option>Relish</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess --> assignPopup duoi script .assignPopUp-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Change State button-->
                                 <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn">
                                     <option data-icon="glyphicon-pencil">New</option>
@@ -129,6 +161,12 @@
 <script src ="js/popup.js"></script>
 <script>
     CKEDITOR.replace('nd');
+    $(".assignPopup").click(function(){
+        $.bootstrapGrowl('Thông báo đã được gửi tới A.',{
+            type: 'success',
+            delay: 3000,
+        });
+    });
 </script>
 </body>
 </html>
