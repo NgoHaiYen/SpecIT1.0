@@ -33,13 +33,39 @@
                             <div class="col-xs-6">
                                 <!-- Buttons -->
                                 <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn"> <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên </button>
-                                <button type="button" class="btn btn-default custom" id="depart-change" name="depart-btn"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
+                                <button type="button" class="btn btn-default custom" data-toggle="modal" id="depart-btn" name="depart-btn" data-target="#departModal"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
+
+                                <!-- Department Modal -->
+                                <div class="modal fade" id="departModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Thay đổi bộ phận IT</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Chọn bộ phận IT:</p>
+                                                <!-- Lay du lieu tu csdl tu day-->
+                                                <select class="selectpicker">
+                                                    <option>IT Hà Nội</option>
+                                                    <option>IT Đà Nẵng</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
                                 <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
                                 <!-- Trigger the modal assign with a button-->
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" data-target="#assignModal"><span class="glyphicon glyphicon-pencil"></span>Assign</button>
 
-                                <!-- Modal -->
+                                <!--  Assign Modal -->
                                 <div class="modal fade" id="assignModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
                                         <div class="modal-content">
@@ -57,7 +83,7 @@
                                                 </select>
                                             </div>
 
-                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess --> assignPopup duoi script .assignPopUp-->
+                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                             <div class="modal-footer">
                                                 <button type="button" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
