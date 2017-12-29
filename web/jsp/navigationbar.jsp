@@ -58,8 +58,8 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>Resolved <span class="label label-info label-as-badge">3</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">2</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>In progress <span class="label label-info label-as-badge">3</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>Feedback <span class="label label-warning label-as-badge">2</span></a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
                             </ul>
                         </div>
@@ -86,7 +86,6 @@
                         </div>
                     </li>
                 <?php endif; ?>
-
                 <!--PANEL cua manager-->
                 <?php if($_SESSION['role'] == 3): ?>
                     <li class="panel panel-default">
