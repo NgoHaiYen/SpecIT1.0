@@ -1,9 +1,13 @@
 package database;
 
 import model.Employee;
+import model.ITteam;
+import model.Priority;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ItteamDb {
@@ -19,28 +23,48 @@ public class ItteamDb {
     }
 
     // get all itteam
-    public ArrayList<ItteamDb> getAllItteams() {
-        // TODO
-        return null;
+    public ArrayList<ITteam> getAllItteams() {
+        ArrayList<ITteam> teams = new ArrayList<ITteam>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM itteam;");
+            while(rs.next()){
+                ITteam team = new ITteam();
+                team.setId(rs.getInt("itteam_id"));
+                team.setName(rs.getString("name"));
+                teams.add(team);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return teams;
     }
 
     // get all itteams name
     public ArrayList<String> getAllItteamsName() {
-        // TODO
-        return null;
+        ArrayList<String> teamNames = new ArrayList<String>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT name FROM itteam;");
+            while(rs.next()){
+                String s = rs.getString("name");
+
+                teamNames.add(s);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return teamNames;
     }
 
-    // find itteam_id
-    public int getItteamIdByName(String name){
-        //TODO
-        return 0;
-    }
-
-    // find itteam_name
-    public String getItteamNameById(int id){
-        //TODO
-        return null;
-    }
 
     public void closeConnection() {
         try {

@@ -2,7 +2,7 @@ package model;
 
 public class ITteam {
     private int id;
-    private int name;
+    private String name;
     private int leaderId;
 
     public int getId() {
@@ -13,11 +13,11 @@ public class ITteam {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
