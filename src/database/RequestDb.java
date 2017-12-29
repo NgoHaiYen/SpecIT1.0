@@ -152,7 +152,7 @@ public class RequestDb {
             statement.setInt(2,status);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                Integer int1 = new Integer(rs.getByte("rating"));
+                Integer int1 = rs.getInt("rating");
                 feedBackRatings.add(int1);
             }
 
@@ -284,6 +284,35 @@ public class RequestDb {
 
     // update request from db
     public void updateRequest(Request request){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET subject = ?,content = ?," +
+                    "created_by = ?, status = ?, prioriry = ?,deadlline =?,assigned_to=?,rating = ?," +
+                    "team_id = ?,resolved_at =? ,closed_at =?, create_at = ?,updated_at=?,deleted_at = ? WHERE request.request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setString(1,request.getSubject());
+            statement.setString(2,request.getContent());
+            statement.setInt(3,request.getCreatedBy());
+            statement.setInt(4,request.getStatus());
+            statement.setInt(5,request.getPriority());
+            statement.setDate(6,request.getDeadline());
+            statement.setInt(7,request.getAssignedTo());
+            statement.setInt(8,request.getRating());
+            statement.setInt(9,request.getTeamId());
+            statement.setDate(10,request.getResolvedAt());
+            statement.setDate(11,request.getClosedAt());
+            statement.setDate(12,request.getCreatedAt());
+            statement.setDate(13,request.getUpdatedAt());
+            statement.setDate(14,request.getDeletedAt());
+            statement.setInt(15,request.getId());
+            statement.executeQuery();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
