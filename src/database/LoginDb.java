@@ -1,5 +1,6 @@
 package database;
 
+import model.Employee;
 import model.IsRead;
 
 import java.sql.Connection;
@@ -15,8 +16,7 @@ public class LoginDb {
         conn = DbConnection.getConnection();
     }
 
-    public boolean checkLogin(String userName, String password) {
-        ArrayList<IsRead> isReads = new ArrayList<IsRead>();
+    public Employee checkLogin(String userName, String password) {
         try {
             String s = "select count(*) from employees where username = ? and password = md5(?)";
 
@@ -26,12 +26,15 @@ public class LoginDb {
             ResultSet rs = statement.executeQuery();
 
             if(rs.next()){
-                return true;
+                Employee e = new Employee();
+                e.setId(rs.getInt("employee_id"));
+                e.setRole(rs.getInt("role_id"));
+                return e;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 
     public void closeConnection() {

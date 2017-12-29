@@ -25,7 +25,6 @@ public class EmployeeDb {
         ArrayList<Employee> employees = new ArrayList<Employee>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select * from employees");
 
@@ -48,6 +47,12 @@ public class EmployeeDb {
             e.printStackTrace();
         }
         return employees;
+    }
+
+    // get all employees of a team
+    public ArrayList<Employee> getAllEmployee(int itteamId) {
+        // TODO
+        return null;
     }
 
     // only get name and id of employees

@@ -1,9 +1,11 @@
 package database;
 
-import model.Employee;
 import model.Priority;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PriorityDb {
@@ -63,14 +65,39 @@ public class PriorityDb {
 
     // find priority_id
     public int getPriorityIdByName(String name){
-        //TODO
-        return 0;
+        int idByName = 0;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+            String sql = "SELECT priority_id FROM priorities WHERE name = " + name + ";";
+            ResultSet rs = statement.executeQuery(sql);
+            idByName = rs.getInt("priority_id");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return idByName;
     }
 
     // find priority_name
     public String getPriorityNameById(int id){
-        //TODO
-        return null;
+        String priorityById = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+            String sql = "SELECT name FROM priorities WHERE priority_id = " + id + ";";
+            ResultSet rs = statement.executeQuery(sql);
+            priorityById = rs.getString("name");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return priorityById;
     }
 
     public void closeConnection() {

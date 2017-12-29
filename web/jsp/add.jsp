@@ -15,6 +15,20 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mainmenu.css">
 
+    <style type="text/css">
+        .day, th, .month, #date {
+            cursor: pointer;
+        }
+
+        .month{
+            margin: 5px;
+        }
+
+        img {
+            margin: 15px;
+        }
+    </style>
+
 </head>
 <body>
     <jsp:include page="navigationbar.jsp" />
@@ -35,9 +49,9 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
-                            <select class="selectpicker custom1" id="priority">
-                                <c:forEach items="${priories}" var="priority" >
-                                    <option value="${priority}"${priority == thisPriority? 'selected' : ''}>${priority}</option>
+                            <select class="selectpicker custom1" id="priorities">
+                                <c:forEach items="${priorities}" var="priority" >
+                                    <option value="${priority.id}"${priority.id == thisPriority? 'selected' : ''}>${priority.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -58,13 +72,9 @@
                         <div class="form-group">
                             <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
                             <select class="selectpicker custom1">
-                                <%--<?php--%>
-                                    <%--// $itdb = new Itteamdb();--%>
-                                    <%--// $listItTeam = $itdb->getAllName();--%>
-                                    <%--// foreach ($listItTeam as $team){--%>
-                                    <%--//     echo '<option>'.$team.'</option>';--%>
-                                    <%--// }--%>
-                                <%--?>--%>
+                                <c:forEach items="${itteams}" var="itteam" >
+                                    <option value="${itteam.id}"${itteam.id == thisItteam? 'selected' : ''}>${itteam.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
@@ -72,7 +82,11 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <input type="text" class="form-control" id="nguoilq" placeholder="Người liên quan">
+                            <select multiple class="selectpicker custom1" data-live-search="true">
+                                <c:forEach items="${employees}" var="employee" >
+                                    <option value="${employee.id}"${employee.id == thisEmployee? 'selected' : ''}>${employee.name}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
 
@@ -86,9 +100,24 @@
 
                     <div class="col-sm-12">
                         <span class="btn btn-default btn-file custom">
-                            <input type="file" id="upload">Chọn file upload
+                            <input type="file" id="upload" onchange='changeImage()'>Chọn file upload
                         </span>
                     </div>
+
+                    <img id="image" src="image/image.jpeg" width="80px" height="80px">
+
+                    <script>
+                        var image = document.getElementById("image");
+                        var file = document.getElementById("upload");
+                        image.onclick = function(){
+                            file.click();
+                        }
+
+                        changeImage = function(){
+                            image.src = "image/" + file.value.split(/(\\|\/)/g).pop();
+                        }
+                    </script>
+
                     <div class="col-xs-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-info custom" id="send" name ="send-btn"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
@@ -104,7 +133,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/moment.js"></script>
     <script src="bootstrap/js/bootstrap-select.min.js"></script>
-    <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
     <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
     <script>
@@ -119,7 +148,7 @@
 
         /*Chon ngay gio*/
         $(function () {
-            $('#datetimepicker').datetimepicker();
+            $('#datetimepicker').datepicker();
         });
 
         CKEDITOR.replace('nd');
