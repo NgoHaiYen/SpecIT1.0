@@ -58,13 +58,9 @@
                         <div class="form-group">
                             <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
                             <select class="selectpicker custom1">
-                                <%--<?php--%>
-                                    <%--// $itdb = new Itteamdb();--%>
-                                    <%--// $listItTeam = $itdb->getAllName();--%>
-                                    <%--// foreach ($listItTeam as $team){--%>
-                                    <%--//     echo '<option>'.$team.'</option>';--%>
-                                    <%--// }--%>
-                                <%--?>--%>
+                                <c:forEach items="${itteams}" var="itteam" >
+                                    <option value="${itteam.id}"${itteam.id == thisItteam? 'selected' : ''}>${itteam.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>
@@ -72,7 +68,11 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <input type="text" class="form-control" id="nguoilq" placeholder="Người liên quan">
+                            <select multiple class="selectpicker custom1" data-live-search="true">
+                                <c:forEach items="${employees}" var="employee" >
+                                    <option value="${employee.id}"${employee.id == thisEmployee? 'selected' : ''}>${employee.name}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
 

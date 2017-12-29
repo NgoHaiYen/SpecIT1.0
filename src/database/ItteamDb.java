@@ -1,8 +1,6 @@
 package database;
 
-import model.Employee;
-import model.ITteam;
-import model.Priority;
+import model.Itteam;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,14 +21,14 @@ public class ItteamDb {
     }
 
     // get all itteam
-    public ArrayList<ITteam> getAllItteams() {
-        ArrayList<ITteam> teams = new ArrayList<ITteam>();
+    public ArrayList<Itteam> getAllItteams() {
+        ArrayList<Itteam> teams = new ArrayList<Itteam>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM itteam;");
             while(rs.next()){
-                ITteam team = new ITteam();
+                Itteam team = new Itteam();
                 team.setId(rs.getInt("itteam_id"));
                 team.setName(rs.getString("name"));
                 teams.add(team);
