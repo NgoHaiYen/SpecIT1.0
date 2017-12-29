@@ -7,7 +7,7 @@ public class Employee {
     private String email;
     private String userName;
     private String passWord;
-    private String role;
+    private int role;
     private int subteamId;
 
     public int getId() {
@@ -58,11 +58,11 @@ public class Employee {
         this.passWord = passWord;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

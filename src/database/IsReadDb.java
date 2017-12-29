@@ -20,18 +20,18 @@ public class IsReadDb {
         }
     }
 
-    public ArrayList<IsRead> getReadRequest(int reader_id) {
+    public ArrayList<IsRead> getReadRequest(int readerId) {
         ArrayList<IsRead> isReads = new ArrayList<IsRead>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select * from isread where reader_id = ?";
 
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1, reader_id);
+            statement.setInt(1, readerId);
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()){
-                IsRead i = new IsRead(reader_id, rs.getInt("request_id"));
+                IsRead i = new IsRead(readerId, rs.getInt("request_id"));
                 isReads.add(i);
             }
         } catch (SQLException e) {
