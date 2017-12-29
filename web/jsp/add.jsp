@@ -106,7 +106,7 @@
                         </span>
                     </div>
 
-                    <img id="image" src="image/image.jpeg" width="80px" height="80px">
+                    <img id="image" src="image/image.jpeg" width="200px" height="200px">
 
                     <script>
                         var image = document.getElementById("image");
