@@ -7,18 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/AddRequestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SpecIT_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/SpecIT_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="$PROJECT_DIR$/src/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/LoginDb.java" afterPath="$PROJECT_DIR$/src/database/LoginDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/A2Screen.jsp" afterPath="$PROJECT_DIR$/web/jsp/A2Screen.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/add.jsp" afterPath="$PROJECT_DIR$/web/jsp/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/list.jsp" afterPath="$PROJECT_DIR$/web/jsp/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/login.jsp" afterPath="$PROJECT_DIR$/web/jsp/login.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -361,11 +351,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/SpecIT.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/EmployeeDb.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/RequestDb.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/jsp/A2Screen.jsp</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -373,7 +359,331 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/bootstrap/js/growl.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/CHANGES.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/LICENSE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/adapters/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/build-config.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/ckeditor.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/config.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/contents.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/af.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/az.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/bg.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/bn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/bs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/cs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/cy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/da.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/de-ch.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/de.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/el.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/en-au.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/en-ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/en-gb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/en.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/eo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/es-mx.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/es.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/et.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/eu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/fa.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/fi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/fo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/fr-ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/fr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/gl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/gu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/he.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/hi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/hr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/hu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/id.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/is.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/it.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ja.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ka.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/km.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ko.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ku.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/lt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/lv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/mk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/mn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ms.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/nb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/nl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/no.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/oc.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/pl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/pt-br.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/pt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ro.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ru.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/si.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sq.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sr-latn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/sv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/th.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/tr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/tt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/ug.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/uk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/vi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/zh-cn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/lang/zh.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/af.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/az.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/da.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/de-ch.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/de.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/el.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/en.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/es-mx.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/es.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/et.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/eu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/fo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/he.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/id.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/it.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/km.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/no.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/oc.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/si.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/th.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/tt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/about/dialogs/about.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/about/dialogs/logo_ckeditor.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/dialog/dialogDefinition.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/icons.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/icons_hidpi.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/image/dialogs/image.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/image/images/noimage.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/link/dialogs/anchor.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/link/dialogs/link.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/link/images/anchor.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/link/images/hidpi/anchor.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/magicline/images/hidpi/icon-rtl.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/magicline/images/hidpi/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/magicline/images/icon-rtl.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/magicline/images/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/pastefromword/filter/default.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/CHANGELOG.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/LICENSE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/dialogs/dialog.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/dialogs/options.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/dialogs/toolbar.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/af.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/az.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/bg.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/cs.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/cy.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/da.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/de-ch.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/de.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/el.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/en-au.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/en-ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/en.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/eo.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/es-mx.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/es.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/et.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/eu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/fa.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/fi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/fr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/gl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/he.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/hr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/hu.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/id.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/it.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ja.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/km.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ko.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ku.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/lt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/lv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/nb.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/nl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/no.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/oc.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/pl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/pt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ru.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/si.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/sk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/sl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/sq.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/sv.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/th.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/tr.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/tt.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/ug.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/uk.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/vi.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/lang/zh.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/specialchar/dialogs/specialchar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/table/dialogs/table.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/tableselection/styles/tableselection.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/tabletools/dialogs/tableCell.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/LICENSE.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/dialogs/ciframe.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/dialogs/tmpFrameset.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/dialogs/wsc.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/dialogs/wsc.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/dialogs/wsc_ie.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/plugins/wsc/skins/moono-lisa/wsc.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/css/samples.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/img/github-top.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/img/header-bg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/img/header-separator.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/img/logo.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/img/navigation-tip.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/js/sample.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/js/sf.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/ajax.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/api.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/appendto.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/assets/inlineall/logo.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/assets/outputxhtml/outputxhtml.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/assets/posteddata.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/assets/sample.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/assets/uilanguages/languages.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/datafiltering.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/dialog/assets/my_dialog.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/dialog/dialog.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/divreplace.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/enterkey/enterkey.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.swf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/htmlwriter/assets/outputforflash/swfobject.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/htmlwriter/outputforflash.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/htmlwriter/outputhtml.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/inlineall.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/inlinebycode.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/inlinetextarea.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/jquery.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/magicline/magicline.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/readonly.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/replacebyclass.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/replacebycode.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/sample.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/sample.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/sample_posteddata.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/tabindex.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/toolbar/toolbar.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/uicolor.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/uilanguages.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/wysiwygarea/fullpage.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/old/xhtmlstyle.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/css/fontello.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/config.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/fontello.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/fontello.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/fontello.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/font/fontello.woff</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/js/abstracttoolbarmodifier.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/js/fulltoolbareditor.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/js/toolbarmodifier.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/js/toolbartextmodifier.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/javascript.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/dialog.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/dialog_ie.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/dialog_ie8.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/dialog_iequirks.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/editor.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/editor_gecko.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/editor_ie.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/editor_ie8.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/editor_iequirks.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/icons.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/icons_hidpi.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/arrow.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/hidpi/close.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/hidpi/lock-open.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/hidpi/lock.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/hidpi/refresh.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/lock-open.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/lock.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/refresh.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/images/spinner.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/skins/moono-lisa/readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/ckeditor/styles.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/js/validation.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -713,7 +1023,7 @@
       <workItem from="1514447405040" duration="8091000" />
       <workItem from="1514455733645" duration="13812000" />
       <workItem from="1514513667202" duration="4405000" />
-      <workItem from="1514524928686" duration="3508000" />
+      <workItem from="1514524928686" duration="3597000" />
     </task>
     <task id="LOCAL-00001" summary="add from older project">
       <created>1514453270189</created>
@@ -771,11 +1081,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514517882146</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add controller">
+      <created>1514530431874</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1514530431874</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30593000" />
+    <option name="totallyTimeSpent" value="30682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="44" width="1303" height="780" extended-state="6" />
@@ -883,7 +1200,8 @@
     <MESSAGE value="set abstract" />
     <MESSAGE value="update db" />
     <MESSAGE value="update abstract db" />
-    <option name="LAST_COMMIT_MESSAGE" value="update abstract db" />
+    <MESSAGE value="add controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="add controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
