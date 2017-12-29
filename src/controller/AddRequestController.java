@@ -20,6 +20,8 @@ public class AddRequestController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        request.getRequestDispatcher("jsp/A2Screen.jsp").forward(request, response);
+
+
+        request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }
 }

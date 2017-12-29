@@ -66,7 +66,7 @@
                     </div>
                 </li>
 
-                <?php if($_SESSION["role"] == 2): ?>
+
                     <li class="panel panel-default">
                         <a data-toggle="collapse" href="#dropdown-lv3">
                             <span class="glyphicon glyphicon-user"></span> Công việc liên quan <span class="caret"></span>
@@ -85,9 +85,9 @@
                             </div>
                         </div>
                     </li>
-                <?php endif; ?>
+
                 <!--PANEL cua manager-->
-                <?php if($_SESSION['role'] == 3): ?>
+
                     <li class="panel panel-default">
                         <a data-toggle="collapse" href="#dropdown-lv4">
                             <span class="glyphicon glyphicon-star"></span> Công việc của bộ phận IT <span class="caret"></span>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </li>
-                <?php endif; ?>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

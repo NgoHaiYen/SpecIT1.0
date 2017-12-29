@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix ="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,14 +36,10 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
-                            <select class="selectpicker custom1">
-                                <%--<?php--%>
-                                    <%--$prioritydb = new Prioritiesdb();--%>
-                                    <%--$listPriorities = $prioritydb->getAllName();--%>
-                                    <%--foreach ($listPriorities as $priority){--%>
-                                        <%--echo '<option>'.$priority.'</option>'; --%>
-                                    <%--}--%>
-                                <%--?>--%>
+                            <select class="selectpicker custom1" id="priority">
+                                <c:forEach items="${priories}" var="priority" >
+                                    <option value="${priority}"${priority == thisPriority? 'selected' : ''}>${priority}</option>
+                                </c:forEach>
                             </select>
                         </div>
                     </div>

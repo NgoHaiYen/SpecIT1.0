@@ -55,8 +55,6 @@ public class RequestDb {
         catch (SQLException e) {
             e.printStackTrace();
         }
-
-        // TODO Exception control
         return requests;
 
     }
@@ -137,7 +135,6 @@ public class RequestDb {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        // TODO: get from db
         return requests;
 
 
@@ -157,7 +154,6 @@ public class RequestDb {
             while (rs.next()){
                 Integer int1 = new Integer(rs.getByte("rating"));
                 feedBackRatings.add(int1);
-
             }
 
 
