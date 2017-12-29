@@ -52,8 +52,26 @@ public class EmployeeDb {
 
     // only get name and id of employees
     public ArrayList<Employee> getAllEmployeeNameAndId(){
-        // TODO: get from db
-        return null;
+        ArrayList<Employee> employeesNameID = new ArrayList<Employee>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select employee_id,name from employees");
+
+            while(rs.next()){
+                Employee e = new Employee();
+                e.setId(rs.getInt("employee_id"));
+                e.setName(rs.getString("name"));
+                employeesNameID.add(e);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return employeesNameID;
     }
 
     public void closeConnection() {
