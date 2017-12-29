@@ -1,6 +1,7 @@
 package controller;
 
 import database.LoginDb;
+import model.Employee;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,8 +20,10 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
         LoginDb loginDb = new LoginDb();
-        if (loginDb.checkLogin(username, password)){
-            session.setAttribute("username", username);
+        Employee e = loginDb.checkLogin(username, password);
+        if (e != null){
+            session.setAttribute("role", e.getRole());
+            session.setAttribute("id", e.getId());
             response.sendRedirect(request.getContextPath() + "/add");
             return;
         }
