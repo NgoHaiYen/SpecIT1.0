@@ -35,9 +35,9 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
-                            <select class="selectpicker custom1" id="priority">
-                                <c:forEach items="${priories}" var="priority" >
-                                    <option value="${priority}"${priority == thisPriority? 'selected' : ''}>${priority}</option>
+                            <select class="selectpicker custom1" id="priorities">
+                                <c:forEach items="${priorities}" var="priority" >
+                                    <option value="${priority.id}"${priority.id == thisPriority? 'selected' : ''}>${priority.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
