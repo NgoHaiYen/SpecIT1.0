@@ -51,8 +51,26 @@ public class EmployeeDb {
 
     // get all employees of a team
     public ArrayList<Employee> getAllEmployee(int itteamId) {
-        // TODO
-        return null;
+        ArrayList<Employee> employeeInTeam = new ArrayList<Employee>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String sqlS = "select * from employees WHERE i; "; //TODO DATABASE UPDATE
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sqlS);
+
+            while(rs.next()){
+                Employee e = new Employee();
+                e.setId(rs.getInt("employee_id"));
+                e.setName(rs.getString("name"));
+                employeeInTeam.add(e);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return employeeInTeam;
     }
 
     // only get name and id of employees
