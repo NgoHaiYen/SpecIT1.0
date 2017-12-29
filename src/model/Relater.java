@@ -3,18 +3,11 @@ package model;
 import java.util.Date;
 
 public class Relater {
-    private int id;
+
     private int requestId;
     private int employeeId;
     private Date createdAt;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getRequestId() {
         return requestId;
