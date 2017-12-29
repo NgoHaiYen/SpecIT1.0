@@ -46,7 +46,22 @@ public class RelaterDb {
 
     // insert a list of relater to a request
     public void addRelaters(ArrayList<Integer> relatersId, int requestId){
-       //TODO
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            for (int i = 0; i < relatersId.size(); i++) {
+                String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,Null);";
+                PreparedStatement statement = conn.prepareStatement(sqlS);
+                statement.setInt(1,requestId);
+                statement.setInt(2, relatersId.get(i));
+                statement.executeQuery(sqlS);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -70,12 +85,27 @@ public class RelaterDb {
 
     // delete a relater to a request
     private void deleteRelater(int relaterId, int requestId){
-        // TODO
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String sqlS = "DELETE FROM relater WHERE relater_id = ? AND  request_id = ? ;";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+            statement.setInt(2,requestId);
+            statement.setInt(1,relaterId);
+            statement.executeQuery(sqlS);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     // update relater of a request
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
-        // TODO
+        // TODO ABORTED
+        // should be using ID, REQUEST SUSPENDED
         // insert all new relaters
         // delete all relaters that are not contained in the given list
     }
