@@ -321,5 +321,8 @@ margin: 0;
 float: right;
 }
 
+.side-menu{
+    overflow-y: auto;
+}
 
 
