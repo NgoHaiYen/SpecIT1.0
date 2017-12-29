@@ -3,10 +3,7 @@ package database;
 import model.Comment;
 import model.Employee;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class CommentDb {
@@ -51,12 +48,52 @@ public class CommentDb {
 
     // add new comment
     public void addComment(Comment comment){
-        // TODO:
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String sqlS = "INSERT INTO comment(comment_id, request_id, employee_id, content, type, note, create_at, updated_at) " +
+                    "VALUE (?,?,?,?,?,?,?,?);";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+            statement.setInt(1,comment.getId());
+            statement.setInt(2,comment.getRequestId());
+            statement.setInt(3,comment.getEmployeeId());
+            statement.setString(4,comment.getContent());
+            statement.setInt(5,comment.getType());
+            statement.setString(6,comment.getNote());
+            statement.setDate(7,comment.getCreatedAt());
+            statement.setDate(8,comment.getUpdatedAt());
+            statement.executeQuery(sqlS);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     // update comment
     public void updateComment(Comment comment){
-        // TODO:
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String sqlS = "UPDATE comment set request_id = ?,employee_id =? ,content = ? ,type = ?,note = ?,create_at = ?,updated_at = ? WHERE  comment_id = ? ;";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+
+            statement.setInt(1,comment.getRequestId());
+            statement.setInt(2,comment.getEmployeeId());
+            statement.setString(3,comment.getContent());
+            statement.setInt(4,comment.getType());
+            statement.setString(5,comment.getNote());
+            statement.setDate(6,comment.getCreatedAt());
+            statement.setDate(7,comment.getUpdatedAt());
+            statement.setInt(8,comment.getId());
+            statement.executeQuery(sqlS);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeConnection() {

@@ -31,7 +31,7 @@ public class DbConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            // TODO ABORTED
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
