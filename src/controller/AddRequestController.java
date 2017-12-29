@@ -1,11 +1,10 @@
 package controller;
 
-import database.EmployeeDb;
-import database.ItteamDb;
-import database.PriorityDb;
+import database.*;
 import model.Employee;
 import model.Itteam;
 import model.Priority;
+import utils.Constant;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,6 +44,8 @@ public class AddRequestController extends HttpServlet {
             return;
         }
 
+        addDataForNavi(request);
+
         // priorities
         PriorityDb pdb = new PriorityDb();
         ArrayList<Priority> priorities = pdb.getAllPriorities();
@@ -63,7 +64,7 @@ public class AddRequestController extends HttpServlet {
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }
 
-    private boolean checkValidate(HttpServletRequest request) throws IOException, ServletException {
+    private boolean checkValidate(HttpServletRequest request) {
         ArrayList<String> values = new ArrayList<String>();
         values.add("tencv");
         values.add("priorities");
@@ -114,5 +115,36 @@ public class AddRequestController extends HttpServlet {
             return true;
         }
         return false;
+    }
+
+    private void addDataForNavi(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        int id = (int) session.getAttribute("id");
+
+        RequestDb rdb = new RequestDb();
+        session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
+        session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
+        session.setAttribute("myri", rdb.getNumberOfRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("myrr", rdb.getNumberOfRequest(id, Constant.RESOLVED));
+        session.setAttribute("myro", rdb.getNumberOfRequest(id, Constant.OUT_OF_DATE));
+
+        session.setAttribute("myaa", rdb.getNumberOfAssignRequest(id, Constant.ALL));
+        session.setAttribute("myan", rdb.getNumberOfAssignRequest(id, Constant.NEW));
+        session.setAttribute("myai", rdb.getNumberOfAssignRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("myar", rdb.getNumberOfAssignRequest(id, Constant.RESOLVED));
+        session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
+
+        RelaterDb relaterDb = new RelaterDb();
+        session.setAttribute("rla", relaterDb.getNumberOfRequestRelate(id, Constant.ALL));
+        session.setAttribute("rln", relaterDb.getNumberOfRequestRelate(id, Constant.NEW));
+        session.setAttribute("rli", relaterDb.getNumberOfRequestRelate(id, Constant.IN_PROGRESS));
+        session.setAttribute("rlr", relaterDb.getNumberOfRequestRelate(id, Constant.RESOLVED));
+        session.setAttribute("rlo", relaterDb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
+
+        session.setAttribute("myaa", rdb.getNumberOfAssignRequest(id, Constant.ALL));
+        session.setAttribute("myan", rdb.getNumberOfAssignRequest(id, Constant.NEW));
+        session.setAttribute("myai", rdb.getNumberOfAssignRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("myar", rdb.getNumberOfAssignRequest(id, Constant.RESOLVED));
+        session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
     }
 }

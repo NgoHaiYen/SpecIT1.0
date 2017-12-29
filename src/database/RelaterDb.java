@@ -24,6 +24,19 @@ public class RelaterDb {
         return null;
     }
 
+    // get all request that relate to the employee
+    public ArrayList<Integer> getAllRequestRelate(int employeeId){
+        // TODO
+        return null;
+    }
+
+    // get number of request that relate to the employee, join employee with relate table
+    // if number = 0, return null
+    public Integer getNumberOfRequestRelate(int employeeId, int status){
+        // TODO
+        return null;
+    }
+
     // insert a list of relater to a request
     public void addRelaters(ArrayList<Integer> relatersId, int requestId){
         // TODO
