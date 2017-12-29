@@ -35,6 +35,11 @@ public class RelaterDb {
         // TODO
     }
 
+    // delete a relater to a request
+    private void deleteRelater(int relaterId, int requestId){
+        // TODO
+    }
+
     // update relater of a request
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
         // TODO

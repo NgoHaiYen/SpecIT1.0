@@ -52,10 +52,6 @@
         </form>
       </div>
     </div>
-
-
-
-
   </div>
 </div>
 <script type="javascript" src="js/jquery.min.js"></script>
