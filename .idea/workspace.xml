@@ -6,15 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="update static function">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/Constant.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Constant.java" afterPath="" />
+    <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/AddRequestController.java" afterPath="$PROJECT_DIR$/src/controller/AddRequestController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="$PROJECT_DIR$/src/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RelaterDb.java" afterPath="$PROJECT_DIR$/src/database/RelaterDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RequestDb.java" afterPath="$PROJECT_DIR$/src/database/RequestDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/navigationbar.jsp" afterPath="$PROJECT_DIR$/web/jsp/navigationbar.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestDb.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequestDb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -86,6 +80,16 @@
                 <marker date="1514565423873" expanded="true" signature="15902:16186" ph="UPDATE reque... " />
                 <marker date="1514565423873" expanded="true" signature="17301:17308" ph="{}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/database.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/database/EmployeeDb.java" />
         <option value="$PROJECT_DIR$/src/model/Relater.java" />
         <option value="$PROJECT_DIR$/src/database/PriorityDb.java" />
-        <option value="$PROJECT_DIR$/src/database.properties" />
         <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/database/LoginDb.java" />
@@ -178,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/controller/AddRequestController.java" />
         <option value="$PROJECT_DIR$/web/jsp/navigationbar.jsp" />
         <option value="$PROJECT_DIR$/src/database/RequestDb.java" />
+        <option value="$PROJECT_DIR$/src/database.properties" />
       </list>
     </option>
   </component>
@@ -309,8 +313,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/css/login.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/index.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/CommentDb.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/database/RelaterDb.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Relater.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -325,7 +330,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/web/css/login.scss</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -715,7 +719,7 @@
       <workItem from="1514524928686" duration="3806000" />
       <workItem from="1514530919352" duration="592000" />
       <workItem from="1514531634384" duration="1886000" />
-      <workItem from="1514533555401" duration="29307000" />
+      <workItem from="1514533555401" duration="29370000" />
     </task>
     <task id="LOCAL-00001" summary="add from older project">
       <created>1514453270189</created>
@@ -829,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514559742381</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update navibar">
+      <created>1514565445916</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1514565445916</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62676000" />
+    <option name="totallyTimeSpent" value="62739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -955,7 +966,8 @@
     <MESSAGE value="update db" />
     <MESSAGE value="fix" />
     <MESSAGE value="upload image" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload image" />
+    <MESSAGE value="update navibar" />
+    <option name="LAST_COMMIT_MESSAGE" value="update navibar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1344,14 +1356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -1380,9 +1384,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <element signature="e#430#431#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1575,6 +1577,14 @@
             <marker date="1514565423873" expanded="true" signature="15902:16186" ph="UPDATE reque... " />
             <marker date="1514565423873" expanded="true" signature="17301:17308" ph="{}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
