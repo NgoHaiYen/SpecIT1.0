@@ -38,7 +38,7 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getDate("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                r.setRatting(rs.getInt("rating"));
+                r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
@@ -81,7 +81,7 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getDate("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                r.setRatting(rs.getInt("rating"));
+                r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
@@ -121,7 +121,7 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getDate("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                r.setRatting(rs.getInt("rating"));
+                r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
@@ -171,7 +171,7 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getDate("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                r.setRatting(rs.getInt("rating"));
+                r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
@@ -213,7 +213,7 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getDate("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                r.setRatting(rs.getInt("rating"));
+                r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("teamID"));

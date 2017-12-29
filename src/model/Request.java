@@ -11,7 +11,7 @@ public class Request {
     private int priority;
     private Date deadline;
     private int assignedTo;
-    private int ratting;
+    private int rating;
     private int teamId;
     private Date resolvedAt;
     private Date closedAt;
@@ -82,12 +82,12 @@ public class Request {
         this.assignedTo = assignedTo;
     }
 
-    public int getRatting() {
-        return ratting;
+    public int getRating() {
+        return rating;
     }
 
-    public void setRatting(int ratting) {
-        this.ratting = ratting;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public int getTeamId() {
