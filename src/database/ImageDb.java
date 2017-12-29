@@ -46,7 +46,21 @@ public class ImageDb {
 
     // add new image
     public void addImage(Image image){
-        // TODO
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String sqlS ="INSERT INTO image(request_id, url_image) VALUE (?,?);";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+            statement.setInt(1,image.getRequestId());
+            statement.setString(2,image.getUrl());
+            statement.executeQuery(sqlS);
+
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     // update image
