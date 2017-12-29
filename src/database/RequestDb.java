@@ -290,26 +290,25 @@ public class RequestDb {
     public void updateRequest(Request request){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "UPDATE request SET ? subject = ?,content = ?," +
+            String addSql = "UPDATE request SET subject = ?,content = ?," +
                     "created_by = ?, status = ?, prioriry = ?,deadlline =?,assigned_to=?,rating = ?," +
                     "team_id = ?,resolved_at =? ,closed_at =?, create_at = ?,updated_at=?,deleted_at = ? WHERE request.request_id = ?";
             PreparedStatement statement = conn.prepareStatement(addSql);
-            statement.setString(1,"");
-            statement.setString(2,request.getSubject());
-            statement.setString(3,request.getContent());
-            statement.setInt(4,request.getCreatedBy());
-            statement.setInt(5,request.getStatus());
-            statement.setInt(6,request.getPriority());
-            statement.setDate(7,request.getDeadline());
-            statement.setInt(8,request.getAssignedTo());
-            statement.setInt(9,request.getRating());
-            statement.setInt(10,request.getTeamId());
-            statement.setDate(11,request.getResolvedAt());
-            statement.setDate(12,request.getClosedAt());
-            statement.setDate(13,request.getCreatedAt());
-            statement.setDate(14,request.getUpdatedAt());
-            statement.setDate(15,request.getDeletedAt());
-            statement.setInt(16,request.getId());
+            statement.setString(1,request.getSubject());
+            statement.setString(2,request.getContent());
+            statement.setInt(3,request.getCreatedBy());
+            statement.setInt(4,request.getStatus());
+            statement.setInt(5,request.getPriority());
+            statement.setDate(6,request.getDeadline());
+            statement.setInt(7,request.getAssignedTo());
+            statement.setInt(8,request.getRating());
+            statement.setInt(9,request.getTeamId());
+            statement.setDate(10,request.getResolvedAt());
+            statement.setDate(11,request.getClosedAt());
+            statement.setDate(12,request.getCreatedAt());
+            statement.setDate(13,request.getUpdatedAt());
+            statement.setDate(14,request.getDeletedAt());
+            statement.setInt(15,request.getId());
             statement.executeQuery();
 
         }
