@@ -10,11 +10,17 @@
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
     <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
-    <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/a2srceen.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap-datepicker.min.css">
+    <link href="bootstrap/css/bootstrap-bootstrapValidator.min.css">
 
-    <!--popup -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+    <style>
+        span {
+            display:table;
+            margin:0 auto;
+        }
+    </style>
+
 </head>
 <body>
 <div class="container-fluid">
@@ -106,16 +112,18 @@
                                                 <h4 class="modal-title">Thay đổi Deadline</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form data-toggle="validator" role="form">
+                                                <form id="dForm" data-toggle="validator" role="form">
                                                     <div class="form-group">
-                                                        <label class="control-label">Chọn deadline mới:</label>
-                                                        <div class='input-group date' id='datetimepicker' required>
-                                                            <input type='text' class="form-control" required/>
-                                                            <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar" id="date"></span>
-                                                        </span>
+                                                        <div class="date-form">
+                                                            <label class="control-label">Deadline</label>
+                                                            <div class="input-group">
+                                                                <label for="Deadline" class="input-group-addon btn">
+                                                                    <span class="glyphicon glyphicon-calendar"></span></label>
+                                                                <input type="text" id="Deadline" name="Deadline" class="form-control date-picker"/></br>
+                                                            </div>
                                                         </div>
-                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label class="control-label">Lí do thay đổi:</label>
                                                         <textarea class="form-control" rows="5" id="deadlineComment" required></textarea>
                                                         <div class="help-block with-errors"></div>
@@ -158,8 +166,7 @@
                                     </div>
                                 </div>
 
-                                <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
-                                <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
+
                                 <!-- Trigger the modal assign with a button-->
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" data-target="#assignModal"><span class="glyphicon glyphicon-pencil"></span>Assign</button>
 
@@ -291,7 +298,8 @@
 <script src="bootstrap/js/growl.min.js"></script>
 <script src="js/validation.js"></script>
 <script src="bootstrap/js/moment.js"></script>
-<script src="bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
+<script src="bootstrap/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript">
     CKEDITOR.replace('nd');
 
@@ -315,8 +323,12 @@
             document.getElementById("evaluate").innerHTML = txt;
             selBox.selectedIndex = 0;
         }
-
     }
+
+    $(document).ready(function() {
+        $(".date-picker").datepicker();
+
+    });
 
 
 
