@@ -115,7 +115,7 @@ CREATE TABLE `information` (
   `request_id` int(10) NOT NULL AUTO_INCREMENT,
   `status` varchar(255) DEFAULT NULL,
   `prioriry` varchar(255) DEFAULT NULL,
-  `ratting` varchar(255) DEFAULT NULL,
+  `rating` varchar(255) DEFAULT NULL,
   `reopened` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`request_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -221,7 +221,7 @@ CREATE TABLE `request` (
   `prioriry` tinyint(1) NOT NULL,
   `deadlline` datetime NOT NULL,
   `assigned_to` int(11) DEFAULT NULL,
-  `ratting` tinyint(1) DEFAULT NULL,
+  `rating` tinyint(1) DEFAULT NULL,
   `team_id` int(10) NOT NULL,
   `resolved_at` datetime DEFAULT NULL,
   `closed_at` datetime NOT NULL,

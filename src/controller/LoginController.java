@@ -16,22 +16,22 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("utf-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("user");
+        String password = request.getParameter("pass");
         LoginDb loginDb = new LoginDb();
         if (loginDb.checkLogin(username, password)){
             session.setAttribute("username", username);
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/add");
             return;
         }
-        RequestDispatcher rs = request.getRequestDispatcher("jsp/login.jsp");
+        RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
         rs.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("username") == null) {
-            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         } else {
             response.sendRedirect(request.getContextPath() + "/login");

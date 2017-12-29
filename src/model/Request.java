@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Request {
     private int id;
@@ -11,8 +11,12 @@ public class Request {
     private int priority;
     private Date deadline;
     private int assignedTo;
-    private int ratting;
+    private int rating;
     private int teamId;
+
+
+
+    private Date createdAt;
     private Date resolvedAt;
     private Date closedAt;
     private Date updatedAt;
@@ -82,12 +86,12 @@ public class Request {
         this.assignedTo = assignedTo;
     }
 
-    public int getRatting() {
-        return ratting;
+    public int getRating() {
+        return rating;
     }
 
-    public void setRatting(int ratting) {
-        this.ratting = ratting;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public int getTeamId() {
@@ -128,5 +132,12 @@ public class Request {
 
     public void setDeletedAt(Date deletedAt) {
         this.deletedAt = deletedAt;
+    }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

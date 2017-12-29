@@ -15,6 +15,7 @@ public class DbConnection {
 
     public static Connection getConnection(){
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             String filepath = "database.properties";
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             InputStream is = loader.getResourceAsStream(filepath);
@@ -31,6 +32,8 @@ public class DbConnection {
             e.printStackTrace();
         } catch (IOException e) {
             // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return conn;
