@@ -84,7 +84,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <select multiple class="selectpicker custom1" data-live-search="true">
+                            <select multiple class="selectpicker custom1" data-live-search="true" name="relater">
                                 <c:forEach items="${employees}" var="employee" >
                                     <option value="${employee.id}"${employee.id == thisEmployee? 'selected' : ''}>${employee.name}</option>
                                 </c:forEach>
@@ -100,13 +100,13 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 upload">
                         <span class="btn btn-default btn-file custom">
-                            <input type="file" id="upload" accept=".jpeg,.png" onchange='changeImage()'>Chọn ảnh minh họa
+                            <input type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage()'>Chọn ảnh minh họa
                         </span>
                     </div>
 
-                    <img id="image" src="image/image.jpeg" width="200px" height="200px">
+                    <img id="image" style="visibility: hidden; position: relative" src="image/image.jpeg" width="200px" height="200px">
 
                     <script>
                         var image = document.getElementById("image");
@@ -117,6 +117,8 @@
 
                         changeImage = function(){
                             image.src = "image/" + file.value.split(/(\\|\/)/g).pop();
+                            image.style.visibility='visible';
+                            document.getElementsByClassName("upload")[0].style.visibility = 'hidden';
                         }
                     </script>
 
