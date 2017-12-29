@@ -36,14 +36,14 @@
                     </a>
 
                     <!-- Dropdown level-->
-                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                    <div class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span id="badge_position" class="label label-success label-as-badge">5</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span id="badge_position" class="label label-primary label-as-badge">4</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>Resolved <span id="badge_position" class="label label-info label-as-badge">3</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span id="badge_position" class="label label-danger label-as-badge">1</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>Resolved <span class="label label-info label-as-badge">3</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">2</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,14 +55,14 @@
                     </a>
 
                     <!-- Dropdown level-->
-                    <div id="dropdown-lvl2" class="panel-collapse collapse">
+                    <div class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span id="badge_position" class="label label-success label-as-badge">5</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span id="badge_position" class="label label-primary label-as-badge">4</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>In progress <span id="badge_position" class="label label-info label-as-badge">3</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>Feedback <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span id="badge_position" class="label label-danger label-as-badge">1</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>In progress <span class="label label-info label-as-badge">3</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>Feedback <span class="label label-warning label-as-badge">2</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,36 +75,57 @@
                         </a>
 
                         <!-- Dropdown level-->
-                        <div id="dropdown-lv3" class="panel-collapse collapse">
+                        <div class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span id="badge_position" class="label label-success label-as-badge">5</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span id="badge_position" class="label label-primary label-as-badge">4</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>Resolved <span id="badge_position" class="label label-info label-as-badge">3</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span id="badge_position" class="label label-danger label-as-badge">1</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-retweet"></span>Resolved <span class="label label-info label-as-badge">3</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">2</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
 
-                <!--PANEL cua manager-->
+                <!--PANEL cua sublead-->
+                <li class="panel panel-default">
+                    <a data-toggle="collapse" href="#dropdown-lv4">
+                        <span class="glyphicon glyphicon-star"></span> Công việc của team <span class="caret"></span>
+                    </a>
 
+                    <!-- Dropdown level-->
+                    <div class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">2</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-export"></span>In progress  <span class="label label-warning label-as-badge">2</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-minus-sign"></span>Closed <span class="label label-warning label-as-badge">2</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+
+                <!--PANEL cua manager-->
                     <li class="panel panel-default">
                         <a data-toggle="collapse" href="#dropdown-lv4">
                             <span class="glyphicon glyphicon-star"></span> Công việc của bộ phận IT <span class="caret"></span>
                         </a>
 
                         <!-- Dropdown level-->
-                        <div id="dropdown-lv4" class="panel-collapse collapse">
+                        <div class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span id="badge_position" class="label label-success label-as-badge">5</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span id="badge_position" class="label label-primary label-as-badge">4</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-export"></span>FeedBack <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span id="badge_position" class="label label-danger label-as-badge">1</span></a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-minus-sign"></span>Closed <span id="badge_position" class="label label-warning label-as-badge">2</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">5</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">4</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">2</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-export"></span>In progress  <span class="label label-warning label-as-badge">2</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">1</span></a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-minus-sign"></span>Closed <span class="label label-warning label-as-badge">2</span></a></li>
                                 </ul>
                             </div>
                         </div>

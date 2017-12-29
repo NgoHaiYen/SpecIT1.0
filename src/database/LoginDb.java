@@ -18,7 +18,7 @@ public class LoginDb {
 
     public Employee checkLogin(String userName, String password) {
         try {
-            String s = "select count(*) from employees where username = ? and password = md5(?)";
+            String s = "select employee_id, role_id from employees where username = ? and password = md5(?)";
 
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setString(1, userName);

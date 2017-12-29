@@ -42,10 +42,11 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <input type="text" class="form-control" id="tencv" placeholder="Tên công việc">
+                            <input type="text" class="form-control" id="tencv" name="tencv" placeholder="Tên công việc">
                             <span id="tencv_error" class="errornote"></span>
                         </div>
                     </div>
+
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
@@ -56,10 +57,11 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Ngày hết hạn <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <div class='input-group date' id='datetimepicker'>
+                            <div class='input-group date' id='datetimepicker' name="date">
                                 <input type='text' class="form-control" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar" id="date"></span>
@@ -71,7 +73,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
-                            <select class="selectpicker custom1">
+                            <select class="selectpicker custom1" name="itteam">
                                 <c:forEach items="${itteams}" var="itteam" >
                                     <option value="${itteam.id}"${itteam.id == thisItteam? 'selected' : ''}>${itteam.name}</option>
                                 </c:forEach>
@@ -100,7 +102,7 @@
 
                     <div class="col-sm-12">
                         <span class="btn btn-default btn-file custom">
-                            <input type="file" id="upload" onchange='changeImage()'>Chọn file upload
+                            <input type="file" id="upload" accept=".jpeg,.png" onchange='changeImage()'>Chọn ảnh minh họa
                         </span>
                     </div>
 
