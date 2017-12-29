@@ -10,17 +10,16 @@
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
     <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
-    <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/a2srceen.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel ="stylesheet" type="text/css">
 
-    <!--popup -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+
 </head>
 <body>
 <div class="container-fluid">
 
-    <include file="navigationbar.jsp"/>
 
+    <include file="navigationbar.jsp"/>
     <div class="row">
         <div class="col-xs-12">
             <!-- Main content folded in a panel GROUP -->
@@ -32,7 +31,42 @@
                             <div class="col-xs-6"></div>
                             <div class="col-xs-6">
                                 <!-- Buttons -->
-                                <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn"> <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên </button>
+                                <!-- Hien thi voi quyen manage-->
+                                <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn" data-toggle="modal" data-target="#priorityModal"> <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên </button>
+                                <!-- Department Modal -->
+
+                                <div class="modal fade" id="priorityModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Thay đổi mức độ ưu tiên</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form data-toggle="validator" role="form">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Thay đổi mức độ ưu tiên:</label>
+                                                        <select class="selectpicker form-control" multiple data-max-options="1" required>
+                                                            <option>Bình thường</option>
+                                                            <option>Thấp</option>
+                                                            <option>Cao</option>
+                                                        </select>
+                                                        <div class="help-block">Vui lòng chọn mức thay đổi ưu tiên</div>
+                                                        <label class="control-label">Lí do thay đổi:</label>
+                                                        <textarea class="form-control" rows="5" id="priorityComment" required></textarea>
+                                                        <div class="help-block with-errors"></div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" id="depart-btn" name="depart-btn" data-target="#departModal"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
 
                                 <!-- Department Modal -->
@@ -45,23 +79,83 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>Chọn bộ phận IT:</p>
-                                                <!-- Lay du lieu tu csdl tu day-->
                                                 <select class="selectpicker">
                                                     <option>IT Hà Nội</option>
                                                     <option>IT Đà Nẵng</option>
                                                 </select>
                                             </div>
-
-                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                             <div class="modal-footer">
-                                                <button type="button" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="departPopup btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
-                                <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
+
+                                <button type="button" class="btn btn-default custom" id="time-change" name="deadline-btn" data-target="#deadlineModal" data-toggle="modal"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
+
+                                <!--Popup to change deadline-->
+                                <!-- Department Modal -->
+                                <div class="modal fade" id="deadlineModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Thay đổi Deadline</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form data-toggle="validator" role="form">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Chọn deadline mới:</label>
+                                                        <div class='input-group date' id='datetimepicker' required>
+                                                            <input type='text' class="form-control" required/>
+                                                            <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar" id="date"></span>
+                                                        </span>
+                                                        </div>
+                                                        <div class="help-block with-errors"></div>
+                                                        <label class="control-label">Lí do thay đổi:</label>
+                                                        <textarea class="form-control" rows="5" id="deadlineComment" required></textarea>
+                                                        <div class="help-block with-errors"></div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn" data-toggle="modal" data-target="#relevanModal"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
+
+                                <div class="modal fade" id="relevanModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Thay đổi người liên quan</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Chọn người liên quan:</p>
+                                                <!-- Lay du lieu tu csdl tu day-->
+                                                <select class="selectpicker">
+                                                    <option>Mustard</option>
+                                                    <option>Ketchup</option>
+                                                    <option>Relish</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="relevantPopup btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Trigger the modal assign with a button-->
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" data-target="#assignModal"><span class="glyphicon glyphicon-pencil"></span>Assign</button>
 
@@ -92,13 +186,14 @@
                                 </div>
 
                                 <!-- Change State button-->
-                                <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn">
-                                    <option data-icon="glyphicon-pencil">New</option>
-                                    <option data-icon="glyphicon-play">Inprogress</option>
-                                    <option data-icon="glyphicon-ok">Resolved</option>
-                                    <option data-icon="glyphicon-remove">Cancel</option>
-                                    <option data-icon="glyphicon-refresh" disabled>Feedback</option>
+                                <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn" onchange="change(this);">
+                                    <option value="1" data-icon="glyphicon-pencil">New</option>
+                                    <option value="2" data-icon="glyphicon-play">Inprogress</option>
+                                    <option value="3" data-icon="glyphicon-ok">Resolved</option>
+                                    <option value="4" data-icon="glyphicon-remove">Cancel</option>
+                                    <option value="5" data-icon="glyphicon-refresh" disabled>Feedback</option>
                                 </select>
+
                             </div>
                         </div>
                     </div>
@@ -107,18 +202,19 @@
                 <div class="panel-body">
 
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày tạo:</label>20/05/2010 <br/>
-                        <label class="newrow">Người yêu cầu:</label>Nguyễn Văn A<br/>
-                        <label class="newrow">Mức độ ưu tiên:</label>Cao
+                        <label class="newrow">Ngày tạo       :</label>20/05/2010 <br/>
+                        <label class="newrow">Người yêu cầu  :</label>Nguyễn Văn A<br/>
+                        <label class="newrow">Mức độ ưu tiên :</label>Cao
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày hết hạn:</label>25/10/2015<br/>
-                        <label class="newrow">Người thực hiện:</label>Nguyễn Văn B<br/>
-                        <label class="newrow">Trạng thái:</label>Cao
+                        <label class="newrow">Ngày hết hạn    :</label>25/10/2015<br/>
+                        <label class="newrow">Người thực hiện :</label>Nguyễn Văn B<br/>
+                        <label class="newrow">Trạng thái      :</label>Cao
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Bộ phận IT:</label>DanangIT <br/>
-                        <label class="newrow"> Người liên quan:</label>Phạm Tuấn Anh
+                        <label class="newrow">Bộ phận IT      :</label>DanangIT <br/>
+                        <label class="newrow"> Người liên quan :</label>Phạm Tuấn Anh <br/>
+                        <label class="newrow">Đánh giá :</label><i id="evaluate"></i>
                     </div>
                 </div>
             </div>
@@ -178,21 +274,49 @@
     </div>
 </div>
 
-<script src="../js/jquery.min.js"></script>
+<select name="fake" onchange="change(this);">
+    <option value="a" name="a">a</option>
+    <option value="b" name="b">b</option>
+</select>
+
+<script src="js/jquery.min.js"></script>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/ckeditor/ckeditor.js"></script>
 
 <script src="bootstrap/js/bootstrap-select.min.js"></script>
-<script src ="js/popup.js"></script>
-<script>
+<script src="bootstrap/js/growl.min.js"></script>
+<script src="js/validation.js"></script>
+<script src="bootstrap/js/moment.js"></script>
+<script src="bootstrap/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
     CKEDITOR.replace('nd');
-    $(".assignPopup").click(function(){
-        $.bootstrapGrowl('Thông báo đã được gửi tới A.',{
+
+    $(".departPopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi bộ phận IT.',{
             type: 'success',
             delay: 3000,
         });
     });
+
+
+    function change(selBox) {
+        if($(selBox).val() === '3') {
+            var txt;
+            var evaluate = prompt("Đánh giá công việc:", "Tốt");
+            if (evaluate == null || evaluate == "") {
+                txt = "";
+            } else {
+                txt = evaluate;
+            }
+            document.getElementById("evaluate").innerHTML = txt;
+            selBox.selectedIndex = 0;
+        }
+
+    }
+
+
+
 </script>
 </body>
 </html>
