@@ -21,6 +21,12 @@ public class RequestDb {
         }
     }
 
+    public static void main(String[] args) {
+        RequestDb requestDb = new RequestDb();
+        Integer i = requestDb.getNumberOfRequest(1, 1);
+        System.out.println(i);
+    }
+
     // get all request of company
     public ArrayList<Request> getAllRequest() {
         ArrayList<Request> requests = new ArrayList<Request>();
@@ -101,6 +107,30 @@ public class RequestDb {
         return requests;
     }
 
+    // get number of request of an employee by status and created_by
+    // so viec toi yeu cau (new, inprogress, resolved, feedback, closed, cancelled)
+    public Integer getNumberOfRequest(int employeId, int status){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where created_by = ? and status = ? ";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,employeId);
+            statement.setInt(2,status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     // get all requests assign to an employee by assigned_to and status
     // viec toi duoc giao
     public ArrayList<Request> getAllAssignRequest(int employeId, int status){
@@ -143,6 +173,30 @@ public class RequestDb {
 
     }
 
+    // get number of requests assign to an employee by assigned_to and status
+    // so viec toi duoc giao
+    public Integer getNumberOfAssignRequest(int employeId, int status){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where assigned_to = ? and status = ? ";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,employeId);
+            statement.setInt(2,status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     // get all feedback of all requests assign to an employee by assigned_to and status
     // viec toi duoc giao
     public ArrayList<Integer> getFeedBack(int employeId, int status){
@@ -157,16 +211,35 @@ public class RequestDb {
             while (rs.next()){
                 Integer int1 = rs.getInt("rating");
                 feedBackRatings.add(int1);
-
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return feedBackRatings;
+    }
+
+    // get number of feedback of all requests assign to an employee by assigned_to and status
+    // so luong phan hoi cua viec toi duoc giao
+    public Integer getNumberOfFeedBack(int employeId, int status){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where itteam_id = ? and status = ? ";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,employeId);
+            statement.setInt(2,status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     // get all request by itteam_id and status
@@ -211,7 +284,30 @@ public class RequestDb {
 
     }
 
-    // get all request by subteam_id and status
+    // get number of requests by itteam_id and status
+    // so cong viec cua bo phan it
+    public Integer getNumberOfTeamRequest(int teamId, int status){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where itteam_id = ? and status = ? ";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,teamId);
+            statement.setInt(2,status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+               int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // get all requests by subteam_id and status
     // cong viec cua team
     public ArrayList<Request> getAllSubteamRequest(int subteamId, int status) {
         ArrayList<Request> requests = new ArrayList<Request>();
@@ -248,6 +344,30 @@ public class RequestDb {
         }
 
         return requests;
+    }
+
+    // get number of requests by subteam_id and status
+    // so cong viec cua team
+    public Integer getNumberOfSubteamRequest(int subteamId, int status) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where subteam_id = ? and status = ? ";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, subteamId);
+            statement.setInt(2, status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     // insert new request
