@@ -23,7 +23,7 @@ public class LoginDb {
     public boolean checkLogin(String userName, String password) {
         ArrayList<IsRead> isReads = new ArrayList<IsRead>();
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+//            Class.forName("com.mysql.jdbc.Driver");
             String s = "select count(*) from employees where username = ? and password = md5(?)";
 
             PreparedStatement statement = conn.prepareStatement(s);
@@ -35,8 +35,6 @@ public class LoginDb {
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return false;

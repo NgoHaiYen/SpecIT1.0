@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
         LoginDb loginDb = new LoginDb();
         if (loginDb.checkLogin(username, password)){
             session.setAttribute("username", username);
-            response.sendRedirect(request.getContextPath() + "/LoginController");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         RequestDispatcher rs = request.getRequestDispatcher("jsp/login.jsp");
@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
             return;
         } else {
-            response.sendRedirect(request.getContextPath() + "/LoginController");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
     }
