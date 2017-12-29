@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Request {
     private int id;
@@ -13,6 +13,10 @@ public class Request {
     private int assignedTo;
     private int rating;
     private int teamId;
+
+
+
+    private Date createdAt;
     private Date resolvedAt;
     private Date closedAt;
     private Date updatedAt;
@@ -128,5 +132,12 @@ public class Request {
 
     public void setDeletedAt(Date deletedAt) {
         this.deletedAt = deletedAt;
+    }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }
