@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <include file="navigationbar.jsp"/>
+    <jsp:include page="navigationbar.jsp" />
 
     <!-- Main Content -->
     <div class="container-fluid">

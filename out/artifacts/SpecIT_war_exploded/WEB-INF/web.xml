@@ -11,7 +11,16 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>  <!--định tuyến -->
+        <url-pattern>/login</url-pattern>  <!--định tuyến -->
     </servlet-mapping>
 
+    <servlet>
+        <display-name>AddRequestController</display-name>
+        <servlet-name>AddRequestController</servlet-name>
+        <servlet-class>controller.AddRequestController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRequestController</servlet-name>
+        <url-pattern>/add</url-pattern>  <!--định tuyến -->
+    </servlet-mapping>
 </web-app>

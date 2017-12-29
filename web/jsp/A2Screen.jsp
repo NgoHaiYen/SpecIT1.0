@@ -10,16 +10,17 @@
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
     <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
     <link href="css/a2srceen.css" rel="stylesheet" type="text/css">
-    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel ="stylesheet" type="text/css">
 
-
+    <!--popup -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
 
-
     <include file="navigationbar.jsp"/>
+
     <div class="row">
         <div class="col-xs-12">
             <!-- Main content folded in a panel GROUP -->
@@ -79,6 +80,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>Chọn bộ phận IT:</p>
+                                                <!-- Lay du lieu tu csdl tu day-->
                                                 <select class="selectpicker">
                                                     <option>IT Hà Nội</option>
                                                     <option>IT Đà Nẵng</option>
@@ -150,12 +152,14 @@
 
                                             <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                             <div class="modal-footer">
-                                                <button type="button" class="relevantPopup btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <button type="button" class="btn btn-default custom" id="time-change" name ="deadline-btn"> <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline</button>
+                                <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn"> <span class="glyphicon glyphicon-user"></span>Thay đổi người liên quan</button>
                                 <!-- Trigger the modal assign with a button-->
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" data-target="#assignModal"><span class="glyphicon glyphicon-pencil"></span>Assign</button>
 
@@ -193,7 +197,6 @@
                                     <option value="4" data-icon="glyphicon-remove">Cancel</option>
                                     <option value="5" data-icon="glyphicon-refresh" disabled>Feedback</option>
                                 </select>
-
                             </div>
                         </div>
                     </div>
