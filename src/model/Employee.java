@@ -8,8 +8,8 @@ public class Employee {
     private String userName;
     private String passWord;
     private int role;
-    private int subteamId;
-    private int itteamId;
+    private int teamId;
+    private int branchId;
 
     public int getId() {
         return id;
@@ -67,18 +67,18 @@ public class Employee {
         this.role = role;
     }
 
-    public int getSubteamId() {
-        return subteamId;
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setSubteamId(int subteamId) {
-        this.subteamId = subteamId;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
-    public int getItteamId() {
-        return itteamId;
+    public int getBranchId() {
+        return branchId;
     }
 
-    public void setItteamId(int itteamId) {
-        this.itteamId = itteamId;
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
     }
 }

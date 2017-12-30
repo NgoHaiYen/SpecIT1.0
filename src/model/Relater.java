@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Relater {
 
+
+    private int relationId;
     private int requestId;
     private int employeeId;
     private String createdAt;
@@ -27,6 +29,9 @@ public class Relater {
     public String getCreatedAt() {
         return createdAt;
     }
+    public int getRelationId() { return relationId; }
+
+    public void setRelationId(int relationId) { this.relationId = relationId; }
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;

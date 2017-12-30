@@ -1,6 +1,6 @@
 package model;
 
-public class Subteam {
+public class Team {
     private int id;
     private String name;
     private int subleaderId;

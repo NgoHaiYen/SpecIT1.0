@@ -28,10 +28,11 @@ public class CommentDb {
             while(rs.next()){
                Comment c = new Comment();
                c.setId(rs.getInt("comment_id"));
-               c.setContent(rs.getString("content"));
+               c.setRequestId(rs.getInt("request_id"));
                c.setEmployeeId(rs.getInt("employee_id"));
-               c.setNote(rs.getString("note"));
+               c.setContent(rs.getString("content"));
                c.setType(rs.getInt("type"));
+               c.setNote(rs.getString("note"));
                c.setCreatedAt(rs.getString("created_at"));
                c.setRequestId(rs.getInt("request_id"));
                c.setUpdatedAt(rs.getString("updated_at"));

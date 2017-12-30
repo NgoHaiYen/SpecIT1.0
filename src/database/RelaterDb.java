@@ -25,9 +25,10 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select * from relater WHERE relater_id =" +requestId + ";");
+            ResultSet rs = statement.executeQuery("select * from relater WHERE request_id =" +requestId + ";");
             while(rs.next()){
                Relater r = new Relater();
+               r.setRelationId(rs.getInt("relation_id"));
                r.setEmployeeId(rs.getInt("employee_id"));
                r.setRequestId(rs.getInt("request_id"));
                r.setCreatedAt(rs.getString("created_at"));
@@ -53,7 +54,7 @@ public class RelaterDb {
 
             ResultSet rs = statement.executeQuery("select * from relater JOIN request " +
                     "ON relater.request_id = request.request_id " +
-                    "WHERE relater_id =" + employeeId + " AND request.status = " + status + ";");
+                    "WHERE employee_id =" + employeeId + " AND request.status = " + status + ";");
 
             while(rs.next()){
                 count ++;
@@ -72,7 +73,7 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             for (int i = 0; i < relatersId.size(); i++) {
-                String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
+                String sqlS = "INSERT INTO relater(request_id, employee_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
                 PreparedStatement statement = conn.prepareStatement(sqlS);
                 statement.setInt(1,requestId);
                 statement.setInt(2, relatersId.get(i));
@@ -93,7 +94,7 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
+            String sqlS = "INSERT INTO relater(request_id, employee_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(1,requestId);
             statement.setInt(2,relaterId);
@@ -111,7 +112,7 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "DELETE FROM relater WHERE relater_id = ? AND  request_id = ? ;";
+            String sqlS = "DELETE FROM relater WHERE employee_id = ? AND  request_id = ? ;";
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(2,requestId);
             statement.setInt(1,relaterId);

@@ -31,14 +31,16 @@ public class EmployeeDb {
             while(rs.next()){
                 Employee e = new Employee();
                 e.setId(rs.getInt("employee_id"));
-                e.setEmail(rs.getString("email"));
                 e.setName(rs.getString("name"));
+                e.setPhone(rs.getString("phone"));
+                e.setEmail(rs.getString("email"));
+
                 e.setUserName(rs.getString("username"));
                 e.setPassWord(rs.getString("password"));
-                e.setPhone(rs.getString("phone"));
+
                 e.setRole(rs.getInt("role_id"));
-                e.setSubteamId(rs.getInt("subteam_id"));
-                e.setItteamId(rs.getInt("itteam_id"));
+                e.setTeamId(rs.getInt("team_id"));
+                e.setBranchId(rs.getInt("branch_id"));
 
                 employees.add(e);
             }
@@ -51,25 +53,27 @@ public class EmployeeDb {
     }
 
     // get all employees of a team join with itteam table
-    public ArrayList<Employee> getAllEmployee(int itteamId) {
+    public ArrayList<Employee> getAllEmployee(int branchID) {
         ArrayList<Employee> employeeInTeam = new ArrayList<Employee>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sqlS = "select * from employees WHERE itteam_id =" + itteamId + ";";
+            String sqlS = "select * from employees WHERE Branch_id_id =" + branchID + ";";
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlS);
 
             while(rs.next()){
                 Employee e = new Employee();
-                e.setId(rs.getInt("employee_id"));
-                e.setEmail(rs.getString("email"));
                 e.setName(rs.getString("name"));
+                e.setPhone(rs.getString("phone"));
+                e.setEmail(rs.getString("email"));
+
                 e.setUserName(rs.getString("username"));
                 e.setPassWord(rs.getString("password"));
-                e.setPhone(rs.getString("phone"));
+
                 e.setRole(rs.getInt("role_id"));
-                e.setSubteamId(rs.getInt("subteam_id"));
-                e.setItteamId(rs.getInt("itteam_id"));
+                e.setTeamId(rs.getInt("team_id"));
+                e.setBranchId(rs.getInt("branch_id"));
+
                 employeeInTeam.add(e);
             }
         }
@@ -81,25 +85,30 @@ public class EmployeeDb {
         return employeeInTeam;
     }
 
-    public ArrayList<Employee> getAllEmployeeInSubteam(int subteamId) {
+    public ArrayList<Employee> getAllEmployeeInTeam(int teamId) {
         ArrayList<Employee> employeeInSubTeam = new ArrayList<Employee>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sqlS = "select * from employees WHERE subteam_id =" + subteamId + ";";
+            String sqlS = "select * from employees WHERE team_id =" + teamId + ";";
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlS);
 
             while(rs.next()){
                 Employee e = new Employee();
                 e.setId(rs.getInt("employee_id"));
-                e.setEmail(rs.getString("email"));
+
+
                 e.setName(rs.getString("name"));
+                e.setPhone(rs.getString("phone"));
+                e.setEmail(rs.getString("email"));
+
                 e.setUserName(rs.getString("username"));
                 e.setPassWord(rs.getString("password"));
-                e.setPhone(rs.getString("phone"));
+
                 e.setRole(rs.getInt("role_id"));
-                e.setSubteamId(rs.getInt("subteam_id"));
-                e.setItteamId(rs.getInt("itteam_id"));
+                e.setTeamId(rs.getInt("team_id"));
+                e.setBranchId(rs.getInt("branch_id"));
+
                 employeeInSubTeam.add(e);
             }
         }

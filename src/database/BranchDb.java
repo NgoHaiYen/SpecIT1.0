@@ -1,6 +1,6 @@
 package database;
 
-import model.Itteam;
+import model.Branch;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ItteamDb {
+public class BranchDb {
     private Connection conn;
 
-    public ItteamDb() {
+    public BranchDb() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DbConnection.getConnection();
@@ -21,16 +21,17 @@ public class ItteamDb {
     }
 
     // get all itteam
-    public ArrayList<Itteam> getAllItteams() {
-        ArrayList<Itteam> teams = new ArrayList<Itteam>();
+    public ArrayList<Branch> getAllBranch() {
+        ArrayList<Branch> teams = new ArrayList<Branch>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM itteam;");
+            ResultSet rs = statement.executeQuery("SELECT * FROM branch;");
             while(rs.next()){
-                Itteam team = new Itteam();
+                Branch team = new Branch();
                 team.setId(rs.getInt("itteam_id"));
                 team.setName(rs.getString("name"));
+                team.setLeaderId(rs.getInt("leader_id"));
                 teams.add(team);
             }
 
@@ -43,14 +44,14 @@ public class ItteamDb {
     }
 
     // get all itteams name
-    public ArrayList<String> getAllItteamsName() {
+    public ArrayList<String> getAllBranchName() {
         ArrayList<String> teamNames = new ArrayList<String>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM itteam;");
+            ResultSet rs = statement.executeQuery("SELECT branch_name FROM branch;");
             while(rs.next()){
-                String s = rs.getString("name");
+                String s = rs.getString("branch_name");
 
                 teamNames.add(s);
             }

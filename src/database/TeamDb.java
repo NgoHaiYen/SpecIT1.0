@@ -1,6 +1,6 @@
 package database;
 
-import model.Subteam;
+import model.Team;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class SubteamDb {
+public class TeamDb {
     private Connection conn;
 
-    public SubteamDb() {
+    public TeamDb() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DbConnection.getConnection();
@@ -21,14 +21,14 @@ public class SubteamDb {
     }
 
     // get all subteam
-    public ArrayList<Subteam> getAllSubteams() {
-        ArrayList<Subteam> teams = new ArrayList<>();
+    public ArrayList<Team> getAllSubteams() {
+        ArrayList<Team> teams = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM subteam;");
             while(rs.next()){
-                Subteam team = new Subteam();
+                Team team = new Team();
                 team.setId(rs.getInt("subteam_id"));
                 team.setName(rs.getString("name"));
                 teams.add(team);
