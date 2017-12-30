@@ -190,9 +190,6 @@
         timer = setInterval(updateDiv,100);
         function updateDiv(){
             var editorText = CKEDITOR.instances.nd.getData();
-            if (editorText == ''){
-                $('#trackingDiv').html('Field is required');
-            }
             $('#trackingDiv').html(editorText);
         }
 
