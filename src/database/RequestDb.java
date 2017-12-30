@@ -62,7 +62,7 @@ public class RequestDb {
             e.printStackTrace();
         }
 
-        // TODO Exception control
+        // TODO ABORTED
         return requests;
 
     }
