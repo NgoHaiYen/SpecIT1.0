@@ -30,7 +30,7 @@ public class RelaterDb {
                Relater r = new Relater();
                r.setEmployeeId(rs.getInt("employee_id"));
                r.setRequestId(rs.getInt("request_id"));
-               r.setCreatedAt(rs.getDate("created_at"));
+               r.setCreatedAt(rs.getString("created_at"));
                relaters.add(r);
             }
         } catch (SQLException e) {

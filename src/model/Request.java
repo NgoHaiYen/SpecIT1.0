@@ -9,18 +9,16 @@ public class Request {
     private int createdBy;
     private int status;
     private int priority;
-    private Date deadline;
+    private String deadline;
     private int assignedTo;
     private int rating;
     private int teamId;
-
-
-
-    private Date createdAt;
-    private Date resolvedAt;
-    private Date closedAt;
-    private Date updatedAt;
-    private Date deletedAt;
+    
+    private String createdAt;
+    private String resolvedAt;
+    private String closedAt;
+    private String updatedAt;
+    private String deletedAt;
 
     public int getId() {
         return id;
@@ -70,11 +68,11 @@ public class Request {
         this.priority = priority;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
@@ -102,42 +100,42 @@ public class Request {
         this.teamId = teamId;
     }
 
-    public Date getResolvedAt() {
+    public String getResolvedAt() {
         return resolvedAt;
     }
 
-    public void setResolvedAt(Date resolvedAt) {
+    public void setResolvedAt(String resolvedAt) {
         this.resolvedAt = resolvedAt;
     }
 
-    public Date getClosedAt() {
+    public String getClosedAt() {
         return closedAt;
     }
 
-    public void setClosedAt(Date closedAt) {
+    public void setClosedAt(String closedAt) {
         this.closedAt = closedAt;
     }
 
-    public Date getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Date getDeletedAt() {
+    public String getDeletedAt() {
         return deletedAt;
     }
 
-    public void setDeletedAt(Date deletedAt) {
+    public void setDeletedAt(String deletedAt) {
         this.deletedAt = deletedAt;
     }
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 }

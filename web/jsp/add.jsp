@@ -39,10 +39,11 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <h1> Thêm yêu cầu </h1>
 
             <form method="post" id="form">
                 <div class="row" id="row">
+                    <h1> Thêm yêu cầu </h1>
+
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>

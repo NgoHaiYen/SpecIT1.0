@@ -6,8 +6,7 @@ public class Relater {
 
     private int requestId;
     private int employeeId;
-    private Date createdAt;
-
+    private String createdAt;
 
     public int getRequestId() {
         return requestId;
@@ -25,11 +24,11 @@ public class Relater {
         this.employeeId = employeeId;
     }
 
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 }

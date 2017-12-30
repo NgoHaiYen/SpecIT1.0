@@ -32,9 +32,9 @@ public class CommentDb {
                c.setEmployeeId(rs.getInt("employee_id"));
                c.setNote(rs.getString("note"));
                c.setType(rs.getInt("type"));
-               c.setCreatedAt(rs.getDate("created_at"));
+               c.setCreatedAt(rs.getString("created_at"));
                c.setRequestId(rs.getInt("request_id"));
-               c.setUpdatedAt(rs.getDate("updated_at"));
+               c.setUpdatedAt(rs.getString("updated_at"));
                comments.add(c);
 
             }
@@ -60,8 +60,8 @@ public class CommentDb {
             statement.setString(4,comment.getContent());
             statement.setInt(5,comment.getType());
             statement.setString(6,comment.getNote());
-            statement.setDate(7,comment.getCreatedAt());
-            statement.setDate(8,comment.getUpdatedAt());
+            statement.setString(7,comment.getCreatedAt());
+            statement.setString(8,comment.getUpdatedAt());
             statement.executeQuery(sqlS);
 
         } catch (SQLException e) {
@@ -84,8 +84,8 @@ public class CommentDb {
             statement.setString(3,comment.getContent());
             statement.setInt(4,comment.getType());
             statement.setString(5,comment.getNote());
-            statement.setDate(6,comment.getCreatedAt());
-            statement.setDate(7,comment.getUpdatedAt());
+            statement.setString(6,comment.getCreatedAt());
+            statement.setString(7,comment.getUpdatedAt());
             statement.setInt(8,comment.getId());
             statement.executeQuery(sqlS);
 

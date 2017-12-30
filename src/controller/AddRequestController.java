@@ -23,14 +23,14 @@ public class AddRequestController extends HttpServlet {
         String button = request.getParameter("addrequest");
         if ("add".equals(button)) {
             boolean check = checkValidate(request);
-//            if(check) {
+            if(check) {
 //                uploadImageToServer(request.getPart("upload"), request);
 
                 Request r = new Request();
                 r.setSubject(request.getParameter("tencv"));
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
-//                r.setStatus(Integer.parseInt(request.getParameter("status")));
+                r.setStatus(Integer.parseInt(request.getParameter("status")));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
 //                r.setDeadline(request.getParameter("date"));
                 RequestDb rdb = new RequestDb();
@@ -38,9 +38,9 @@ public class AddRequestController extends HttpServlet {
 
                 response.sendRedirect(request.getContextPath() + "/list");
                 return;
-//            } else {
+            } else {
 ////                request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
-//            }
+            }
 
         }
     }
@@ -88,7 +88,7 @@ public class AddRequestController extends HttpServlet {
 
     private boolean checkValidate(HttpServletRequest request, ArrayList<String> values){
         for (String value:values) {
-            if (!checkValidate(request, value)) return false;
+            if (checkValidate(request, value)) return false;
         }
         return true;
     }

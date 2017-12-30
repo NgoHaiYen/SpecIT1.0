@@ -42,18 +42,18 @@ public class RequestDb {
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
-                r.setClosedAt(rs.getDate("closed_at"));
+                r.setClosedAt(rs.getString("closed_at"));
                 r.setCreatedBy(rs.getInt("created_by"));
                 r.setContent(rs.getString("content"));
-                r.setDeadline(rs.getDate("deadline"));
+                r.setDeadline(rs.getString("deadline"));
                 r.setPriority(rs.getInt("priority"));
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getDate("update_at"));
-                r.setResolvedAt(rs.getDate("resolved_at"));
-                r.setDeletedAt(rs.getDate("deleted_at"));
+                r.setUpdatedAt(rs.getString("update_at"));
+                r.setResolvedAt(rs.getString("resolved_at"));
+                r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
 
@@ -106,18 +106,18 @@ public class RequestDb {
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
-                r.setClosedAt(rs.getDate("closed_at"));
+                r.setClosedAt(rs.getString("closed_at"));
                 r.setCreatedBy(rs.getInt("created_by"));
                 r.setContent(rs.getString("content"));
-                r.setDeadline(rs.getDate("deadline"));
+                r.setDeadline(rs.getString("deadline"));
                 r.setPriority(rs.getInt("priority"));
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getDate("update_at"));
-                r.setResolvedAt(rs.getDate("resolved_at"));
-                r.setDeletedAt(rs.getDate("deleted_at"));
+                r.setUpdatedAt(rs.getString("update_at"));
+                r.setResolvedAt(rs.getString("resolved_at"));
+                r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
 
@@ -219,18 +219,18 @@ public class RequestDb {
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
-                r.setClosedAt(rs.getDate("closed_at"));
+                r.setClosedAt(rs.getString("closed_at"));
                 r.setCreatedBy(rs.getInt("created_by"));
                 r.setContent(rs.getString("content"));
-                r.setDeadline(rs.getDate("deadline"));
+                r.setDeadline(rs.getString("deadline"));
                 r.setPriority(rs.getInt("priority"));
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getDate("update_at"));
-                r.setResolvedAt(rs.getDate("resolved_at"));
-                r.setDeletedAt(rs.getDate("deleted_at"));
+                r.setUpdatedAt(rs.getString("update_at"));
+                r.setResolvedAt(rs.getString("resolved_at"));
+                r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
 
@@ -286,18 +286,18 @@ public class RequestDb {
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
-                r.setClosedAt(rs.getDate("closed_at"));
+                r.setClosedAt(rs.getString("closed_at"));
                 r.setCreatedBy(rs.getInt("created_by"));
                 r.setContent(rs.getString("content"));
-                r.setDeadline(rs.getDate("deadline"));
+                r.setDeadline(rs.getString("deadline"));
                 r.setPriority(rs.getInt("priority"));
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("subteam_id"));
-                r.setUpdatedAt(rs.getDate("update_at"));
-                r.setResolvedAt(rs.getDate("resolved_at"));
-                r.setDeletedAt(rs.getDate("deleted_at"));
+                r.setUpdatedAt(rs.getString("update_at"));
+                r.setResolvedAt(rs.getString("resolved_at"));
+                r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
 
@@ -348,9 +348,9 @@ public class RequestDb {
             statement.setString(2,request.getContent());
             statement.setInt(3,request.getCreatedBy());
             statement.setInt(4,request.getPriority());
-            statement.setDate(5,request.getDeadline());
+            statement.setString(5,request.getDeadline());
             statement.setInt(6,request.getTeamId());
-            statement.setDate(7,request.getClosedAt());
+            statement.setString(7,request.getClosedAt());
             statement.executeQuery();
 
         }
@@ -372,7 +372,7 @@ public class RequestDb {
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setInt(1,request.getStatus());
             statement.setInt(2,request.getPriority());
-            statement.setDate(3,request.getDeadline());
+            statement.setString(3,request.getDeadline());
             statement.setInt(4,request.getAssignedTo());
             statement.setInt(5,request.getTeamId());
             statement.setInt(6,request.getId());
