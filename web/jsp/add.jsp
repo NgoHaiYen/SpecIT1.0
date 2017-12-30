@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mainmenu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.css" rel="stylesheet"/>
 
     <style type="text/css">
         .day, th, .month, #date {
@@ -40,22 +42,22 @@
     <div class="container-fluid">
         <div class="side-body">
 
-            <form method="post" id="form">
+            <form method="post" id="form" data-toggle="validator">
                 <div class="row" id="row">
                     <h1> Thêm yêu cầu </h1>
 
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <input type="text" class="form-control" id="tencv" name="tencv" placeholder="Tên công việc">
-                            <span id="tencv_error" class="errornote"></span>
+                            <input type="text" class="form-control" id="tencv" name="tencv" placeholder="Tên công việc" required>
+                            <div class="help-block with-errors"></div>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
-                            <select class="selectpicker custom1" id="priorities" name="priorities">
+                            <select class="selectpicker form-control" id="priorities" name="priorities">
                                 <c:forEach items="${priorities}" var="priority" >
                                     <option value="${priority.id}">${priority.name}</option>
                                 </c:forEach>
@@ -67,29 +69,33 @@
                         <div class="form-group">
                             <label>Ngày hết hạn <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
                             <div class='input-group date' id='datetimepicker'>
-                                <input type='text' class="form-control" name="date"/>
+                                <input type='text' class="form-control" name="date" data-error="Vui lòng chọn ngày" required/>
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar" id="date"></span>
-                                </span> 
+                                </span>
+
                             </div>
+                            <div class="help-block with-errors"></div>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Team <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
-                            <select class="selectpicker custom1" data-live-search="true" name="subteams">
+                            <select class="selectpicker form-control" data-live-search="true" name="subteams" title="Choose one of the following..." required>
                                 <c:forEach items="${subteams}" var="subteam" >
                                     <option value="${subteam.id}">${subteam.name}</option>
                                 </c:forEach>
                             </select>
+                            <div class="help-block with-errors"></div>
                         </div>
+
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <select multiple class="selectpicker custom1" data-live-search="true" name="relater">
+                            <select multiple class="selectpicker form-control" data-live-search="true" name="relater">
                                 <c:forEach items="${employees}" var="employee" >
                                     <option value="${employee.id}">${employee.name}</option>
                                 </c:forEach>
@@ -97,20 +103,26 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-9">
-                        <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="form-group" id="textform">
                             <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <textarea name="nd" id="nd"></textarea>
-                            <span id="nd_error" class="errornote"></span>
+                            <textarea name="nd" id="nd" class="nd" required></textarea>
+                            <div class="help-block with-errors"></div>
+                            <div id="trackingDiv"></div>
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
-                            <input type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
-                        </span>
-                        <img id="image" src="image/image.jpeg"/>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
+                                <input class="form-control" type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
+                            </span>
+                            <img id="image" src="image/image.jpeg"/>
+                        </div>
                     </div>
+
+
 
                     <script>
                         var image = document.getElementById("image");
@@ -136,7 +148,6 @@
                             }
                         }
                     </script>
-
                     <div class="col-xs-12">
                         <div class="form-group">
                             <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
@@ -145,6 +156,8 @@
                     </div> 
                 </div>
             </form>
+
+
         </div>
     </div>
     
@@ -155,6 +168,7 @@
     <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
     <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
+    <script src="js/validation.js"></script>
     <script>
         $(function () {
 
@@ -171,6 +185,19 @@
         });
 
         CKEDITOR.replace('nd');
+
+
+        timer = setInterval(updateDiv,100);
+        function updateDiv(){
+            var editorText = CKEDITOR.instances.nd.getData();
+            if (editorText == ''){
+                $('#trackingDiv').html('Field is required');
+            }
+            $('#trackingDiv').html(editorText);
+        }
+
+
+
     </script>
 </body>
 </html>
