@@ -23,4 +23,17 @@
         <servlet-name>AddRequestController</servlet-name>
         <url-pattern>/add</url-pattern>  <!--định tuyến -->
     </servlet-mapping>
+
+    <servlet>
+        <display-name>ListController</display-name>
+        <servlet-name>ListController</servlet-name>
+        <servlet-class>controller.ListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListController</servlet-name>
+        <url-pattern>/list</url-pattern>  <!--định tuyến -->
+    </servlet-mapping>
+
+
 </web-app>
+

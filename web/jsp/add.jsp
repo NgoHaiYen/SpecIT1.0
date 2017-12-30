@@ -41,8 +41,7 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-
-            <form method="post" id="form" data-toggle="validator">
+            <form action="add" method="post" id="form" accept-charset="UTF-8" enctype="multipart/form-data">
                 <div class="row" id="row">
                     <h1> Thêm yêu cầu </h1>
 
@@ -72,8 +71,7 @@
                                 <input type='text' class="form-control" name="date" data-error="Vui lòng chọn ngày" required/>
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar" id="date"></span>
-                                </span>
-
+                                </span> 
                             </div>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -89,13 +87,12 @@
                             </select>
                             <div class="help-block with-errors"></div>
                         </div>
-
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <select multiple class="selectpicker form-control" data-live-search="true" name="relater">
+                            <select multiple class="selectpicker custom1" data-live-search="true" name="relater">
                                 <c:forEach items="${employees}" var="employee" >
                                     <option value="${employee.id}">${employee.name}</option>
                                 </c:forEach>
@@ -112,7 +109,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-sm-12">
                         <div class="form-group">
                             <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
@@ -121,8 +117,6 @@
                             <img id="image" src="image/image.jpeg"/>
                         </div>
                     </div>
-
-
 
                     <script>
                         var image = document.getElementById("image");
@@ -148,16 +142,15 @@
                             }
                         }
                     </script>
+
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
+                            <button type="submit" name ="addrequest" value="add" onclick="changeValue()" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
                             <button disabled type="submit" name ="addrequest" value="cancel" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                         </div>
                     </div> 
                 </div>
             </form>
-
-
         </div>
     </div>
     
@@ -168,11 +161,9 @@
     <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
     <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
-    <script src="js/validation.js"></script>
     <script>
         $(function () {
-
-        /*Toggle bat tat slide bar*/
+            /*Toggle bat tat slide bar*/
             $('.navbar-toggle').click(function () {
                 $('.navbar-nav').toggleClass('slide-in');
                 $('.side-body').toggleClass('body-slide-in');
@@ -185,16 +176,11 @@
         });
 
         CKEDITOR.replace('nd');
-
-
         timer = setInterval(updateDiv,100);
         function updateDiv(){
             var editorText = CKEDITOR.instances.nd.getData();
             $('#trackingDiv').html(editorText);
         }
-
-
-
     </script>
 </body>
 </html>

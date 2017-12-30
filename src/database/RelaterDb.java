@@ -40,8 +40,6 @@ public class RelaterDb {
             e.printStackTrace();
         }
         return relaters;
-
-
     }
 
     // get number of request that relate to the employee, join employee with relate table
@@ -64,8 +62,8 @@ public class RelaterDb {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if ( count ==0) return null;
-        else  return count;
+        if ( count == 0 ) return null;
+        return count;
     }
 
     // insert a list of relater to a request

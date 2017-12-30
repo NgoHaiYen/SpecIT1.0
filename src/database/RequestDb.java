@@ -202,17 +202,19 @@ public class RequestDb {
         return null;
     }
 
-    // get all request by itteam_id and status
+    // get all request by employee_ and status
     // cong viec cua bo phan it
-    public ArrayList<Request> getAllTeamRequest(int teamId, int status){
+    public ArrayList<Request> getAllTeamRequest(int employeeId, int status){
+        // todo teamid -> employeeid
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select * from request join subteam on request.subteam_id = subteam.subteam_id " +
-                    " join itteam on subteam.itteam_id = itteam.itteam_id" +
+                    " join itteam on subteam.itteam_id = itteam.itteam_id " +
+                    " join employee on request.created_by = employee.employee_id" +
                     " where itteam.itteam_id = ? and request.status = ? ";
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,teamId);
+            statement.setInt(1,employeeId);
             statement.setInt(2,status);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
@@ -233,17 +235,13 @@ public class RequestDb {
                 r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
-
         }
         catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         return requests;
-
-
     }
 
     // get number of requests by itteam_id and status
@@ -274,6 +272,7 @@ public class RequestDb {
     // get all requests by subteam_id and status
     // cong viec cua team
     public ArrayList<Request> getAllSubteamRequest(int subteamId, int status) {
+        // todo: subteamid -> employeeid
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");

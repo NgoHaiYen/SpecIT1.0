@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix ="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +38,7 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <h1> Danh sách công việc được giao </h1>
-            <br/>
-
+            <h1> Danh sách công việc được giao </h1><br/>
             <div>
                 <table class="table table-hover" id="listmain">
                     <thead>
@@ -54,24 +53,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Sửa màn hình máy tính</td>
-                        <td>Cao</td>
-                        <td>Phạm Tuấn Anh</td>
-                        <td>Phạm Tuấn Anh</td>
-                        <td>2017-10-16 19:00:00</td>
-                        <td>New</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Dooley</td>
-                        <td>Bình thường</td>
-                        <td>Phạm Tuấn Anh</td>
-                        <td>Phạm Tuấn Anh</td>
-                        <td>2017-10-16 19:00:00</td>
-                        <td>Closed</td>
-                    </tr>
+                        <c:forEach var="user" items="${listUser}">
+                            <tr>
+                                <td><a href="${pageContext.request.contextPath}/UserDetailsController?userId=${user.userId}">${user.userId}</a></td>
+                                <td><img src="image/${user.linkImage}" width="40px" height="40px"></td>
+                                <td>${user.fullName}</td>
+                                <td>${user.fullNameKana}</td>
+                                <td>${user.gender}</td>
+                                <td>${user.email}</td>
+                                <td>${user.tel}</td>
+                                <td>${user.level}</td>
+                                <td>${user.endDate}</td>
+                                <td>${user.groupName}</td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
 
