@@ -65,8 +65,23 @@ public class ImageDb {
 
     // update image, just update url
     public void update(Image image){
-        // TODO
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String sqlS ="UPDATE image SET url_image = ? WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+            statement.setInt(2,image.getRequestId());
+            statement.setString(1,image.getUrl());
+            statement.executeQuery(sqlS);
+
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void closeConnection() {
         try {
