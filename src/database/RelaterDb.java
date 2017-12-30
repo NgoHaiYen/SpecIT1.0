@@ -43,12 +43,6 @@ public class RelaterDb {
 
     }
 
-    // get all request that relate to the employee
-    public ArrayList<Integer> getAllRequestRelate(int employeeId){
-        // TODO
-        return null;
-    }
-
     // get number of request that relate to the employee, join employee with relate table
     // if number = 0, return null
     public Integer getNumberOfRequestRelate(int employeeId, int status){
@@ -116,7 +110,7 @@ public class RelaterDb {
 
     // update relater of a request
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
-        // TODO ABORTED
+        // TODO: yến
         // should be using ID, REQUEST SUSPENDED
         // insert all new relaters
         // delete all relaters that are not contained in the given list

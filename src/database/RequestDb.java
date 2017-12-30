@@ -27,46 +27,6 @@ public class RequestDb {
         System.out.println(i);
     }
 
-    // get all request of company
-    public ArrayList<Request> getAllRequest() {
-        ArrayList<Request> requests = new ArrayList<Request>();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Statement statement = conn.createStatement();
-
-            ResultSet rs = statement.executeQuery( "select * from request;");
-            while(rs.next()){
-                Request r = new Request();
-                r.setId(rs.getInt("request_id"));
-                r.setAssignedTo(rs.getInt("assigned_to"));
-                r.setClosedAt(rs.getDate("closed_at"));
-                r.setCreatedBy(rs.getInt("created_by"));
-                r.setContent(rs.getString("content"));
-                r.setDeadline(rs.getDate("deadline"));
-                r.setPriority(rs.getInt("priority"));
-                r.setRating(rs.getInt("rating"));
-                r.setStatus(rs.getInt("status"));
-                r.setSubject(rs.getString("subject"));
-                r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getDate("update_at"));
-                r.setResolvedAt(rs.getDate("resolved_at"));
-                r.setDeletedAt(rs.getDate("deleted_at"));
-                requests.add(r);
-            }
-
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // TODO ABORTED
-        return requests;
-
-    }
-
     // get all request of an employee by status and created_by
     // viec toi yeu cau (new, inprogress, resolved, feedback, closed, cancelled)
     public ArrayList<Request> getAllRequest(int employeId, int status){

@@ -49,7 +49,7 @@ public class EmployeeDb {
         return employees;
     }
 
-    // get all employees of a team
+    // get all employees of a team join with itteam table
     public ArrayList<Employee> getAllEmployee(int itteamId) {
         ArrayList<Employee> employeeInTeam = new ArrayList<Employee>();
         try {
@@ -71,6 +71,11 @@ public class EmployeeDb {
             e.printStackTrace();
         }
         return employeeInTeam;
+    }
+
+    public ArrayList<Employee> getAllEmployeeInSubteam(int itteamId) {
+        // todo join with subteam table
+        return null;
     }
 
     // only get name and id of employees

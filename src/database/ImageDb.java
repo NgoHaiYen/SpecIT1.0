@@ -63,7 +63,7 @@ public class ImageDb {
         }
     }
 
-    // update image
+    // update image, just update url
     public void update(Image image){
         // TODO
     }
