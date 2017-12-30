@@ -60,10 +60,11 @@ CREATE TABLE `employees` (
   `name` varchar(20) NOT NULL,
   `phone` int(20) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `username` varchar(15) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `role_id` int(11) NOT NULL,
   `subteam_id` int(11) NOT NULL,
+  `itteam_id` int(11) NOT NULL,
   PRIMARY KEY (`employee_id`),
   KEY `itteam` (`subteam_id`),
   KEY `role` (`role_id`),
@@ -78,7 +79,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Xuan',1234,'HaNoi','Xuan','827ccb0eea8a706c4c34a16891f84e7b',1,2),(2,'Admin',1234,'Hanoi','admin1','e10adc3949ba59abbe56e057f20f883e',2,1),(3,'admin2',125,'Hanoi','admin2','e10adc3949ba59abbe56e057f20f883e',3,2),(4,'Yến',1235454,'Hưng Yên','yen','e10adc3949ba59abbe56e057f20f883e',3,1),(123,'Admin',1234,'Hanoi','admin3','e10adc3949ba59abbe56e057f20f883e',3,2),(23444,'admin2',125,'Hanoi','admin4','e10adc3949ba59abbe56e057f20f883e',2,1);
+INSERT INTO `employees` VALUES (1,'Xuan',1234,'HaNoi','Xuan','827ccb0eea8a706c4c34a16891f84e7b',1,2,1),(2,'Admin',1234,'Hanoi','admin1','e10adc3949ba59abbe56e057f20f883e',2,1,2),(3,'admin2',125,'Hanoi','admin2','e10adc3949ba59abbe56e057f20f883e',3,2,1),(4,'Yến',1235454,'Hưng Yên','yen','e10adc3949ba59abbe56e057f20f883e',3,1,1),(123,'Admin',1234,'Hanoi','admin3','e10adc3949ba59abbe56e057f20f883e',3,2,2),(23444,'admin2',125,'Hanoi','admin4','e10adc3949ba59abbe56e057f20f883e',2,1,1);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,8 +247,8 @@ CREATE TABLE `request` (
   `prioriry` tinyint(1) NOT NULL,
   `deadlline` datetime NOT NULL,
   `assigned_to` int(11) DEFAULT NULL,
-  `ratting` tinyint(1) DEFAULT NULL,
-  `team_id` int(10) NOT NULL,
+  `rating` tinyint(1) DEFAULT NULL,
+  `subteam_id` int(10) NOT NULL,
   `resolved_at` datetime DEFAULT NULL,
   `closed_at` datetime NOT NULL,
   `create_at` datetime NOT NULL,
@@ -256,10 +257,10 @@ CREATE TABLE `request` (
   PRIMARY KEY (`request_id`),
   KEY `fk_tickets_employee` (`created_by`),
   KEY `fk_ticket_employees` (`assigned_to`),
-  KEY `fk_tickets_team` (`team_id`),
+  KEY `fk_tickets_team` (`subteam_id`),
   CONSTRAINT `fk_ticket_employees` FOREIGN KEY (`assigned_to`) REFERENCES `employees` (`employee_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_tickets_employee` FOREIGN KEY (`created_by`) REFERENCES `employees` (`employee_id`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_tickets_team` FOREIGN KEY (`team_id`) REFERENCES `itteam` (`itteam_id`) ON UPDATE CASCADE
+  CONSTRAINT `fk_tickets_team` FOREIGN KEY (`subteam_id`) REFERENCES `itteam` (`itteam_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -298,6 +299,30 @@ INSERT INTO `role` VALUES (1,'Member','all member'),(2,'Sub-Lead','medium, can m
 UNLOCK TABLES;
 
 --
+-- Table structure for table `status`
+--
+
+DROP TABLE IF EXISTS `status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `status` (
+  `status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8_vietnamese_ci NOT NULL,
+  PRIMARY KEY (`status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `status`
+--
+
+LOCK TABLES `status` WRITE;
+/*!40000 ALTER TABLE `status` DISABLE KEYS */;
+INSERT INTO `status` VALUES (1,'New'),(2,'Inprogress'),(3,'Resolved'),(4,'Feedback'),(5,'Closed'),(6,'Cancelled');
+/*!40000 ALTER TABLE `status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `subteam`
 --
 
@@ -310,7 +335,7 @@ CREATE TABLE `subteam` (
   `subleader_id` int(11) NOT NULL,
   `itteam_id` int(11) NOT NULL,
   PRIMARY KEY (`subteam_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -319,6 +344,7 @@ CREATE TABLE `subteam` (
 
 LOCK TABLES `subteam` WRITE;
 /*!40000 ALTER TABLE `subteam` DISABLE KEYS */;
+INSERT INTO `subteam` VALUES (1,'Team Hà Nội',4,1),(2,'Team Đà Nẵng',123,2);
 /*!40000 ALTER TABLE `subteam` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -331,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-29 18:01:34
+-- Dump completed on 2017-12-30  9:36:34

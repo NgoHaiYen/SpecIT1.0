@@ -25,7 +25,10 @@
         }
 
         img {
-            margin: 15px;
+            visibility: hidden;
+            margin-top: 10px;
+            min-width: 100%;
+            height: auto;
         }
     </style>
 
@@ -37,6 +40,7 @@
     <div class="container-fluid">
         <div class="side-body">
             <h1> Thêm yêu cầu </h1>
+
             <form method="post" id="form">
                 <div class="row" id="row">
                     <div class="col-sm-12">
@@ -50,9 +54,9 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label >Mức độ ưu tiên:</label><br>
-                            <select class="selectpicker custom1" id="priorities">
+                            <select class="selectpicker custom1" id="priorities" name="priorities">
                                 <c:forEach items="${priorities}" var="priority" >
-                                    <option value="${priority.id}"${priority.id == thisPriority? 'selected' : ''}>${priority.name}</option>
+                                    <option value="${priority.id}">${priority.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -61,8 +65,8 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Ngày hết hạn <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <div class='input-group date' id='datetimepicker' name="date">
-                                <input type='text' class="form-control" />
+                            <div class='input-group date' id='datetimepicker'>
+                                <input type='text' class="form-control" name="date"/>
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar" id="date"></span>
                                 </span> 
@@ -72,10 +76,10 @@
 
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
-                            <select class="selectpicker custom1" name="itteam">
-                                <c:forEach items="${itteams}" var="itteam" >
-                                    <option value="${itteam.id}"${itteam.id == thisItteam? 'selected' : ''}>${itteam.name}</option>
+                            <label>Team <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
+                            <select class="selectpicker custom1" data-live-search="true" name="subteams">
+                                <c:forEach items="${subteams}" var="subteam" >
+                                    <option value="${subteam.id}">${subteam.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -86,13 +90,13 @@
                             <label>Người liên quan</label>
                             <select multiple class="selectpicker custom1" data-live-search="true" name="relater">
                                 <c:forEach items="${employees}" var="employee" >
-                                    <option value="${employee.id}"${employee.id == thisEmployee? 'selected' : ''}>${employee.name}</option>
+                                    <option value="${employee.id}">${employee.name}</option>
                                 </c:forEach>
                             </select>
                         </div>
                     </div>
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-9">
                         <div class="form-group">
                             <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
                             <textarea name="nd" id="nd"></textarea>
@@ -100,32 +104,42 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 upload">
-                        <span class="btn btn-default btn-file custom">
-                            <input type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage()'>Chọn ảnh minh họa
+                    <div class="col-sm-3">
+                        <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
+                            <input type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
                         </span>
+                        <img id="image" src="image/image.jpeg"/>
                     </div>
-
-                    <img id="image" style="visibility: hidden; position: relative" src="image/image.jpeg" width="200px" height="200px">
 
                     <script>
                         var image = document.getElementById("image");
                         var file = document.getElementById("upload");
                         image.onclick = function(){
                             file.click();
-                        }
+                        };
 
-                        changeImage = function(){
-                            image.src = "image/" + file.value.split(/(\\|\/)/g).pop();
+                        changeImage = function(input){
+                            if (input.value == "") return;
+                            image.src = "image/" + input.value.split(/(\\|\/)/g).pop();
                             image.style.visibility='visible';
                             document.getElementsByClassName("upload")[0].style.visibility = 'hidden';
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    $('#image')
+                                        .attr('src', e.target.result)
+                                        .width(150)
+                                        .height(200);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                            }
                         }
                     </script>
 
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-info custom" id="send" name ="send-btn"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
-                            <button disabled type="submit" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
+                            <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
+                            <button disabled type="submit" name ="addrequest" value="cancel" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                         </div>
                     </div> 
                 </div>

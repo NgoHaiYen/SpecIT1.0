@@ -7,10 +7,12 @@ public class Constant {
     public static int CONG_VIEC_CUA_TEAM = 4;
     public static int CONG_VIEC_CUA_BO_PHAN_IT = 5;
 
-    public static int ALL = 1;
-    public static int NEW = 2;
-    public static int IN_PROGRESS = 3;
-    public static int RESOLVED = 4;
-    public static int OUT_OF_DATE = 5;
+    public static int ALL = 0;
+    public static int NEW = 1;
+    public static int IN_PROGRESS = 2;
+    public static int RESOLVED = 3;
+    public static int FEEDBACK = 4;
+    public static int CLOSED = 5;
+    public static int OUT_OF_DATE = 6;  // CANCELLED
 
 }

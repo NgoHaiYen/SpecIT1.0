@@ -1,9 +1,7 @@
 package controller;
 
 import database.*;
-import model.Employee;
-import model.Itteam;
-import model.Priority;
+import model.*;
 import utils.Constant;
 
 import javax.servlet.ServletException;
@@ -20,20 +18,30 @@ import java.util.ArrayList;
 public class AddRequestController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        HttpSession session = request.getSession();
 
-        String button = request.getParameter("register");
-        if ("confirm".equals(button)) {
-//            boolean check = checkValidate(request);
+        String button = request.getParameter("addrequest");
+        if ("add".equals(button)) {
+            boolean check = checkValidate(request);
 //            if(check) {
-//                response.sendRedirect(request.getContextPath() + "/ConfirmController");
-//                return;
+//                uploadImageToServer(request.getPart("upload"), request);
+
+                Request r = new Request();
+                r.setSubject(request.getParameter("tencv"));
+                r.setContent(request.getParameter("nd"));
+                r.setCreatedBy((Integer) session.getAttribute("id"));
+//                r.setStatus(Integer.parseInt(request.getParameter("status")));
+                r.setPriority(Integer.parseInt(request.getParameter("priorities")));
+//                r.setDeadline(request.getParameter("date"));
+                RequestDb rdb = new RequestDb();
+
+
+                response.sendRedirect(request.getContextPath() + "/list");
+                return;
 //            } else {
-//                request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
+////                request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 //            }
 
-        } else if ("back".equals(button)) {
-            response.sendRedirect(request.getContextPath() + "/ListUserController");
-            return;
         }
     }
 
@@ -52,9 +60,9 @@ public class AddRequestController extends HttpServlet {
         session.setAttribute("priorities", priorities);
 
         // itteams
-        ItteamDb idb = new ItteamDb();
-        ArrayList<Itteam> itteams = idb.getAllItteams();
-        session.setAttribute("itteams", itteams);
+        SubteamDb sdb = new SubteamDb();
+        ArrayList<Subteam> subteams = sdb.getAllSubteams();
+        session.setAttribute("subteams", subteams);
 
         // employees
         EmployeeDb edb = new EmployeeDb();
@@ -69,11 +77,13 @@ public class AddRequestController extends HttpServlet {
         values.add("tencv");
         values.add("priorities");
         values.add("date");
-        values.add("itteam");
+        values.add("subteams");
         values.add("relater");
         values.add("nd");
         values.add("upload");
-        return checkValidate(request, values);
+
+        String[] priorities = request.getParameterValues("relater");
+        return checkValidate(request, values) && (priorities.length != 0);
     }
 
     private boolean checkValidate(HttpServletRequest request, ArrayList<String> values){
@@ -84,17 +94,16 @@ public class AddRequestController extends HttpServlet {
     }
 
     private boolean checkValidate(HttpServletRequest request, String value){
-        value = request.getParameter("itteam");
-        return value.isEmpty();
+        String check = request.getParameter(value);
+        return check.isEmpty();
     }
 
-    private void uploadImageToServer(Part filePart, HttpSession session, HttpServletRequest request) throws IOException {
+    private void uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
         String fileName = Paths.get(filePart.getSubmittedFileName()).toString();
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];
             long time = System.currentTimeMillis();
             fileName = fileName.split("\\.")[0] + time + "." + fileName.split("\\.")[1];
-//            session.setAttribute("", fileName);
             fileName = request.getServletContext().getRealPath("") + "image/" + fileName;
             InputStream content = filePart.getInputStream();
             OutputStream outputStream = new FileOutputStream(fileName);
@@ -104,8 +113,6 @@ public class AddRequestController extends HttpServlet {
             }
             outputStream.close();
             content.close();
-        } else {
-            request.setAttribute("errorImage", "Invalid image");
         }
     }
 
@@ -126,12 +133,16 @@ public class AddRequestController extends HttpServlet {
         session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
         session.setAttribute("myri", rdb.getNumberOfRequest(id, Constant.IN_PROGRESS));
         session.setAttribute("myrr", rdb.getNumberOfRequest(id, Constant.RESOLVED));
+        session.setAttribute("myrf", rdb.getNumberOfRequest(id, Constant.FEEDBACK));
+        session.setAttribute("myrc", rdb.getNumberOfRequest(id, Constant.CLOSED));
         session.setAttribute("myro", rdb.getNumberOfRequest(id, Constant.OUT_OF_DATE));
 
         session.setAttribute("myaa", rdb.getNumberOfAssignRequest(id, Constant.ALL));
         session.setAttribute("myan", rdb.getNumberOfAssignRequest(id, Constant.NEW));
         session.setAttribute("myai", rdb.getNumberOfAssignRequest(id, Constant.IN_PROGRESS));
         session.setAttribute("myar", rdb.getNumberOfAssignRequest(id, Constant.RESOLVED));
+        session.setAttribute("myac", rdb.getNumberOfAssignRequest(id, Constant.CLOSED));
+        session.setAttribute("myaf", rdb.getNumberOfAssignRequest(id, Constant.FEEDBACK));
         session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
 
         RelaterDb relaterDb = new RelaterDb();
@@ -139,12 +150,24 @@ public class AddRequestController extends HttpServlet {
         session.setAttribute("rln", relaterDb.getNumberOfRequestRelate(id, Constant.NEW));
         session.setAttribute("rli", relaterDb.getNumberOfRequestRelate(id, Constant.IN_PROGRESS));
         session.setAttribute("rlr", relaterDb.getNumberOfRequestRelate(id, Constant.RESOLVED));
+        session.setAttribute("rlc", relaterDb.getNumberOfRequestRelate(id, Constant.CLOSED));
+        session.setAttribute("rlf", relaterDb.getNumberOfRequestRelate(id, Constant.FEEDBACK));
         session.setAttribute("rlo", relaterDb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
 
-        session.setAttribute("myaa", rdb.getNumberOfAssignRequest(id, Constant.ALL));
-        session.setAttribute("myan", rdb.getNumberOfAssignRequest(id, Constant.NEW));
-        session.setAttribute("myai", rdb.getNumberOfAssignRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("myar", rdb.getNumberOfAssignRequest(id, Constant.RESOLVED));
-        session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
+        session.setAttribute("ta", rdb.getNumberOfSubteamRequest(id, Constant.ALL));
+        session.setAttribute("tn", rdb.getNumberOfSubteamRequest(id, Constant.NEW));
+        session.setAttribute("ti", rdb.getNumberOfSubteamRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.RESOLVED));
+        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.CLOSED));
+        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.FEEDBACK));
+        session.setAttribute("to", rdb.getNumberOfSubteamRequest(id, Constant.OUT_OF_DATE));
+
+        session.setAttribute("ita", rdb.getNumberOfTeamRequest(id, Constant.ALL));
+        session.setAttribute("itn", rdb.getNumberOfTeamRequest(id, Constant.NEW));
+        session.setAttribute("iti", rdb.getNumberOfTeamRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.RESOLVED));
+        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.CLOSED));
+        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.FEEDBACK));
+        session.setAttribute("ito", rdb.getNumberOfTeamRequest(id, Constant.OUT_OF_DATE));
     }
 }

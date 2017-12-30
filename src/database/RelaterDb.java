@@ -32,7 +32,6 @@ public class RelaterDb {
                r.setRequestId(rs.getInt("request_id"));
                r.setCreatedAt(rs.getDate("created_at"));
                relaters.add(r);
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,7 +61,7 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             for (int i = 0; i < relatersId.size(); i++) {
-                String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,Null);";
+                String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
                 PreparedStatement statement = conn.prepareStatement(sqlS);
                 statement.setInt(1,requestId);
                 statement.setInt(2, relatersId.get(i));
@@ -83,7 +82,7 @@ public class RelaterDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,Null);";
+            String sqlS = "INSERT INTO relater(request_id, relater_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(1,requestId);
             statement.setInt(2,relaterId);
