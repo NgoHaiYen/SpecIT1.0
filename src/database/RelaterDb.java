@@ -127,11 +127,23 @@ public class RelaterDb {
     }
 
     // update relater of a request
+    // delete all relation to a  req_id
+    // insert new ones to db
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
-        // TODO: 12 : Cần sử dụng trường id trong relator , aborted
-        //
-        // insert all new relaters
-        // delete all relaters that are not contained in the given list
+        try {
+                Class.forName("com.mysql.jdbc.Driver");
+                String sqlS = "DELETE FROM relater WHERE request_id = ? ;";
+                PreparedStatement statement = conn.prepareStatement(sqlS);
+                statement.setInt(1,requestId);
+                statement.executeQuery(sqlS);
+                addRelaters(relatersId,requestId);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void closeConnection() {
