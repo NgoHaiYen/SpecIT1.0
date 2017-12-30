@@ -1,10 +1,14 @@
 package controller;
 
 import database.*;
-import model.*;
+import model.Employee;
+import model.Priority;
+import model.Request;
+import model.Subteam;
 import utils.Constant;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.FileOutputStream;
@@ -15,6 +19,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 @WebServlet(name = "AddRequestController")
+@MultipartConfig
 public class AddRequestController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
@@ -24,24 +29,25 @@ public class AddRequestController extends HttpServlet {
         if ("add".equals(button)) {
             boolean check = checkValidate(request);
             if(check) {
-//                uploadImageToServer(request.getPart("upload"), request);
+                uploadImageToServer(request.getPart("upload"), request);
 
                 Request r = new Request();
                 r.setSubject(request.getParameter("tencv"));
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
-                r.setStatus(Integer.parseInt(request.getParameter("status")));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
-//                r.setDeadline(request.getParameter("date"));
+                r.setDeadline(request.getParameter("date"));
+                r.setTeamId(Integer.parseInt(request.getParameter("subteams")));
+                String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
-
+                rdb.addNewRequest(r, relater);
 
                 response.sendRedirect(request.getContextPath() + "/list");
-                return;
             } else {
-////                request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
+                request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
             }
-
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
@@ -78,24 +84,26 @@ public class AddRequestController extends HttpServlet {
         values.add("priorities");
         values.add("date");
         values.add("subteams");
-        values.add("relater");
         values.add("nd");
         values.add("upload");
 
-        String[] priorities = request.getParameterValues("relater");
-        return checkValidate(request, values) && (priorities.length != 0);
+        String[] relater = request.getParameterValues("relater");
+        return (relater != null) && checkValidate(request, values);
     }
 
     private boolean checkValidate(HttpServletRequest request, ArrayList<String> values){
         for (String value:values) {
-            if (checkValidate(request, value)) return false;
+            if (!checkValidate(request, value)) return false;
         }
         return true;
     }
 
     private boolean checkValidate(HttpServletRequest request, String value){
         String check = request.getParameter(value);
-        return check.isEmpty();
+        if ((check == null) || (check.isEmpty())){
+            return false;
+        }
+        return true;
     }
 
     private void uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
