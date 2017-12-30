@@ -46,8 +46,25 @@ public class RelaterDb {
     // get number of request that relate to the employee, join employee with relate table
     // if number = 0, return null
     public Integer getNumberOfRequestRelate(int employeeId, int status){
-        // TODO
-        return null;
+        int count = 0;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+
+            ResultSet rs = statement.executeQuery("select * from relater JOIN request " +
+                    "ON relater.request_id = request.request_id " +
+                    "WHERE relater_id =" + employeeId + " AND request.status = " + status + ";");
+
+            while(rs.next()){
+                count ++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if ( count ==0) return null;
+        else  return count;
     }
 
     // insert a list of relater to a request
@@ -110,8 +127,8 @@ public class RelaterDb {
 
     // update relater of a request
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
-        // TODO: yến
-        // should be using ID, REQUEST SUSPENDED
+        // TODO: 12 : Cần sử dụng trường id trong relator , aborted
+        //
         // insert all new relaters
         // delete all relaters that are not contained in the given list
     }
