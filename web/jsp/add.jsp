@@ -39,8 +39,7 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-
-            <form method="post" id="form">
+            <form action="add" method="post" id="form" accept-charset="UTF-8" enctype="multipart/form-data">
                 <div class="row" id="row">
                     <h1> Thêm yêu cầu </h1>
 
@@ -100,7 +99,8 @@
                     <div class="col-sm-9">
                         <div class="form-group">
                             <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <textarea name="nd" id="nd"></textarea>
+                            <textarea id="nd"></textarea>
+                            <input type="hidden" name="nd" id="content">
                             <span id="nd_error" class="errornote"></span>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
 
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
+                            <button type="submit" name ="addrequest" value="add" onclick="changeValue()" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
                             <button disabled type="submit" name ="addrequest" value="cancel" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                         </div>
                     </div> 
@@ -156,6 +156,8 @@
     <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
     <script>
+
+
         $(function () {
 
         /*Toggle bat tat slide bar*/
@@ -171,6 +173,13 @@
         });
 
         CKEDITOR.replace('nd');
+        function changeValue(){
+
+            //todo X
+            var s = CKEDITOR.instances.editor1.getData();
+            console.log(s);
+            document.getElementById('content').value = s;
+        }
     </script>
 </body>
 </html>

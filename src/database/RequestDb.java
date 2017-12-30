@@ -330,19 +330,16 @@ public class RequestDb {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
     // insert new request
-    public void addNewRequest(Request request){
+    public void addNewRequest(Request request, String[] relater){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "insert into request (subject," +
-                    " content, created_by, status," +
-                    " prioriry, deadlline, subteam_id," +
-                    " create_at) VALUE " +
-                    "(?, ?, ?, 1, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
+            String addSql = "insert into request (subject, content, created_by, status," +
+                    " priority, deadlline, subteam_id, create_at) VALUE " +
+                    "(?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP)";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setString(1,request.getSubject());
             statement.setString(2,request.getContent());
@@ -350,9 +347,15 @@ public class RequestDb {
             statement.setInt(4,request.getPriority());
             statement.setString(5,request.getDeadline());
             statement.setInt(6,request.getTeamId());
-            statement.setString(7,request.getClosedAt());
             statement.executeQuery();
 
+            ArrayList<Integer> relatersId = new ArrayList<>();
+            for (String rl:relater){
+                relatersId.add(Integer.parseInt(rl));
+            }
+            int id = getLastInsertIdRequest(request);
+            RelaterDb relaterDb = new RelaterDb();
+            relaterDb.addRelaters(relatersId, id);
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -361,11 +364,38 @@ public class RequestDb {
         }
     }
 
+    // get last insert request
+    private Integer getLastInsertIdRequest(Request request){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select last_insert_id(employee_id) from request" +
+                    " where subject = ? and content = ? and created_by = ? " +
+                    " and subteam_id = ? and create_at = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setString(1, request.getSubject());
+            statement.setString(2, request.getContent());
+            statement.setInt(3, request.getCreatedBy());
+            statement.setInt(4, request.getTeamId());
+            statement.setString(5, request.getCreatedAt());
+
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     // update request from db
     public void updateRequest(Request request){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "UPDATE request SET status = ?, prioriry = ?, " +
+            String addSql = "UPDATE request SET status = ?, priority = ?, " +
                     "deadlline = ?, assigned_to = ?, " +
                     "team_id = ?, updated_at = CURRENT_TIMESTAMP " +
                     "WHERE request_id = ?";
