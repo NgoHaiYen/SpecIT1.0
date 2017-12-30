@@ -9,7 +9,7 @@ public class Employee {
     private String passWord;
     private int role;
     private int subteamId;
-
+    private int itteamId;
     public int getId() {
         return id;
     }
@@ -72,5 +72,12 @@ public class Employee {
 
     public void setSubteamId(int subteamId) {
         this.subteamId = subteamId;
+    }
+    public int getItteamId() {
+        return itteamId;
+    }
+
+    public void setItteamId(int itteamId) {
+        this.itteamId = itteamId;
     }
 }

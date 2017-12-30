@@ -38,6 +38,7 @@ public class EmployeeDb {
                 e.setPhone(rs.getString("phone"));
                 e.setRole(rs.getInt("role_id"));
                 e.setSubteamId(rs.getInt("subteam_id"));
+                e.setItteamId(rs.getInt("itteam_id"));
 
                 employees.add(e);
             }
@@ -54,14 +55,21 @@ public class EmployeeDb {
         ArrayList<Employee> employeeInTeam = new ArrayList<Employee>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sqlS = "select * from employees WHERE i; "; //TODO DATABASE UPDATE
+            String sqlS = "select * from employees WHERE itteam_id =" + itteamId + ";";
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sqlS);
 
             while(rs.next()){
                 Employee e = new Employee();
                 e.setId(rs.getInt("employee_id"));
+                e.setEmail(rs.getString("email"));
                 e.setName(rs.getString("name"));
+                e.setUserName(rs.getString("username"));
+                e.setPassWord(rs.getString("password"));
+                e.setPhone(rs.getString("phone"));
+                e.setRole(rs.getInt("role_id"));
+                e.setSubteamId(rs.getInt("subteam_id"));
+                e.setItteamId(rs.getInt("itteam_id"));
                 employeeInTeam.add(e);
             }
         }
