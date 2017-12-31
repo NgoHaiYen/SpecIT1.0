@@ -24,6 +24,7 @@ public class AddRequestController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
+        int id = (int) session.getAttribute("id");
 
         String button = request.getParameter("addrequest");
         if ("add".equals(button)) {
@@ -36,11 +37,14 @@ public class AddRequestController extends HttpServlet {
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
-                r.setDeadline(Constant.formatDate(request.getParameter("date")));
+                r.setDeadline(Constant.formatDateToSql(request.getParameter("date")));
                 r.setTeamId(Integer.parseInt(request.getParameter("subteams")));
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
                 rdb.addNewRequest(r, relater);
+
+                session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
+                session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
 
                 // todo mail
                 response.sendRedirect(request.getContextPath() + "/list");

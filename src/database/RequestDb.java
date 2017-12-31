@@ -28,6 +28,42 @@ public class RequestDb {
         System.out.println(i);
     }
 
+    // get request by its id
+    public Request getRequestById(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select * from request where request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                Request r = new Request();
+                r.setId(rs.getInt("request_id"));
+                r.setAssignedTo(rs.getInt("assigned_to"));
+                r.setClosedAt(rs.getString("closed_at"));
+                r.setCreatedBy(rs.getInt("created_by"));
+                r.setContent(rs.getString("content"));
+                r.setDeadline(rs.getString("deadline"));
+                r.setPriority(rs.getInt("priority"));
+                r.setRating(rs.getInt("rating"));
+                r.setStatus(rs.getInt("status"));
+                r.setSubject(rs.getString("subject"));
+                r.setTeamId(rs.getInt("subteam_id"));
+                r.setUpdatedAt(rs.getString("updated_at"));
+                r.setResolvedAt(rs.getString("resolved_at"));
+                r.setDeletedAt(rs.getString("deleted_at"));
+                return r;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     // get all request of an employee by status and created_by
     // viec toi yeu cau (new, in progress, resolved, feedback, closed, cancelled)
     public ArrayList<Request> getAllRequest(int employeeId, int status){
