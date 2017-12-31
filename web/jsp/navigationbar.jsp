@@ -32,7 +32,7 @@
                 <button class="btn btn-danger custom" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px"><a style="text-decoration: none" href="${pageContext.request.contextPath}/add"><span  style="color: white; margin-right: 15px" class="glyphicon glyphicon-plus"></span><b style="color: white">THÊM YÊU CẦU</b></a></button>
                 <!-- Dropdown-->
                 <li class="panel panel-default" style="margin-top: 15px">
-                    <a data-toggle="collapse" href="#dropdown-lvl">
+                    <a data-toggle="collapse" href="#dropdown-lvl1">
                         <span class="glyphicon glyphicon-asterisk"></span> Việc tôi yêu cầu <span class="caret"></span>
                     </a>
 
@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="panel panel-default">
-                    <a data-toggle="collapse" href="#dropdown-lv2">
+                    <a data-toggle="collapse" href="#dropdown-lvl2">
                         <span class="glyphicon glyphicon-pencil"></span> Việc tôi được giao <span class="caret"></span>
                     </a>
 
@@ -95,26 +95,28 @@
                     </li>
 
                 <!--PANEL cua sublead-->
-                <li class="panel panel-default">
-                    <a data-toggle="collapse" href="#dropdown-lv4">
-                        <span class="glyphicon glyphicon-star"></span> Công việc của team <span class="caret"></span>
-                    </a>
+                <c:if test="${role == 2}">
+                    <li class="panel panel-default">
+                        <a data-toggle="collapse" href="#dropdown-lv4">
+                            <span class="glyphicon glyphicon-star"></span> Công việc của team <span class="caret"></span>
+                        </a>
 
-                    <!-- Dropdown level-->
-                    <div id="dropdown-lv4" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <ul class="nav navbar-nav">
-                                <li><a href="${pageContext.request.contextPath}/list?t=t"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">${ta}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=n"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">${tn}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=i"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">${ti}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=r"><span class="glyphicon glyphicon-export"></span>Resolved <span class="label label-warning label-as-badge">${tr}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=f"><span class="glyphicon glyphicon-export"></span>Feedback <span class="label label-warning label-as-badge">${tf}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=c"><span class="glyphicon glyphicon-export"></span>Closed <span class="label label-warning label-as-badge">${tc}</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/list?t=t&k=o"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">${to}</span></a></li>
-                            </ul>
+                        <!-- Dropdown level-->
+                        <div id="dropdown-lv4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t"><span class="glyphicon glyphicon-inbox"></span>All <span class="label label-success label-as-badge">${ta}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=n"><span class="glyphicon glyphicon-envelope"></span>New <span class="label label-primary label-as-badge">${tn}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=i"><span class="glyphicon glyphicon-check"></span>In progress <span class="label label-warning label-as-badge">${ti}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=r"><span class="glyphicon glyphicon-export"></span>Resolved <span class="label label-warning label-as-badge">${tr}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=f"><span class="glyphicon glyphicon-export"></span>Feedback <span class="label label-warning label-as-badge">${tf}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=c"><span class="glyphicon glyphicon-export"></span>Closed <span class="label label-warning label-as-badge">${tc}</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/list?t=t&k=o"><span class="glyphicon glyphicon-calendar"></span>Out of Date <span class="label label-danger label-as-badge">${to}</span></a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                </c:if>
 
 
                 <!--PANEL cua manager-->

@@ -30,7 +30,7 @@ public class AddRequestController extends HttpServlet {
         if ("add".equals(button)) {
             boolean check = checkValidate(request);
             if(check) {
-                uploadImageToServer(request.getPart("upload"), request);
+                uploadImageToServer(request.getPart("chooseFile"), request);
 
                 Request r = new Request();
                 r.setSubject(request.getParameter("tencv"));
@@ -90,7 +90,7 @@ public class AddRequestController extends HttpServlet {
         values.add("nd");
 
         try {
-            Part filePart = request.getPart("upload");
+            Part filePart = request.getPart("chooseFile");
             if(Paths.get(filePart.getSubmittedFileName()).toString().equals("")) {
                 return false;
             }

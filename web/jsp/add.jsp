@@ -33,7 +33,7 @@
     <div class="container-fluid">
         <div class="side-body">
 
-            <form method="post" id="form" data-toggle="validator">
+            <form method="post" id="form" data-toggle="validator" accept-charset="UTF-8" enctype="multipart/form-data">
                 <div class="row" id="row">
                     <h1> Thêm yêu cầu </h1>
                     <div class="col-sm-12">
