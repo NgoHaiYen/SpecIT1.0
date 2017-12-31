@@ -30,7 +30,7 @@ public class TeamDb {
             while(rs.next()){
                 Team team = new Team();
                 team.setId(rs.getInt("team_id"));
-                team.setName(rs.getString("name"));
+                team.setName(rs.getString("team_name"));
                 teams.add(team);
             }
         } catch (ClassNotFoundException e) {
