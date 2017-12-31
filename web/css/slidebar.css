@@ -9,7 +9,7 @@ margin-left: 0;
 
 .side-menu {
 position: fixed;
-width: 280px;
+width: 260px;
 height: 100%;
 background-color: #f8f8f8;
 border-right: 1px solid #e7e7e7;
@@ -133,7 +133,7 @@ padding: 15px 18px;
 }
 /* Main body section */
 .side-body {
-margin-left: 280px;
+margin-left: 260px;
 }
 /* small screen */
 @media (max-width: 768px) {

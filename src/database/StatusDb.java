@@ -3,10 +3,7 @@ package database;
 import model.Priority;
 import model.Status;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class StatusDb {
@@ -41,5 +38,27 @@ public class StatusDb {
             e.printStackTrace();
         }
         return statuses;
+    }
+
+    // get status name by id
+    public String findById(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select name from status where status_id = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("name");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

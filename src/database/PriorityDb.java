@@ -2,10 +2,7 @@ package database;
 
 import model.Priority;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class PriorityDb {
@@ -64,40 +61,47 @@ public class PriorityDb {
     }
 
     // find priority_id
-    public int getPriorityIdByName(String name){
-        int idByName = 0;
+    public Integer getPriorityIdByName(String name){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Statement statement = conn.createStatement();
-            String sql = "SELECT priority_id FROM priorities WHERE name = " + name + ";";
-            ResultSet rs = statement.executeQuery(sql);
-            idByName = rs.getInt("priority_id");
 
+            String s = "select priority from priorities where name = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getInt("priority_id");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-
-        return idByName;
+        return null;
     }
 
     // find priority_name
     public String getPriorityNameById(int id){
-        String priorityById = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Statement statement = conn.createStatement();
-            String sql = "SELECT name FROM priorities WHERE priority_id = " + id + ";";
-            ResultSet rs = statement.executeQuery(sql);
-            priorityById = rs.getString("name");
 
+            String s = "select name from priorities where priority_id = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("name");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return priorityById;
+        return null;
     }
 
     public void closeConnection() {

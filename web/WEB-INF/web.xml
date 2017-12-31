@@ -34,6 +34,15 @@
         <url-pattern>/list</url-pattern>  <!--định tuyến -->
     </servlet-mapping>
 
+    <servlet>
+        <display-name>RequestDetailsController</display-name>
+        <servlet-name>RequestDetailsController</servlet-name>
+        <servlet-class>controller.RequestDetailsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDetailsController</servlet-name>
+        <url-pattern>/details</url-pattern>  <!--định tuyến -->
+    </servlet-mapping>
 
 </web-app>
 

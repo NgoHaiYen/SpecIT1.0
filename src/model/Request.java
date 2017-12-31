@@ -1,5 +1,10 @@
 package model;
 
+import database.EmployeeDb;
+import database.ImageDb;
+import database.PriorityDb;
+import database.StatusDb;
+
 import java.sql.Date;
 
 public class Request {
@@ -44,24 +49,27 @@ public class Request {
         this.content = content;
     }
 
-    public int getCreatedBy() {
-        return createdBy;
+    public String getCreatedByName() {
+        EmployeeDb edb = new EmployeeDb();
+        return edb.findById(createdBy);
     }
 
     public void setCreatedBy(int createdBy) {
         this.createdBy = createdBy;
     }
 
-    public int getStatus() {
-        return status;
+    public String getStatusName() {
+        StatusDb sdb = new StatusDb();
+        return sdb.findById(status);
     }
 
     public void setStatus(int status) {
         this.status = status;
     }
 
-    public int getPriority() {
-        return priority;
+    public String getPriorityName() {
+        PriorityDb pdb = new PriorityDb();
+        return pdb.getPriorityNameById(priority);
     }
 
     public void setPriority(int priority) {
@@ -76,8 +84,9 @@ public class Request {
         this.deadline = deadline;
     }
 
-    public int getAssignedTo() {
-        return assignedTo;
+    public String getAssignedToName() {
+        EmployeeDb edb = new EmployeeDb();
+        return edb.findById(assignedTo);
     }
 
     public void setAssignedTo(int assignedTo) {
@@ -131,11 +140,33 @@ public class Request {
     public void setDeletedAt(String deletedAt) {
         this.deletedAt = deletedAt;
     }
+
     public String getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getCreatedBy() {
+        return createdBy;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public int getAssignedTo() {
+        return assignedTo;
+    }
+
+    public String getImage(){
+        ImageDb idb = new ImageDb();
+        return idb.getImageByRequestId(id);
     }
 }

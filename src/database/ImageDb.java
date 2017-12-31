@@ -44,6 +44,28 @@ public class ImageDb {
         return images;
     }
 
+    // get image url
+    public String getImageByRequestId(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select url_image from image where request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("url_image");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     // add new image
     public void addImage(Image image){
         try {

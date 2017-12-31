@@ -44,6 +44,7 @@
                     <thead>
                     <tr>
                         <th>STT</th>
+                        <th>Hình ảnh</th>
                         <th>Tên công việc</th>
                         <th>Mức độ ưu tiên</th>
                         <th>Người yêu cầu</th>
@@ -53,23 +54,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="user" items="${listUser}">
+                        <c:forEach var="request" items="${requests}">
                             <tr>
-                                <td><a href="${pageContext.request.contextPath}/UserDetailsController?userId=${user.userId}">${user.userId}</a></td>
-                                <td><img src="image/${user.linkImage}" width="40px" height="40px"></td>
-                                <td>${user.fullName}</td>
-                                <td>${user.fullNameKana}</td>
-                                <td>${user.gender}</td>
-                                <td>${user.email}</td>
-                                <td>${user.tel}</td>
-                                <td>${user.level}</td>
-                                <td>${user.endDate}</td>
-                                <td>${user.groupName}</td>
+                                <td><a href="${pageContext.request.contextPath}/details?id=${request.id}">${request.id}</a></td>
+                                <td><img src="${request.image}" width="40px" height="40px"></td>
+                                <td>${request.subject}</td>
+                                <td>${request.priorityName}</td>
+                                <td>${request.createdByName}</td>
+                                <td>${request.assignedToName}</td>
+                                <td>${request.deadline}</td>
+                                <td>${request.statusName}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-
             </div>
         </div>
 

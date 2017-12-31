@@ -389,7 +389,7 @@ public class RequestDb {
     public Integer getNumberOfRequestRelate(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request join relater on request.request_id = relater.subteam_id " +
+            String s = "select count(*) from request join relater on request.request_id = relater.employee_id " +
                     " where relater.employee_id = ?";
             if (status != 0){
                 s += " and request.status = ? ";

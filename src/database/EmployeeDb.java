@@ -2,10 +2,7 @@ package database;
 
 import model.Employee;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDb {
@@ -140,6 +137,29 @@ public class EmployeeDb {
             e.printStackTrace();
         }
         return employeesNameIDs;
+    }
+
+    // get employee name by id
+    public String findById(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select name from enployees where employee_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("name");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void closeConnection() {

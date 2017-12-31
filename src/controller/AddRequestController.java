@@ -42,6 +42,7 @@ public class AddRequestController extends HttpServlet {
                 RequestDb rdb = new RequestDb();
                 rdb.addNewRequest(r, relater);
 
+                // todo mail
                 response.sendRedirect(request.getContextPath() + "/list");
             } else {
                 request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
@@ -57,8 +58,6 @@ public class AddRequestController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-
-        addDataForNavi(request);
 
         // priorities
         PriorityDb pdb = new PriorityDb();
@@ -85,7 +84,6 @@ public class AddRequestController extends HttpServlet {
         values.add("date");
         values.add("subteams");
         values.add("nd");
-//        values.add("upload");
 
         try {
             Part filePart = request.getPart("upload");
@@ -132,6 +130,8 @@ public class AddRequestController extends HttpServlet {
             }
             outputStream.close();
             content.close();
+
+            // todo add image to db
         }
     }
 
@@ -143,49 +143,4 @@ public class AddRequestController extends HttpServlet {
         return false;
     }
 
-    private void addDataForNavi(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        int id = (int) session.getAttribute("id");
-
-        RequestDb rdb = new RequestDb();
-        session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
-        session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
-        session.setAttribute("myri", rdb.getNumberOfRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("myrr", rdb.getNumberOfRequest(id, Constant.RESOLVED));
-        session.setAttribute("myrf", rdb.getNumberOfRequest(id, Constant.FEEDBACK));
-        session.setAttribute("myrc", rdb.getNumberOfRequest(id, Constant.CLOSED));
-        session.setAttribute("myro", rdb.getNumberOfRequest(id, Constant.OUT_OF_DATE));
-
-        session.setAttribute("myaa", rdb.getNumberOfAssignRequest(id, Constant.ALL));
-        session.setAttribute("myan", rdb.getNumberOfAssignRequest(id, Constant.NEW));
-        session.setAttribute("myai", rdb.getNumberOfAssignRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("myar", rdb.getNumberOfAssignRequest(id, Constant.RESOLVED));
-        session.setAttribute("myac", rdb.getNumberOfAssignRequest(id, Constant.CLOSED));
-        session.setAttribute("myaf", rdb.getNumberOfAssignRequest(id, Constant.FEEDBACK));
-        session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
-
-        session.setAttribute("rla", rdb.getNumberOfRequestRelate(id, Constant.ALL));
-        session.setAttribute("rln", rdb.getNumberOfRequestRelate(id, Constant.NEW));
-        session.setAttribute("rli", rdb.getNumberOfRequestRelate(id, Constant.IN_PROGRESS));
-        session.setAttribute("rlr", rdb.getNumberOfRequestRelate(id, Constant.RESOLVED));
-        session.setAttribute("rlc", rdb.getNumberOfRequestRelate(id, Constant.CLOSED));
-        session.setAttribute("rlf", rdb.getNumberOfRequestRelate(id, Constant.FEEDBACK));
-        session.setAttribute("rlo", rdb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
-
-        session.setAttribute("ta", rdb.getNumberOfSubteamRequest(id, Constant.ALL));
-        session.setAttribute("tn", rdb.getNumberOfSubteamRequest(id, Constant.NEW));
-        session.setAttribute("ti", rdb.getNumberOfSubteamRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.RESOLVED));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.CLOSED));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.FEEDBACK));
-        session.setAttribute("to", rdb.getNumberOfSubteamRequest(id, Constant.OUT_OF_DATE));
-
-        session.setAttribute("ita", rdb.getNumberOfTeamRequest(id, Constant.ALL));
-        session.setAttribute("itn", rdb.getNumberOfTeamRequest(id, Constant.NEW));
-        session.setAttribute("iti", rdb.getNumberOfTeamRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.RESOLVED));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.CLOSED));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.FEEDBACK));
-        session.setAttribute("ito", rdb.getNumberOfTeamRequest(id, Constant.OUT_OF_DATE));
-    }
 }
