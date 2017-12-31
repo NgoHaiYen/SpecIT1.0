@@ -1,5 +1,7 @@
 package model;
 
+import database.EmployeeDb;
+
 import java.sql.Date;
 
 public class Comment {
@@ -11,6 +13,11 @@ public class Comment {
     private String note;
     private String createdAt;
     private String updatedAt;
+
+    public String getName(){
+        EmployeeDb edb = new EmployeeDb();
+        return edb.getNameById(employeeId);
+    }
 
     public int getId() {
         return id;

@@ -65,13 +65,13 @@ public class BranchDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String s = "select  from status where status_id = ?";
+            String s = "select branch_name from branch where branch_id = ?";
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1, branchId);
             ResultSet rs = statement.executeQuery();
 
             if(rs.next()){
-                return rs.getString("status_name");
+                return rs.getString("branch_name");
             }
         }
         catch (SQLException e) {

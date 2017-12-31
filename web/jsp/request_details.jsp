@@ -212,19 +212,29 @@
                     <!--Request Details -->
                 <div class="panel-body">
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày tạo       :</label>${r.createAt}<br/>
-                        <label class="newrow">Người yêu cầu  :</label>${r.createdByName}<br/>
-                        <label class="newrow">Mức độ ưu tiên :</label>${r.priorityName}
+                        <label class="newrow">Ngày tạo       :</label>${request.createdAt}<br/>
+                        <label class="newrow">Người yêu cầu  :</label>${request.createdByName}<br/>
+                        <label class="newrow">Mức độ ưu tiên :</label>${request.priorityName}
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày hết hạn    :</label>${r.deadline}<br/>
-                        <label class="newrow">Người thực hiện :</label>${r.assignToName}<br/>
-                        <label class="newrow">Trạng thái      :</label>${r.status}
+                        <label class="newrow">Ngày hết hạn    :</label>${request.deadline}<br/>
+                        <label class="newrow">Người thực hiện :</label>${request.assignedToName}<br/>
+                        <label class="newrow">Trạng thái      :</label>${request.statusName}
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Bộ phận IT      :</label>${r.branch}<br/>
-                        <label class="newrow"> Người liên quan :</label>Phạm Tuấn Anh <br/>
-                        <label class="newrow">Đánh giá :</label><i id="evaluate"></i>
+                        <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
+                        <label class="newrow">Người liên quan :</label>
+                        <c:forEach var = "i" begin = "1" end = "${relaters.size()}">
+                            <c:out value = "${relaters.get(i).name}"/>
+                        </c:forEach>
+                        <br/>
+                        <label class="newrow">Đánh giá :</label>
+                        <c:if test="${request.rating == 0}">
+                            <c:out value = "Không hài lòng"/>
+                        </c:if>
+                        <c:if test="${request.rating == 1}">
+                            <c:out value = "Hài lòng"/>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -237,14 +247,15 @@
                             <div class="col-xs-4">
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="../res/RequestByResultImage.jpg?v=123" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                                        <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="media-heading"> Trần Quốc Toản</br>
+                                        <h3 class="media-heading">${request.createdByName}
+                                            </br>
                                             <span class="glyphicon glyphicon-time"></span>
-                                            <small> Created :Today 2am </small>
+                                            <small> Created :${request.createdAt} </small>
                                         </h3>
-                                        <p>  This is this a simple DISCRIPTION</p>
+                                        <p>${request.content}</p>
                                     </div>
                                 </div>
                             </div>
@@ -253,21 +264,25 @@
                         </div>
                         <hr>
                         <!--Comment on this Request -->
-                        <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
-                            <div class="col-xs-4">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="../res/RequestByResultImage.jpg?v=123" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                                    </div>
-                                    <div class="media-body">
-                                        <h3 class="media-heading"> Admin trùm cuối</br> <span class="glyphicon glyphicon-time"></span> <small> Replied :Today 2 am </small></h3>
-                                            <p>  Thay đổi mức độ ưu tiên</p>
+                        <c:forEach var="comment" items="${comments}">
+                            <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
+                                <div class="col-xs-4">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="../res/RequestByResultImage.jpg?v=123" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="media-heading">${comment.name}
+                                                </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
+                                            <p>${comment.content}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-xz-8">
+                                </div>
                             </div>
-                            <div class="col-xz-8">
-                            </div>
-                        </div>
+                        </c:forEach>
+
                         <form data-toggle="validator">
                             <div class="col-sm-12">
                                 <label>Bình luận</label>

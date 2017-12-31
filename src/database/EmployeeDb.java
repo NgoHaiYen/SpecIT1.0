@@ -140,7 +140,7 @@ public class EmployeeDb {
     }
 
     // get employee name by id
-    public String findById(int id){
+    public String getNameById(int id){
         try {
             Class.forName("com.mysql.jdbc.Driver");
 

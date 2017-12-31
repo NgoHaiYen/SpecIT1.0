@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import database.EmployeeDb;
 
 public class Relater {
 
@@ -20,6 +20,11 @@ public class Relater {
 
     public int getEmployeeId() {
         return employeeId;
+    }
+
+    public String getEmployeeName(){
+        EmployeeDb employeeDb = new EmployeeDb();
+        return employeeDb.getNameById(employeeId);
     }
 
     public void setEmployeeId(int employeeId) {

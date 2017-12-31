@@ -2,8 +2,6 @@ package model;
 
 import database.*;
 
-import java.sql.Date;
-
 public class Request {
     private int id;
     private String subject;
@@ -13,7 +11,7 @@ public class Request {
     private int priority;
     private String deadline;
     private int assignedTo;
-    private int rating;
+    private Integer rating;
     private int teamId;
 
     private int branchId;
@@ -49,7 +47,7 @@ public class Request {
 
     public String getCreatedByName() {
         EmployeeDb edb = new EmployeeDb();
-        return edb.findById(createdBy);
+        return edb.getNameById(createdBy);
     }
 
     public void setCreatedBy(int createdBy) {
@@ -84,18 +82,18 @@ public class Request {
 
     public String getAssignedToName() {
         EmployeeDb edb = new EmployeeDb();
-        return edb.findById(assignedTo);
+        return edb.getNameById(assignedTo);
     }
 
     public void setAssignedTo(int assignedTo) {
         this.assignedTo = assignedTo;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 

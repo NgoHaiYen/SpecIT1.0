@@ -1,10 +1,7 @@
 package controller;
 
 import database.*;
-import model.Employee;
-import model.Priority;
-import model.Request;
-import model.Team;
+import model.*;
 import utils.Constant;
 
 import javax.servlet.ServletException;
@@ -69,9 +66,9 @@ public class AddRequestController extends HttpServlet {
         session.setAttribute("priorities", priorities);
 
         // itteams
-        TeamDb sdb = new TeamDb();
-        ArrayList<Team> subteams = sdb.getAllTeams();
-        session.setAttribute("subteams", subteams);
+        BranchDb bdb = new BranchDb();
+        ArrayList<Branch> branches = bdb.getAllBranch();
+        session.setAttribute("subteams", branches);
 
         // employees
         EmployeeDb edb = new EmployeeDb();
