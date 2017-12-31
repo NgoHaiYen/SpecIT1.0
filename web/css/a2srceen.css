@@ -1,25 +1,35 @@
-.container-fluid {
-    border-top: 3px solid #0F35F7;
-    margin: auto;
-}
-.row {
-    width: 1400px;
-    margin: auto;
 
-}
 .header {
     height: 100px;
     background: #c9cccf;
 }
-.panel-body {
-    width: 1400px;
-    margin: auto;
-}
+
 .newrow {
     width: 150px;
 }
 
 
-.custom {
-    width: 190px !important;
+.container {
+    margin-top: 50px;
+}
+
+#submit {
+    margin-top: 20px;
+}
+
+.detailheader{
+    margin-bottom: 50px;
+    background: #f5f5f5;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
+
+.btncustom {
+    float: left;
+    margin-right: 17px;
+}
+
+.custompanel {
+    height: 160px !important;
 }
