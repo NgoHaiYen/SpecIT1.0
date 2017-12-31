@@ -41,10 +41,10 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <form action="add" method="post" id="form" accept-charset="UTF-8" enctype="multipart/form-data">
-                <div class="row" id="row">
-                    <h1> Thêm yêu cầu </h1>
 
+            <form action="add" method="post" id="form" accept-charset="UTF-8" enctype="multipart/form-data">
+                <h1> Thêm yêu cầu </h1>
+                <div class="row" id="row">
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>

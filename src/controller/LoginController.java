@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
         if (e != null){
             session.setAttribute("role", e.getRole());
             session.setAttribute("id", e.getId());
-            response.sendRedirect(request.getContextPath() + "/add");
+            response.sendRedirect(request.getContextPath() + "/list");
             return;
         }
         RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         } else {
-            response.sendRedirect(request.getContextPath() + "/add");
+            response.sendRedirect(request.getContextPath() + "/list");
             return;
         }
     }

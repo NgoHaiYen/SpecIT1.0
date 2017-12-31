@@ -29,7 +29,7 @@
         <!-- Main Menu -->
         <div class="side-menu-container">
             <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-plus"></span><b>THÊM YÊU CẦU</b></a></li>
+                <li><a href="${pageContext.request.contextPath}/list"><span class="glyphicon glyphicon-plus"></span><b>THÊM YÊU CẦU</b></a></li>
                 <!-- Dropdown-->
                 <li class="panel panel-default">
                     <a data-toggle="collapse" href="#dropdown-lvl1">
