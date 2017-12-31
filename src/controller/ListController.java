@@ -27,9 +27,15 @@ public class ListController extends HttpServlet {
         }
 
         int id = (int) session.getAttribute("id");
+        RequestDb requestDb = new RequestDb();
+        ArrayList<Request> requests = requestDb.getAllRequest(id, Constant.ALL);
 
         String t = request.getParameter("t");
         String k = request.getParameter("k");
+        if (k == null || t == null){
+            session.setAttribute("requests", requests);
+            request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
+        }
 
         int status = 0;
 
@@ -57,8 +63,7 @@ public class ListController extends HttpServlet {
                 break;
         }
 
-        ArrayList<Request> requests;
-        RequestDb requestDb = new RequestDb();
+
 
         switch (t){
             case "mya":
@@ -79,7 +84,6 @@ public class ListController extends HttpServlet {
         }
 
         session.setAttribute("requests", requests);
-
         request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
     }
 }

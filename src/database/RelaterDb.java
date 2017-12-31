@@ -1,7 +1,5 @@
 package database;
 
-import model.Comment;
-import model.Priority;
 import model.Relater;
 
 import java.sql.*;
@@ -42,49 +40,33 @@ public class RelaterDb {
         return relaters;
     }
 
-    // get number of request that relate to the employee, join employee with relate table
-    // if number = 0, return null
-    public Integer getNumberOfRequestRelate(int employeeId, int status){
-        int count = 0;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Statement statement = conn.createStatement();
-
-            ResultSet rs = statement.executeQuery("select * from relater JOIN request " +
-                    "ON relater.request_id = request.request_id " +
-                    "WHERE employee_id =" + employeeId + " AND request.status = " + status + ";");
-
-            while(rs.next()){
-                count ++;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        if ( count == 0 ) return null;
-        return count;
-    }
-
     // insert a list of relater to a request
     public void addRelaters(ArrayList<Integer> relatersId, int requestId){
+        for (int i = 0; i < relatersId.size(); i++) {
+            addRelater(relatersId.get(i), requestId);
+        }
+    }
+
+    public void addRelaters(ArrayList<Integer> relatersId){
+        for (int i = 0; i < relatersId.size(); i++) {
+            addRelater(relatersId.get(i));
+        }
+    }
+
+    public void addRelater(int relaterId){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            for (int i = 0; i < relatersId.size(); i++) {
-                String sqlS = "INSERT INTO relater(request_id, employee_id, created_at) VALUE (?,?,CURRENT_TIMESTAMP);";
-                PreparedStatement statement = conn.prepareStatement(sqlS);
-                statement.setInt(1,requestId);
-                statement.setInt(2, relatersId.get(i));
-                statement.executeQuery(sqlS);
-            }
 
+            String sqlS = "INSERT INTO relater(request_id, employee_id, created_at) VALUE (last_insert_id(),?,CURRENT_TIMESTAMP);";
+            PreparedStatement statement = conn.prepareStatement(sqlS);
+            statement.setInt(1,relaterId);
+            statement.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     // insert a relater to a request
@@ -96,7 +78,7 @@ public class RelaterDb {
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(1,requestId);
             statement.setInt(2,relaterId);
-            statement.executeQuery(sqlS);
+            statement.execute();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,18 +96,16 @@ public class RelaterDb {
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(2,requestId);
             statement.setInt(1,relaterId);
-            statement.executeQuery(sqlS);
-
+            statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     // update relater of a request
-    // delete all relation to a  req_id
+    // delete all relation to a req_id
     // insert new ones to db
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
         try {
@@ -133,9 +113,9 @@ public class RelaterDb {
                 String sqlS = "DELETE FROM relater WHERE request_id = ? ;";
                 PreparedStatement statement = conn.prepareStatement(sqlS);
                 statement.setInt(1,requestId);
-                statement.executeQuery(sqlS);
-                addRelaters(relatersId,requestId);
+                statement.execute();
 
+                addRelaters(relatersId,requestId);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

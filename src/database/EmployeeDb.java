@@ -35,9 +35,6 @@ public class EmployeeDb {
                 e.setPhone(rs.getString("phone"));
                 e.setEmail(rs.getString("email"));
 
-                e.setUserName(rs.getString("username"));
-                e.setPassWord(rs.getString("password"));
-
                 e.setRole(rs.getInt("role_id"));
                 e.setTeamId(rs.getInt("team_id"));
                 e.setBranchId(rs.getInt("branch_id"));
@@ -123,7 +120,7 @@ public class EmployeeDb {
 
     // only get name and id of employees
     public ArrayList<Employee> getAllEmployeeNameAndId(){
-        ArrayList<Employee> employeesNameID = new ArrayList<Employee>();
+        ArrayList<Employee> employeesNameIDs = new ArrayList<Employee>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -134,7 +131,7 @@ public class EmployeeDb {
                 Employee e = new Employee();
                 e.setId(rs.getInt("employee_id"));
                 e.setName(rs.getString("name"));
-                employeesNameID.add(e);
+                employeesNameIDs.add(e);
             }
         }
         catch (SQLException e) {
@@ -142,7 +139,7 @@ public class EmployeeDb {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return employeesNameID;
+        return employeesNameIDs;
     }
 
     public void closeConnection() {

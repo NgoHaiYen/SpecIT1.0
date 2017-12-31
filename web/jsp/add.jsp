@@ -92,7 +92,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Người liên quan</label>
-                            <select multiple class="selectpicker custom1" data-live-search="true" name="relater">
+                            <select multiple class="selectpicker form-control" data-live-search="true" name="relater">
                                 <c:forEach items="${employees}" var="employee" >
                                     <option value="${employee.id}">${employee.name}</option>
                                 </c:forEach>
@@ -103,8 +103,9 @@
                     <div class="col-sm-12">
                         <div class="form-group" id="textform">
                             <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <textarea name="nd" id="nd" class="nd" required></textarea>
+                            <textarea id="nd" class="nd" required></textarea>
                             <div class="help-block with-errors"></div>
+                            <input type="hidden" name="nd" id="ndfake"/>
                             <div id="trackingDiv"></div>
                         </div>
                     </div>
@@ -114,34 +115,8 @@
                             <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
                                 <input class="form-control" type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
                             </span>
-                            <img id="image" src="image/image.jpeg"/>
                         </div>
                     </div>
-
-                    <script>
-                        var image = document.getElementById("image");
-                        var file = document.getElementById("upload");
-                        image.onclick = function(){
-                            file.click();
-                        };
-
-                        changeImage = function(input){
-                            if (input.value == "") return;
-                            image.src = "image/" + input.value.split(/(\\|\/)/g).pop();
-                            image.style.visibility='visible';
-                            document.getElementsByClassName("upload")[0].style.visibility = 'hidden';
-                            if (input.files && input.files[0]) {
-                                var reader = new FileReader();
-                                reader.onload = function (e) {
-                                    $('#image')
-                                        .attr('src', e.target.result)
-                                        .width(150)
-                                        .height(200);
-                                };
-                                reader.readAsDataURL(input.files[0]);
-                            }
-                        }
-                    </script>
 
                     <div class="col-xs-12">
                         <div class="form-group">
@@ -181,6 +156,11 @@
             var editorText = CKEDITOR.instances.nd.getData();
             $('#trackingDiv').html(editorText);
         }
+
+        function changeValue(){
+            $('#ndfake').val($('#trackingDiv:last-child').text());
+        }
+
     </script>
 </body>
 </html>

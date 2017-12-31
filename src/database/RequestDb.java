@@ -332,13 +332,49 @@ public class RequestDb {
         return null;
     }
 
+    // get all request relate to an employee
+    public ArrayList<Request> getAllRelateRequest(int employeeId, int status){
+        // todo
+        return null;
+    }
+
+    // get number of request that relate to the employee, join employee with relate table
+    // if number = 0, return null
+    public Integer getNumberOfRequestRelate(int employeeId, int status){
+        int count = 0;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+
+            ResultSet rs = statement.executeQuery("select * from relater JOIN request " +
+                    "ON relater.request_id = request.request_id " +
+                    "WHERE employee_id =" + employeeId + " AND request.status = " + status + ";");
+
+            while(rs.next()){
+                count ++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if ( count == 0 ) return null;
+        return count;
+    }
+
     // insert new request
     public void addNewRequest(Request request, String[] relater){
+        addRequest(request);
+
+        addRelaters(relater, getLastInsertIdRequest(request));
+    }
+
+    private void addRequest(Request request){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "insert into request (subject, content, created_by, status," +
                     " priority, deadlline, subteam_id, create_at) VALUE " +
-                    "(?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP)";
+                    "(?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP);";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setString(1,request.getSubject());
             statement.setString(2,request.getContent());
@@ -346,15 +382,7 @@ public class RequestDb {
             statement.setInt(4,request.getPriority());
             statement.setString(5,request.getDeadline());
             statement.setInt(6,request.getTeamId());
-            statement.executeQuery();
-
-            ArrayList<Integer> relatersId = new ArrayList<>();
-            for (String rl:relater){
-                relatersId.add(Integer.parseInt(rl));
-            }
-            int id = getLastInsertIdRequest(request);
-            RelaterDb relaterDb = new RelaterDb();
-            relaterDb.addRelaters(relatersId, id);
+            statement.execute();
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -363,19 +391,27 @@ public class RequestDb {
         }
     }
 
-    // get last insert request
-    private Integer getLastInsertIdRequest(Request request){
+    private void addRelaters(String[] relater, int id) {
+        ArrayList<Integer> relatersId = new ArrayList<>();
+        for (String rl:relater){
+            relatersId.add(Integer.parseInt(rl));
+        }
+        RelaterDb relaterDb = new RelaterDb();
+        relaterDb.addRelaters(relatersId, id);
+    }
+
+    // get last insert request_id
+    public Integer getLastInsertIdRequest(Request request){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select last_insert_id(employee_id) from request" +
+            String s = "select max(last_insert_id(request_id)) from request" +
                     " where subject = ? and content = ? and created_by = ? " +
-                    " and subteam_id = ? and create_at = ?";
+                    " and subteam_id = ?";
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setString(1, request.getSubject());
             statement.setString(2, request.getContent());
             statement.setInt(3, request.getCreatedBy());
             statement.setInt(4, request.getTeamId());
-            statement.setString(5, request.getCreatedAt());
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {

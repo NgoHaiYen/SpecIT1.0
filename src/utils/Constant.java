@@ -15,4 +15,9 @@ public class Constant {
     public static int CLOSED = 5;
     public static int OUT_OF_DATE = 6;  // CANCELLED
 
+    public static String formatDate(String date){
+        String[] dates = date.split("/");
+        return dates[2] + "-" + dates[0] + "-" + dates[1];
+    }
+
 }

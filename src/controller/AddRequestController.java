@@ -36,7 +36,7 @@ public class AddRequestController extends HttpServlet {
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
-                r.setDeadline(request.getParameter("date"));
+                r.setDeadline(Constant.formatDate(request.getParameter("date")));
                 r.setTeamId(Integer.parseInt(request.getParameter("subteams")));
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
@@ -72,7 +72,7 @@ public class AddRequestController extends HttpServlet {
 
         // employees
         EmployeeDb edb = new EmployeeDb();
-        ArrayList<Employee> employees = edb.getAllEmployee();
+        ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
         session.setAttribute("employees", employees);
 
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
@@ -85,7 +85,18 @@ public class AddRequestController extends HttpServlet {
         values.add("date");
         values.add("subteams");
         values.add("nd");
-        values.add("upload");
+//        values.add("upload");
+
+        try {
+            Part filePart = request.getPart("upload");
+            if(Paths.get(filePart.getSubmittedFileName()).toString().equals("")) {
+                return false;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
 
         String[] relater = request.getParameterValues("relater");
         return (relater != null) && checkValidate(request, values);
