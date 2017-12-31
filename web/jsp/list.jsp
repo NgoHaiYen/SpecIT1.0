@@ -36,39 +36,41 @@
     <jsp:include page="navigationbar.jsp" />
 
     <!-- Main Content -->
-    <div class="container-fluid">
-        <div class="side-body">
-            <h1> ${listname} </h1><br/>
-            <div>
-                <table class="table table-hover" id="listmain">
-                    <thead>
-                    <tr>
-                        <th>Hình ảnh</th>
-                        <th>Tên công việc</th>
-                        <th>Mức độ ưu tiên</th>
-                        <th>Người yêu cầu</th>
-                        <th>Người thực hiện</th>
-                        <th>Ngày hết hạn</th>
-                        <th>Trạng thái</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="request" items="${requests}">
-                            <tr>
-                                <td><img src="image/${request.image}" width="40px" height="40px"></td>
-                                <td><a href="${pageContext.request.contextPath}/details?id=${request.id}">${request.subject}</a></td>
-                                <td>${request.priorityName}</td>
-                                <td>${request.createdByName}</td>
-                                <td>${request.assignedToName}</td>
-                                <td>${request.deadline}</td>
-                                <td>${request.statusName}</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+    <form action="details" id="list" method="post">
+        <div class="container-fluid">
+            <div class="side-body">
+                <h1> ${listname} </h1><br/>
+                <div>
+                    <table class="table table-hover" id="listmain">
+                        <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Tên công việc</th>
+                            <th>Mức độ ưu tiên</th>
+                            <th>Người yêu cầu</th>
+                            <th>Người thực hiện</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="request" items="${requests}">
+                                <tr>
+                                    <td><img src="image/${request.image}" width="40px" height="40px"></td>
+                                    <td><a onclick="document.getElementById('list').submit();">${request.subject}</a></td>
+                                    <td>${request.priorityName}</td>
+                                    <td>${request.createdByName}</td>
+                                    <td>${request.assignedToName}</td>
+                                    <td>${request.deadline}</td>
+                                    <td>${request.statusName}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
         <script src="js/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
