@@ -177,7 +177,7 @@ CREATE TABLE `request` (
   `created_by` int(10) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `priority` tinyint(1) NOT NULL,
-  `deadline` datetime NOT NULL,
+  `deadline` date NOT NULL,
   `assigned_to` int(11) DEFAULT NULL,
   `rating` tinyint(1) DEFAULT NULL,
   `team_id` int(10) NOT NULL,
@@ -189,29 +189,6 @@ CREATE TABLE `request` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-INSERT INTO `request` (`request_id`, `subject`, `content`, `created_by`, `status`, `priority`, `deadline`, `assigned_to`, `rating`, `team_id`,`branch_id`, `resolved_at`, `closed_at`, `create_at`, `updated_at`, `deleted_at`) VALUES
-(3, 'argtegvtfgvfv', 'aeoirjgoerigotirgj\r\n', 4, 1, 1, '2017-12-19', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:14:35', NULL, NULL),
-(4, 'jriagfreig', 'aerkjgoerjgoerjgv asjorijfaowrjf\r\n', 4, 1, 1, '2017-12-13', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:15:45', NULL, NULL),
-(5, 'jriagfreig', 'aerkjgoerjgoerjgv asjorijfaowrjf\r\n', 4, 1, 1, '2017-12-13', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 02:17:10', NULL, NULL),
-(6, 'iajwogjroaij', 'aiejgoierjgojevrijg oaijergojep gb poeirj goae\r\n', 4, 1, 1, '2018-01-02', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:17:40', NULL, NULL),
-(7, 'Sửa màn hình', 'Màn hình bị vỡ\r\n', 4, 1, 1, '2018-01-01', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 02:21:19', NULL, NULL),
-(8, 'ijaforjgoijefv', 'oaisjgroirehagphetpgoj oijwfpoijapob haphvp oerahp ofwjpofijwporjf\r\n', 4, 1, 4, '2018-01-04', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 02:30:12', NULL, NULL),
-(9, 'ijaforjgoijefv', 'oaisjgroirehagphetpgoj oijwfpoijapob haphvp oerahp ofwjpofijwporjf\r\n', 4, 1, 4, '2018-01-04', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:32:16', NULL, NULL),
-(10, 'arofaworijf', 'aweigorigoaerigvoaeirjve\r\n', 4, 1, 3, '2018-01-17', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:34:02', NULL, NULL),
-(11, 'Test', 'ajorjgaroijforijgvorije\r\n', 4, 1, 1, '2018-01-03', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 02:37:55', NULL, NULL),
-(12, 'argtegvtfgvfv', 'aeoirjgoerigotirgj\r\n', 4, 1, 1, '2017-12-19', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 08:38:19', NULL, NULL),
-(13, 'rthwthswyhyth', 'aergpeijrhpgoitjposbj oeigjpeosrjg\r\n', 4, 1, 1, '2018-01-01', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 08:50:47', NULL, NULL),
-(14, 'rebba', 'srgjaprijgpaoriejg\r\n', 4, 1, 1, '2017-12-05', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 08:51:38', NULL, NULL),
-(15, 'rebba', 'srgjaprijgpaoriejg\r\n', 4, 1, 1, '2017-12-05', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 08:54:40', NULL, NULL),
-(16, 'srgjaprijgpaoriejg', 'srgjaprijgpaoriejg\r\n', 4, 1, 1, '2018-01-01', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 08:58:59', NULL, NULL),
-(17, 'eferbvf', 'wth4twhyjn\r\n', 4, 1, 1, '2017-12-28', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 09:07:37', NULL, NULL),
-(18, 'argorjegojei', 'aijrogijrpaijrirpgijp  oirjgpowijg\r\n', 4, 1, 1, '2018-02-01', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 09:12:29', NULL, NULL),
-(19, 'ajfojpeowijfo', 'oiawjrpgoijproejg oiajwrogijr \r\n', 4, 1, 1, '2017-12-18', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 09:14:41', NULL, NULL),
-(20, 'rgebeb', 'aoirboeijboi  oierjgoi\r\n', 4, 1, 1, '2017-12-13', NULL, NULL, 1, 1, NULL, NULL, '2017-12-31 09:18:05', NULL, NULL),
-(21, 'ajeoij oairjgo ', 'oarg oiajre ggoi arj\r\n', 4, 1, 1, '2017-12-27', NULL, NULL, 2, 2, NULL, NULL, '2017-12-31 09:19:58', NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `role`
@@ -425,8 +402,8 @@ ALTER TABLE `comment`
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
-  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `branch` (`branch_id`),
-  ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `branch` (`branch_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE;
   
 --
 -- Constraints for table `image`
