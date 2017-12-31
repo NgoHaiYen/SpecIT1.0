@@ -110,6 +110,7 @@
                                 <input type="file" name="chooseFile" id="chooseFile" accept="image/x-png,image/jpeg">
                             </div>
                         </div>
+
                     </div>
 
                     <div class="col-xs-12">
@@ -157,6 +158,7 @@
                 $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
             }
         });
+
 
     </script>
 </body>

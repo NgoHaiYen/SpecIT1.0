@@ -59,7 +59,7 @@
                                                             <option>Thấp</option>
                                                             <option>Cao</option>
                                                         </select>
-                                                        <div class="help-block">Vui lòng chọn mức thay đổi ưu tiên</div>
+                                                        <div class="help-block with-errors"></div>
                                                         <label class="control-label">Lí do thay đổi:</label>
                                                         <textarea class="form-control" rows="5" id="priorityComment" required></textarea>
                                                         <div class="help-block with-errors"></div>
@@ -119,8 +119,9 @@
                                                             <div class="input-group">
                                                                 <label for="Deadline" class="input-group-addon btn">
                                                                     <span class="glyphicon glyphicon-calendar"></span></label>
-                                                                <input type="text" id="Deadline" name="Deadline" class="form-control date-picker"/></br>
+                                                                <input type="text" id="Deadline" name="Deadline" class="form-control date-picker" data-error="Vui lòng chọn ngày" required/></br>
                                                             </div>
+                                                            <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
