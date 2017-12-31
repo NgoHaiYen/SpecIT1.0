@@ -24,7 +24,7 @@ public class ImageDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String s = "select url from image where request_id = ?";
+            String s = "select url_image from image where request_id = ?";
 
             PreparedStatement statement = conn.prepareStatement(s + ";");
             statement.setInt(1, requestId);
@@ -33,7 +33,7 @@ public class ImageDb {
             while(rs.next()){
                 Image i = new Image();
                 i.setRequestId(requestId);
-                i.setUrl(rs.getString("url"));
+                i.setUrl(rs.getString("url_image"));
                 images.add(i);
             }
         } catch (SQLException e) {
@@ -91,8 +91,7 @@ public class ImageDb {
             PreparedStatement statement = conn.prepareStatement(sqlS);
             statement.setInt(2,image.getRequestId());
             statement.setString(1,image.getUrl());
-            statement.execute(sqlS);
-
+            statement.execute();
         }
         catch (SQLException e) {
             e.printStackTrace();

@@ -43,7 +43,6 @@
                 <table class="table table-hover" id="listmain">
                     <thead>
                     <tr>
-                        <th>STT</th>
                         <th>Hình ảnh</th>
                         <th>Tên công việc</th>
                         <th>Mức độ ưu tiên</th>
@@ -56,9 +55,8 @@
                     <tbody>
                         <c:forEach var="request" items="${requests}">
                             <tr>
-                                <td><a href="${pageContext.request.contextPath}/details?id=${request.id}">${request.id}</a></td>
-                                <td><img src="${request.image}" width="40px" height="40px"></td>
-                                <td>${request.subject}</td>
+                                <td><img src="image/${request.image}" width="40px" height="40px"></td>
+                                <td><a href="${pageContext.request.contextPath}/details?id=${request.id}">${request.subject}</a></td>
                                 <td>${request.priorityName}</td>
                                 <td>${request.createdByName}</td>
                                 <td>${request.assignedToName}</td>
