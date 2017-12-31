@@ -144,7 +144,7 @@ public class EmployeeDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String s = "select name from enployees where employee_id = ?";
+            String s = "select name from employees where employee_id = ?";
 
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1, id);

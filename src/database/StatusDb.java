@@ -45,13 +45,13 @@ public class StatusDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String s = "select name from status where status_id = ?";
+            String s = "select status_name from status where status_id = ?";
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
 
             if(rs.next()){
-                return rs.getString("name");
+                return rs.getString("status_name");
             }
         }
         catch (SQLException e) {
