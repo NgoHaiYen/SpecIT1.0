@@ -211,17 +211,17 @@
                     <!--Request Details -->
                 <div class="panel-body">
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày tạo       :</label>${r.createdAt}<br/>
-                        <label class="newrow">Người yêu cầu  :</label>Nguyễn Văn A<br/>
-                        <label class="newrow">Mức độ ưu tiên :</label>Cao
+                        <label class="newrow">Ngày tạo       :</label>${r.createAt}<br/>
+                        <label class="newrow">Người yêu cầu  :</label>${r.createdByName}<br/>
+                        <label class="newrow">Mức độ ưu tiên :</label>${r.priorityName}
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày hết hạn    :</label>25/10/2015<br/>
-                        <label class="newrow">Người thực hiện :</label>Nguyễn Văn B<br/>
-                        <label class="newrow">Trạng thái      :</label>Cao
+                        <label class="newrow">Ngày hết hạn    :</label>${r.deadline}<br/>
+                        <label class="newrow">Người thực hiện :</label>${r.assignToName}<br/>
+                        <label class="newrow">Trạng thái      :</label>${r.status}
                     </div>
                     <div class="col-sm-4">
-                        <label class="newrow">Bộ phận IT      :</label>DanangIT <br/>
+                        <label class="newrow">Bộ phận IT      :</label>${r.branch}<br/>
                         <label class="newrow"> Người liên quan :</label>Phạm Tuấn Anh <br/>
                         <label class="newrow">Đánh giá :</label><i id="evaluate"></i>
                     </div>

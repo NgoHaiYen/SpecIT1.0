@@ -1,9 +1,6 @@
 package model;
 
-import database.EmployeeDb;
-import database.ImageDb;
-import database.PriorityDb;
-import database.StatusDb;
+import database.*;
 
 import java.sql.Date;
 
@@ -168,6 +165,11 @@ public class Request {
 
     public int getBranchId() {
         return branchId;
+    }
+
+    public String getBranchName(){
+        BranchDb bdb = new BranchDb();
+        return bdb.getBranchNameById(branchId);
     }
 
     public void setBranchId(int branchId) {

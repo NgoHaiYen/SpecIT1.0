@@ -22,23 +22,25 @@ public class LoginController extends HttpServlet {
         LoginDb loginDb = new LoginDb();
         Employee e = loginDb.checkLogin(username, password);
         if (e != null){
-            session.setAttribute("role", e.getRole());
-            session.setAttribute("id", e.getId());
-            response.sendRedirect(request.getContextPath() + "/list");
-            return;
+            if (e != null){
+                session.setAttribute("role", e.getRole());
+                session.setAttribute("id", e.getId());
+                response.sendRedirect(request.getContextPath() + "/list");
+                return;
+            }
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+            rs.forward(request, response);
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-        rs.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("id") == null) {
             request.getRequestDispatcher("index.jsp").forward(request, response);
-            return;
         } else {
             response.sendRedirect(request.getContextPath() + "/list");
-            return;
         }
     }
 }

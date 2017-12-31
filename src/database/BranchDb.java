@@ -2,10 +2,7 @@ package database;
 
 import model.Branch;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class BranchDb {
@@ -64,6 +61,26 @@ public class BranchDb {
         return teamNames;
     }
 
+    public String getBranchNameById(int branchId) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select  from status where status_id = ?";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, branchId);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("status_name");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public void closeConnection() {
         try {

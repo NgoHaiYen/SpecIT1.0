@@ -9,10 +9,10 @@
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="add mail and">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ThanhController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/jsp/thanh.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" afterPath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/list.jsp" afterPath="$PROJECT_DIR$/web/jsp/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/BranchDb.java" afterPath="$PROJECT_DIR$/src/database/BranchDb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Request.java" afterPath="$PROJECT_DIR$/src/model/Request.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/request_details.jsp" afterPath="$PROJECT_DIR$/web/jsp/request_details.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,11 +36,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request_details.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="request_details.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="213" column="83" lean-forward="false" selection-start-line="213" selection-start-column="83" selection-end-line="213" selection-end-column="83" />
+            <state relative-caret-position="288">
+              <caret line="223" column="81" lean-forward="false" selection-start-line="223" selection-start-column="81" selection-end-line="223" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="171" column="25" lean-forward="true" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3296#3297#0" expanded="true" />
+                <element signature="e#3327#3328#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BranchDb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/BranchDb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+              <folding>
+                <marker date="1514725094545" expanded="true" signature="679:699" ph="SELECT * FRO... branch" />
+                <marker date="1514725094545" expanded="true" signature="1489:1519" ph="SELECT branc... branch" />
+                <marker date="1514725094545" expanded="true" signature="1992:2031" ph="select from status" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="42" column="70" lean-forward="false" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatusDb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/StatusDb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="61" column="20" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="61" selection-end-column="20" />
+              <folding>
+                <marker date="1514702903913" expanded="true" signature="699:719" ph="SELECT * FRO... status" />
+                <marker date="1514702903913" expanded="true" signature="1285:1335" ph="select name status" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -109,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/add.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/navigationbar.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/check.jsp" />
@@ -137,10 +197,8 @@
         <option value="$PROJECT_DIR$/src/model/Employee.java" />
         <option value="$PROJECT_DIR$/src/model/Relater.java" />
         <option value="$PROJECT_DIR$/web/jsp/thanh.jsp" />
-        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/database/PriorityDb.java" />
-        <option value="$PROJECT_DIR$/src/model/Request.java" />
         <option value="$PROJECT_DIR$/web/css/slidebar.css" />
         <option value="$PROJECT_DIR$/src/database/StatusDb.java" />
         <option value="$PROJECT_DIR$/src/database/EmployeeDb.java" />
@@ -160,6 +218,9 @@
         <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
         <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
         <option value="$PROJECT_DIR$/web/jsp/request_details.jsp" />
+        <option value="$PROJECT_DIR$/src/model/Request.java" />
+        <option value="$PROJECT_DIR$/src/database/BranchDb.java" />
+        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -228,6 +289,12 @@
               <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
@@ -708,7 +775,7 @@
       <workItem from="1514533555401" duration="39784000" />
       <workItem from="1514593126498" duration="28498000" />
       <workItem from="1514649124915" duration="11549000" />
-      <workItem from="1514683911173" duration="30236000" />
+      <workItem from="1514683911173" duration="30916000" />
     </task>
     <task id="LOCAL-00001" summary="add from older project">
       <created>1514453270189</created>
@@ -962,11 +1029,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514722743616</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="add view">
+      <created>1514724736291</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1514724736291</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143436000" />
+    <option name="totallyTimeSpent" value="144116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1078,7 +1152,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add from older project" />
     <MESSAGE value="add db and update gitignore" />
     <MESSAGE value="set abstract" />
     <MESSAGE value="update abstract db" />
@@ -1103,7 +1176,8 @@
     <MESSAGE value="fix l" />
     <MESSAGE value="fix list" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1112,13 +1186,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/sql/ResultSet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1243,14 +1310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="41" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1298,16 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="169" column="43" lean-forward="false" selection-start-line="169" selection-start-column="43" selection-end-line="169" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/slidebar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1321,17 +1370,6 @@
         <state relative-caret-position="214">
           <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/StatusDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="53" column="48" lean-forward="false" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
-          <folding>
-            <marker date="1514702903913" expanded="true" signature="699:719" ph="SELECT * FRO... status" />
-            <marker date="1514702903913" expanded="true" signature="1285:1335" ph="select name status" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1554,16 +1592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1572,10 +1600,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="213" column="83" lean-forward="false" selection-start-line="213" selection-start-column="83" selection-end-line="213" selection-end-column="83" />
+        <state relative-caret-position="288">
+          <caret line="223" column="81" lean-forward="false" selection-start-line="223" selection-start-column="81" selection-end-line="223" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="171" column="25" lean-forward="true" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3296#3297#0" expanded="true" />
+            <element signature="e#3327#3328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/StatusDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="61" column="20" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="61" selection-end-column="20" />
+          <folding>
+            <marker date="1514702903913" expanded="true" signature="699:719" ph="SELECT * FRO... status" />
+            <marker date="1514702903913" expanded="true" signature="1285:1335" ph="select name status" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/BranchDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+          <folding>
+            <marker date="1514725094545" expanded="true" signature="679:699" ph="SELECT * FRO... branch" />
+            <marker date="1514725094545" expanded="true" signature="1489:1519" ph="SELECT branc... branch" />
+            <marker date="1514725094545" expanded="true" signature="1992:2031" ph="select from status" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="42" column="70" lean-forward="false" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
           <folding />
         </state>
       </provider>
