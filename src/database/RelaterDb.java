@@ -26,7 +26,7 @@ public class RelaterDb {
             ResultSet rs = statement.executeQuery("select * from relater WHERE request_id =" +requestId + ";");
             while(rs.next()){
                Relater r = new Relater();
-               r.setRelationId(rs.getInt("relation_id"));
+
                r.setEmployeeId(rs.getInt("employee_id"));
                r.setRequestId(rs.getInt("request_id"));
                r.setCreatedAt(rs.getString("created_at"));

@@ -27,7 +27,7 @@ public class BranchDb {
             while(rs.next()){
                 Branch team = new Branch();
                 team.setId(rs.getInt("branch_id"));
-                team.setName(rs.getString("name"));
+                team.setName(rs.getString("branch_name"));
                 team.setLeaderId(rs.getInt("leader_id"));
                 teams.add(team);
             }
