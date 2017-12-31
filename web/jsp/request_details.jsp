@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>SpecIT</title>
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type ="text/css">
     <link href="bootstrap/css/bootstrap-select.min.css" rel ="stylesheet" type="text/css">
@@ -26,7 +26,6 @@
 </head>
 <body>
 <div class="container-fluid">
-
     <include file="navigationbar.jsp"/>
 
     <div class="row">
@@ -77,7 +76,6 @@
 
 
                                 <button type="button" class="btn btn-default custom" data-toggle="modal" id="depart-btn" name="depart-btn" data-target="#departModal"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
-
                                 <!-- Department Modal -->
                                 <div class="modal fade" id="departModal" role="dialog">
                                     <div class="modal-dialog modal-sm">
@@ -212,7 +210,6 @@
                 </div>
                     <!--Request Details -->
                 <div class="panel-body">
-
                     <div class="col-sm-4">
                         <label class="newrow">Ngày tạo       :</label>20/05/2010 <br/>
                         <label class="newrow">Người yêu cầu  :</label>Nguyễn Văn A<br/>

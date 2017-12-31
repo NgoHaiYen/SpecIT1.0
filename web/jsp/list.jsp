@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Danh sách công việc được giao</title>
+    <title>SpecIT</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -70,6 +70,7 @@
                 </table>
             </div>
         </div>
+    </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>

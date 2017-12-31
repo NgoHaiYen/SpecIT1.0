@@ -1,5 +1,8 @@
 package controller;
 
+import database.RequestDb;
+import model.Request;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,11 @@ public class RequestDetailsController extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
             return;
         }
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        RequestDb rdb = new RequestDb();
+
+
         request.getRequestDispatcher("jsp/request_details.jsp").forward(request, response);
     }
 }

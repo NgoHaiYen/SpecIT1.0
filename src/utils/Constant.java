@@ -15,9 +15,14 @@ public class Constant {
     public static int CLOSED = 5;
     public static int OUT_OF_DATE = 6;  // CANCELLED
 
-    public static String formatDate(String date){
+    public static String formatDateToSql(String date){
         String[] dates = date.split("/");
         return dates[2] + "-" + dates[0] + "-" + dates[1];
+    }
+
+    public static String formateDateToClient(String date){
+        String[] dates = date.split("/");
+        return dates[2] + "-" + dates[1] + "-" + dates[0];
     }
 
 }

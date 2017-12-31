@@ -34,7 +34,7 @@ public class ListController extends HttpServlet {
 
         String t = request.getParameter("t");
         String k = request.getParameter("k");
-        if (k == null || t == null){
+        if (t == null){
             session.setAttribute("requests", requests);
             request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
             request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
@@ -43,28 +43,30 @@ public class ListController extends HttpServlet {
 
         int status = 0;
 
-        switch (k){
-            case "n":
-                status = Constant.NEW;
-                break;
-            case "i":
-                status = Constant.IN_PROGRESS;
-                break;
-            case "r":
-                status = Constant.RESOLVED;
-                break;
-            case "f":
-                status = Constant.FEEDBACK;
-                break;
-            case "c":
-                status = Constant.CLOSED;
-                break;
-            case "o":
-                status = Constant.OUT_OF_DATE;
-                break;
-            default:
-                status = Constant.ALL;
-                break;
+        if(k != null){
+            switch (k){
+                case "n":
+                    status = Constant.NEW;
+                    break;
+                case "i":
+                    status = Constant.IN_PROGRESS;
+                    break;
+                case "r":
+                    status = Constant.RESOLVED;
+                    break;
+                case "f":
+                    status = Constant.FEEDBACK;
+                    break;
+                case "c":
+                    status = Constant.CLOSED;
+                    break;
+                case "o":
+                    status = Constant.OUT_OF_DATE;
+                    break;
+                default:
+                    status = Constant.ALL;
+                    break;
+            }
         }
 
         switch (t){
@@ -74,7 +76,7 @@ public class ListController extends HttpServlet {
                 break;
             case "r":
                 request.setAttribute("listname", "Danh sách công việc liên quan");
-                requests = new ArrayList<>();
+                requests = requestDb.getAllRelateRequest(id, status);
                 break;
             case "t":
                 request.setAttribute("listname", "Danh sách công việc của team");

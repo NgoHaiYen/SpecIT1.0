@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Request IT</title>
+    <title>SpecIT</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -36,7 +36,6 @@
             <form method="post" id="form" data-toggle="validator">
                 <div class="row" id="row">
                     <h1> Thêm yêu cầu </h1>
-
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
