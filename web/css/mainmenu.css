@@ -2,6 +2,9 @@
     width: 190px !important;
 }
 
+.submit {
+    width: 100%;
+}
 .file-upload{
     display:block;
     text-align:center;

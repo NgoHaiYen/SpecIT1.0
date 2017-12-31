@@ -267,15 +267,21 @@
                             <div class="col-xz-8">
                             </div>
                         </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <textarea name="nd" id="nd"></textarea>
-                                <span id="nd_error" class="errornote"></span>
+                        <form data-toggle="validator">
+                            <div class="col-sm-12">
+                                <label>Bình luận</label>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="5" id="nd" name="nd" required></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <button type="submit" class="btn btn-primary" onclick="" id="submit" name="submit-btn"> <span class="	glyphicon glyphicon-send"></span> Click to submit</button>
-                        </div>
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary submit" onclick="" id="submit" name="submit-btn"> <span class="	glyphicon glyphicon-send"></span> Click to submit</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -283,16 +289,10 @@
     </div>
 </div>
 
-<select name="fake" onchange="change(this);">
-    <option value="a" name="a">a</option>
-    <option value="b" name="b">b</option>
-</select>
 
 <script src="js/jquery.min.js"></script>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/ckeditor/ckeditor.js"></script>
-
 <script src="bootstrap/js/bootstrap-select.min.js"></script>
 <script src="bootstrap/js/growl.min.js"></script>
 <script src="js/validation.js"></script>
@@ -300,7 +300,6 @@
 <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
 <script src="bootstrap/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript">
-    CKEDITOR.replace('nd');
 
     $(".departPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi bộ phận IT.',{

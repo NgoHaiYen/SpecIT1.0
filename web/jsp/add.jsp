@@ -107,15 +107,14 @@
                             <div class="file-select">
                                 <div class="file-select-button" id="fileName">Chọn ảnh upload</div>
                                 <div class="file-select-name" id="noFile">No file chosen...</div>
-                                <input type="file" name="chooseFile" id="chooseFile">
+                                <input type="file" name="chooseFile" id="chooseFile" accept="image/x-png,image/jpeg">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
-                            <button disabled type="submit" name ="addrequest" value="cancel" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
+                            <button type="submit" name ="addrequest" value="add" class="btn btn-info submit" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
                         </div>
                     </div>
                 </div>
@@ -146,13 +145,6 @@
         $(function () {
             $('#datetimepicker').datepicker();
         });
-
-        timer = setInterval(updateDiv,100);
-        function updateDiv(){
-            var editorText = CKEDITOR.instances.nd.getData();
-            $('#trackingDiv').html(editorText);
-        }
-
         //file upload
         $('#chooseFile').bind('change', function () {
             var filename = $("#chooseFile").val();
@@ -165,9 +157,6 @@
                 $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
             }
         });
-
-
-
 
     </script>
 </body>
