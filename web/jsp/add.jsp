@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mainmenu.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.css" rel="stylesheet"/>
 
     <style type="text/css">
         .day, th, .month, #date {
@@ -42,9 +40,10 @@
     <div class="container-fluid">
         <div class="side-body">
 
-            <form action="add" method="post" id="form" accept-charset="UTF-8" enctype="multipart/form-data">
-                <h1> Thêm yêu cầu </h1>
+            <form method="post" id="form" data-toggle="validator">
                 <div class="row" id="row">
+                    <h1> Thêm yêu cầu </h1>
+
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
@@ -71,7 +70,8 @@
                                 <input type='text' class="form-control" name="date" data-error="Vui lòng chọn ngày" required/>
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar" id="date"></span>
-                                </span> 
+                                </span>
+
                             </div>
                             <div class="help-block with-errors"></div>
                         </div>
@@ -87,6 +87,7 @@
                             </select>
                             <div class="help-block with-errors"></div>
                         </div>
+
                     </div>
 
                     <div class="col-sm-6">
@@ -103,32 +104,61 @@
                     <div class="col-sm-12">
                         <div class="form-group" id="textform">
                             <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <textarea id="nd" class="nd" required></textarea>
+                            <textarea name="nd" id="nd" class="nd" required></textarea>
                             <div class="help-block with-errors"></div>
-                            <input type="hidden" name="nd" id="ndfake"/>
                             <div id="trackingDiv"></div>
                         </div>
                     </div>
+
 
                     <div class="col-sm-12">
                         <div class="form-group">
                             <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
                                 <input class="form-control" type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
                             </span>
+                            <img id="image" src="image/image.jpeg"/>
                         </div>
                     </div>
 
+
+
+                    <script>
+                        var image = document.getElementById("image");
+                        var file = document.getElementById("upload");
+                        image.onclick = function(){
+                            file.click();
+                        };
+
+                        changeImage = function(input){
+                            if (input.value == "") return;
+                            image.src = "image/" + input.value.split(/(\\|\/)/g).pop();
+                            image.style.visibility='visible';
+                            document.getElementsByClassName("upload")[0].style.visibility = 'hidden';
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    $('#image')
+                                        .attr('src', e.target.result)
+                                        .width(150)
+                                        .height(200);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                    </script>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <button type="submit" name ="addrequest" value="add" onclick="changeValue()" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
+                            <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
                             <button disabled type="submit" name ="addrequest" value="cancel" class="btn btn-danger custom"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </form>
+
+
         </div>
     </div>
-    
+
     <script src="js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/moment.js"></script>
@@ -136,9 +166,11 @@
     <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
     <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
+    <script src="js/validation.js"></script>
     <script>
         $(function () {
-            /*Toggle bat tat slide bar*/
+
+        /*Toggle bat tat slide bar*/
             $('.navbar-toggle').click(function () {
                 $('.navbar-nav').toggleClass('slide-in');
                 $('.side-body').toggleClass('body-slide-in');
@@ -151,15 +183,15 @@
         });
 
         CKEDITOR.replace('nd');
+
+
         timer = setInterval(updateDiv,100);
         function updateDiv(){
             var editorText = CKEDITOR.instances.nd.getData();
             $('#trackingDiv').html(editorText);
         }
 
-        function changeValue(){
-            $('#ndfake').val($('#trackingDiv:last-child').text());
-        }
+
 
     </script>
 </body>
