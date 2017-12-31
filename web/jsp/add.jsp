@@ -23,13 +23,6 @@
         .month{
             margin: 5px;
         }
-
-        img {
-            visibility: hidden;
-            margin-top: 10px;
-            min-width: 100%;
-            height: auto;
-        }
     </style>
 
 </head>
@@ -108,44 +101,20 @@
                             <div class="help-block with-errors"></div>
                             <div id="trackingDiv"></div>
                         </div>
+
+
                     </div>
 
-
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <span class="btn btn-default btn-file custom upload" style="margin-top: 30px; margin-left: 20px;">
-                                <input class="form-control" type="file" name="upload" id="upload" accept=".jpeg,.png" onchange='changeImage(this)'>Chọn ảnh minh họa
-                            </span>
-                            <img id="image" src="image/image.jpeg"/>
+                        <div class="file-upload">
+                            <div class="file-select">
+                                <div class="file-select-button" id="fileName">Chọn ảnh upload</div>
+                                <div class="file-select-name" id="noFile">No file chosen...</div>
+                                <input type="file" name="chooseFile" id="chooseFile">
+                            </div>
                         </div>
                     </div>
 
-
-
-                    <script>
-                        var image = document.getElementById("image");
-                        var file = document.getElementById("upload");
-                        image.onclick = function(){
-                            file.click();
-                        };
-
-                        changeImage = function(input){
-                            if (input.value == "") return;
-                            image.src = "image/" + input.value.split(/(\\|\/)/g).pop();
-                            image.style.visibility='visible';
-                            document.getElementsByClassName("upload")[0].style.visibility = 'hidden';
-                            if (input.files && input.files[0]) {
-                                var reader = new FileReader();
-                                reader.onload = function (e) {
-                                    $('#image')
-                                        .attr('src', e.target.result)
-                                        .width(150)
-                                        .height(200);
-                                };
-                                reader.readAsDataURL(input.files[0]);
-                            }
-                        }
-                    </script>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <button type="submit" name ="addrequest" value="add" class="btn btn-info custom" id="send"><span class="glyphicon glyphicon-ok"></span> Gửi yêu cầu</button>
@@ -190,6 +159,20 @@
             var editorText = CKEDITOR.instances.nd.getData();
             $('#trackingDiv').html(editorText);
         }
+
+        //file upload
+        $('#chooseFile').bind('change', function () {
+            var filename = $("#chooseFile").val();
+            if (/^\s*$/.test(filename)) {
+                $(".file-upload").removeClass('active');
+                $("#noFile").text("No file chosen...");
+            }
+            else {
+                $(".file-upload").addClass('active');
+                $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+            }
+        });
+
 
 
 
