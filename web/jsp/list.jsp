@@ -36,7 +36,6 @@
     <jsp:include page="navigationbar.jsp" />
 
     <!-- Main Content -->
-    <form action="details" id="list" method="post">
         <div class="container-fluid">
             <div class="side-body">
                 <h1> ${listname} </h1><br/>
@@ -70,7 +69,6 @@
                 </div>
             </div>
         </div>
-    </form>
 
         <script src="js/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
