@@ -95,13 +95,11 @@
                     </div>
 
                     <div class="col-sm-12">
-                        <div class="form-group" id="textform">
-                            <label>Nội dung <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <textarea name="nd" id="nd" class="nd" required></textarea>
+                        <label class="control-label">Ghi chú:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="nd" name="nd" required></textarea>
                             <div class="help-block with-errors"></div>
-                            <div id="trackingDiv"></div>
                         </div>
-
 
                     </div>
 
@@ -133,7 +131,6 @@
     <script src="bootstrap/js/moment.js"></script>
     <script src="bootstrap/js/bootstrap-select.min.js"></script>
     <script src="bootstrap/js/bootstrap-datepicker.min.js"></script>
-    <script src="css/ckeditor/ckeditor.js"></script>
     <script src="js/request.js"></script>
     <script src="js/validation.js"></script>
     <script>
@@ -150,9 +147,6 @@
         $(function () {
             $('#datetimepicker').datepicker();
         });
-
-        CKEDITOR.replace('nd');
-
 
         timer = setInterval(updateDiv,100);
         function updateDiv(){

@@ -29,10 +29,10 @@
         <!-- Main Menu -->
         <div class="side-menu-container">
             <ul class="nav navbar-nav">
-                <li><a href="${pageContext.request.contextPath}/add"><span class="glyphicon glyphicon-plus"></span><b>THÊM YÊU CẦU</b></a></li>
+                <button class="btn btn-danger custom" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px"><a style="text-decoration: none" href="${pageContext.request.contextPath}/add"><span  style="color: white; margin-right: 15px" class="glyphicon glyphicon-plus"></span><b style="color: white">THÊM YÊU CẦU</b></a></button>
                 <!-- Dropdown-->
-                <li class="panel panel-default">
-                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                <li class="panel panel-default" style="margin-top: 15px">
+                    <a data-toggle="collapse" href="#dropdown-lvl">
                         <span class="glyphicon glyphicon-asterisk"></span> Việc tôi yêu cầu <span class="caret"></span>
                     </a>
 
@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="panel panel-default">
-                    <a data-toggle="collapse" href="#dropdown-lvl2">
+                    <a data-toggle="collapse" href="#dropdown-lv2">
                         <span class="glyphicon glyphicon-pencil"></span> Việc tôi được giao <span class="caret"></span>
                     </a>
 
@@ -120,7 +120,7 @@
                 <!--PANEL cua manager-->
                     <li class="panel panel-default">
                         <a data-toggle="collapse" href="#dropdown-lv5">
-                            <span class="glyphicon glyphicon-star"></span> Công việc của bộ phận IT <span class="caret"></span>
+                            <span class="glyphicon glyphicon-edit"></span> Công việc của bộ phận IT <span class="caret"></span>
                         </a>
 
                         <!-- Dropdown level-->
@@ -138,6 +138,9 @@
                         </div>
                     </li>
 
+                <!--logout-->
+                <button class="btn btn-primary" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px"><a style="text-decoration: none"><span style="color: honeydew; margin-right: 15px" class="glyphicon glyphicon-off"></span><b style="color: honeydew">Logout</b></a></button>
+                <!-- Dropdown-->
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
