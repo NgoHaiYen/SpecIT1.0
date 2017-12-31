@@ -164,14 +164,13 @@ public class AddRequestController extends HttpServlet {
         session.setAttribute("myaf", rdb.getNumberOfAssignRequest(id, Constant.FEEDBACK));
         session.setAttribute("myao", rdb.getNumberOfAssignRequest(id, Constant.OUT_OF_DATE));
 
-        RelaterDb relaterDb = new RelaterDb();
-        session.setAttribute("rla", relaterDb.getNumberOfRequestRelate(id, Constant.ALL));
-        session.setAttribute("rln", relaterDb.getNumberOfRequestRelate(id, Constant.NEW));
-        session.setAttribute("rli", relaterDb.getNumberOfRequestRelate(id, Constant.IN_PROGRESS));
-        session.setAttribute("rlr", relaterDb.getNumberOfRequestRelate(id, Constant.RESOLVED));
-        session.setAttribute("rlc", relaterDb.getNumberOfRequestRelate(id, Constant.CLOSED));
-        session.setAttribute("rlf", relaterDb.getNumberOfRequestRelate(id, Constant.FEEDBACK));
-        session.setAttribute("rlo", relaterDb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
+        session.setAttribute("rla", rdb.getNumberOfRequestRelate(id, Constant.ALL));
+        session.setAttribute("rln", rdb.getNumberOfRequestRelate(id, Constant.NEW));
+        session.setAttribute("rli", rdb.getNumberOfRequestRelate(id, Constant.IN_PROGRESS));
+        session.setAttribute("rlr", rdb.getNumberOfRequestRelate(id, Constant.RESOLVED));
+        session.setAttribute("rlc", rdb.getNumberOfRequestRelate(id, Constant.CLOSED));
+        session.setAttribute("rlf", rdb.getNumberOfRequestRelate(id, Constant.FEEDBACK));
+        session.setAttribute("rlo", rdb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
 
         session.setAttribute("ta", rdb.getNumberOfSubteamRequest(id, Constant.ALL));
         session.setAttribute("tn", rdb.getNumberOfSubteamRequest(id, Constant.NEW));

@@ -35,6 +35,7 @@ public class ListController extends HttpServlet {
         if (k == null || t == null){
             session.setAttribute("requests", requests);
             request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
+            return;
         }
 
         int status = 0;
@@ -79,7 +80,6 @@ public class ListController extends HttpServlet {
                 requests = requestDb.getAllTeamRequest(id, status);
                 break;
             default:
-                requests = requestDb.getAllRequest(id, status);
                 break;
         }
 

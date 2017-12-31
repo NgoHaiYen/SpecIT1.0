@@ -1,6 +1,7 @@
 package database;
 
 import model.Request;
+import utils.Constant;
 
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -33,10 +34,15 @@ public class RequestDb {
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request where created_by = ? and status = ? ";
+            String s = "select * from request where created_by = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
                 Request r = new Request();
@@ -72,10 +78,15 @@ public class RequestDb {
     public Integer getNumberOfRequest(int employeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where created_by = ? and status = ? ";
+            String s = "select count(*) from request where created_by = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
                 int i = rs.getInt(1);
@@ -97,10 +108,15 @@ public class RequestDb {
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request where assigned_to = ? and status = ? ";
+            String s = "select * from request where assigned_to = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
                 Request r = new Request();
@@ -138,10 +154,15 @@ public class RequestDb {
     public Integer getNumberOfAssignRequest(int employeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where assigned_to = ? and status = ? ";
+            String s = "select count(*) from request where assigned_to = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
                 int i = rs.getInt(1);
@@ -163,10 +184,15 @@ public class RequestDb {
         ArrayList<Integer> feedBackRatings = new ArrayList<Integer>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select rating from request where itteam_id = ? and status = ? ";
+            String s = "select rating from request where itteam_id = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
                 Integer int1 = rs.getInt("rating");
@@ -185,10 +211,15 @@ public class RequestDb {
     public Integer getNumberOfFeedBack(int employeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where itteam_id = ? and status = ? ";
+            String s = "select count(*) from request where itteam_id = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
                 int i = rs.getInt(1);
@@ -212,10 +243,15 @@ public class RequestDb {
             String s = "select * from request join subteam on request.subteam_id = subteam.subteam_id " +
                     " join itteam on subteam.itteam_id = itteam.itteam_id " +
                     " join employee on request.created_by = employee.employee_id" +
-                    " where itteam.itteam_id = ? and request.status = ? ";
+                    " where itteam.itteam_id = ?";
+            if (status != 0){
+                s += " and request.status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeeId);
-            statement.setInt(2,status);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
                 Request r = new Request();
@@ -246,15 +282,20 @@ public class RequestDb {
 
     // get number of requests by itteam_id and status
     // so cong viec cua bo phan it
-    public Integer getNumberOfTeamRequest(int teamId, int status){
+    public Integer getNumberOfTeamRequest(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select count(*) from request join subteam on request.subteam_id = subteam.subteam_id " +
                     " join itteam on subteam.itteam_id = itteam.itteam_id" +
-                    " where itteam.itteam_id = ? and request.status = ? ";
+                    " where itteam.itteam_id = ?";
+            if (status != 0){
+                s += " and request.status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,teamId);
-            statement.setInt(2,status);
+            statement.setInt(1,employeeId);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
                int i = rs.getInt(1);
@@ -271,15 +312,20 @@ public class RequestDb {
 
     // get all requests by subteam_id and status
     // cong viec cua team
-    public ArrayList<Request> getAllSubteamRequest(int subteamId, int status) {
+    public ArrayList<Request> getAllSubteamRequest(int employeeId, int status) {
         // todo: subteamid -> employeeid
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request where subteam_id = ? and status = ? ";
+            String s = "select * from request where subteam_id = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1, subteamId);
-            statement.setInt(2, status);
+            statement.setInt(1,employeeId);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Request r = new Request();
@@ -341,25 +387,29 @@ public class RequestDb {
     // get number of request that relate to the employee, join employee with relate table
     // if number = 0, return null
     public Integer getNumberOfRequestRelate(int employeeId, int status){
-        int count = 0;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Statement statement = conn.createStatement();
-
-            ResultSet rs = statement.executeQuery("select * from relater JOIN request " +
-                    "ON relater.request_id = request.request_id " +
-                    "WHERE employee_id =" + employeeId + " AND request.status = " + status + ";");
-
-            while(rs.next()){
-                count ++;
+            String s = "select count(*) from request join relater on request.request_id = relater.subteam_id " +
+                    " where relater.employee_id = ?";
+            if (status != 0){
+                s += " and request.status = ? ";
+            }
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,employeeId);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()){
+                int i = rs.getInt(1);
+                if (i > 0) return i;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if ( count == 0 ) return null;
-        return count;
+        return null;
     }
 
     // insert new request
