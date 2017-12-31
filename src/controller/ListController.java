@@ -78,7 +78,7 @@ public class ListController extends HttpServlet {
                 break;
             case "t":
                 request.setAttribute("listname", "Danh sách công việc của team");
-                requests = requestDb.getAllSubteamRequest(id, status);
+                requests = requestDb.getAllTeamRequest(id, status);
                 break;
             case "i":
                 request.setAttribute("listname", "Danh sách công việc của bộ phận IT");
@@ -122,21 +122,21 @@ public class ListController extends HttpServlet {
         session.setAttribute("rlf", rdb.getNumberOfRequestRelate(id, Constant.FEEDBACK));
         session.setAttribute("rlo", rdb.getNumberOfRequestRelate(id, Constant.OUT_OF_DATE));
 
-        session.setAttribute("ta", rdb.getNumberOfSubteamRequest(id, Constant.ALL));
-        session.setAttribute("tn", rdb.getNumberOfSubteamRequest(id, Constant.NEW));
-        session.setAttribute("ti", rdb.getNumberOfSubteamRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.RESOLVED));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.CLOSED));
-        session.setAttribute("tr", rdb.getNumberOfSubteamRequest(id, Constant.FEEDBACK));
-        session.setAttribute("to", rdb.getNumberOfSubteamRequest(id, Constant.OUT_OF_DATE));
+        session.setAttribute("ta", rdb.getNumberOfTeamRequest(id, Constant.ALL));
+        session.setAttribute("tn", rdb.getNumberOfTeamRequest(id, Constant.NEW));
+        session.setAttribute("ti", rdb.getNumberOfTeamRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("tr", rdb.getNumberOfTeamRequest(id, Constant.RESOLVED));
+        session.setAttribute("tr", rdb.getNumberOfTeamRequest(id, Constant.CLOSED));
+        session.setAttribute("tr", rdb.getNumberOfTeamRequest(id, Constant.FEEDBACK));
+        session.setAttribute("to", rdb.getNumberOfTeamRequest(id, Constant.OUT_OF_DATE));
 
-        session.setAttribute("ita", rdb.getNumberOfTeamRequest(id, Constant.ALL));
-        session.setAttribute("itn", rdb.getNumberOfTeamRequest(id, Constant.NEW));
-        session.setAttribute("iti", rdb.getNumberOfTeamRequest(id, Constant.IN_PROGRESS));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.RESOLVED));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.CLOSED));
-        session.setAttribute("itr", rdb.getNumberOfTeamRequest(id, Constant.FEEDBACK));
-        session.setAttribute("ito", rdb.getNumberOfTeamRequest(id, Constant.OUT_OF_DATE));
+        session.setAttribute("ita", rdb.getNumberOfBranchRequest(id, Constant.ALL));
+        session.setAttribute("itn", rdb.getNumberOfBranchRequest(id, Constant.NEW));
+        session.setAttribute("iti", rdb.getNumberOfBranchRequest(id, Constant.IN_PROGRESS));
+        session.setAttribute("itr", rdb.getNumberOfBranchRequest(id, Constant.RESOLVED));
+        session.setAttribute("itr", rdb.getNumberOfBranchRequest(id, Constant.CLOSED));
+        session.setAttribute("itr", rdb.getNumberOfBranchRequest(id, Constant.FEEDBACK));
+        session.setAttribute("ito", rdb.getNumberOfBranchRequest(id, Constant.OUT_OF_DATE));
     }
 
 }

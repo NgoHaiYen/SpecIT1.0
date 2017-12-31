@@ -1,7 +1,7 @@
 package database;
 
 import model.Request;
-import utils.Constant;
+
 
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -29,9 +29,9 @@ public class RequestDb {
     }
 
     // get all request of an employee by status and created_by
-    // viec toi yeu cau (new, inprogress, resolved, feedback, closed, cancelled)
-    public ArrayList<Request> getAllRequest(int employeId, int status){
-        ArrayList<Request> requests = new ArrayList<Request>();
+    // viec toi yeu cau (new, in progress, resolved, feedback, closed, cancelled)
+    public ArrayList<Request> getAllRequest(int employeeId, int status){
+        ArrayList<Request> requests = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select * from request where created_by = ?";
@@ -39,7 +39,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -56,7 +56,8 @@ public class RequestDb {
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
-                r.setTeamId(rs.getInt("subteam_id"));
+                r.setTeamId(rs.getInt("team_id"));
+                r.setBranchId(rs.getInt("branch_id"));
                 r.setUpdatedAt(rs.getString("updated_at"));
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));
@@ -74,8 +75,8 @@ public class RequestDb {
     }
 
     // get number of request of an employee by status and created_by
-    // so viec toi yeu cau (new, inprogress, resolved, feedback, closed, cancelled)
-    public Integer getNumberOfRequest(int employeId, int status){
+    // so viec toi yeu cau (new, in progress, resolved, feedback, closed, cancelled)
+    public Integer getNumberOfRequest(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select count(*) from request where created_by = ?";
@@ -83,7 +84,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -104,7 +105,7 @@ public class RequestDb {
 
     // get all requests assign to an employee by assigned_to and status
     // viec toi duoc giao
-    public ArrayList<Request> getAllAssignRequest(int employeId, int status){
+    public ArrayList<Request> getAllAssignRequest(int employeeId, int status){
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -113,7 +114,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -151,7 +152,7 @@ public class RequestDb {
 
     // get number of requests assign to an employee by assigned_to and status
     // so viec toi duoc giao
-    public Integer getNumberOfAssignRequest(int employeId, int status){
+    public Integer getNumberOfAssignRequest(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select count(*) from request where assigned_to = ?";
@@ -159,7 +160,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -180,7 +181,7 @@ public class RequestDb {
 
     // get all feedback of all requests assign to an employee by assigned_to and status
     // viec toi duoc giao
-    public ArrayList<Integer> getFeedBack(int employeId, int status){
+    public ArrayList<Integer> getFeedBack(int employeeId, int status){
         ArrayList<Integer> feedBackRatings = new ArrayList<Integer>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -189,7 +190,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -208,7 +209,7 @@ public class RequestDb {
 
     // get number of feedback of all requests assign to an employee by assigned_to and status
     // so luong phan hoi cua viec toi duoc giao
-    public Integer getNumberOfFeedBack(int employeId, int status){
+    public Integer getNumberOfFeedBack(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select count(*) from request where itteam_id = ?";
@@ -216,7 +217,7 @@ public class RequestDb {
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -233,27 +234,93 @@ public class RequestDb {
         return null;
     }
 
-    // get all request by employee_ and status
-    // cong viec cua bo phan it
-    public ArrayList<Request> getAllTeamRequest(int employeeId, int status){
-        // todo teamid -> employeeid
+    // get all request by team_id_ and status
+    // cong viec cua team
+    public ArrayList<Request> getAllTeamRequest(int teamId, int status){
+
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request join subteam on request.subteam_id = subteam.subteam_id " +
-                    " join itteam on subteam.itteam_id = itteam.itteam_id " +
-                    " join employee on request.created_by = employee.employee_id" +
-                    " where itteam.itteam_id = ?";
+            String s = "select * from request " +
+                    " where team_id ?";
             if (status != 0){
                 s += " and request.status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeeId);
+            statement.setInt(1,teamId);
             if (status != 0){
                 statement.setInt(2,status);
             }
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
+                Request r2 = new Request();
+                r2.setId(rs.getInt("request_id"));
+                r2.setAssignedTo(rs.getInt("assigned_to"));
+                r2.setClosedAt(rs.getString("closed_at"));
+                r2.setCreatedBy(rs.getInt("created_by"));
+                r2.setContent(rs.getString("content"));
+                r2.setDeadline(rs.getString("deadline"));
+                r2.setPriority(rs.getInt("priority"));
+                r2.setRating(rs.getInt("rating"));
+                r2.setStatus(rs.getInt("status"));
+                r2.setSubject(rs.getString("subject"));
+                r2.setTeamId(rs.getInt("team_id"));
+                r2.setBranchId(rs.getInt("branch_id"));
+                r2.setUpdatedAt(rs.getString("updated_at"));
+                r2.setResolvedAt(rs.getString("resolved_at"));
+                r2.setDeletedAt(rs.getString("deleted_at"));
+                requests.add(r2);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return requests;
+    }
+
+    // get number of requests by team_id and status
+    // so cong viec cua team
+    public Integer getNumberOfTeamRequest(int teamId, int status) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select count(*) from request where team_id = ? and status = ? ;";
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, teamId);
+            statement.setInt(2, status);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                int i = rs.getInt(1);
+                if (i > 0) return i;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // get all requests by branch_id and status
+    // cong viec cua chi nhanh
+    public ArrayList<Request> getAllBranchRequest(int branchId, int status) {
+
+        ArrayList<Request> requests = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String s = "select * from request where branch_id = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1,branchId);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
@@ -265,34 +332,35 @@ public class RequestDb {
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
-                r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getString("update_at"));
+                r.setTeamId(rs.getInt("team_id"));
+                r.setBranchId(rs.getInt("branch_id"));
+                r.setUpdatedAt(rs.getString("updated_at"));
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
             }
-        }
-        catch (SQLException e) {
+
+        } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
         return requests;
     }
 
-    // get number of requests by itteam_id and status
+    // get number of requests by branch_id and status
     // so cong viec cua bo phan it
-    public Integer getNumberOfTeamRequest(int employeeId, int status){
+    public Integer getNumberOfBranchRequest(int branchId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request join subteam on request.subteam_id = subteam.subteam_id " +
-                    " join itteam on subteam.itteam_id = itteam.itteam_id" +
-                    " where itteam.itteam_id = ?";
+            String s = "select count(*) from request" +
+                    " where branch_id = ?";
             if (status != 0){
                 s += " and request.status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeeId);
+            statement.setInt(1,branchId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -310,16 +378,16 @@ public class RequestDb {
         return null;
     }
 
-    // get all requests by subteam_id and status
-    // cong viec cua team
-    public ArrayList<Request> getAllSubteamRequest(int employeeId, int status) {
-        // todo: subteamid -> employeeid
-        ArrayList<Request> requests = new ArrayList<Request>();
+
+    // get all request relate to an employee
+    public ArrayList<Request> getAllRelateRequest(int employeeId, int status){
+        ArrayList<Request> requests =  new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request where subteam_id = ?";
+            String s = "select count(*) from request join relater on request.request_id = relater.employee_id " +
+                    " where relater.employee_id = ?";
             if (status != 0){
-                s += " and status = ? ";
+                s += " and request.status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1,employeeId);
@@ -327,7 +395,7 @@ public class RequestDb {
                 statement.setInt(2,status);
             }
             ResultSet rs = statement.executeQuery();
-            while (rs.next()) {
+            if (rs.next()){
                 Request r = new Request();
                 r.setId(rs.getInt("request_id"));
                 r.setAssignedTo(rs.getInt("assigned_to"));
@@ -339,13 +407,15 @@ public class RequestDb {
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
-                r.setTeamId(rs.getInt("subteam_id"));
-                r.setUpdatedAt(rs.getString("update_at"));
+                r.setTeamId(rs.getInt("team_id"));
+                r.setBranchId(rs.getInt("branch_id"));
+                r.setUpdatedAt(rs.getString("updated_at"));
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
-            }
 
+
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -353,35 +423,6 @@ public class RequestDb {
         }
 
         return requests;
-    }
-
-    // get number of requests by subteam_id and status
-    // so cong viec cua team
-    public Integer getNumberOfSubteamRequest(int subteamId, int status) {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where subteam_id = ? and status = ? ";
-            PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1, subteamId);
-            statement.setInt(2, status);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                int i = rs.getInt(1);
-                if (i > 0) return i;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    // get all request relate to an employee
-    public ArrayList<Request> getAllRelateRequest(int employeeId, int status){
-        // todo
-        return null;
     }
 
     // get number of request that relate to the employee, join employee with relate table
@@ -423,8 +464,8 @@ public class RequestDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "insert into request (subject, content, created_by, status," +
-                    " priority, deadlline, subteam_id, create_at) VALUE " +
-                    "(?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP);";
+                    " priority, deadline, team_id, create_at,branch_id) VALUE " +
+                    "(?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP,?);";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setString(1,request.getSubject());
             statement.setString(2,request.getContent());
@@ -432,6 +473,7 @@ public class RequestDb {
             statement.setInt(4,request.getPriority());
             statement.setString(5,request.getDeadline());
             statement.setInt(6,request.getTeamId());
+            statement.setInt(7,request.getBranchId());
             statement.execute();
         }
         catch (SQLException e) {
@@ -456,7 +498,7 @@ public class RequestDb {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select max(last_insert_id(request_id)) from request" +
                     " where subject = ? and content = ? and created_by = ? " +
-                    " and subteam_id = ?";
+                    " and team_id = ?";
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setString(1, request.getSubject());
             statement.setString(2, request.getContent());

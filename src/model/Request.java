@@ -18,7 +18,8 @@ public class Request {
     private int assignedTo;
     private int rating;
     private int teamId;
-    
+
+    private int branchId;
     private String createdAt;
     private String resolvedAt;
     private String closedAt;
@@ -164,6 +165,15 @@ public class Request {
     public int getAssignedTo() {
         return assignedTo;
     }
+
+    public int getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(int branchId) {
+        this.branchId = branchId;
+    }
+
 
     public String getImage(){
         ImageDb idb = new ImageDb();
