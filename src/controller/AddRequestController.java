@@ -66,7 +66,7 @@ public class AddRequestController extends HttpServlet {
 
         // itteams
         TeamDb sdb = new TeamDb();
-        ArrayList<Team> subteams = sdb.getAllSubteams();
+        ArrayList<Team> subteams = sdb.getAllTeams();
         session.setAttribute("subteams", subteams);
 
         // employees

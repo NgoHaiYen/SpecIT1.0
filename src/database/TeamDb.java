@@ -20,16 +20,16 @@ public class TeamDb {
         }
     }
 
-    // get all subteam
-    public ArrayList<Team> getAllSubteams() {
+    // get all team
+    public ArrayList<Team> getAllTeams() {
         ArrayList<Team> teams = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM subteam;");
+            ResultSet rs = statement.executeQuery("SELECT * FROM team;");
             while(rs.next()){
                 Team team = new Team();
-                team.setId(rs.getInt("subteam_id"));
+                team.setId(rs.getInt("team_id"));
                 team.setName(rs.getString("name"));
                 teams.add(team);
             }

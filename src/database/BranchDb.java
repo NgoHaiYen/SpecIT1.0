@@ -20,7 +20,7 @@ public class BranchDb {
         }
     }
 
-    // get all itteam
+    // get all branch
     public ArrayList<Branch> getAllBranch() {
         ArrayList<Branch> teams = new ArrayList<Branch>();
         try {
@@ -29,7 +29,7 @@ public class BranchDb {
             ResultSet rs = statement.executeQuery("SELECT * FROM branch;");
             while(rs.next()){
                 Branch team = new Branch();
-                team.setId(rs.getInt("itteam_id"));
+                team.setId(rs.getInt("branch_id"));
                 team.setName(rs.getString("name"));
                 team.setLeaderId(rs.getInt("leader_id"));
                 teams.add(team);
@@ -43,7 +43,7 @@ public class BranchDb {
         return teams;
     }
 
-    // get all itteams name
+    // get all branchs name
     public ArrayList<String> getAllBranchName() {
         ArrayList<String> teamNames = new ArrayList<String>();
         try {
