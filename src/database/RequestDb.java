@@ -56,8 +56,8 @@ public class RequestDb {
                 r.setRating(rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
-                r.setTeamId(rs.getInt("itteam_id"));
-                r.setUpdatedAt(rs.getString("update_at"));
+                r.setTeamId(rs.getInt("subteam_id"));
+                r.setUpdatedAt(rs.getString("updated_at"));
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);

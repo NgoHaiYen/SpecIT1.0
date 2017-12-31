@@ -38,7 +38,7 @@
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-            <h1> Danh sách công việc được giao </h1><br/>
+            <h1> ${listname} </h1><br/>
             <div>
                 <table class="table table-hover" id="listmain">
                     <thead>

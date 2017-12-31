@@ -34,6 +34,7 @@ public class ListController extends HttpServlet {
         String k = request.getParameter("k");
         if (k == null || t == null){
             session.setAttribute("requests", requests);
+            request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
             request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
             return;
         }
@@ -68,18 +69,23 @@ public class ListController extends HttpServlet {
 
         switch (t){
             case "mya":
+                request.setAttribute("listname", "Danh sách việc tôi được giao");
                 requests = requestDb.getAllAssignRequest(id, status);
                 break;
             case "r":
+                request.setAttribute("listname", "Danh sách công việc liên quan");
                 requests = new ArrayList<>();
                 break;
             case "t":
+                request.setAttribute("listname", "Danh sách công việc của team");
                 requests = requestDb.getAllSubteamRequest(id, status);
                 break;
             case "i":
+                request.setAttribute("listname", "Danh sách công việc của bộ phận IT");
                 requests = requestDb.getAllTeamRequest(id, status);
                 break;
             default:
+                request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
                 break;
         }
 
