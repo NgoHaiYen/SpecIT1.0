@@ -36,6 +36,7 @@
     <jsp:include page="navigationbar.jsp" />
 
     <!-- Main Content -->
+    <form action="details" id="list" method="post">
         <div class="container-fluid">
             <div class="side-body">
                 <h1> ${listname} </h1><br/>
@@ -56,7 +57,7 @@
                             <c:forEach var="request" items="${requests}">
                                 <tr>
                                     <td><img src="image/${request.image}" width="40px" height="40px"></td>
-                                    <td><a onclick="document.getElementById('list').submit();">${request.subject}</a></td>
+                                    <td><a style="cursor: pointer;" onclick="postValue(this)">${request.subject}</a></td>
                                     <td>${request.priorityName}</td>
                                     <td>${request.createdByName}</td>
                                     <td>${request.assignedToName}</td>
@@ -69,13 +70,19 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" name="requestshow" id="show">
+    </form>
+
+        <script>
+            function postValue(a){
+                document.getElementById('show').value = a.innerHTML;
+                document.getElementById('list').submit();
+            }
+        </script>
 
         <script src="js/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/js/moment.js"></script>
-        <script src="bootstrap/js/bootstrap-select.min.js"></script>
-        <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="js/ckeditor/ckeditor.js"></script>
         <script src="js/request.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
         <script src="js/dataTables.bootstrap.min.js"></script>

@@ -211,7 +211,7 @@
                     <!--Request Details -->
                 <div class="panel-body">
                     <div class="col-sm-4">
-                        <label class="newrow">Ngày tạo       :</label>20/05/2010 <br/>
+                        <label class="newrow">Ngày tạo       :</label>${r.createdAt}<br/>
                         <label class="newrow">Người yêu cầu  :</label>Nguyễn Văn A<br/>
                         <label class="newrow">Mức độ ưu tiên :</label>Cao
                     </div>
