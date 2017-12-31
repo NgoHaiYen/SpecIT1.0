@@ -46,6 +46,7 @@
           <div style="margin-top:10px" class="form-group">
             <div class="col-sm-12 controls">
               <button type="submit" name="submit" href="#" class="btn btn-success">Login </button>
+              <a href="#">Quên mật khẩu?</a>
             </div>
           </div>
 
