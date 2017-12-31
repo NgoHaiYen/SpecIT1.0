@@ -490,10 +490,17 @@ public class RequestDb {
     }
 
     // insert new request
-    public void addNewRequest(Request request, String[] relater){
+    public void addNewRequest(Request request, String[] relater, String file){
         addRequest(request);
 
         addRelaters(relater, getLastInsertIdRequest(request));
+
+        addImage(file, getLastInsertIdRequest(request));
+    }
+
+    private void addImage(String file, Integer requestId) {
+        ImageDb idb = new ImageDb();
+        idb.addImage(requestId, file);
     }
 
     private void addRequest(Request request){

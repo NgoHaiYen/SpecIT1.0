@@ -29,7 +29,12 @@
         <!-- Main Menu -->
         <div class="side-menu-container">
             <ul class="nav navbar-nav">
-                <button class="btn btn-danger custom" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px"><a style="text-decoration: none" href="${pageContext.request.contextPath}/add"><span  style="color: white; margin-right: 15px" class="glyphicon glyphicon-plus"></span><b style="color: white">THÊM YÊU CẦU</b></a></button>
+                <button class="btn btn-danger custom" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px">
+                    <a style="text-decoration: none" href="${pageContext.request.contextPath}/add">
+                        <span  style="color: white; margin-right: 15px" class="glyphicon glyphicon-plus"></span>
+                        <b style="color: white">THÊM YÊU CẦU</b>
+                    </a>
+                </button>
                 <!-- Dropdown-->
                 <li class="panel panel-default" style="margin-top: 15px">
                     <a data-toggle="collapse" href="#dropdown-lvl1">

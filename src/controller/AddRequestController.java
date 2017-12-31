@@ -30,7 +30,7 @@ public class AddRequestController extends HttpServlet {
         if ("add".equals(button)) {
             boolean check = checkValidate(request);
             if(check) {
-                uploadImageToServer(request.getPart("chooseFile"), request);
+                String file = uploadImageToServer(request.getPart("chooseFile"), request);
 
                 Request r = new Request();
                 r.setSubject(request.getParameter("tencv"));
@@ -41,7 +41,7 @@ public class AddRequestController extends HttpServlet {
                 r.setTeamId(Integer.parseInt(request.getParameter("subteams")));
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
-                rdb.addNewRequest(r, relater);
+                rdb.addNewRequest(r, relater, file);
 
                 session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
                 session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
@@ -119,7 +119,7 @@ public class AddRequestController extends HttpServlet {
         return true;
     }
 
-    private void uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
+    private String uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
         String fileName = Paths.get(filePart.getSubmittedFileName()).toString();
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];
@@ -135,8 +135,9 @@ public class AddRequestController extends HttpServlet {
             outputStream.close();
             content.close();
 
-            // todo add image to db
+            return fileName;
         }
+        return null;
     }
 
     private boolean checkImage(String fileName) {

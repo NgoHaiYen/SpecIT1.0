@@ -67,13 +67,13 @@ public class ImageDb {
     }
 
     // add new image
-    public void addImage(Image image){
+    public void addImage(int id, String url){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String sqlS ="INSERT INTO image (`request_id`, `url_image`) VALUES (?, ?);";
             PreparedStatement statement = conn.prepareStatement(sqlS);
-            statement.setInt(1,image.getRequestId());
-            statement.setString(2,image.getUrl());
+            statement.setInt(1, id);
+            statement.setString(2, url);
             statement.execute();
         }
         catch (SQLException e) {

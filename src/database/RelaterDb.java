@@ -47,28 +47,6 @@ public class RelaterDb {
         }
     }
 
-    public void addRelaters(ArrayList<Integer> relatersId){
-        for (int i = 0; i < relatersId.size(); i++) {
-            addRelater(relatersId.get(i));
-        }
-    }
-
-    public void addRelater(int relaterId){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-
-            String sqlS = "INSERT INTO relater(request_id, employee_id, created_at) VALUE (last_insert_id(),?,CURRENT_TIMESTAMP);";
-            PreparedStatement statement = conn.prepareStatement(sqlS);
-            statement.setInt(1,relaterId);
-            statement.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     // insert a relater to a request
     public void addRelater(int relaterId, int requestId) {
         try {
