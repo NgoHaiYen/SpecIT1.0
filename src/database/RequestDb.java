@@ -2,6 +2,7 @@ package database;
 
 import model.Branch;
 import model.Request;
+import utils.Constant;
 import utils.Mail;
 
 
@@ -597,9 +598,7 @@ public class RequestDb {
                 return rs.getInt(1);
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -640,9 +639,7 @@ public class RequestDb {
             statement.setInt(2, requestId);
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -703,19 +700,25 @@ public class RequestDb {
             String addSql = "UPDATE request SET deadline = ?, updated_at = CURRENT_TIMESTAMP " +
                     "WHERE request_id = ?";
             PreparedStatement statement = conn.prepareStatement(addSql);
-            statement.setString(1, deadline);
+            statement.setString(1, Constant.formatDateToSqlFromView(deadline));
             statement.setInt(2, requestId);
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        // send mail to assigned employee
+        Mail mail = new Mail();
+        String body = "Yêu cầu " + getName(requestId) + " của bạn đã được thay đổi deadline tới ngày: " + deadline;
+        String assignedMail = getAssignedEmail(requestId);
+        mail.sendMail(assignedMail, body, "Thay đổi deadline");
     }
 
     // update request assign
     public void updateRequestAssign(int requestId, int assignId){
+        // todo mail send mail to the old and new employee
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET assigned_to = ?, updated_at = CURRENT_TIMESTAMP " +
@@ -725,15 +728,15 @@ public class RequestDb {
             statement.setInt(2, requestId);
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     // update request status
     public void updateRequestStatus(int requestId, int status){
+        // todo mail send mail to the assigned employee
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET status = ?, updated_at = CURRENT_TIMESTAMP " +

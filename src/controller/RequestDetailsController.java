@@ -82,11 +82,8 @@ public class RequestDetailsController extends HttpServlet {
                     rdb.updateRequestBranch(requestid, id);
                     break;
                 case "deadline":
-                    // todo comment type=3
-
-                    // todo mail send mail to the assign employee
                     String date = request.getParameter("changeValue");
-                    rdb.updateRequestDeadline(requestid, Constant.formatDateToSqlFromView(date));
+                    rdb.updateRequestDeadline(requestid, date);
 
                     // add comment
                     c.setRequestId(requestid);
@@ -94,11 +91,10 @@ public class RequestDetailsController extends HttpServlet {
                           ": chuyển đến ngày " + date);
                     c.setNote("Lý do: " + comment);
                     c.setEmployeeId(userId);
-                    c.setType(2);
+                    c.setType(3);
                     cdb.addComment(c);
                     break;
                 case "relater":
-                    // todo mail
                     String[] relater = request.getParameterValues("relater");
                     ArrayList<Integer> relatersId = new ArrayList<>();
                     for (String rl:relater){
@@ -109,17 +105,14 @@ public class RequestDetailsController extends HttpServlet {
 
                     break;
                 case "assigned":
-                    // todo mail send mail to the old and new employee
                     rdb.updateRequestAssign(requestid, id);
                     break;
                 case "status":
-                    // todo mail send mail to the assigned employee
                     rdb.updateRequestStatus(requestid, id);
                     break;
                 default:
                     break;
             }
-//            String json = new Gson().toJson("");
 
             PrintWriter out = response.getWriter();
             response.setContentType("text/html");
