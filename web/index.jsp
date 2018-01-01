@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,6 +43,7 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <input id="login-password" type="password" class="form-control" name="pass" placeholder="password" required>
           </div>
+          <p style="color:red"><c:out value="${errMe}"/></p>
           <div class="help-block with-errors"></div>
           <div style="margin-top:10px" class="form-group">
             <div class="col-sm-12 controls">

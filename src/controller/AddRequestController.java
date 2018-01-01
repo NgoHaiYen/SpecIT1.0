@@ -39,6 +39,7 @@ public class AddRequestController extends HttpServlet {
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
                 rdb.addNewRequest(r, relater, file);
+                rdb.closeConnection();
 
                 session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
                 session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
@@ -63,16 +64,19 @@ public class AddRequestController extends HttpServlet {
         PriorityDb pdb = new PriorityDb();
         ArrayList<Priority> priorities = pdb.getAllPriorities();
         request.setAttribute("priorities", priorities);
+        pdb.closeConnection();
 
         // itteams
         BranchDb bdb = new BranchDb();
         ArrayList<Branch> branches = bdb.getAllBranch();
         request.setAttribute("branches", branches);
+        bdb.closeConnection();
 
         // employees
         EmployeeDb edb = new EmployeeDb();
         ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
         request.setAttribute("employees", employees);
+        edb.closeConnection();
 
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }

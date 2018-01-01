@@ -42,6 +42,7 @@ public class ListController extends HttpServlet {
             int i = Integer.parseInt(id);
             IsReadDb isReadDb = new IsReadDb();
             isReadDb.setRead(userId, i);
+            isReadDb.closeConnection();
             out.println("ok");
         }
 
@@ -120,6 +121,8 @@ public class ListController extends HttpServlet {
         for (Request r : requests) {
             r.setRead(isReadDb.isRead(id, r.getId()));
         }
+        requestDb.closeConnection();
+        isReadDb.closeConnection();
         session.setAttribute("requests", requests);
         request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
     }
