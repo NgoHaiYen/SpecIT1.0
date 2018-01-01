@@ -22,6 +22,20 @@ public class Request {
     private String updatedAt;
     private String deletedAt;
 
+    private boolean isRead;
+
+    public Request() {
+        isRead = false;
+    }
+
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
+    }
+
     public int getId() {
         return id;
     }

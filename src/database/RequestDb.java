@@ -55,9 +55,7 @@ public class RequestDb {
             }
 
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -174,9 +172,7 @@ public class RequestDb {
             }
 
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -534,14 +530,16 @@ public class RequestDb {
     public void addNewRequest(Request request, String[] relater, String file){
         addRequest(request);
 
-        addRelaters(relater, getLastInsertIdRequest(request));
+        int id = getLastInsertIdRequest(request);
+
+        addRelaters(relater, id);
 
         addImage(file, getLastInsertIdRequest(request));
 
         // send mail to current branch
         Mail mail = new Mail();
         String body = "Yêu cầu mới đã được chuyển đến bộ phận của bạn";
-        String previousBranchLeaderMail = getLeaderBranchMail(getLastInsertIdRequest(request));
+        String previousBranchLeaderMail = getLeaderBranchMail(id);
         mail.sendMail(previousBranchLeaderMail, body, "Thêm yêu cầu");
     }
 
@@ -581,7 +579,7 @@ public class RequestDb {
     }
 
     // get last insert request_id
-    public Integer getLastInsertIdRequest(Request request){
+    private Integer getLastInsertIdRequest(Request request){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String s = "select max(last_insert_id(request_id)) from request" +
@@ -606,6 +604,7 @@ public class RequestDb {
 
     // update request from db
     public void updateRequest(Request request){
+        // todo delete from isread
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET status = ?, priority = ?, " +
@@ -621,15 +620,14 @@ public class RequestDb {
             statement.setInt(6,request.getId());
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     // update request priority
     public void updateRequestPriority(int requestId, int priorityId){
+        // todo delete from isread
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET priority = ?, updated_at = CURRENT_TIMESTAMP " +
@@ -646,6 +644,7 @@ public class RequestDb {
 
     // update request branch
     public void updateRequestBranch(int requestId, int branchId){
+        // todo delete from isread
         // send mail to current branch
         Mail mail = new Mail();
         String body = "Yêu cầu " + getName(requestId) + " của bộ phận của bạn đã được chuyển tới bộ phận IT khác";
@@ -695,6 +694,7 @@ public class RequestDb {
 
     // update request deadline
     public void updateRequestDeadline(int requestId, String deadline){
+        // todo delete from isread
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET deadline = ?, updated_at = CURRENT_TIMESTAMP " +
@@ -718,6 +718,7 @@ public class RequestDb {
     // update request assign
     public void updateRequestAssign(int requestId, int assignId){
         // todo mail send mail to the old and new employee
+        // todo delete from isread
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -736,6 +737,7 @@ public class RequestDb {
     // update request status
     public void updateRequestStatus(int requestId, int status){
         // todo mail send mail to the assigned employee
+        // todo delete from isread
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
