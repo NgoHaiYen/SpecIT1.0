@@ -115,20 +115,27 @@
                 });
             });
             function seen(requestId, sp){
-                $.ajax({
-                    type:"POST",
-                    cache:false,
-                    data: {
-                        requestid: requestId,
-                    },
-                    url:"http://localhost:8080/SpecIT/list",
-                    success : function(responseText) {
-                        if (responseText == "ok"){
-                            sp.css("visibility", "hidden");
-                        }
-                        alert(responseText);
-                    }
-                })
+                console.log(sp);
+                alert("seen");
+                sp.addClass('active');
+                sp.visible();
+//                $.ajax({
+//                    type:"POST",
+//                    cache:false,
+//                    data: {
+//                        requestid: requestId,
+//                    },
+//                    url:"http://localhost:8080/SpecIT/list",
+//                    success : function(responseText) {
+//                        if (responseText == "ok"){
+//                            sp.css("visibility", "hidden");
+//                        }
+//                        sp.invisible();
+//                        alert(responseText);
+//                    }
+//                }).fail(function($xhr) {
+//                    alert("Failed");
+//                });
             }
         </script>
 </body>
