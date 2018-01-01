@@ -44,7 +44,6 @@
                     <table class="table table-hover" id="listmain">
                         <thead>
                         <tr>
-                            <th></th>
                             <th>Hình ảnh</th>
                             <th>Tên công việc</th>
                             <th>Mức độ ưu tiên</th>
@@ -56,11 +55,9 @@
                         </thead>
                         <tbody>
                             <c:forEach var="request" items="${requests}">
-                                <tr <c:if test="${!request.read}">onmouseover="seen(${request.id}, this)"</c:if>>
+                                <tr>
                                     <td>
-                                        <c:if test="${!request.read}">
-                                            <span id="${request.id}" class="glyphicon glyphicon-asterisk" style="color:red"/>
-                                        </c:if>
+                                        <span <c:if test="${request.read}">style="visibility: hidden"</c:if> onclick="seen(${request.id}, this)" class="glyphicon glyphicon-asterisk" style="color:red"></span>
                                         <img src="image/${request.image}" width="40px" height="40px">
                                     </td>
                                     <td><a style="cursor: pointer;" onclick="postValue(${request.id})">${request.subject}</a></td>
@@ -117,7 +114,7 @@
                         }
                 });
             });
-            function seen(requestId, tr){
+            function seen(requestId, sp){
                 $.ajax({
                     type:"POST",
                     cache:false,
@@ -126,8 +123,8 @@
                     },
                     url:"http://localhost:8080/SpecIT/list",
                     success : function(responseText) {
-                        if (responseText == 'ok'){
-
+                        if (responseText == "ok"){
+                            sp.css("visibility", "hidden");
                         }
                         alert(responseText);
                     }
