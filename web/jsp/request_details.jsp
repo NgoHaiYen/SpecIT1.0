@@ -75,7 +75,9 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-                                        <button onclick="postajax('priority', ${request.id}, $('#priorities').val(), $('#priorityComment').val())" class="btn btn-primary">Submit</button>
+                                        <div class="modal-footer">
+                                            <button onclick="postajax('priority', ${request.id}, $('#priorities').val(), $('#priorityComment').val())" class="btn btn-primary">Submit</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -104,6 +106,33 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subteambtn btncustom">
+                    <button type="button" class="btn btn-default custom" data-toggle="modal" id="subteam-btn" name="depart-btn" data-target="#subteamModal"> <span class="glyphicon glyphicon-list-alt"></span>Subteam</button>
+                    <!-- Department Modal -->
+                    <div class="modal fade" id="subteamModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Thay đổi team:</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Chọn team thay đổi:</p>
+                                    <!-- Lay du lieu tu csdl tu day-->
+                                    <select class="selectpicker" id="subteam" required>
+                                        <c:forEach items="${subteams}" var="subteam" >
+                                            <option value="${subteam.id}"${subteam.id == request.subteamId? 'selected' : ''}>${subteam.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#subteam').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +172,7 @@
                                                 <textarea class="form-control" rows="5" id="deadlineComment" required></textarea>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="modal-footer">
                                                 <button type="submit" onclick="postajax('deadline', ${request.id}, $('#deadline').val(), $('#deadlineComment').val())" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
@@ -177,7 +206,7 @@
 
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val(), 'nothing')" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val(), 'nothing')" class="assignPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +237,7 @@
                                 </div>
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('assign', ${request.id}, $('#assignedto').val())" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('assign', ${request.id}, $('#assignedto').val())" class="assignPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -224,33 +253,6 @@
                         <option value="4" data-icon="glyphicon-remove">Cancel</option>
                         <option value="5" data-icon="glyphicon-refresh">Feedback</option>
                     </select>
-                </div>
-
-                <div class="subteambtn btncustom">
-                    <button type="button" class="btn btn-default custom" data-toggle="modal" id="subteam-btn" name="depart-btn" data-target="#subteamModal"> <span class="glyphicon glyphicon-list-alt"></span>Subteam</button>
-                    <!-- Department Modal -->
-                    <div class="modal fade" id="subteamModal" role="dialog">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Thay đổi team:</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Chọn team thay đổi:</p>
-                                    <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker" id="subteam" required>
-                                        <c:forEach items="${subteams}" var="subteam" >
-                                            <option value="${subteam.id}"${subteam.id == request.subteamId? 'selected' : ''}>${subteam.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#subteam').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>

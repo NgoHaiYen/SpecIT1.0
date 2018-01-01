@@ -10,6 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/login.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="cssmenu">
@@ -48,15 +52,57 @@
           <div style="margin-top:10px" class="form-group">
             <div class="col-sm-12 controls">
               <button type="submit" name="submit" href="#" class="btn btn-success">Login </button>
-              <a href="#">Quên mật khẩu?</a>
+              <a href="#" data-target="#myModal" data-toggle="modal">Quên mật khẩu?</a>
             </div>
           </div>
         </form>
+
+          <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Quên mật khẩu</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>Hãy điền email của bạn vào đây: </p>
+                          <input class="form-control" id="forgotemail" name="email">
+                          <p id="error" style="color:red"></p>
+                      </div>
+                      <div class="modal-footer">
+                          <button id="forgot" name="forgotemail" value="forgot" onclick="requestEmail()" class="btn btn-default">Gửi</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 <script type="javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="javascript" scr="js/validation.js"></script>
+<script type="javascript" src="js/validation.js"></script>
+<script type="javascript" src="js/jquery.min.js"></script>
+
+<script>
+    function requestEmail(){
+        $.ajax({
+            type:"POST",
+            cache:false,
+            data: {
+                forgotemail: $('#forgotemail')
+            },
+            url:"http://localhost:8080/SpecIT/login",
+            success : function(responseText) {
+                alert("Hãy kiểm tra lại email của bạn");
+            }
+        }).fail(function($xhr) {
+            alert("Failed");
+        });
+    }
+</script>
 </body>
 </html>

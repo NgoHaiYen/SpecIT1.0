@@ -124,9 +124,7 @@ public class RequestDb {
                 if (i > 0) return i;
             }
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 

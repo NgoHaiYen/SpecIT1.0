@@ -7,12 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="update logout">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SpecIT_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SpecIT_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" afterPath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="$PROJECT_DIR$/src/database.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RequestDb.java" afterPath="$PROJECT_DIR$/src/database/RequestDb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/TeamDb.java" afterPath="$PROJECT_DIR$/src/database/TeamDb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/Mail.java" afterPath="$PROJECT_DIR$/src/utils/Mail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/request_details.jsp" afterPath="$PROJECT_DIR$/web/jsp/request_details.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,21 +28,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="request_details.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="request_details.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="265" column="53" lean-forward="true" selection-start-line="265" selection-start-column="53" selection-end-line="265" selection-end-column="53" />
+            <state relative-caret-position="1492">
+              <caret line="399" column="34" lean-forward="true" selection-start-line="399" selection-start-column="34" selection-end-line="399" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Relater.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Relater.java">
+      <file leaf-file-name="RequestDetailsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="354">
+              <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeamDb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/TeamDb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="47" column="100" lean-forward="false" selection-start-line="47" selection-start-column="100" selection-end-line="47" selection-end-column="100" />
+              <folding>
+                <marker date="1514836481867" expanded="true" signature="753:771" ph="SELECT * FRO... team" />
+                <marker date="1514836481867" expanded="true" signature="1445:1481" ph="SELECT * FRO... team" />
+                <marker date="1514836481867" expanded="true" signature="1445:1482" ph="SELECT * FRO... team" />
+                <marker date="1514836481867" expanded="true" signature="1445:1495" ph="SELECT * FRO... team" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="96" column="14" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/Mail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="606">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,10 +98,9 @@
       <file leaf-file-name="RequestDb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="627" column="109" lean-forward="false" selection-start-line="627" selection-start-column="109" selection-end-line="627" selection-end-column="109" />
+            <state relative-caret-position="318">
+              <caret line="780" column="9" lean-forward="true" selection-start-line="775" selection-start-column="8" selection-end-line="780" selection-end-column="9" />
               <folding>
-                <element signature="method#getNumberOfRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getAllAssignRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getNumberOfAssignRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getFeedBack#0;class#RequestDb#0" expanded="false" />
@@ -61,46 +109,34 @@
                 <element signature="method#getNumberOfTeamRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getAllBranchRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getNumberOfBranchRequest#0;class#RequestDb#0" expanded="false" />
-                <marker date="1514835013890" expanded="true" signature="685:727" ph="select * fro... request" />
-                <marker date="1514835013890" expanded="true" signature="2423:2465" ph="select * fro... request" />
-                <marker date="1514835013890" expanded="true" signature="4268:4317" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="5299:5342" ph="select * fro... request" />
-                <marker date="1514835013890" expanded="true" signature="6999:7049" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="8046:8092" ph="select ratin... request" />
-                <marker date="1514835013890" expanded="true" signature="9068:9116" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="10058:10121" ph="select * fro... request" />
-                <marker date="1514835013890" expanded="true" signature="11871:11932" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="12748:12789" ph="select * fro... request" />
-                <marker date="1514835013890" expanded="true" signature="14523:14596" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="15524:15657" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="17380:17520" ph="select count... request" />
-                <marker date="1514835013890" expanded="true" signature="18288:18496" ph="select branc... employees" />
-                <marker date="1514835013890" expanded="true" signature="19041:19060" ph="select name " />
-                <marker date="1514835013890" expanded="true" signature="19041:19062" ph="select name reques" />
-                <marker date="1514835013890" expanded="true" signature="19041:19068" ph="select name request" />
-                <marker date="1514835013890" expanded="true" signature="19041:19089" ph="select email... request" />
-                <marker date="1514835013890" expanded="true" signature="20376:20583" ph="insert into request... " />
-                <marker date="1514835013890" expanded="true" signature="21697:21868" ph="select max(l... request" />
-                <marker date="1514835013890" expanded="true" signature="21857:21868" ph="select last_... request" />
-                <marker date="1514835013890" expanded="true" signature="22644:22860" ph="UPDATE reque... " />
-                <marker date="1514835013890" expanded="true" signature="23997:24106" ph="UPDATE reque... " />
-                <marker date="1514835013890" expanded="true" signature="25440:25586" ph="UPDATE reque... " />
-                <marker date="1514835013890" expanded="true" signature="26323:26456" ph="select email... request" />
-                <marker date="1514835013890" expanded="true" signature="27082:27166" ph="UPDATE reque... " />
-                <marker date="1514835013890" expanded="true" signature="28477:28589" ph="UPDATE reque... " />
-                <marker date="1514835013890" expanded="true" signature="29806:29913" ph="UPDATE reque... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestDetailsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="81" column="36" lean-forward="false" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1514835571838" expanded="true" signature="685:727" ph="select * fro... request" />
+                <marker date="1514835571838" expanded="true" signature="2423:2465" ph="select * fro... request" />
+                <marker date="1514835571838" expanded="true" signature="4268:4317" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="5246:5289" ph="select * fro... request" />
+                <marker date="1514835571838" expanded="true" signature="6946:6996" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="7993:8039" ph="select ratin... request" />
+                <marker date="1514835571838" expanded="true" signature="9015:9063" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="10005:10068" ph="select * fro... request" />
+                <marker date="1514835571838" expanded="true" signature="11818:11879" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="12695:12736" ph="select * fro... request" />
+                <marker date="1514835571838" expanded="true" signature="14470:14543" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="15471:15604" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="17327:17467" ph="select count... request" />
+                <marker date="1514835571838" expanded="true" signature="18235:18443" ph="select branc... employees" />
+                <marker date="1514835571838" expanded="true" signature="18988:19007" ph="select name " />
+                <marker date="1514835571838" expanded="true" signature="18988:19009" ph="select name reques" />
+                <marker date="1514835571838" expanded="true" signature="18988:19015" ph="select name request" />
+                <marker date="1514835571838" expanded="true" signature="18988:19036" ph="select email... request" />
+                <marker date="1514835571838" expanded="true" signature="20323:20530" ph="insert into request... " />
+                <marker date="1514835571838" expanded="true" signature="21644:21815" ph="select max(l... request" />
+                <marker date="1514835571838" expanded="true" signature="21804:21815" ph="select last_... request" />
+                <marker date="1514835571838" expanded="true" signature="22591:22807" ph="UPDATE reque... " />
+                <marker date="1514835571838" expanded="true" signature="23944:24053" ph="UPDATE reque... " />
+                <marker date="1514835571838" expanded="true" signature="25387:25533" ph="UPDATE reque... " />
+                <marker date="1514835571838" expanded="true" signature="26270:26403" ph="select email... request" />
+                <marker date="1514835571838" expanded="true" signature="27029:27113" ph="UPDATE reque... " />
+                <marker date="1514835571838" expanded="true" signature="28424:28536" ph="UPDATE reque... " />
+                <marker date="1514835571838" expanded="true" signature="29753:29860" ph="UPDATE reque... " />
               </folding>
             </state>
           </provider>
@@ -181,7 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/add.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/navigationbar.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/check.jsp" />
         <option value="$PROJECT_DIR$/src/model/ITteam.java" />
@@ -219,19 +254,20 @@
         <option value="$PROJECT_DIR$/src/model/Request.java" />
         <option value="$PROJECT_DIR$/src/controller/AddRequestController.java" />
         <option value="$PROJECT_DIR$/src/controller/ListController.java" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
-        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/SpecIT.iml" />
         <option value="$PROJECT_DIR$/src/database/IsReadDb.java" />
         <option value="$PROJECT_DIR$/src/database/RelaterDb.java" />
         <option value="$PROJECT_DIR$/web/jsp/navigationbar.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/add.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/utils/Mail.java" />
-        <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
         <option value="$PROJECT_DIR$/src/database/RequestDb.java" />
+        <option value="$PROJECT_DIR$/src/utils/Mail.java" />
         <option value="$PROJECT_DIR$/web/jsp/request_details.jsp" />
+        <option value="$PROJECT_DIR$/src/database/TeamDb.java" />
+        <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -330,6 +366,12 @@
               <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpecIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpecIT" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -352,7 +394,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.42936593" />
-    <property name="SearchEverywhereHistoryKey" value="Login&#9;FILE&#9;file:///home/yen/Documents/My folder/SpecIT/src/controller/LoginController.java" />
+    <property name="SearchEverywhereHistoryKey" value="in&#9;FILE&#9;file:///home/yen/Documents/My folder/SpecIT/web/index.jsp&#10;Login&#9;FILE&#9;file:///home/yen/Documents/My folder/SpecIT/src/controller/LoginController.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -700,14 +742,7 @@
       <workItem from="1514593126498" duration="28498000" />
       <workItem from="1514649124915" duration="11549000" />
       <workItem from="1514683911173" duration="58813000" />
-      <workItem from="1514784544289" duration="40883000" />
-    </task>
-    <task id="LOCAL-00012" summary="update view">
-      <created>1514541438316</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1514541438316</updated>
+      <workItem from="1514784544289" duration="45886000" />
     </task>
     <task id="LOCAL-00013" summary="update static function">
       <created>1514548941710</created>
@@ -1045,11 +1080,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514832939810</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="update mail">
+      <created>1514835389528</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1514835389528</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212896000" />
+    <option name="totallyTimeSpent" value="217899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1082,9 +1124,9 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.48924303" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5101089" sideWeight="0.49003986" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44323483" sideWeight="0.49003986" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49402392" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17768924" sideWeight="0.46345258" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17768924" sideWeight="0.46345258" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17529881" sideWeight="0.5365474" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1161,7 +1203,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix add r" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="fix add and button href" />
     <MESSAGE value="fix l" />
@@ -1186,7 +1227,8 @@
     <MESSAGE value="update change assigned" />
     <MESSAGE value="update r" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="update mail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1195,14 +1237,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Status.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1435,16 +1469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -1454,14 +1478,6 @@
             <element signature="n#style#1;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1585,14 +1601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Mail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/IsReadDb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1607,16 +1615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="81" column="36" lean-forward="false" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Relater.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1627,10 +1625,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="627" column="109" lean-forward="false" selection-start-line="627" selection-start-column="109" selection-end-line="627" selection-end-column="109" />
+        <state relative-caret-position="318">
+          <caret line="780" column="9" lean-forward="true" selection-start-line="775" selection-start-column="8" selection-end-line="780" selection-end-column="9" />
           <folding>
-            <element signature="method#getNumberOfRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getAllAssignRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getNumberOfAssignRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getFeedBack#0;class#RequestDb#0" expanded="false" />
@@ -1639,42 +1636,89 @@
             <element signature="method#getNumberOfTeamRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getAllBranchRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getNumberOfBranchRequest#0;class#RequestDb#0" expanded="false" />
-            <marker date="1514835013890" expanded="true" signature="685:727" ph="select * fro... request" />
-            <marker date="1514835013890" expanded="true" signature="2423:2465" ph="select * fro... request" />
-            <marker date="1514835013890" expanded="true" signature="4268:4317" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="5299:5342" ph="select * fro... request" />
-            <marker date="1514835013890" expanded="true" signature="6999:7049" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="8046:8092" ph="select ratin... request" />
-            <marker date="1514835013890" expanded="true" signature="9068:9116" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="10058:10121" ph="select * fro... request" />
-            <marker date="1514835013890" expanded="true" signature="11871:11932" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="12748:12789" ph="select * fro... request" />
-            <marker date="1514835013890" expanded="true" signature="14523:14596" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="15524:15657" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="17380:17520" ph="select count... request" />
-            <marker date="1514835013890" expanded="true" signature="18288:18496" ph="select branc... employees" />
-            <marker date="1514835013890" expanded="true" signature="19041:19060" ph="select name " />
-            <marker date="1514835013890" expanded="true" signature="19041:19062" ph="select name reques" />
-            <marker date="1514835013890" expanded="true" signature="19041:19068" ph="select name request" />
-            <marker date="1514835013890" expanded="true" signature="19041:19089" ph="select email... request" />
-            <marker date="1514835013890" expanded="true" signature="20376:20583" ph="insert into request... " />
-            <marker date="1514835013890" expanded="true" signature="21697:21868" ph="select max(l... request" />
-            <marker date="1514835013890" expanded="true" signature="21857:21868" ph="select last_... request" />
-            <marker date="1514835013890" expanded="true" signature="22644:22860" ph="UPDATE reque... " />
-            <marker date="1514835013890" expanded="true" signature="23997:24106" ph="UPDATE reque... " />
-            <marker date="1514835013890" expanded="true" signature="25440:25586" ph="UPDATE reque... " />
-            <marker date="1514835013890" expanded="true" signature="26323:26456" ph="select email... request" />
-            <marker date="1514835013890" expanded="true" signature="27082:27166" ph="UPDATE reque... " />
-            <marker date="1514835013890" expanded="true" signature="28477:28589" ph="UPDATE reque... " />
-            <marker date="1514835013890" expanded="true" signature="29806:29913" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="685:727" ph="select * fro... request" />
+            <marker date="1514835571838" expanded="true" signature="2423:2465" ph="select * fro... request" />
+            <marker date="1514835571838" expanded="true" signature="4268:4317" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="5246:5289" ph="select * fro... request" />
+            <marker date="1514835571838" expanded="true" signature="6946:6996" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="7993:8039" ph="select ratin... request" />
+            <marker date="1514835571838" expanded="true" signature="9015:9063" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="10005:10068" ph="select * fro... request" />
+            <marker date="1514835571838" expanded="true" signature="11818:11879" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="12695:12736" ph="select * fro... request" />
+            <marker date="1514835571838" expanded="true" signature="14470:14543" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="15471:15604" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="17327:17467" ph="select count... request" />
+            <marker date="1514835571838" expanded="true" signature="18235:18443" ph="select branc... employees" />
+            <marker date="1514835571838" expanded="true" signature="18988:19007" ph="select name " />
+            <marker date="1514835571838" expanded="true" signature="18988:19009" ph="select name reques" />
+            <marker date="1514835571838" expanded="true" signature="18988:19015" ph="select name request" />
+            <marker date="1514835571838" expanded="true" signature="18988:19036" ph="select email... request" />
+            <marker date="1514835571838" expanded="true" signature="20323:20530" ph="insert into request... " />
+            <marker date="1514835571838" expanded="true" signature="21644:21815" ph="select max(l... request" />
+            <marker date="1514835571838" expanded="true" signature="21804:21815" ph="select last_... request" />
+            <marker date="1514835571838" expanded="true" signature="22591:22807" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="23944:24053" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="25387:25533" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="26270:26403" ph="select email... request" />
+            <marker date="1514835571838" expanded="true" signature="27029:27113" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="28424:28536" ph="UPDATE reque... " />
+            <marker date="1514835571838" expanded="true" signature="29753:29860" ph="UPDATE reque... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/TeamDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="47" column="100" lean-forward="false" selection-start-line="47" selection-start-column="100" selection-end-line="47" selection-end-column="100" />
+          <folding>
+            <marker date="1514836481867" expanded="true" signature="753:771" ph="SELECT * FRO... team" />
+            <marker date="1514836481867" expanded="true" signature="1445:1481" ph="SELECT * FRO... team" />
+            <marker date="1514836481867" expanded="true" signature="1445:1482" ph="SELECT * FRO... team" />
+            <marker date="1514836481867" expanded="true" signature="1445:1495" ph="SELECT * FRO... team" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Mail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="265" column="53" lean-forward="true" selection-start-line="265" selection-start-column="53" selection-end-line="265" selection-end-column="53" />
+        <state relative-caret-position="1492">
+          <caret line="399" column="34" lean-forward="true" selection-start-line="399" selection-start-column="34" selection-end-line="399" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="96" column="14" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
           <folding />
         </state>
       </provider>

@@ -33,11 +33,36 @@ public class TeamDb {
                 team.setName(rs.getString("team_name"));
                 teams.add(team);
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return teams;
+    }
+
+    // get all team of a branch
+    public ArrayList<Team> getAllTeams(int branchId) {
+        ArrayList<Team> teams = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM team where branch_id = " + branchId);
+            while(rs.next()){
+                Team team = new Team();
+                team.setId(rs.getInt("team_id"));
+                team.setName(rs.getString("team_name"));
+                teams.add(team);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return teams;
+    }
+
+    public void closeConnection() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

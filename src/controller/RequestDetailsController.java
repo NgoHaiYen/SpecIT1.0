@@ -43,6 +43,11 @@ public class RequestDetailsController extends HttpServlet {
             ArrayList<Branch> branches = bdb.getAllBranch();
             request.setAttribute("branches", branches);
 
+            // branched
+            TeamDb teamDb = new TeamDb();
+            ArrayList<Team> subteams = teamDb.getAllTeams();
+            request.setAttribute("subteams", subteams);
+
             // employees
             ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
             request.setAttribute("employees", employees);
