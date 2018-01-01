@@ -34,8 +34,8 @@ public class AddRequestController extends HttpServlet {
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
-                r.setDeadline(Constant.formatDateToSql(request.getParameter("date")));
-                r.setTeamId(Integer.parseInt(request.getParameter("subteams")));
+                r.setDeadline(Constant.formatDateToSqlFromView(request.getParameter("date")));
+                r.setBranchId(Integer.parseInt(request.getParameter("branches")));
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
                 rdb.addNewRequest(r, relater, file);
@@ -43,7 +43,6 @@ public class AddRequestController extends HttpServlet {
                 session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
                 session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
 
-                // todo mail
                 response.sendRedirect(request.getContextPath() + "/list");
             } else {
                 request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
@@ -63,17 +62,17 @@ public class AddRequestController extends HttpServlet {
         // priorities
         PriorityDb pdb = new PriorityDb();
         ArrayList<Priority> priorities = pdb.getAllPriorities();
-        session.setAttribute("priorities", priorities);
+        request.setAttribute("priorities", priorities);
 
         // itteams
         BranchDb bdb = new BranchDb();
         ArrayList<Branch> branches = bdb.getAllBranch();
-        session.setAttribute("subteams", branches);
+        request.setAttribute("branches", branches);
 
         // employees
         EmployeeDb edb = new EmployeeDb();
         ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
-        session.setAttribute("employees", employees);
+        request.setAttribute("employees", employees);
 
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }
@@ -83,7 +82,7 @@ public class AddRequestController extends HttpServlet {
         values.add("tencv");
         values.add("priorities");
         values.add("date");
-        values.add("subteams");
+        values.add("branches");
         values.add("nd");
 
         try {
@@ -121,8 +120,8 @@ public class AddRequestController extends HttpServlet {
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];
             long time = System.currentTimeMillis();
-            String name = fileName;
             fileName = fileName.split("\\.")[0] + time + "." + fileName.split("\\.")[1];
+            String name = fileName;
             fileName = request.getServletContext().getRealPath("") + "image/" + fileName;
             InputStream content = filePart.getInputStream();
             OutputStream outputStream = new FileOutputStream(fileName);

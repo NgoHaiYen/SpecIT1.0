@@ -82,6 +82,30 @@ public class BranchDb {
         return null;
     }
 
+    // get email of the leader of this branch by branch
+    public String getLeaderEmail(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select email from employees join branch on employees.employee_id = branch.leader_id" +
+                    " where branch_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("email");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void closeConnection() {
         try {
             conn.close();

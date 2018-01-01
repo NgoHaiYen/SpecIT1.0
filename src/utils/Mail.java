@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Mail {
+
     public void sendMail(String receiver, String body, String subject){
         try {
             Properties p = new Properties();

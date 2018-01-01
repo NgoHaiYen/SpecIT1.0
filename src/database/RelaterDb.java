@@ -49,6 +49,8 @@ public class RelaterDb {
 
     // insert a relater to a request
     public void addRelater(int relaterId, int requestId) {
+        // todo send mail to the relater
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -58,26 +60,23 @@ public class RelaterDb {
             statement.setInt(2,relaterId);
             statement.execute();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    // delete a relater to a request
-    private void deleteRelater(int relaterId, int requestId){
+    // delete all relaters to a request
+    private void deleteAllRelater(int requestId){
+        // todo send mail to the relater who is deleted
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "DELETE FROM relater WHERE employee_id = ? AND  request_id = ? ;";
+            String sqlS = "DELETE FROM relater WHERE request_id = ? ;";
             PreparedStatement statement = conn.prepareStatement(sqlS);
-            statement.setInt(2,requestId);
-            statement.setInt(1,relaterId);
+            statement.setInt(1,requestId);
             statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -86,20 +85,9 @@ public class RelaterDb {
     // delete all relation to a req_id
     // insert new ones to db
     public void updateRelater(ArrayList<Integer> relatersId, int requestId){
-        try {
-                Class.forName("com.mysql.jdbc.Driver");
-                String sqlS = "DELETE FROM relater WHERE request_id = ? ;";
-                PreparedStatement statement = conn.prepareStatement(sqlS);
-                statement.setInt(1,requestId);
-                statement.execute();
+        deleteAllRelater(requestId);
 
-                addRelaters(relatersId,requestId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        addRelaters(relatersId,requestId);
     }
 
     public void closeConnection() {

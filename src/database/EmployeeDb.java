@@ -162,6 +162,29 @@ public class EmployeeDb {
         return null;
     }
 
+    // get employee email by id
+    public String getEmail(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select email from employees where employee_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("email");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void closeConnection() {
         try {
             conn.close();

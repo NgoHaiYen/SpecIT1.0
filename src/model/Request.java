@@ -1,6 +1,7 @@
 package model;
 
 import database.*;
+import utils.Constant;
 
 public class Request {
     private int id;
@@ -138,7 +139,7 @@ public class Request {
     }
 
     public String getCreatedAt() {
-        return createdAt;
+        return Constant.formatDateToClientFromDb(createdAt);
     }
 
     public void setCreatedAt(String createdAt) {
