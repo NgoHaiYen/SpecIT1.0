@@ -146,9 +146,30 @@
                     </li>
 
                 <!--logout-->
-                <button class="btn btn-primary" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px"><a style="text-decoration: none"><span style="color: honeydew; margin-right: 15px" class="glyphicon glyphicon-off"></span><b style="color: honeydew">Logout</b></a></button>
-                <!-- Dropdown-->
+                <button class="btn btn-primary" onclick="logout()" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px">
+                    <a style="text-decoration: none"><span style="color: honeydew; margin-right: 15px" class="glyphicon glyphicon-off"></span>
+                        <b style="color: honeydew">Logout</b>
+                    </a>
+                </button>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
+
+    <script>
+        logout = function(){
+            $.ajax({
+                    type:"post",
+                    cache:false,
+                    data: {
+                        ajax: "logout"
+                    },
+                    url:"http://localhost:8080/SpecIT/login",
+                    success : function(responseText) {
+                        location.href = "http://localhost:8080/SpecIT/login";
+                    }
+                }).fail(function($xhr) {
+                    alert("Failed");
+                });
+        }
+    </script>
 </div>

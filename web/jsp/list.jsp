@@ -139,9 +139,8 @@
 //                });
             }
 
-            $('.seen').click(function(e){
-                var SendButton = $(e.target);
-                e.visible();
+            $('.seen').click(function(event){
+                console.log(event.target.hide());
             });
         </script>
 </body>

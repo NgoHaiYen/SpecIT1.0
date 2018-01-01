@@ -33,7 +33,7 @@
             <li><a href="#">Products</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
-            <li style="float: right"><a href="#">Logout</a> </li>
+            <li style="float: right"><a href="login" onclick="logout()">Logout</a> </li>
         </ul>
     </div>
 
@@ -375,6 +375,22 @@
             url:"http://localhost:8080/SpecIT/details",
             success : function(responseText) {
                 alert(responseText);
+            }
+        }).fail(function($xhr) {
+            alert("Failed");
+        });
+    }
+
+    logout = function(){
+        $.ajax({
+            type:"post",
+            cache:false,
+            data: {
+                ajax: "logout"
+            },
+            url:"http://localhost:8080/SpecIT/login",
+            success : function(responseText) {
+//                location.href = "http://localhost:8080/SpecIT/login";
             }
         }).fail(function($xhr) {
             alert("Failed");

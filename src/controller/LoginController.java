@@ -17,6 +17,11 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("utf-8");
+        if (request.getParameter("ajax") != null){
+            session.invalidate();
+
+        }
+
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
         LoginDb loginDb = new LoginDb();

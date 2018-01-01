@@ -51,13 +51,11 @@
               <a href="#">Quên mật khẩu?</a>
             </div>
           </div>
-
         </form>
       </div>
     </div>
   </div>
 </div>
-<script type="javascript" src="js/jquery.min.js"></script>
 <script type="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="javascript" scr="js/validation.js"></script>
 </body>
