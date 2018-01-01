@@ -226,6 +226,32 @@
                     </select>
                 </div>
 
+                <div class="subteambtn btncustom">
+                    <button type="button" class="btn btn-default custom" data-toggle="modal" id="subteam-btn" name="depart-btn" data-target="#subteamModal"> <span class="glyphicon glyphicon-list-alt"></span>Subteam</button>
+                    <!-- Department Modal -->
+                    <div class="modal fade" id="subteamModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Thay đổi team:</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Chọn team thay đổi:</p>
+                                    <!-- Lay du lieu tu csdl tu day-->
+                                    <select class="selectpicker" id="branches" required>
+                                        <c:forEach items="${branches}" var="branch" >
+                                            <option value="${branch.id}"${branch.id == request.branchId? 'selected' : ''}>${branch.name}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="panel-body">
@@ -260,7 +286,6 @@
             </div>
         </div>
 
-
         <!--Description Panel -->
         <div class="panel panel-default">
             <div class="panel-heading"> <h4><b>Description</b> </h4></div>
@@ -278,35 +303,37 @@
                                 <small> Created: ${request.createdAt} </small>
                             </h3>
                             <p>${request.content}</p>
+
+                            <!--Comment on this Request -->
+                            <c:forEach var="comment" items="${comments}">
+                                <hr/>
+                                <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
+                                    <div class="col-xs-1">
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="image/image.jpeg" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="media-heading">${comment.name}
+                                                    </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
+                                                <p>${comment.content}</p>
+                                                <p>${comment.note}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-1">
+                                    </div>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--Comment on this Request -->
-        <c:forEach var="comment" items="${comments}">
-            <hr/>
-            <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
-                <div class="col-xs-1">
-                </div>
-                <div class="col-xs-10">
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="image/image.jpeg" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">${comment.name}
-                                </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
-                            <p>${comment.content}</p>
-                            <p>${comment.note}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-1">
-                </div>
-            </div>
-        </c:forEach>
+
 
         <div class="panel panel-default">
             <div class="panel-heading"><h4><b>Bình luận</b></h4></div>
