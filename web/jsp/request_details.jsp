@@ -129,10 +129,10 @@
                                             <div class="date-form">
                                                 <label class="control-label">Deadline</label>
                                                 <div class="input-group">
-                                                    <label for="Deadline" class="input-group-addon btn">
+                                                    <label for="deadline" class="input-group-addon btn">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                     </label>
-                                                    <input type="text" id="Deadline" name="deadline" class="form-control date-picker" data-error="Vui lòng chọn ngày" required/></br>
+                                                    <input type="text" id="deadline" name="deadline" class="form-control date-picker" data-error="Vui lòng chọn ngày" required/></br>
                                                 </div>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -144,7 +144,7 @@
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" onclick="postajax('deadline', ${request.id})" class="btn btn-primary">Submit</button>
+                                                <button type="submit" onclick="postajax('deadline', ${request.id}, $('#deadline').val(), $('#deadlineComment').val())" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -168,7 +168,7 @@
                                 <div class="modal-body">
                                     <p>Chọn người liên quan:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker" multiple data-live-search="true" name="relater">
+                                    <select class="selectpicker" multiple data-live-search="true" id="relater">
                                         <c:forEach items="${employees}" var="employee" >
                                             <option value="${employee.id}"${relaters.contains(employee.id)? 'selected' : ''}>${employee.name}</option>
                                         </c:forEach>
@@ -177,7 +177,7 @@
 
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('relater', ${request.id})" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val())" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                 <div class="modal-body">
                                     <p>Chọn người thực hiện:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker">
+                                    <select class="selectpicker" id="assignedto">
                                         <c:forEach items="${employees}" var="assign" >
                                             <option value="${employee.id}"${employee.id == request.assignedTo? 'selected' : ''}>${employee.name}</option>
                                         </c:forEach>
@@ -209,7 +209,7 @@
 
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('assign', ${request.id})" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('assign', ${request.id}, $('#assignedto').val())" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

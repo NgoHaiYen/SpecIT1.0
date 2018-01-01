@@ -95,7 +95,7 @@ public class RequestDetailsController extends HttpServlet {
                     cdb.addComment(c);
                     break;
                 case "relater":
-                    String[] relater = request.getParameterValues("relater");
+                    String[] relater = request.getParameterValues("changeValue");
                     ArrayList<Integer> relatersId = new ArrayList<>();
                     for (String rl:relater){
                         relatersId.add(Integer.parseInt(rl));
