@@ -260,10 +260,12 @@
     </div>
     <!--Description Panel -->
     <div class="panel panel-default">
-        <div class="panel-heading"> <h4> <b>Description</b> </h4></div>
+        <div class="panel-heading"> <h4><b>Description</b> </h4></div>
         <div class="panel-body">
             <!--Requested Detail -->
-            <div class="col-xs-4">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-8">
                 <div class="media">
                     <div class="media-left">
                         <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
@@ -278,15 +280,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xz-8"></div>
+            <div class="col-xz-2"></div>
         </div>
     </div>
 
-    <hr>
     <!--Comment on this Request -->
     <c:forEach var="comment" items="${comments}">
+        <hr/>
         <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
-            <div class="col-xs-4">
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-10">
                 <div class="media">
                     <div class="media-left">
                         <img src="image/image.jpeg" class="img-rounded media-object" alt="profilePic" style="width:60px">
@@ -299,7 +303,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xz-8">
+            <div class="col-xs-1">
             </div>
         </div>
     </c:forEach>
@@ -314,7 +318,6 @@
                 </div>
 
                 <div class="form-group">
-
                     <button type="submit" class="btn btn-primary submit" onclick="" id="submit" name="submit-btn">
                         <span class="glyphicon glyphicon-send"></span> Click to submit
                     </button>

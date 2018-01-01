@@ -100,7 +100,7 @@ public class RequestDetailsController extends HttpServlet {
                 case "relater":
                     String[] relater = request.getParameterValues("changeValue");
                     ArrayList<Integer> relatersId = new ArrayList<>();
-                    for (String rl:relater){
+                    for (String rl : relater){
                         relatersId.add(Integer.parseInt(rl));
                     }
                     RelaterDb relaterDb = new RelaterDb();
