@@ -58,7 +58,7 @@
                                 <tr>
                                     <td>
                                         <span <c:if test="${request.read}">style="visibility: hidden"</c:if> onclick="seen(${request.id}, this)" class="glyphicon glyphicon-asterisk" style="color:red"></span>
-                                        <img src="image/${request.image}" width="40px" height="40px">
+                                        <img onclick="seen(${request.id}, this)" src="image/${request.image}" width="40px" height="40px">
                                     </td>
                                     <td><a style="cursor: pointer;" onclick="postValue(${request.id})">${request.subject}</a></td>
                                     <td>${request.priorityName}</td>
@@ -114,11 +114,12 @@
                         }
                 });
             });
-            function seen(requestId, sp){
-                console.log(sp);
-                alert("seen");
-                sp.addClass('active');
-                sp.visible();
+            function seen(requestId, e){
+                console.log(e);
+                e = e || window.event;
+                var targ = jQuery.Event( "click");
+                console.log(jQuery( "body" ).trigger(targ));
+                targ.visible();
 //                $.ajax({
 //                    type:"POST",
 //                    cache:false,
