@@ -29,7 +29,7 @@
     <!--nav header-->
     <div id="cssmenu">
         <ul>
-            <li class="active"><a href="#">Login to SpecIT</a></li>
+            <li class="active"><a href="list"> SpecIT</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
