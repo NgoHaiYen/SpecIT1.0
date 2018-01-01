@@ -1,6 +1,8 @@
 package controller;
 
+import database.IsReadDb;
 import database.RequestDb;
+import model.IsRead;
 import model.Request;
 import utils.Constant;
 
@@ -11,12 +13,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 @WebServlet(name = "ListController")
 public class ListController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        int userId = (int) session.getAttribute("id");
 
+        String id = request.getParameter("requestid");
+
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+        response.setHeader("Cache-control", "no-cache, no-store");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "-1");
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setHeader("Access-Control-Max-Age", "86400");
+
+        if (id == null){
+            out.println("Something went wrong");
+            response.sendRedirect(request.getContextPath() + "/login");
+        } else {
+            int i = Integer.parseInt(id);
+            IsReadDb isReadDb = new IsReadDb();
+            isReadDb.setRead(userId, i);
+            out.println("ok");
+        }
+
+        out.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,63 +63,63 @@ public class ListController extends HttpServlet {
 
         String t = request.getParameter("t");
         String k = request.getParameter("k");
-        if (t == null){
-            session.setAttribute("requests", requests);
-            request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
-            request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
-            return;
-        }
+        if (t != null){
+            int status = 0;
 
-        int status = 0;
+            if(k != null){
+                switch (k){
+                    case "n":
+                        status = Constant.NEW;
+                        break;
+                    case "i":
+                        status = Constant.IN_PROGRESS;
+                        break;
+                    case "r":
+                        status = Constant.RESOLVED;
+                        break;
+                    case "f":
+                        status = Constant.FEEDBACK;
+                        break;
+                    case "c":
+                        status = Constant.CLOSED;
+                        break;
+                    case "o":
+                        status = Constant.OUT_OF_DATE;
+                        break;
+                    default:
+                        status = Constant.ALL;
+                        break;
+                }
+            }
 
-        if(k != null){
-            switch (k){
-                case "n":
-                    status = Constant.NEW;
-                    break;
-                case "i":
-                    status = Constant.IN_PROGRESS;
+            switch (t){
+                case "mya":
+                    request.setAttribute("listname", "Danh sách việc tôi được giao");
+                    requests = requestDb.getAllAssignRequest(id, status);
                     break;
                 case "r":
-                    status = Constant.RESOLVED;
+                    request.setAttribute("listname", "Danh sách công việc liên quan");
+                    requests = requestDb.getAllRelateRequest(id, status);
                     break;
-                case "f":
-                    status = Constant.FEEDBACK;
+                case "t":
+                    request.setAttribute("listname", "Danh sách công việc của team");
+                    requests = requestDb.getAllTeamRequest(id, status);
                     break;
-                case "c":
-                    status = Constant.CLOSED;
-                    break;
-                case "o":
-                    status = Constant.OUT_OF_DATE;
+                case "i":
+                    request.setAttribute("listname", "Danh sách công việc của bộ phận IT");
+                    requests = requestDb.getAllBranchRequest(id, status);
                     break;
                 default:
-                    status = Constant.ALL;
+                    request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
                     break;
             }
+        } else {
+            request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
         }
-
-        switch (t){
-            case "mya":
-                request.setAttribute("listname", "Danh sách việc tôi được giao");
-                requests = requestDb.getAllAssignRequest(id, status);
-                break;
-            case "r":
-                request.setAttribute("listname", "Danh sách công việc liên quan");
-                requests = requestDb.getAllRelateRequest(id, status);
-                break;
-            case "t":
-                request.setAttribute("listname", "Danh sách công việc của team");
-                requests = requestDb.getAllTeamRequest(id, status);
-                break;
-            case "i":
-                request.setAttribute("listname", "Danh sách công việc của bộ phận IT");
-                requests = requestDb.getAllBranchRequest(id, status);
-                break;
-            default:
-                request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
-                break;
+        IsReadDb isReadDb = new IsReadDb();
+        for (Request r : requests) {
+            r.setRead(isReadDb.isRead(id, r.getId()));
         }
-
         session.setAttribute("requests", requests);
         request.getRequestDispatcher("jsp/list.jsp").forward(request, response);
     }

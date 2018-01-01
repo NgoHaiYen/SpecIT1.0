@@ -44,6 +44,7 @@
                     <table class="table table-hover" id="listmain">
                         <thead>
                         <tr>
+                            <th></th>
                             <th>Hình ảnh</th>
                             <th>Tên công việc</th>
                             <th>Mức độ ưu tiên</th>
@@ -55,8 +56,13 @@
                         </thead>
                         <tbody>
                             <c:forEach var="request" items="${requests}">
-                                <tr>
-                                    <td><img src="image/${request.image}" width="40px" height="40px"></td>
+                                <tr <c:if test="${!request.read}">onmouseover="seen(${request.id}, this)"</c:if>>
+                                    <td>
+                                        <c:if test="${!request.read}">
+                                            <span id="${request.id}" class="glyphicon glyphicon-asterisk" style="color:red"/>
+                                        </c:if>
+                                        <img src="image/${request.image}" width="40px" height="40px">
+                                    </td>
                                     <td><a style="cursor: pointer;" onclick="postValue(${request.id})">${request.subject}</a></td>
                                     <td>${request.priorityName}</td>
                                     <td>${request.createdByName}</td>
@@ -111,6 +117,22 @@
                         }
                 });
             });
+            function seen(requestId, tr){
+                $.ajax({
+                    type:"POST",
+                    cache:false,
+                    data: {
+                        requestid: requestId,
+                    },
+                    url:"http://localhost:8080/SpecIT/list",
+                    success : function(responseText) {
+                        if (responseText == 'ok'){
+
+                        }
+                        alert(responseText);
+                    }
+                })
+            }
         </script>
 </body>
 </html>

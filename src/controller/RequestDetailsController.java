@@ -53,7 +53,6 @@ public class RequestDetailsController extends HttpServlet {
         }
 
         String type = request.getParameter("typename");
-        System.out.println(type);
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("id");
         if (type != null){

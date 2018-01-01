@@ -32,9 +32,7 @@ public class RelaterDb {
                r.setCreatedAt(rs.getString("created_at"));
                relaters.add(r);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return relaters;
@@ -42,13 +40,13 @@ public class RelaterDb {
 
     // insert a list of relater to a request
     public void addRelaters(ArrayList<Integer> relatersId, int requestId){
-        for (int i = 0; i < relatersId.size(); i++) {
-            addRelater(relatersId.get(i), requestId);
+        for (Integer aRelatersId : relatersId) {
+            addRelater(aRelatersId, requestId);
         }
     }
 
     // insert a relater to a request
-    public void addRelater(int relaterId, int requestId) {
+    private void addRelater(int relaterId, int requestId) {
         // todo send mail to the relater
 
         try {
