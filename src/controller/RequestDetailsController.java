@@ -127,7 +127,7 @@ public class RequestDetailsController extends HttpServlet {
             response.setHeader("Access-Control-Allow-Methods", "POST");
             response.setHeader("Access-Control-Allow-Headers", "Content-Type");
             response.setHeader("Access-Control-Max-Age", "86400");
-            out.println(id);
+            out.println("");
 
             out.close();
 

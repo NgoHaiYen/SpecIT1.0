@@ -71,8 +71,8 @@
 
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Team <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
-                            <select class="selectpicker form-control" name="branches" title="Choose one of the following..." required>
+                            <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
+                            <select class="selectpicker form-control" name="branches">
                                 <c:forEach items="${branches}" var="branch" >
                                     <option value="${branch.id}">${branch.name}</option>
                                 </c:forEach>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-sm-12">
-                        <label class="control-label">Ghi chú:</label>
+                        <label class="control-label">Nội dung công việc:</label>
                         <div class="form-group">
                             <textarea class="form-control" rows="5" id="nd" name="nd" required></textarea>
                             <div class="help-block with-errors"></div>
@@ -120,8 +120,6 @@
                     </div>
                 </div>
             </form>
-
-
         </div>
     </div>
 

@@ -412,7 +412,7 @@ public class RequestDb {
         ArrayList<Request> requests =  new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request join relater on request.request_id = relater.employee_id " +
+            String s = "select * from request join relater on request.request_id = relater.request_id " +
                     " where relater.employee_id = ?";
             if (status != 0){
                 s += " and request.status = ? ";
@@ -441,12 +441,8 @@ public class RequestDb {
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));
                 requests.add(r);
-
-
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -458,7 +454,7 @@ public class RequestDb {
     public Integer getNumberOfRequestRelate(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request join relater on request.request_id = relater.employee_id " +
+            String s = "select count(*) from request join relater on request.request_id = relater.request_id " +
                     " where relater.employee_id = ?";
             if (status != 0){
                 s += " and request.status = ? ";

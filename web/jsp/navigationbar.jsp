@@ -125,6 +125,7 @@
 
 
                 <!--PANEL cua manager-->
+                <c:if test="${role == 3}">
                     <li class="panel panel-default">
                         <a data-toggle="collapse" href="#dropdown-lv5">
                             <span class="glyphicon glyphicon-edit"></span> Công việc của bộ phận IT <span class="caret"></span>
@@ -144,7 +145,7 @@
                             </div>
                         </div>
                     </li>
-
+                </c:if>
                 <!--logout-->
                 <button class="btn btn-primary" onclick="logout()" style="width: 270px !important; height: 40px !important; text-align: left !important; margin-top: 15px">
                     <a style="text-decoration: none"><span style="color: honeydew; margin-right: 15px" class="glyphicon glyphicon-off"></span>
