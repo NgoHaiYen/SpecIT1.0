@@ -71,7 +71,9 @@ public class Request {
 
     public String getStatusName() {
         StatusDb sdb = new StatusDb();
-        return sdb.findById(status);
+        String name = sdb.findById(status);
+        sdb.closeConnection();
+        return name;
     }
 
     public void setStatus(int status) {
@@ -80,7 +82,9 @@ public class Request {
 
     public String getPriorityName() {
         PriorityDb pdb = new PriorityDb();
-        return pdb.getPriorityNameById(priority);
+        String name = pdb.getPriorityNameById(priority);
+        pdb.closeConnection();
+        return name;
     }
 
     public void setPriority(int priority) {
@@ -97,7 +101,9 @@ public class Request {
 
     public String getAssignedToName() {
         EmployeeDb edb = new EmployeeDb();
-        return edb.getNameById(assignedTo);
+        String name = edb.getNameById(assignedTo);
+        edb.closeConnection();
+        return name;
     }
 
     public void setAssignedTo(int assignedTo) {
@@ -192,5 +198,13 @@ public class Request {
     public String getImage(){
         ImageDb idb = new ImageDb();
         return idb.getImageByRequestId(id);
+    }
+
+    // relation ship between request and user
+    // 1: việc tôi yêu cầu, 2: việc tôi được giao, 3: công việc liên quan, 4: sublead, 5: leader
+    public int getRelationShip(int userId){
+        if (createdBy == userId) return 1;
+        if (assignedTo == userId) return 2;
+        return 0;
     }
 }

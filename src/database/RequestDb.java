@@ -205,69 +205,13 @@ public class RequestDb {
         return null;
     }
 
-    // get all feedback of all requests assign to an employee by assigned_to and status
-    // viec toi duoc giao
-    public ArrayList<Integer> getFeedBack(int employeeId, int status){
-        ArrayList<Integer> feedBackRatings = new ArrayList<Integer>();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String s = "select rating from request where itteam_id = ?";
-            if (status != 0){
-                s += " and status = ? ";
-            }
-            PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeeId);
-            if (status != 0){
-                statement.setInt(2,status);
-            }
-            ResultSet rs = statement.executeQuery();
-            while (rs.next()){
-                Integer int1 = rs.getInt("rating");
-                feedBackRatings.add(int1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return feedBackRatings;
-    }
-
-    // get number of feedback of all requests assign to an employee by assigned_to and status
-    // so luong phan hoi cua viec toi duoc giao
-    public Integer getNumberOfFeedBack(int employeeId, int status){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where itteam_id = ?";
-            if (status != 0){
-                s += " and status = ? ";
-            }
-            PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,employeeId);
-            if (status != 0){
-                statement.setInt(2,status);
-            }
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()){
-                int i = rs.getInt(1);
-                if (i > 0) return i;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     // get all request by team_id_ and status
     // cong viec cua team
     public ArrayList<Request> getAllTeamRequest(int teamId, int status){
-
         ArrayList<Request> requests = new ArrayList<Request>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request " +
+            String s = "select * from request join employees on request.team_id = employees.employee_id" +
                     " where team_id ?";
             if (status != 0){
                 s += " and request.status = ? ";
@@ -298,9 +242,7 @@ public class RequestDb {
                 requests.add(r2);
             }
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return requests;
@@ -308,22 +250,26 @@ public class RequestDb {
 
     // get number of requests by team_id and status
     // so cong viec cua team
-    public Integer getNumberOfTeamRequest(int teamId, int status) {
+    public Integer getNumberOfTeamRequest(int employeeId, int status) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request where team_id = ? and status = ? ;";
+            String s = "select count(*) from request join employees on request.team_id = employees.team_id" +
+                    " where employees.employee_id = ?";
+            if (status != 0){
+                s += " and status = ? ";
+            }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1, teamId);
-            statement.setInt(2, status);
+            statement.setInt(1, employeeId);
+            if (status != 0){
+                statement.setInt(2,status);
+            }
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 int i = rs.getInt(1);
                 if (i > 0) return i;
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -331,17 +277,17 @@ public class RequestDb {
 
     // get all requests by branch_id and status
     // cong viec cua chi nhanh
-    public ArrayList<Request> getAllBranchRequest(int branchId, int status) {
+    public ArrayList<Request> getAllBranchRequest(int employeeId, int status) {
 
         ArrayList<Request> requests = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select * from request where branch_id = ?";
+            String s = "select * from request join employees on request.branch_id = employees.branch_id where employees.employee_id = ?";
             if (status != 0){
                 s += " and status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,branchId);
+            statement.setInt(1, employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
@@ -377,22 +323,22 @@ public class RequestDb {
 
     // get number of requests by branch_id and status
     // so cong viec cua bo phan it
-    public Integer getNumberOfBranchRequest(int branchId, int status){
+    public Integer getNumberOfBranchRequest(int employeeId, int status){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String s = "select count(*) from request" +
-                    " where branch_id = ?";
+            String s = "select count(*) from request join employees " +
+                    "on request.branch_id = employees.branch_id where employees.employee_id = ?";
             if (status != 0){
                 s += " and request.status = ? ";
             }
             PreparedStatement statement = conn.prepareStatement(s);
-            statement.setInt(1,branchId);
+            statement.setInt(1,employeeId);
             if (status != 0){
                 statement.setInt(2,status);
             }
             ResultSet rs = statement.executeQuery();
             if (rs.next()){
-               int i = rs.getInt(1);
+                int i = rs.getInt(1);
                 if (i > 0) return i;
             }
         }
