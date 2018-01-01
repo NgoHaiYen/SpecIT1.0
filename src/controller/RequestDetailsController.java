@@ -98,13 +98,14 @@ public class RequestDetailsController extends HttpServlet {
                     cdb.addComment(c);
                     break;
                 case "relater":
-                    String[] relater = request.getParameterValues("changeValue");
-                    ArrayList<Integer> relatersId = new ArrayList<>();
-                    for (String rl : relater){
-                        relatersId.add(Integer.parseInt(rl));
-                    }
-                    RelaterDb relaterDb = new RelaterDb();
-                    relaterDb.updateRelater(relatersId, id);
+                    String relater = request.getParameter("changeValue");
+                    System.out.println(relater);
+//                    ArrayList<Integer> relatersId = new ArrayList<>();
+//                    for (String rl : relater){
+//                        relatersId.add(Integer.parseInt(rl));
+//                    }
+//                    RelaterDb relaterDb = new RelaterDb();
+//                    relaterDb.updateRelater(relatersId, id);
 
                     break;
                 case "assign":

@@ -15,6 +15,7 @@ public class Mail {
 
     public void sendMail(String receiver, String body, String subject){
         try {
+            System.out.println(receiver);
             Properties p = new Properties();
             p.put("mail.smtp.auth", "true");
             p.put("mail.smtp.starttls.enable", "true");

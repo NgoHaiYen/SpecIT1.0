@@ -177,7 +177,7 @@
 
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val())" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val(), 'nothing')" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -239,14 +239,14 @@
                                 <div class="modal-body">
                                     <p>Chọn team thay đổi:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker" id="branches" required>
-                                        <c:forEach items="${branches}" var="branch" >
-                                            <option value="${branch.id}"${branch.id == request.branchId? 'selected' : ''}>${branch.name}</option>
+                                    <select class="selectpicker" id="subteam" required>
+                                        <c:forEach items="${subteams}" var="subteam" >
+                                            <option value="${subteam.id}"${subteam.id == request.subteamId? 'selected' : ''}>${subteam.name}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#subteam').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +268,7 @@
                 <div class="col-sm-4">
                     <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
                     <label class="newrow">Người liên quan :</label>
-                    <c:forEach var = "i" begin = "1" end = "${releaters.size()}">
+                    <c:forEach var = "i" begin = "1" end = "${relaters.size()}">
                         <c:if test="${i != 1}">
                             <c:out value=","/>
                         </c:if>
@@ -396,6 +396,7 @@
 
     function postajax(s, requestId, changeValue, comment){
         $('.modal').modal('hide');
+        console.log(changeValue);
 
         $.ajax({
             type:"POST",

@@ -622,6 +622,14 @@ public class RequestDb {
 
     // update request priority
     public void updateRequestPriority(int requestId, int priorityId){
+        // mail to current assigned employee
+        String assigned = getAssignedEmail(requestId);
+        Mail mail = new Mail();
+        String body = "Yêu cầu " + getName(requestId) + " của bộ phận của bạn đã được thay đổi mức độ ưu tiên";
+        if (assigned != null){
+            mail.sendMail(assigned, body, "Thay đổi mức độ ưu tiên");
+        }
+
         deleteIsread(requestId);
         try {
             Class.forName("com.mysql.jdbc.Driver");
