@@ -39,11 +39,11 @@ public class RequestDb {
                 r.setContent(rs.getString("content"));
                 r.setDeadline(rs.getString("deadline"));
                 r.setPriority(rs.getInt("priority"));
-                Integer stfytf = rs.getInt("rating");
                 r.setRating(rs.getInt("rating")==0?null:rs.getInt("rating"));
                 r.setStatus(rs.getInt("status"));
                 r.setSubject(rs.getString("subject"));
                 r.setTeamId(rs.getInt("team_id"));
+                r.setBranchId(rs.getInt("branch_id"));
                 r.setUpdatedAt(rs.getString("updated_at"));
                 r.setResolvedAt(rs.getString("resolved_at"));
                 r.setDeletedAt(rs.getString("deleted_at"));

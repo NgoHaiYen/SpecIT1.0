@@ -107,7 +107,7 @@ public class RequestDetailsController extends HttpServlet {
                     relaterDb.updateRelater(relatersId, id);
 
                     break;
-                case "assigned":
+                case "assign":
                     rdb.updateRequestAssign(requestid, id);
                     break;
                 case "status":
