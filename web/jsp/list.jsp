@@ -58,7 +58,7 @@
                                 <tr>
                                     <td>
                                         <span <c:if test="${request.read}">style="visibility: hidden"</c:if> onclick="seen(${request.id}, this)" class="glyphicon glyphicon-asterisk" style="color:red"></span>
-                                        <img onclick="seen(${request.id}, this)" src="image/${request.image}" width="40px" height="40px">
+                                        <img class="seen" src="image/${request.image}" width="40px" height="40px">
                                     </td>
                                     <td><a style="cursor: pointer;" onclick="postValue(${request.id})">${request.subject}</a></td>
                                     <td>${request.priorityName}</td>
@@ -115,11 +115,11 @@
                 });
             });
             function seen(requestId, e){
-                console.log(e);
-                e = e || window.event;
-                var targ = jQuery.Event( "click");
-                console.log(jQuery( "body" ).trigger(targ));
-                targ.visible();
+//                console.log(e);
+//                e = e || window.event;
+//                var targ = jQuery.Event( "click");
+//                console.log(jQuery( "body" ).trigger(targ));
+//                targ.visible();
 //                $.ajax({
 //                    type:"POST",
 //                    cache:false,
@@ -138,6 +138,11 @@
 //                    alert("Failed");
 //                });
             }
+
+            $('.seen').click(function(e){
+                var SendButton = $(e.target);
+                e.visible();
+            });
         </script>
 </body>
 </html>

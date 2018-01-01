@@ -242,11 +242,11 @@
         <div class="col-sm-4">
             <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
             <label class="newrow">Người liên quan :</label>
-            <c:forEach var = "i" begin = "0" end = "${relaters.size()-1}">
-                <c:if test="${i != 0}">
+            <c:forEach var = "i" begin = "1" end = "${releginaters.size()}">
+                <c:if test="${i != 1}">
                     <c:out value=","/>
                 </c:if>
-                <c:out value = "${relaters.get(i).employeeName}"/>
+                <c:out value = "${relaters.get(i-1).employeeName}"/>
             </c:forEach>
             <br/>
             <label class="newrow">Đánh giá :</label>

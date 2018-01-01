@@ -21,16 +21,13 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("pass");
         LoginDb loginDb = new LoginDb();
         Employee e = loginDb.checkLogin(username, password);
+        loginDb.closeConnection();
         if (e != null){
-            if (e != null){
-                session.setAttribute("role", e.getRole());
-                session.setAttribute("id", e.getId());
-                response.sendRedirect(request.getContextPath() + "/list");
-                return;
-            }
-            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-            rs.forward(request, response);
+            session.setAttribute("role", e.getRole());
+            session.setAttribute("id", e.getId());
+            response.sendRedirect(request.getContextPath() + "/list");
         } else {
+            request.setAttribute("errMe", "Tên đăng nhập hoặc mật khẩu không đúng");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

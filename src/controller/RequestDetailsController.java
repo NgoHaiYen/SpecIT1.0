@@ -2,8 +2,6 @@ package controller;
 
 import database.*;
 import model.*;
-import utils.Constant;
-import utils.Mail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +39,7 @@ public class RequestDetailsController extends HttpServlet {
             ArrayList<Priority> priorities = pdb.getAllPriorities();
             request.setAttribute("priorities", priorities);
 
-            // priorities
+            // branched
             ArrayList<Branch> branches = bdb.getAllBranch();
             request.setAttribute("branches", branches);
 
@@ -49,6 +47,12 @@ public class RequestDetailsController extends HttpServlet {
             ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
             request.setAttribute("employees", employees);
 
+            rdb.closeConnection();
+            cdb.closeConnection();
+            pdb.closeConnection();
+            bdb.closeConnection();
+            edb.closeConnection();
+            relaterDb.closeConnection();
             request.getRequestDispatcher("jsp/request_details.jsp").forward(request, response);
         }
 
@@ -126,7 +130,15 @@ public class RequestDetailsController extends HttpServlet {
             out.println(id);
 
             out.close();
+
+            rdb.closeConnection();
+            cdb.closeConnection();
+            pdb.closeConnection();
+            bdb.closeConnection();
+            edb.closeConnection();
         }
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
