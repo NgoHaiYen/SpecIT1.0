@@ -85,17 +85,6 @@ public class AddRequestController extends HttpServlet {
         values.add("branches");
         values.add("nd");
 
-        try {
-            Part filePart = request.getPart("chooseFile");
-            if(Paths.get(filePart.getSubmittedFileName()).toString().equals("")) {
-                return false;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
-
         String[] relater = request.getParameterValues("relater");
         return (relater != null) && checkValidate(request, values);
     }
@@ -116,6 +105,7 @@ public class AddRequestController extends HttpServlet {
     }
 
     private String uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
+        if (filePart == null) return null;
         String fileName = Paths.get(filePart.getSubmittedFileName()).toString();
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];

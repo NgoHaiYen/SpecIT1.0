@@ -544,8 +544,10 @@ public class RequestDb {
     }
 
     private void addImage(String file, Integer requestId) {
-        ImageDb idb = new ImageDb();
-        idb.addImage(requestId, file);
+        if (file != null){
+            ImageDb idb = new ImageDb();
+            idb.addImage(requestId, file);
+        }
     }
 
     private void addRequest(Request request){
