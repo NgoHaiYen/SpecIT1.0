@@ -206,7 +206,6 @@
                                         </c:forEach>
                                     </select>
                                 </div>
-
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
                                     <button type="button" onclick="postajax('assign', ${request.id}, $('#assignedto').val())" class="assignPopup btn btn-default" data-dismiss="modal">Close</button>
@@ -215,116 +214,120 @@
                         </div>
                     </div>
 
-                    <!-- Change State button-->
-                    <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
+                </div>
+
+                <div class="statuschangebtn btncustom">
+                    <select class="selectpicker" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
                         <option value="1" data-icon="glyphicon-pencil">New</option>
                         <option value="2" data-icon="glyphicon-play">Inprogress</option>
                         <option value="3" data-icon="glyphicon-ok">Resolved</option>
                         <option value="4" data-icon="glyphicon-remove">Cancel</option>
-                        <option value="5" data-icon="glyphicon-refresh" disabled>Feedback</option>
+                        <option value="5" data-icon="glyphicon-refresh">Feedback</option>
                     </select>
                 </div>
+
+
+            </div>
+            <div class="panel-body">
+                <div class="col-sm-4">
+                    <label class="newrow">Ngày tạo       :</label>${request.createdAt}<br/>
+                    <label class="newrow">Người yêu cầu  :</label>${request.createdByName}<br/>
+                    <label class="newrow">Mức độ ưu tiên :</label>${request.priorityName}
+                </div>
+                <div class="col-sm-4">
+                    <label class="newrow">Ngày hết hạn    :</label>${request.deadline}<br/>
+                    <label class="newrow">Người thực hiện :</label>${request.assignedToName}<br/>
+                    <label class="newrow">Trạng thái      :</label>${request.statusName}
+                </div>
+                <div class="col-sm-4">
+                    <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
+                    <label class="newrow">Người liên quan :</label>
+                    <c:forEach var = "i" begin = "1" end = "${releaters.size()}">
+                        <c:if test="${i != 1}">
+                            <c:out value=","/>
+                        </c:if>
+                        <c:out value = "${relaters.get(i-1).employeeName}"/>
+                    </c:forEach>
+                    <br/>
+                    <label class="newrow">Đánh giá :</label>
+                    <c:if test="${request.rating == 0}">
+                        <c:out value = "Không hài lòng"/>
+                    </c:if>
+                    <c:if test="${request.rating == 1}">
+                        <c:out value = "Hài lòng"/>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Description Panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading"> <h4><b>Description</b> </h4></div>
+            <div class="panel-body">
+                <!--Requested Detail -->
+                <div class="col-xs-12">
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">${request.createdByName}
+                                </br>
+                                <span class="glyphicon glyphicon-time"></span>
+                                <small> Created: ${request.createdAt} </small>
+                            </h3>
+                            <p>${request.content}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Comment on this Request -->
+        <c:forEach var="comment" items="${comments}">
+            <hr/>
+            <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="image/image.jpeg" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">${comment.name}
+                                </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
+                            <p>${comment.content}</p>
+                            <p>${comment.note}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+        </c:forEach>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4><b>Bình luận</b></h4></div>
+            <div class="panel-body">
+                <form data-toggle="validator">
+                    <div class="form-group">
+                        <textarea class="form-control col-xs-12"  rows="5" id="nd" name="nd" required></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary submit" onclick="" id="submit" name="submit-btn">
+                            <span class="glyphicon glyphicon-send"></span> Click to submit
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <!--Request Details -->
-    <div class="panel-body">
-        <div class="col-sm-4">
-            <label class="newrow">Ngày tạo       :</label>${request.createdAt}<br/>
-            <label class="newrow">Người yêu cầu  :</label>${request.createdByName}<br/>
-            <label class="newrow">Mức độ ưu tiên :</label>${request.priorityName}
-        </div>
-        <div class="col-sm-4">
-            <label class="newrow">Ngày hết hạn    :</label>${request.deadline}<br/>
-            <label class="newrow">Người thực hiện :</label>${request.assignedToName}<br/>
-            <label class="newrow">Trạng thái      :</label>${request.statusName}
-        </div>
-        <div class="col-sm-4">
-            <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
-            <label class="newrow">Người liên quan :</label>
-            <c:forEach var = "i" begin = "1" end = "${releaters.size()}">
-                <c:if test="${i != 1}">
-                    <c:out value=","/>
-                </c:if>
-                <c:out value = "${relaters.get(i-1).employeeName}"/>
-            </c:forEach>
-            <br/>
-            <label class="newrow">Đánh giá :</label>
-            <c:if test="${request.rating == 0}">
-                <c:out value = "Không hài lòng"/>
-            </c:if>
-            <c:if test="${request.rating == 1}">
-                <c:out value = "Hài lòng"/>
-            </c:if>
-        </div>
-    </div>
-    <!--Description Panel -->
-    <div class="panel panel-default">
-        <div class="panel-heading"> <h4><b>Description</b> </h4></div>
-        <div class="panel-body">
-            <!--Requested Detail -->
-            <div class="col-xs-2">
-            </div>
-            <div class="col-xs-8">
-                <div class="media">
-                    <div class="media-left">
-                        <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">${request.createdByName}
-                            </br>
-                            <span class="glyphicon glyphicon-time"></span>
-                            <small> Created: ${request.createdAt} </small>
-                        </h3>
-                        <p>${request.content}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xz-2"></div>
-        </div>
-    </div>
 
-    <!--Comment on this Request -->
-    <c:forEach var="comment" items="${comments}">
-        <hr/>
-        <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
-            <div class="col-xs-1">
-            </div>
-            <div class="col-xs-10">
-                <div class="media">
-                    <div class="media-left">
-                        <img src="image/image.jpeg" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">${comment.name}
-                            </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
-                        <p>${comment.content}</p>
-                        <p>${comment.note}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-1">
-            </div>
-        </div>
-    </c:forEach>
-
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4><b>Bình luận</b></h4></div>
-        <div class="panel-body">
-            <form data-toggle="validator">
-                <div class="form-group">
-                    <textarea class="form-control col-xs-12"  rows="5" id="nd" name="nd" required></textarea>
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary submit" onclick="" id="submit" name="submit-btn">
-                        <span class="glyphicon glyphicon-send"></span> Click to submit
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 
 
 <script src="js/jquery.min.js"></script>
