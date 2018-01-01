@@ -39,12 +39,13 @@
 
     <!--body-->
     <div class="container">
-            <!-- Main content folded in a panel GROUP -->
+            <!-- Main buttons in a panel GROUP -->
         <div class="panel panel-default">
             <div class="panel-heading custompanel">
                 <h4><a href="list">SpecIT</a></h4>
                 <!-- Buttons -->
-                <!-- Hien thi voi quyen manage-->
+                <!-- Hien thi voi quyen manage role >3 ,co kha nang edit-->
+                <c:if test="${role >= 3}">
                 <div class="prioritybtn btncustom">
                     <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn" data-toggle="modal" data-target="#priorityModal">
                         <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên
@@ -244,7 +245,8 @@
                     </div>
 
                 </div>
-
+                </c:if>
+                <c:if test="${role == 1}">
                 <div class="statuschangebtn btncustom">
                     <select class="selectpicker" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
                         <option value="1" data-icon="glyphicon-pencil">New</option>
@@ -254,6 +256,7 @@
                         <option value="5" data-icon="glyphicon-refresh">Feedback</option>
                     </select>
                 </div>
+                </c:if>
 
             </div>
             <div class="panel-body">
