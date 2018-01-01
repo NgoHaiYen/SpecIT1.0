@@ -129,10 +129,7 @@ public class AddRequestController extends HttpServlet {
 
     private boolean checkImage(String fileName) {
         String mimeType = getServletContext().getMimeType(fileName);
-        if (mimeType.startsWith("image/")) {
-            return true;
-        }
-        return false;
+        return mimeType != null && mimeType.startsWith("image/");
     }
 
 }
