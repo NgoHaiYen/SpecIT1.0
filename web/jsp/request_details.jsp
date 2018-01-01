@@ -42,7 +42,7 @@
             <!-- Main content folded in a panel GROUP -->
         <div class="panel panel-default">
             <div class="panel-heading custompanel">
-                <h4><b>Request Detail</b> </h4>
+                <h4><a href="list">SpecIT</a></h4>
                 <!-- Buttons -->
                 <!-- Hien thi voi quyen manage-->
                 <div class="prioritybtn btncustom">
@@ -61,22 +61,22 @@
                                         <label class="control-label">Thay đổi mức độ ưu tiên:</label>
                                         <div class="form-group">
 
-                                            <select class="selectpicker form-control" multiple data-max-options="1" required>
-                                                <option>Bình thường</option>
-                                                <option>Thấp</option>
-                                                <option>Cao</option>
+                                            <select class="selectpicker form-control" name="priorities" multiple data-max-options="1" required>
+                                                <c:forEach items="${priorities}" var="priority" >
+                                                    <option value="${priority.id}"${priority.id == request.priority? 'selected' : ''}>${priority.name}</option>
+                                                </c:forEach>
                                             </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <label class="control-label">Lí do thay đổi:</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="5" id="priorityComment" required></textarea>
+                                            <textarea class="form-control" rows="5" name="reasonPriority" id="priorityComment" required></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" onclick="postajax('priority')" class="btn btn-primary">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -98,9 +98,10 @@
                                 <div class="modal-body">
                                     <p>Chọn bộ phận IT:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker">
-                                        <option>IT Hà Nội</option>
-                                        <option>IT Đà Nẵng</option>
+                                    <select class="selectpicker" name="branches" required>
+                                        <c:forEach items="${branches}" var="branch" >
+                                            <option value="${branch.id}"${branch.id == request.branchId? 'selected' : ''}>${branch.name}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <div class="modal-footer">
@@ -131,7 +132,7 @@
                                                 <div class="input-group">
                                                     <label for="Deadline" class="input-group-addon btn">
                                                         <span class="glyphicon glyphicon-calendar"></span></label>
-                                                    <input type="text" id="Deadline" name="Deadline" class="form-control date-picker" data-error="Vui lòng chọn ngày" required/></br>
+                                                    <input type="text" id="Deadline" name="eadline" class="form-control date-picker" data-error="Vui lòng chọn ngày" required/></br>
                                                 </div>
                                                 <div class="help-block with-errors"></div>
                                             </div>
@@ -148,7 +149,6 @@
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -167,10 +167,10 @@
                                 <div class="modal-body">
                                     <p>Chọn người liên quan:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
+                                    <select class="selectpicker" multiple data-live-search="true" name="employees">
+                                        <c:forEach items="${employees}" var="employee" >
+                                            <option value="${employee.id}"${relaters.contains(employee.id)? 'selected' : ''}>${employee.name}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
@@ -199,9 +199,9 @@
                                     <p>Chọn người thực hiện:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
                                     <select class="selectpicker">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
+                                        <c:forEach items="${employees}" var="employee" >
+                                            <option value="${employee.id}"${employee.id == request.assignedTo? 'selected' : ''}>${employee.name}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
 
@@ -214,93 +214,91 @@
                     </div>
                 </div>
 
-                <div class="statuschangebtn btncustom">
-                    <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn" onchange="change(this);">
-                        <option value="1" data-icon="glyphicon-pencil">New</option>
-                        <option value="2" data-icon="glyphicon-play">Inprogress</option>
-                        <option value="3" data-icon="glyphicon-ok">Resolved</option>
-                        <option value="4" data-icon="glyphicon-remove">Cancel</option>
-                        <option value="5" data-icon="glyphicon-refresh" disabled>Feedback</option>
-                    </select>
+                                <!-- Change State button-->
+                                <select class="selectpicker custom" title="Thay đổi trạng thái" id="statuschange" name="status-btn" onchange="change(this);">
+                                    <option value="1" data-icon="glyphicon-pencil">New</option>
+                                    <option value="2" data-icon="glyphicon-play">Inprogress</option>
+                                    <option value="3" data-icon="glyphicon-ok">Resolved</option>
+                                    <option value="4" data-icon="glyphicon-remove">Cancel</option>
+                                    <option value="5" data-icon="glyphicon-refresh" disabled>Feedback</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="panel-body">
-                <div class="col-sm-4">
-                    <label class="newrow">Ngày tạo       :</label>${request.createdAt}<br/>
-                    <label class="newrow">Người yêu cầu  :</label>${request.createdByName}<br/>
-                    <label class="newrow">Mức độ ưu tiên :</label>${request.priorityName}
-                </div>
-                <div class="col-sm-4">
-                    <label class="newrow">Ngày hết hạn    :</label>${request.deadline}<br/>
-                    <label class="newrow">Người thực hiện :</label>${request.assignedToName}<br/>
-                    <label class="newrow">Trạng thái      :</label>${request.statusName}
-                </div>
-                <div class="col-sm-4">
-                    <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
-                    <label class="newrow">Người liên quan :</label>
-                    <c:forEach var = "i" begin = "1" end = "${relaters.size()}">
-                        <c:out value = "${relaters.get(i).name}"/>
-                    </c:forEach>
-                    <br/>
-                    <label class="newrow">Đánh giá :</label>
-                    <c:if test="${request.rating == 0}">
-                        <c:out value = "Không hài lòng"/>
-                    </c:if>
-                    <c:if test="${request.rating == 1}">
-                        <c:out value = "Hài lòng"/>
-                    </c:if>
-                </div>
-            </div>
-
-        </div>
-                <!--Request Details -->
-
-
-        <div class="panel panel-default">
-                <div class="panel-heading"> <h4> <b>Description</b> </h4></div>
+                    <!--Request Details -->
                 <div class="panel-body">
-                    <!--Requested Detail -->
-                    <div class="col-xs-4">
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                            </div>
-                            <div class="media-body">
-                                <h3 class="media-heading">${request.createdByName}
-                                    </br>
-                                    <span class="glyphicon glyphicon-time"></span>
-                                    <small> Created: ${request.createdAt} </small>
-                                </h3>
-                                <p>${request.content}</p>
-                            </div>
-                        </div>
+                    <div class="col-sm-4">
+                        <label class="newrow">Ngày tạo       :</label>${request.createdAt}<br/>
+                        <label class="newrow">Người yêu cầu  :</label>${request.createdByName}<br/>
+                        <label class="newrow">Mức độ ưu tiên :</label>${request.priorityName}
                     </div>
-                    <div class="col-xz-8">
+                    <div class="col-sm-4">
+                        <label class="newrow">Ngày hết hạn    :</label>${request.deadline}<br/>
+                        <label class="newrow">Người thực hiện :</label>${request.assignedToName}<br/>
+                        <label class="newrow">Trạng thái      :</label>${request.statusName}
                     </div>
-                </div>
-        </div>
-
-        <hr>
-        <!--Comment on this Request -->
-        <c:forEach var="comment" items="${comments}">
-            <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
-                <div class="col-xs-4">
-                    <div class="media">
-                        <div class="media-left">
-                            <img src="../res/RequestByResultImage.jpg?v=123" class="img-rounded media-object" alt="profilePic" style="width:60px">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">${comment.name}
-                                </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
-                            <p>${comment.content}</p>
-                        </div>
+                    <div class="col-sm-4">
+                        <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
+                        <label class="newrow">Người liên quan :</label>
+                        <c:forEach var = "i" begin = "1" end = "${relaters.size()}">
+                            <c:out value = "${relaters.get(i).name}"/>
+                        </c:forEach>
+                        <br/>
+                        <label class="newrow">Đánh giá :</label>
+                        <c:if test="${request.rating == 0}">
+                            <c:out value = "Không hài lòng"/>
+                        </c:if>
+                        <c:if test="${request.rating == 1}">
+                            <c:out value = "Hài lòng"/>
+                        </c:if>
                     </div>
-                </div>
-                <div class="col-xz-8">
                 </div>
             </div>
-        </c:forEach>
+                <!--Description Panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading"> <h4> <b>Description</b> </h4></div>
+                    <div class="panel-body">
+                        <!--Requested Detail -->
+                        <div class="col-xs-4">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                                    </div>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">${request.createdByName}
+                                            </br>
+                                            <span class="glyphicon glyphicon-time"></span>
+                                            <small> Created: ${request.createdAt} </small>
+                                        </h3>
+                                        <p>${request.content}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xz-8">
+                            </div>
+                        </div>
+                </div>
+                        <hr>
+                        <!--Comment on this Request -->
+                        <c:forEach var="comment" items="${comments}">
+                            <div class="row comment"> <!-- if there's a new comment ,will be added to this -->
+                                <div class="col-xs-4">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="../res/RequestByResultImage.jpg?v=123" class="img-rounded media-object" alt="profilePic" style="width:60px">
+                                        </div>
+                                        <div class="media-body">
+                                            <h3 class="media-heading">${comment.name}
+                                                </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
+                                            <p>${comment.content}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xz-8">
+                                </div>
+                            </div>
+                        </c:forEach>
 
         <div class="panel panel-default">
             <div class="panel-heading"><h4><b>Bình luận</b></h4></div>
@@ -318,10 +316,9 @@
                 </form>
             </div>
         </div>
-
-
-
     </div>
+</div>
+
 
 <script src="js/jquery.min.js"></script>
 
@@ -341,6 +338,7 @@
         });
     });
 
+
     function change(selBox) {
         if($(selBox).val() === '3') {
             var txt;
@@ -359,6 +357,20 @@
         $(".date-picker").datepicker();
 
     });
+
+    function postajax(s){
+        $.ajax({
+            type:"POST",
+            cache:false,
+            data: {
+                ajax: s
+            },
+            url:"http://localhost:8080/SpecIT/details",
+            success : function(responseText) {
+                alert(responseText);
+            }
+        });
+    }
 
 </script>
 </body>

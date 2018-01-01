@@ -1,12 +1,8 @@
 package controller;
 
-import database.CommentDb;
-import database.RelaterDb;
-import database.RequestDb;
-import model.Comment;
-import model.Employee;
-import model.Relater;
-import model.Request;
+import com.google.gson.Gson;
+import database.*;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,21 +16,47 @@ import java.util.ArrayList;
 @WebServlet(name = "RequestDetailsController")
 public class RequestDetailsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("requestshow"));
-        RequestDb rdb = new RequestDb();
-        Request r = rdb.getRequestById(id);
+        if (request.getParameter("requestshow") != null){
+            int id = Integer.parseInt(request.getParameter("requestshow"));
+            RequestDb rdb = new RequestDb();
+            Request r = rdb.getRequestById(id);
 
-        RelaterDb relaterDb = new RelaterDb();
-        ArrayList<Relater> relaters = relaterDb.getAllRelater(id);
+            RelaterDb relaterDb = new RelaterDb();
+            ArrayList<Relater> relaters = relaterDb.getAllRelater(id);
 
-        CommentDb cdb = new CommentDb();
-        ArrayList<Comment> comments = cdb.getAllComment(id);
+            CommentDb cdb = new CommentDb();
+            ArrayList<Comment> comments = cdb.getAllComment(id);
 
-        request.setAttribute("request", r);
-        request.setAttribute("relaters", relaters);
-        request.setAttribute("comments", comments);
+            request.setAttribute("request", r);
+            request.setAttribute("relaters", relaters);
+            request.setAttribute("comments", comments);
 
-        request.getRequestDispatcher("jsp/request_details.jsp").forward(request, response);
+            // priorities
+            PriorityDb pdb = new PriorityDb();
+            ArrayList<Priority> priorities = pdb.getAllPriorities();
+            request.setAttribute("priorities", priorities);
+
+            // priorities
+            BranchDb bdb = new BranchDb();
+            ArrayList<Branch> branches = bdb.getAllBranch();
+            request.setAttribute("branches", branches);
+
+            // employees
+            EmployeeDb edb = new EmployeeDb();
+            ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
+            request.setAttribute("employees", employees);
+
+            request.getRequestDispatcher("jsp/request_details.jsp").forward(request, response);
+        }
+
+        String type = request.getParameter("ajax");
+        if (type != null){
+//            String json = new Gson().toJson("");
+//
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(type);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

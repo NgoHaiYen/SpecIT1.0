@@ -84,8 +84,6 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/js/moment.js"></script>
         <script src="bootstrap/js/bootstrap-select.min.js"></script>
-        <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="js/ckeditor/ckeditor.js"></script>
         <script src="js/request.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
         <script src="js/dataTables.bootstrap.min.js"></script>

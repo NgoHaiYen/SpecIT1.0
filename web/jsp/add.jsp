@@ -72,9 +72,9 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Team <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label><br>
-                            <select class="selectpicker form-control" data-live-search="true" name="subteams" title="Choose one of the following..." required>
-                                <c:forEach items="${subteams}" var="subteam" >
-                                    <option value="${subteam.id}">${subteam.name}</option>
+                            <select class="selectpicker form-control" name="branches" title="Choose one of the following..." required>
+                                <c:forEach items="${branches}" var="branch" >
+                                    <option value="${branch.id}">${branch.name}</option>
                                 </c:forEach>
                             </select>
                             <div class="help-block with-errors"></div>
