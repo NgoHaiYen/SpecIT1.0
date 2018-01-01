@@ -63,7 +63,6 @@ public class RequestDetailsController extends HttpServlet {
                 id = Integer.parseInt(request.getParameter("changeValue"));
             }
             String comment = request.getParameter("comment");
-            Mail mail = new Mail();
             Comment c = new Comment();
             switch (type){
                 case "priority":
@@ -80,16 +79,7 @@ public class RequestDetailsController extends HttpServlet {
                     rdb.updateRequestPriority(requestid, id);
                     break;
                 case "branch":
-                    String body = "Yêu cầu " + rdb.getName(requestid) + " của bộ phận của bạn đã được chuyển tới bộ phận IT khác";
-                    String previousBranchLeaderMail = rdb.getLeaderBranchMail(requestid);
-                    mail.sendMail(previousBranchLeaderMail, body, "Thay đổi bộ phận IT");
-
-                    // todo send mail to the assigned employees
-
                     rdb.updateRequestBranch(requestid, id);
-
-                    body = "Yêu cầu mới đã được chuyển tới bộ phận của bạn";
-                    mail.sendMail(bdb.getLeaderEmail(id), body, "Thay đổi bộ phận IT");
                     break;
                 case "deadline":
                     // todo comment type=3

@@ -1,6 +1,8 @@
 package database;
 
+import model.Branch;
 import model.Request;
+import utils.Mail;
 
 
 import java.sql.PreparedStatement;
@@ -484,12 +486,12 @@ public class RequestDb {
     }
 
     // get branch by request id
-    public String getLeaderBranchMail(int id){
+    private String getLeaderBranchMail(int id){
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             String s = "select email from request join branch on request.branch_id = branch.branch_id " +
-                    " join employees where branch.leader_id = employees.employee_id" +
+                    " join employees on branch.leader_id = employees.employee_id" +
                     " where request_id = ?";
 
             PreparedStatement statement = conn.prepareStatement(s);
@@ -535,7 +537,11 @@ public class RequestDb {
 
         addImage(file, getLastInsertIdRequest(request));
 
-        // todo send mail to the branch leader
+        // send mail to current branch
+        Mail mail = new Mail();
+        String body = "Yêu cầu mới đã được chuyển đến bộ phận của bạn";
+        String previousBranchLeaderMail = getLeaderBranchMail(getLastInsertIdRequest(request));
+        mail.sendMail(previousBranchLeaderMail, body, "Thêm yêu cầu");
     }
 
     private void addImage(String file, Integer requestId) {
@@ -559,9 +565,7 @@ public class RequestDb {
             statement.setInt(7,request.getBranchId());
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -645,18 +649,51 @@ public class RequestDb {
 
     // update request branch
     public void updateRequestBranch(int requestId, int branchId){
+        // send mail to current branch
+        Mail mail = new Mail();
+        String body = "Yêu cầu " + getName(requestId) + " của bộ phận của bạn đã được chuyển tới bộ phận IT khác";
+        String previousBranchLeaderMail = getLeaderBranchMail(requestId);
+        mail.sendMail(previousBranchLeaderMail, body, "Thay đổi bộ phận IT");
+
+        // send mail assigned employee
+        mail.sendMail(getAssignedEmail(requestId), body, "Thay đổi bộ phận IT");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "UPDATE request SET branch_id = ?, team_id = null, updated_at = CURRENT_TIMESTAMP " +
-                    "WHERE request_id = ?";
+            String addSql = "UPDATE request SET branch_id = ?, team_id = null, assigned_to = null," +
+                    " updated_at = CURRENT_TIMESTAMP WHERE request_id = ?";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setInt(1, branchId);
             statement.setInt(2, requestId);
             statement.execute();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        BranchDb bdb = new BranchDb();
+        body = "Yêu cầu mới đã được chuyển tới bộ phận của bạn";
+        mail.sendMail(bdb.getLeaderEmail(branchId), body, "Thay đổi bộ phận IT");
+    }
+
+    private String getAssignedEmail(int requestId) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select email from request join employees on request.assigned_to = employees.employee_id" +
+                    " where request_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, requestId);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("email");
+            }
         }
         catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     // update request deadline
