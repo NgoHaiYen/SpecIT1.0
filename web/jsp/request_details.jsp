@@ -127,7 +127,7 @@
                                     <!-- Lay du lieu tu csdl tu day-->
                                     <select class="selectpicker" id="subteam" required>
                                         <c:forEach items="${subteams}" var="subteam" >
-                                            <option value="${subteam.id}"${subteam.id == request.subteamId? 'selected' : ''}>${subteam.name}</option>
+                                            <option value="${subteam.id}"${subteam.id == request.teamId? 'selected' : ''}>${subteam.name}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -335,8 +335,6 @@
             </div>
         </div>
 
-
-
         <div class="panel panel-default">
             <div class="panel-heading"><h4><b>Bình luận</b></h4></div>
             <div class="panel-body">
@@ -347,7 +345,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary submit" onclick="" id="submit" name="submit-btn">
+                        <button type="submit" class="btn btn-primary submit" onclick="comment()" id="submit" name="submit-btn">
                             <span class="glyphicon glyphicon-send"></span> Click to submit
                         </button>
                     </div>
@@ -376,7 +374,6 @@
         });
     });
 
-
     function change(selBox) {
         if($(selBox).val() === '3') {
             var txt;
@@ -389,6 +386,23 @@
             document.getElementById("evaluate").innerHTML = txt;
             selBox.selectedIndex = 0;
         }
+    }
+
+    function comment(){
+        $.ajax({
+            type:"post",
+            cache:false,
+            data: {
+                typename: "comment",
+                requestid: ${request.id},
+                nd: $('#nd').val()
+            },
+            url:"http://localhost:8080/SpecIT/details",
+            success : function(responseText) {
+
+            }
+        }).fail(function($xhr) {
+        });
     }
 
     $(document).ready(function() {
@@ -411,10 +425,8 @@
             },
             url:"http://localhost:8080/SpecIT/details",
             success : function(responseText) {
-                alert(responseText);
             }
         }).fail(function($xhr) {
-            alert("Failed");
         });
     }
 
@@ -430,7 +442,6 @@
 
             }
         }).fail(function($xhr) {
-            alert("Failed");
         });
     }
 

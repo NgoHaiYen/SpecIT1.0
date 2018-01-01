@@ -8,13 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="update logout">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" afterPath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="$PROJECT_DIR$/src/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RequestDb.java" afterPath="$PROJECT_DIR$/src/database/RequestDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/TeamDb.java" afterPath="$PROJECT_DIR$/src/database/TeamDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/Mail.java" afterPath="$PROJECT_DIR$/src/utils/Mail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Request.java" afterPath="$PROJECT_DIR$/src/model/Request.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/list.jsp" afterPath="$PROJECT_DIR$/web/jsp/list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/request_details.jsp" afterPath="$PROJECT_DIR$/web/jsp/request_details.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +28,18 @@
       <file leaf-file-name="request_details.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1492">
-              <caret line="399" column="34" lean-forward="true" selection-start-line="399" selection-start-column="34" selection-end-line="399" selection-end-column="34" />
+            <state relative-caret-position="-20">
+              <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,10 +48,24 @@
       <file leaf-file-name="RequestDetailsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+            <state relative-caret-position="83">
+              <caret line="69" column="122" lean-forward="false" selection-start-line="69" selection-start-column="122" selection-end-line="69" selection-end-column="122" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2106">
+              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getBranchName#0;class#Request#0" expanded="false" />
+                <element signature="method#getImage#0;class#Request#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,11 +86,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="178">
               <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/ListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1348">
+              <caret line="102" column="49" lean-forward="false" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+              <folding>
+                <element signature="method#addDataForNavi#0;class#ListController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddRequestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -91,53 +134,6 @@
             <state relative-caret-position="606">
               <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestDb.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="780" column="9" lean-forward="true" selection-start-line="775" selection-start-column="8" selection-end-line="780" selection-end-column="9" />
-              <folding>
-                <element signature="method#getAllAssignRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getNumberOfAssignRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getFeedBack#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getNumberOfFeedBack#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getAllTeamRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getNumberOfTeamRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getAllBranchRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#getNumberOfBranchRequest#0;class#RequestDb#0" expanded="false" />
-                <marker date="1514835571838" expanded="true" signature="685:727" ph="select * fro... request" />
-                <marker date="1514835571838" expanded="true" signature="2423:2465" ph="select * fro... request" />
-                <marker date="1514835571838" expanded="true" signature="4268:4317" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="5246:5289" ph="select * fro... request" />
-                <marker date="1514835571838" expanded="true" signature="6946:6996" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="7993:8039" ph="select ratin... request" />
-                <marker date="1514835571838" expanded="true" signature="9015:9063" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="10005:10068" ph="select * fro... request" />
-                <marker date="1514835571838" expanded="true" signature="11818:11879" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="12695:12736" ph="select * fro... request" />
-                <marker date="1514835571838" expanded="true" signature="14470:14543" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="15471:15604" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="17327:17467" ph="select count... request" />
-                <marker date="1514835571838" expanded="true" signature="18235:18443" ph="select branc... employees" />
-                <marker date="1514835571838" expanded="true" signature="18988:19007" ph="select name " />
-                <marker date="1514835571838" expanded="true" signature="18988:19009" ph="select name reques" />
-                <marker date="1514835571838" expanded="true" signature="18988:19015" ph="select name request" />
-                <marker date="1514835571838" expanded="true" signature="18988:19036" ph="select email... request" />
-                <marker date="1514835571838" expanded="true" signature="20323:20530" ph="insert into request... " />
-                <marker date="1514835571838" expanded="true" signature="21644:21815" ph="select max(l... request" />
-                <marker date="1514835571838" expanded="true" signature="21804:21815" ph="select last_... request" />
-                <marker date="1514835571838" expanded="true" signature="22591:22807" ph="UPDATE reque... " />
-                <marker date="1514835571838" expanded="true" signature="23944:24053" ph="UPDATE reque... " />
-                <marker date="1514835571838" expanded="true" signature="25387:25533" ph="UPDATE reque... " />
-                <marker date="1514835571838" expanded="true" signature="26270:26403" ph="select email... request" />
-                <marker date="1514835571838" expanded="true" signature="27029:27113" ph="UPDATE reque... " />
-                <marker date="1514835571838" expanded="true" signature="28424:28536" ph="UPDATE reque... " />
-                <marker date="1514835571838" expanded="true" signature="29753:29860" ph="UPDATE reque... " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -251,10 +247,8 @@
         <option value="$PROJECT_DIR$/src/database/EmployeeDb.java" />
         <option value="$PROJECT_DIR$/src/database/BranchDb.java" />
         <option value="$PROJECT_DIR$/src/utils/Constant.java" />
-        <option value="$PROJECT_DIR$/src/model/Request.java" />
         <option value="$PROJECT_DIR$/src/controller/AddRequestController.java" />
         <option value="$PROJECT_DIR$/src/controller/ListController.java" />
-        <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
         <option value="$PROJECT_DIR$/SpecIT.iml" />
         <option value="$PROJECT_DIR$/src/database/IsReadDb.java" />
         <option value="$PROJECT_DIR$/src/database/RelaterDb.java" />
@@ -263,11 +257,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/database/RequestDb.java" />
         <option value="$PROJECT_DIR$/src/utils/Mail.java" />
-        <option value="$PROJECT_DIR$/web/jsp/request_details.jsp" />
         <option value="$PROJECT_DIR$/src/database/TeamDb.java" />
-        <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/model/Request.java" />
+        <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
+        <option value="$PROJECT_DIR$/web/jsp/request_details.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
       </list>
     </option>
   </component>
@@ -742,14 +738,7 @@
       <workItem from="1514593126498" duration="28498000" />
       <workItem from="1514649124915" duration="11549000" />
       <workItem from="1514683911173" duration="58813000" />
-      <workItem from="1514784544289" duration="45886000" />
-    </task>
-    <task id="LOCAL-00013" summary="update static function">
-      <created>1514548941710</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1514548941710</updated>
+      <workItem from="1514784544289" duration="47391000" />
     </task>
     <task id="LOCAL-00014" summary="update db">
       <created>1514552472426</created>
@@ -1087,11 +1076,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514835389528</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="update s">
+      <created>1514840419206</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1514840419211</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217899000" />
+    <option name="totallyTimeSpent" value="219404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1126,7 +1122,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.48924303" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44323483" sideWeight="0.49003986" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49402392" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17768924" sideWeight="0.46345258" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17768924" sideWeight="0.46345258" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17529881" sideWeight="0.5365474" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1203,7 +1199,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix bug" />
     <MESSAGE value="fix add and button href" />
     <MESSAGE value="fix l" />
     <MESSAGE value="fix list" />
@@ -1228,7 +1223,8 @@
     <MESSAGE value="update r" />
     <MESSAGE value="update" />
     <MESSAGE value="update mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="update mail" />
+    <MESSAGE value="update s" />
+    <option name="LAST_COMMIT_MESSAGE" value="update s" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1435,14 +1431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DbConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/BranchDb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1476">
@@ -1465,38 +1453,6 @@
             <marker date="1514719908177" expanded="true" signature="1417:1465" ph="select url_i... image" />
             <marker date="1514719908177" expanded="true" signature="2069:2128" ph="INSERT INTO image... " />
             <marker date="1514719908177" expanded="true" signature="2651:2702" ph="UPDATE image... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="138" column="21" lean-forward="false" selection-start-line="122" selection-start-column="18" selection-end-line="138" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#1;n#span#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-416">
-          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="184" column="29" lean-forward="false" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1564,16 +1520,6 @@
         <state relative-caret-position="437">
           <caret line="147" column="23" lean-forward="false" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="102" column="49" lean-forward="false" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
-          <folding>
-            <element signature="method#addDataForNavi#0;class#ListController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1681,28 +1627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Mail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1492">
-          <caret line="399" column="34" lean-forward="true" selection-start-line="399" selection-start-column="34" selection-end-line="399" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1715,11 +1643,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DbConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="178">
           <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/request_details.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1348">
+          <caret line="102" column="49" lean-forward="false" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+          <folding>
+            <element signature="method#addDataForNavi#0;class#ListController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="69" column="122" lean-forward="false" selection-start-line="69" selection-start-column="122" selection-end-line="69" selection-end-column="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2106">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBranchName#0;class#Request#0" expanded="false" />
+            <element signature="method#getImage#0;class#Request#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

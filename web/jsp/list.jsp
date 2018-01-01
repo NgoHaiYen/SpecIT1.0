@@ -115,28 +115,21 @@
                 });
             });
             function seen(requestId, e){
-//                console.log(e);
-//                e = e || window.event;
-//                var targ = jQuery.Event( "click");
-//                console.log(jQuery( "body" ).trigger(targ));
-//                targ.visible();
-//                $.ajax({
-//                    type:"POST",
-//                    cache:false,
-//                    data: {
-//                        requestid: requestId,
-//                    },
-//                    url:"http://localhost:8080/SpecIT/list",
-//                    success : function(responseText) {
-//                        if (responseText == "ok"){
-//                            sp.css("visibility", "hidden");
-//                        }
-//                        sp.invisible();
-//                        alert(responseText);
-//                    }
-//                }).fail(function($xhr) {
-//                    alert("Failed");
-//                });
+                $.ajax({
+                    type:"POST",
+                    cache:false,
+                    data: {
+                        requestid: requestId,
+                    },
+                    url:"http://localhost:8080/SpecIT/list",
+                    success : function(responseText) {
+                        if (responseText == "ok"){
+
+                        }
+                    }
+                }).fail(function($xhr) {
+
+                });
             }
 
             $('.seen').click(function(event){

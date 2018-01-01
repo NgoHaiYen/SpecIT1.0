@@ -67,7 +67,7 @@ public class RequestDetailsController extends HttpServlet {
         if (type != null){
             int requestid = Integer.parseInt(request.getParameter("requestid"));
             int id = 0;
-            if (!type.equalsIgnoreCase("deadline") && !type.equalsIgnoreCase("relater")){
+            if (!type.equalsIgnoreCase("deadline") && !type.equalsIgnoreCase("relater") && !type.equalsIgnoreCase("comment")){
                 id = Integer.parseInt(request.getParameter("changeValue"));
             }
             String comment = request.getParameter("comment");
@@ -118,6 +118,14 @@ public class RequestDetailsController extends HttpServlet {
                     break;
                 case "status":
                     rdb.updateRequestStatus(requestid, id);
+                    break;
+                case "comment":
+                    c.setRequestId(requestid);
+                    c.setContent(request.getParameter("nd"));
+                    c.setEmployeeId(userId);
+                    c.setType(1);
+                    cdb.addComment(c);
+
                     break;
                 default:
                     break;

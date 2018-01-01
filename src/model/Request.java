@@ -189,7 +189,6 @@ public class Request {
         this.branchId = branchId;
     }
 
-
     public String getImage(){
         ImageDb idb = new ImageDb();
         return idb.getImageByRequestId(id);
