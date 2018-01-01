@@ -390,7 +390,7 @@
             },
             url:"http://localhost:8080/SpecIT/login",
             success : function(responseText) {
-//                location.href = "http://localhost:8080/SpecIT/login";
+
             }
         }).fail(function($xhr) {
             alert("Failed");
