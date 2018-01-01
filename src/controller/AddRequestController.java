@@ -121,8 +121,8 @@ public class AddRequestController extends HttpServlet {
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];
             long time = System.currentTimeMillis();
-            String name = fileName;
             fileName = fileName.split("\\.")[0] + time + "." + fileName.split("\\.")[1];
+            String name = fileName;
             fileName = request.getServletContext().getRealPath("") + "image/" + fileName;
             InputStream content = filePart.getInputStream();
             OutputStream outputStream = new FileOutputStream(fileName);

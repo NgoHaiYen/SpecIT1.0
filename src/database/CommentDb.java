@@ -24,7 +24,7 @@ public class CommentDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select * from comment");
+            ResultSet rs = statement.executeQuery("select * from comment where request_id = " + requestId);
             while(rs.next()){
                Comment c = new Comment();
                c.setId(rs.getInt("comment_id"));
@@ -33,15 +33,13 @@ public class CommentDb {
                c.setContent(rs.getString("content"));
                c.setType(rs.getInt("type"));
                c.setNote(rs.getString("note"));
-               c.setCreatedAt(rs.getString("created_at"));
+               c.setCreatedAt(rs.getString("create_at"));
                c.setRequestId(rs.getInt("request_id"));
                c.setUpdatedAt(rs.getString("updated_at"));
                comments.add(c);
 
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return comments;
@@ -52,22 +50,17 @@ public class CommentDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "INSERT INTO comment(comment_id, request_id, employee_id, content, type, note, create_at, updated_at) " +
-                    "VALUE (?,?,?,?,?,?,?,?);";
+            String sqlS = "INSERT INTO comment(request_id, employee_id, content, note, type, create_at) " +
+                    "VALUE ( ? , ? , ? , ? , ? , CURRENT_TIMESTAMP);";
             PreparedStatement statement = conn.prepareStatement(sqlS);
-            statement.setInt(1,comment.getId());
-            statement.setInt(2,comment.getRequestId());
-            statement.setInt(3,comment.getEmployeeId());
-            statement.setString(4,comment.getContent());
+            statement.setInt(1,comment.getRequestId());
+            statement.setInt(2,comment.getEmployeeId());
+            statement.setString(3,comment.getContent());
+            statement.setString(4,comment.getNote());
             statement.setInt(5,comment.getType());
-            statement.setString(6,comment.getNote());
-            statement.setString(7,comment.getCreatedAt());
-            statement.setString(8,comment.getUpdatedAt());
-            statement.executeQuery(sqlS);
+            statement.execute();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -77,22 +70,17 @@ public class CommentDb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String sqlS = "UPDATE comment set request_id = ?,employee_id =? ,content = ? ,type = ?,note = ?,create_at = ?,updated_at = ? WHERE  comment_id = ? ;";
+            String sqlS = "UPDATE comment set content = ?, type = ?, note = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE  comment_id = ?;";
             PreparedStatement statement = conn.prepareStatement(sqlS);
 
-            statement.setInt(1,comment.getRequestId());
-            statement.setInt(2,comment.getEmployeeId());
-            statement.setString(3,comment.getContent());
-            statement.setInt(4,comment.getType());
-            statement.setString(5,comment.getNote());
-            statement.setString(6,comment.getCreatedAt());
-            statement.setString(7,comment.getUpdatedAt());
-            statement.setInt(8,comment.getId());
-            statement.executeQuery(sqlS);
+            statement.setString(1,comment.getContent());
+            statement.setInt(2,comment.getType());
+            statement.setString(3,comment.getNote());
+            statement.setInt(4,comment.getId());
+            statement.execute();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

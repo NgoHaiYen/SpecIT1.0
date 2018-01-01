@@ -19,6 +19,11 @@ import java.util.ArrayList;
 public class RequestDetailsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDb rdb = new RequestDb();
+        CommentDb cdb = new CommentDb();
+        PriorityDb pdb = new PriorityDb();
+        BranchDb bdb = new BranchDb();
+        EmployeeDb edb = new EmployeeDb();
+
         if (request.getParameter("requestshow") != null){
             int id = Integer.parseInt(request.getParameter("requestshow"));
             Request r = rdb.getRequestById(id);
@@ -26,7 +31,6 @@ public class RequestDetailsController extends HttpServlet {
             RelaterDb relaterDb = new RelaterDb();
             ArrayList<Relater> relaters = relaterDb.getAllRelater(id);
 
-            CommentDb cdb = new CommentDb();
             ArrayList<Comment> comments = cdb.getAllComment(id);
 
             request.setAttribute("request", r);
@@ -34,17 +38,14 @@ public class RequestDetailsController extends HttpServlet {
             request.setAttribute("comments", comments);
 
             // priorities
-            PriorityDb pdb = new PriorityDb();
             ArrayList<Priority> priorities = pdb.getAllPriorities();
             request.setAttribute("priorities", priorities);
 
             // priorities
-            BranchDb bdb = new BranchDb();
             ArrayList<Branch> branches = bdb.getAllBranch();
             request.setAttribute("branches", branches);
 
             // employees
-            EmployeeDb edb = new EmployeeDb();
             ArrayList<Employee> employees = edb.getAllEmployeeNameAndId();
             request.setAttribute("employees", employees);
 
@@ -53,32 +54,50 @@ public class RequestDetailsController extends HttpServlet {
 
         String type = request.getParameter("typename");
         System.out.println(type);
-        int id = 0;
+        HttpSession session = request.getSession();
+        int userId = (int) session.getAttribute("id");
         if (type != null){
             int requestid = Integer.parseInt(request.getParameter("requestid"));
-            switch(type){
+            int id = 0;
+            if (!type.equalsIgnoreCase("deadline")){
+                id = Integer.parseInt(request.getParameter("changeValue"));
+            }
+            String comment = request.getParameter("comment");
+            switch (type){
                 case "priority":
-                    id = Integer.parseInt(request.getParameter("priorities"));
+                    String before = rdb.getRequestById(requestid).getPriorityName();
+
+                    // add comment
+                    Comment c = new Comment();
+                    c.setRequestId(requestid);
+                    c.setContent("Thay đổi mức độ ưu tiên: " + before + " -> " + pdb.getPriorityNameById(id));
+                    c.setNote("Lý do: " + comment);
+                    c.setEmployeeId(userId);
+                    c.setType(2);
+                    cdb.addComment(c);
+
                     rdb.updateRequestPriority(requestid, id);
                     break;
                 case "branch":
-                    id = Integer.parseInt(request.getParameter("branches"));
                     rdb.updateRequestBranch(requestid, id);
+                    // todo mail
                     break;
                 case "deadline":
-                    String date = request.getParameter("deadline");
+                    // todo comment type=3
+                    // todo mail
+                    String date = request.getParameter("changeValue");
                     rdb.updateRequestDeadline(requestid, Constant.formatDateToSql(date));
                     break;
                 case "relater":
+                    // todo mail
                     id = Integer.parseInt(request.getParameter("relater"));
 
                     break;
                 case "assigned":
-                    id = Integer.parseInt(request.getParameter("assign"));
+                    // todo mail
                     rdb.updateRequestAssign(requestid, id);
                     break;
                 case "status":
-                    id = Integer.parseInt(request.getParameter("status"));
                     rdb.updateRequestStatus(requestid, id);
                     break;
                 default:

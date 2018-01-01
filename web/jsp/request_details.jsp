@@ -58,12 +58,12 @@
                                     <h4 class="modal-title">Thay đổi mức độ ưu tiên</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form data-toggle="validator" role="form">
+                                    <form onsubmit="return false;" data-toggle="validator" role="form">
                                         <label class="control-label">Thay đổi mức độ ưu tiên:</label>
                                         <div class="form-group">
-                                            <select class="selectpicker form-control" name="priorities" required>
+                                            <select class="selectpicker form-control" id="priorities" required>
                                                 <c:forEach items="${priorities}" var="priority" >
-                                                    <option value="${priority.id}" ${priority.id == request.priority? 'selected' : ''}>${priority.name}</option>
+                                                    <option value="${priority.id}" ${priority.id == request.priority ? 'selected' : ''}>${priority.name}</option>
                                                 </c:forEach>
                                             </select>
                                             <div class="help-block with-errors"></div>
@@ -75,7 +75,7 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
 
-                                        <button onclick="postajax('priority', ${request.id})" class="btn btn-primary">Submit</button>
+                                        <button onclick="postajax('priority', ${request.id}, $('#priorities').val(), $('#priorityComment').val())" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
@@ -360,14 +360,17 @@
 
     });
 
-    function postajax(s, requestId, changeValue){
+    function postajax(s, requestId, changeValue, comment){
+        $('.modal').modal('hide');
+
         $.ajax({
             type:"POST",
             cache:false,
             data: {
                 typename: s,
                 requestid: requestId,
-                changeValue: changeValue
+                changeValue: changeValue,
+                comment: comment
             },
             url:"http://localhost:8080/SpecIT/details",
             success : function(responseText) {

@@ -22,12 +22,6 @@ public class RequestDb {
         }
     }
 
-    public static void main(String[] args) {
-        RequestDb requestDb = new RequestDb();
-        Integer i = requestDb.getNumberOfRequest(1, 1);
-        System.out.println(i);
-    }
-
     // get request by its id
     public Request getRequestById(int id){
         try {
