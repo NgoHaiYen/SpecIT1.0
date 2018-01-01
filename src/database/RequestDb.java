@@ -578,15 +578,103 @@ public class RequestDb {
             statement.setInt(4,request.getAssignedTo());
             statement.setInt(5,request.getTeamId());
             statement.setInt(6,request.getId());
-            statement.executeQuery();
-
+            statement.execute();
         }
         catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    // update request priority
+    public void updateRequestPriority(int requestId, int priorityId){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET priority = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setInt(1, priorityId);
+            statement.setInt(2, requestId);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // update request branch
+    public void updateRequestBranch(int requestId, int branchId){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET branch_id = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setInt(1, branchId);
+            statement.setInt(2, requestId);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // update request deadline
+    public void updateRequestDeadline(int requestId, String deadline){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET deadline = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setString(1, deadline);
+            statement.setInt(2, requestId);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // update request assign
+    public void updateRequestAssign(int requestId, int assignId){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET assigned_to = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setInt(1, assignId);
+            statement.setInt(2, requestId);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // update request status
+    public void updateRequestStatus(int requestId, int status){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String addSql = "UPDATE request SET status = ?, updated_at = CURRENT_TIMESTAMP " +
+                    "WHERE request_id = ?";
+            PreparedStatement statement = conn.prepareStatement(addSql);
+            statement.setInt(1, status);
+            statement.setInt(2, requestId);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeConnection() {

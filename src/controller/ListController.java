@@ -84,7 +84,7 @@ public class ListController extends HttpServlet {
                 break;
             case "i":
                 request.setAttribute("listname", "Danh sách công việc của bộ phận IT");
-                requests = requestDb.getAllTeamRequest(id, status);
+                requests = requestDb.getAllBranchRequest(id, status);
                 break;
             default:
                 request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
