@@ -88,7 +88,7 @@ public class BranchDb {
             Class.forName("com.mysql.jdbc.Driver");
 
             String s = "select email from employees join branch on employees.employee_id = branch.leader_id" +
-                    " where branch_id = ?";
+                    " where branch.branch_id = ?";
 
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setInt(1, id);

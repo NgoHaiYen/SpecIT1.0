@@ -76,7 +76,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button onclick="postajax('priority', ${request.id}, $('#priorities').val(), $('#priorityComment').val())" class="btn btn-primary">Submit</button>
+                                            <button onclick="postajax('priority', ${request.id}, $('#priorities').val(), $('#priorityComment').val())" class="prioriPopup btn btn-primary">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -132,7 +132,7 @@
                                     </select>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#subteam').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#subteam').val())" class="subteamPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" onclick="postajax('deadline', ${request.id}, $('#deadline').val(), $('#deadlineComment').val())" class="btn btn-primary">Submit</button>
+                                                <button type="submit" onclick="postajax('deadline', ${request.id}, $('#deadline').val(), $('#deadlineComment').val())" class="deadlinePopup btn btn-primary">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -206,7 +206,7 @@
 
                                 <!-- Khi click close, thong bao gui cho nguoi duoc nhan assign neu thanh cong popup => susscess assignPopup duoi script .assignPopUp-->
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val(), 'nothing')" class="assignPopup btn btn-primary" data-dismiss="modal">Submit</button>
+                                    <button type="button" onclick="postajax('relater', ${request.id}, $('#relater').val(), 'nothing')" class="relevantPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +296,7 @@
                 <div class="col-xs-12">
                     <div class="media">
                         <div class="media-left">
-                            <img src="image/${request.image}" class="img-rounded media-object" alt="profilePic" style="width:60px">
+
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">${request.createdByName}
@@ -305,6 +305,7 @@
                                 <small> Created: ${request.createdAt} </small>
                             </h3>
                             <p>${request.content}</p>
+                            <img src="image/${request.image}" class="img-rounded" alt="Không tìm thấy ảnh của lỗi !" style="max-width: 600px">
 
                             <!--Comment on this Request -->
                             <c:forEach var="comment" items="${comments}">
@@ -370,8 +371,44 @@
     $(".departPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi bộ phận IT.',{
             type: 'success',
-            delay: 3000,
+            delay: 2000,
         });
+        setTimeout(location.reload(true),2000);
+    });
+    $(".prioriPopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi mức độ ưu tiên.',{
+            type: 'success',
+            delay: 2000,
+        });
+        setTimeout(location.reload(true),2000);
+    });
+    $(".subteamPopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi subteam.',{
+            type: 'success',
+            delay: 2000,
+        });
+        setTimeout(location.reload(true),2000);
+    });
+    $(".deadlinePopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi hạn chót.',{
+            type: 'success',
+            delay: 2000,
+        });
+        setTimeout(location.reload(true),2000);
+    });
+    $(".assignPopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi người thực hiện.',{
+            type: 'success',
+            delay: 2000,
+        });
+        setTimeout(location.reload(true),2000);
+    });
+    $(".relevantPopup").click(function(){
+        $.bootstrapGrowl('Đã thay đổi người liên quan.',{
+            type: 'success',
+            delay: 2000,
+        });
+        setTimeout(location.reload(true),2000);
     });
 
     function change(selBox) {
@@ -407,6 +444,7 @@
 
     $(document).ready(function() {
         $(".date-picker").datepicker();
+
 
     });
 
