@@ -8,13 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8b087019-6d58-4c3d-9faf-bab3efbd157b" name="Default" comment="add mail and">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/AddRequestController.java" afterPath="$PROJECT_DIR$/src/controller/AddRequestController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" afterPath="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database.properties" afterPath="$PROJECT_DIR$/src/database.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/BranchDb.java" afterPath="$PROJECT_DIR$/src/database/BranchDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/EmployeeDb.java" afterPath="$PROJECT_DIR$/src/database/EmployeeDb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RelaterDb.java" afterPath="$PROJECT_DIR$/src/database/RelaterDb.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/RequestDb.java" afterPath="$PROJECT_DIR$/src/database/RequestDb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/Mail.java" afterPath="$PROJECT_DIR$/src/utils/Mail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/jsp/request_details.jsp" afterPath="$PROJECT_DIR$/web/jsp/request_details.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Request.java" afterPath="$PROJECT_DIR$/src/model/Request.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/Constant.java" afterPath="$PROJECT_DIR$/src/utils/Constant.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,11 +40,35 @@
       <file leaf-file-name="RequestDetailsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="87" column="63" lean-forward="false" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
+            <state relative-caret-position="288">
+              <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="125" column="24" lean-forward="false" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3158#3159#0" expanded="true" />
+                <element signature="e#3187#3188#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/Constant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,8 +91,8 @@
       <file leaf-file-name="RequestDb.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="508" column="29" lean-forward="false" selection-start-line="508" selection-start-column="29" selection-end-line="508" selection-end-column="29" />
+            <state relative-caret-position="304">
+              <caret line="574" column="46" lean-forward="true" selection-start-line="569" selection-start-column="8" selection-end-line="574" selection-end-column="46" />
               <folding>
                 <element signature="method#getRequestById#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getAllRequest#0;class#RequestDb#0" expanded="false" />
@@ -82,43 +106,68 @@
                 <element signature="method#getAllBranchRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getNumberOfBranchRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getAllRelateRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#addNewRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#addImage#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#addRequest#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#addRelaters#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#getLastInsertIdRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#updateRequest#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#updateRequestPriority#0;class#RequestDb#0" expanded="false" />
-                <element signature="method#updateRequestBranch#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#updateRequestDeadline#0;class#RequestDb#0" expanded="false" />
                 <element signature="method#updateRequestAssign#0;class#RequestDb#0" expanded="false" />
-                <marker date="1514802525602" expanded="true" signature="671:713" ph="select * fro... request" />
-                <marker date="1514802525602" expanded="true" signature="2461:2503" ph="select * fro... request" />
-                <marker date="1514802525602" expanded="true" signature="4306:4355" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="5337:5380" ph="select * fro... request" />
-                <marker date="1514802525602" expanded="true" signature="7090:7140" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="8137:8183" ph="select ratin... request" />
-                <marker date="1514802525602" expanded="true" signature="9159:9207" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="10149:10212" ph="select * fro... request" />
-                <marker date="1514802525602" expanded="true" signature="11962:12023" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="12839:12880" ph="select * fro... request" />
-                <marker date="1514802525602" expanded="true" signature="14614:14687" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="15615:15756" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="17534:17675" ph="select count... request" />
-                <marker date="1514802525602" expanded="true" signature="18442:18653" ph="select branc... employees" />
-                <marker date="1514802525602" expanded="true" signature="19198:19217" ph="select name " />
-                <marker date="1514802525602" expanded="true" signature="19198:19219" ph="select name reques" />
-                <marker date="1514802525602" expanded="true" signature="19198:19225" ph="select name request" />
-                <marker date="1514802525602" expanded="true" signature="19198:19246" ph="select email... request" />
-                <marker date="1514802525602" expanded="true" signature="20184:20391" ph="insert into request... " />
-                <marker date="1514802525602" expanded="true" signature="21557:21728" ph="select max(l... request" />
-                <marker date="1514802525602" expanded="true" signature="21717:21728" ph="select last_... request" />
-                <marker date="1514802525602" expanded="true" signature="22518:22734" ph="UPDATE reque... " />
-                <marker date="1514802525602" expanded="true" signature="23535:23644" ph="UPDATE reque... " />
-                <marker date="1514802525602" expanded="true" signature="24203:24313" ph="UPDATE reque... " />
-                <marker date="1514802525602" expanded="true" signature="24877:24986" ph="UPDATE reque... " />
-                <marker date="1514802525602" expanded="true" signature="25546:25658" ph="UPDATE reque... " />
-                <marker date="1514802525602" expanded="true" signature="26213:26320" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="671:713" ph="select * fro... request" />
+                <marker date="1514804858696" expanded="true" signature="2461:2503" ph="select * fro... request" />
+                <marker date="1514804858696" expanded="true" signature="4306:4355" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="5337:5380" ph="select * fro... request" />
+                <marker date="1514804858696" expanded="true" signature="7090:7140" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="8137:8183" ph="select ratin... request" />
+                <marker date="1514804858696" expanded="true" signature="9159:9207" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="10149:10212" ph="select * fro... request" />
+                <marker date="1514804858696" expanded="true" signature="11962:12023" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="12839:12880" ph="select * fro... request" />
+                <marker date="1514804858696" expanded="true" signature="14614:14687" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="15615:15756" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="17534:17675" ph="select count... request" />
+                <marker date="1514804858696" expanded="true" signature="18442:18653" ph="select branc... employees" />
+                <marker date="1514804858696" expanded="true" signature="19198:19217" ph="select name " />
+                <marker date="1514804858696" expanded="true" signature="19198:19219" ph="select name reques" />
+                <marker date="1514804858696" expanded="true" signature="19198:19225" ph="select name request" />
+                <marker date="1514804858696" expanded="true" signature="19198:19246" ph="select email... request" />
+                <marker date="1514804858696" expanded="true" signature="20232:20439" ph="insert into request... " />
+                <marker date="1514804858696" expanded="true" signature="21605:21776" ph="select max(l... request" />
+                <marker date="1514804858696" expanded="true" signature="21765:21776" ph="select last_... request" />
+                <marker date="1514804858696" expanded="true" signature="22566:22782" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="23583:23692" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="24251:24377" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="24888:24997" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="25557:25669" ph="UPDATE reque... " />
+                <marker date="1514804858696" expanded="true" signature="26224:26331" ph="UPDATE reque... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RelaterDb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/RelaterDb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+              <folding>
+                <marker date="1514805129017" expanded="true" signature="723:753" ph="select * fro... relater" />
+                <marker date="1514805129017" expanded="true" signature="723:763" ph="select * fro... relater" />
+                <marker date="1514805129017" expanded="true" signature="1681:1766" ph="INSERT INTO relater... " />
+                <marker date="1514805129017" expanded="true" signature="2312:2372" ph="DELETE FROM " />
+                <marker date="1514805129017" expanded="true" signature="2373:2413" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddRequestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,32 +202,6 @@
               <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentDb.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/database/CommentDb.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-600">
-              <caret line="26" column="105" lean-forward="false" selection-start-line="26" selection-start-column="105" selection-end-line="26" selection-end-column="105" />
-              <folding>
-                <marker date="1514800826826" expanded="true" signature="734:755" ph="select * fro... comment" />
-                <marker date="1514800826826" expanded="true" signature="734:774" ph="select * fro... comment" />
-                <marker date="1514800826826" expanded="true" signature="734:775" ph="select * fro... comment" />
-                <marker date="1514800826826" expanded="true" signature="1690:1838" ph="INSERT INTO comment... " />
-                <marker date="1514800826826" expanded="true" signature="2496:2625" ph="UPDATE comme... " />
               </folding>
             </state>
           </provider>
@@ -285,15 +308,12 @@
         <option value="$PROJECT_DIR$/src/database/PriorityDb.java" />
         <option value="$PROJECT_DIR$/web/css/slidebar.css" />
         <option value="$PROJECT_DIR$/src/database/StatusDb.java" />
-        <option value="$PROJECT_DIR$/src/utils/Constant.java" />
         <option value="$PROJECT_DIR$/src/mail.properties" />
         <option value="$PROJECT_DIR$/src/controller/ThanhController.java" />
-        <option value="$PROJECT_DIR$/src/database/RelaterDb.java" />
         <option value="$PROJECT_DIR$/src/database/ImageDb.java" />
         <option value="$PROJECT_DIR$/web/jsp/navigationbar.jsp" />
         <option value="$PROJECT_DIR$/src/model/Relater.java" />
         <option value="$PROJECT_DIR$/src/model/Comment.java" />
-        <option value="$PROJECT_DIR$/src/model/Request.java" />
         <option value="$PROJECT_DIR$/web/jsp/add.jsp" />
         <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -301,13 +321,16 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/controller/ListController.java" />
         <option value="$PROJECT_DIR$/web/jsp/list.jsp" />
-        <option value="$PROJECT_DIR$/src/controller/AddRequestController.java" />
         <option value="$PROJECT_DIR$/src/database/CommentDb.java" />
         <option value="$PROJECT_DIR$/web/jsp/request_details.jsp" />
         <option value="$PROJECT_DIR$/src/utils/Mail.java" />
         <option value="$PROJECT_DIR$/src/database/EmployeeDb.java" />
         <option value="$PROJECT_DIR$/src/database/BranchDb.java" />
+        <option value="$PROJECT_DIR$/src/model/Request.java" />
+        <option value="$PROJECT_DIR$/src/utils/Constant.java" />
+        <option value="$PROJECT_DIR$/src/controller/AddRequestController.java" />
         <option value="$PROJECT_DIR$/src/database/RequestDb.java" />
+        <option value="$PROJECT_DIR$/src/database/RelaterDb.java" />
         <option value="$PROJECT_DIR$/src/controller/RequestDetailsController.java" />
       </list>
     </option>
@@ -643,7 +666,7 @@
       <workItem from="1514593126498" duration="28498000" />
       <workItem from="1514649124915" duration="11549000" />
       <workItem from="1514683911173" duration="58813000" />
-      <workItem from="1514784544289" duration="12260000" />
+      <workItem from="1514784544289" duration="14366000" />
     </task>
     <task id="LOCAL-00001" summary="add from older project">
       <created>1514453270189</created>
@@ -939,11 +962,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514800852118</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="update edit br">
+      <created>1514802634423</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1514802634423</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184273000" />
+    <option name="totallyTimeSpent" value="186379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -959,35 +989,35 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.51075697" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36858475" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.51075697" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.48924303" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29860032" sideWeight="0.49003986" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.49402392" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17768924" sideWeight="0.46345258" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17529881" sideWeight="0.5365474" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36858475" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1055,7 +1085,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add controller" />
     <MESSAGE value="update view" />
     <MESSAGE value="update static function" />
     <MESSAGE value="update db" />
@@ -1080,7 +1109,8 @@
     <MESSAGE value="add mail and" />
     <MESSAGE value="update" />
     <MESSAGE value="update comment and change priority" />
-    <option name="LAST_COMMIT_MESSAGE" value="update comment and change priority" />
+    <MESSAGE value="update edit br" />
+    <option name="LAST_COMMIT_MESSAGE" value="update edit br" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1276,21 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/RelaterDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <marker date="1514765875695" expanded="true" signature="723:753" ph="select * fro... relater" />
-            <marker date="1514765875695" expanded="true" signature="723:763" ph="select * fro... relater" />
-            <marker date="1514765875695" expanded="true" signature="1639:1724" ph="INSERT INTO relater... " />
-            <marker date="1514765875695" expanded="true" signature="2275:2335" ph="DELETE FROM " />
-            <marker date="1514765875695" expanded="true" signature="2336:2397" ph="DELETE FROM " />
-            <marker date="1514765875695" expanded="true" signature="3036:3076" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1362,17 +1377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="152" column="21" lean-forward="false" selection-start-line="152" selection-start-column="15" selection-end-line="152" selection-end-column="21" />
-          <folding>
-            <element signature="e#3100#3101#0" expanded="false" />
-            <element signature="e#3129#3130#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ListController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -1380,14 +1384,6 @@
           <folding>
             <element signature="method#addDataForNavi#0;class#ListController#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1413,16 +1409,6 @@
           <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1500,10 +1486,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="125" column="24" lean-forward="false" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3158#3159#0" expanded="true" />
+            <element signature="e#3187#3188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/RelaterDb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
-          <caret line="508" column="29" lean-forward="false" selection-start-line="508" selection-start-column="29" selection-end-line="508" selection-end-column="29" />
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <marker date="1514805129017" expanded="true" signature="723:753" ph="select * fro... relater" />
+            <marker date="1514805129017" expanded="true" signature="723:763" ph="select * fro... relater" />
+            <marker date="1514805129017" expanded="true" signature="1681:1766" ph="INSERT INTO relater... " />
+            <marker date="1514805129017" expanded="true" signature="2312:2372" ph="DELETE FROM " />
+            <marker date="1514805129017" expanded="true" signature="2373:2413" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddRequestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/RequestDb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="574" column="46" lean-forward="true" selection-start-line="569" selection-start-column="8" selection-end-line="574" selection-end-column="46" />
           <folding>
             <element signature="method#getRequestById#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getAllRequest#0;class#RequestDb#0" expanded="false" />
@@ -1517,51 +1547,48 @@
             <element signature="method#getAllBranchRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getNumberOfBranchRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getAllRelateRequest#0;class#RequestDb#0" expanded="false" />
-            <element signature="method#addNewRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#addImage#0;class#RequestDb#0" expanded="false" />
             <element signature="method#addRequest#0;class#RequestDb#0" expanded="false" />
-            <element signature="method#addRelaters#0;class#RequestDb#0" expanded="false" />
             <element signature="method#getLastInsertIdRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#updateRequest#0;class#RequestDb#0" expanded="false" />
             <element signature="method#updateRequestPriority#0;class#RequestDb#0" expanded="false" />
-            <element signature="method#updateRequestBranch#0;class#RequestDb#0" expanded="false" />
             <element signature="method#updateRequestDeadline#0;class#RequestDb#0" expanded="false" />
             <element signature="method#updateRequestAssign#0;class#RequestDb#0" expanded="false" />
-            <marker date="1514802525602" expanded="true" signature="671:713" ph="select * fro... request" />
-            <marker date="1514802525602" expanded="true" signature="2461:2503" ph="select * fro... request" />
-            <marker date="1514802525602" expanded="true" signature="4306:4355" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="5337:5380" ph="select * fro... request" />
-            <marker date="1514802525602" expanded="true" signature="7090:7140" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="8137:8183" ph="select ratin... request" />
-            <marker date="1514802525602" expanded="true" signature="9159:9207" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="10149:10212" ph="select * fro... request" />
-            <marker date="1514802525602" expanded="true" signature="11962:12023" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="12839:12880" ph="select * fro... request" />
-            <marker date="1514802525602" expanded="true" signature="14614:14687" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="15615:15756" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="17534:17675" ph="select count... request" />
-            <marker date="1514802525602" expanded="true" signature="18442:18653" ph="select branc... employees" />
-            <marker date="1514802525602" expanded="true" signature="19198:19217" ph="select name " />
-            <marker date="1514802525602" expanded="true" signature="19198:19219" ph="select name reques" />
-            <marker date="1514802525602" expanded="true" signature="19198:19225" ph="select name request" />
-            <marker date="1514802525602" expanded="true" signature="19198:19246" ph="select email... request" />
-            <marker date="1514802525602" expanded="true" signature="20184:20391" ph="insert into request... " />
-            <marker date="1514802525602" expanded="true" signature="21557:21728" ph="select max(l... request" />
-            <marker date="1514802525602" expanded="true" signature="21717:21728" ph="select last_... request" />
-            <marker date="1514802525602" expanded="true" signature="22518:22734" ph="UPDATE reque... " />
-            <marker date="1514802525602" expanded="true" signature="23535:23644" ph="UPDATE reque... " />
-            <marker date="1514802525602" expanded="true" signature="24203:24313" ph="UPDATE reque... " />
-            <marker date="1514802525602" expanded="true" signature="24877:24986" ph="UPDATE reque... " />
-            <marker date="1514802525602" expanded="true" signature="25546:25658" ph="UPDATE reque... " />
-            <marker date="1514802525602" expanded="true" signature="26213:26320" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="671:713" ph="select * fro... request" />
+            <marker date="1514804858696" expanded="true" signature="2461:2503" ph="select * fro... request" />
+            <marker date="1514804858696" expanded="true" signature="4306:4355" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="5337:5380" ph="select * fro... request" />
+            <marker date="1514804858696" expanded="true" signature="7090:7140" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="8137:8183" ph="select ratin... request" />
+            <marker date="1514804858696" expanded="true" signature="9159:9207" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="10149:10212" ph="select * fro... request" />
+            <marker date="1514804858696" expanded="true" signature="11962:12023" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="12839:12880" ph="select * fro... request" />
+            <marker date="1514804858696" expanded="true" signature="14614:14687" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="15615:15756" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="17534:17675" ph="select count... request" />
+            <marker date="1514804858696" expanded="true" signature="18442:18653" ph="select branc... employees" />
+            <marker date="1514804858696" expanded="true" signature="19198:19217" ph="select name " />
+            <marker date="1514804858696" expanded="true" signature="19198:19219" ph="select name reques" />
+            <marker date="1514804858696" expanded="true" signature="19198:19225" ph="select name request" />
+            <marker date="1514804858696" expanded="true" signature="19198:19246" ph="select email... request" />
+            <marker date="1514804858696" expanded="true" signature="20232:20439" ph="insert into request... " />
+            <marker date="1514804858696" expanded="true" signature="21605:21776" ph="select max(l... request" />
+            <marker date="1514804858696" expanded="true" signature="21765:21776" ph="select last_... request" />
+            <marker date="1514804858696" expanded="true" signature="22566:22782" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="23583:23692" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="24251:24377" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="24888:24997" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="25557:25669" ph="UPDATE reque... " />
+            <marker date="1514804858696" expanded="true" signature="26224:26331" ph="UPDATE reque... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/RequestDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="87" column="63" lean-forward="false" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
+        <state relative-caret-position="288">
+          <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

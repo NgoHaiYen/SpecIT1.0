@@ -534,6 +534,8 @@ public class RequestDb {
         addRelaters(relater, getLastInsertIdRequest(request));
 
         addImage(file, getLastInsertIdRequest(request));
+
+        // todo send mail to the branch leader
     }
 
     private void addImage(String file, Integer requestId) {
@@ -645,16 +647,14 @@ public class RequestDb {
     public void updateRequestBranch(int requestId, int branchId){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "UPDATE request SET branch_id = ?, updated_at = CURRENT_TIMESTAMP " +
+            String addSql = "UPDATE request SET branch_id = ?, team_id = null, updated_at = CURRENT_TIMESTAMP " +
                     "WHERE request_id = ?";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setInt(1, branchId);
             statement.setInt(2, requestId);
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

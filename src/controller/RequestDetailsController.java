@@ -1,6 +1,5 @@
 package controller;
 
-import com.google.gson.Gson;
 import database.*;
 import model.*;
 import utils.Constant;
@@ -60,17 +59,17 @@ public class RequestDetailsController extends HttpServlet {
         if (type != null){
             int requestid = Integer.parseInt(request.getParameter("requestid"));
             int id = 0;
-            if (!type.equalsIgnoreCase("deadline")){
+            if (!type.equalsIgnoreCase("deadline") && !type.equalsIgnoreCase("relater")){
                 id = Integer.parseInt(request.getParameter("changeValue"));
             }
             String comment = request.getParameter("comment");
             Mail mail = new Mail();
+            Comment c = new Comment();
             switch (type){
                 case "priority":
                     String before = rdb.getRequestById(requestid).getPriorityName();
 
                     // add comment
-                    Comment c = new Comment();
                     c.setRequestId(requestid);
                     c.setContent("Thay đổi mức độ ưu tiên: " + before + " -> " + pdb.getPriorityNameById(id));
                     c.setNote("Lý do: " + comment);
@@ -94,20 +93,37 @@ public class RequestDetailsController extends HttpServlet {
                     break;
                 case "deadline":
                     // todo comment type=3
-                    // todo mail
+
+                    // todo mail send mail to the assign employee
                     String date = request.getParameter("changeValue");
-                    rdb.updateRequestDeadline(requestid, Constant.formatDateToSql(date));
+                    rdb.updateRequestDeadline(requestid, Constant.formatDateToSqlFromView(date));
+
+                    // add comment
+                    c.setRequestId(requestid);
+                    c.setContent("Thay đổi deadline cho yêu cầu " + rdb.getName(requestid) +
+                          ": chuyển đến ngày " + date);
+                    c.setNote("Lý do: " + comment);
+                    c.setEmployeeId(userId);
+                    c.setType(2);
+                    cdb.addComment(c);
                     break;
                 case "relater":
                     // todo mail
-                    id = Integer.parseInt(request.getParameter("relater"));
+                    String[] relater = request.getParameterValues("relater");
+                    ArrayList<Integer> relatersId = new ArrayList<>();
+                    for (String rl:relater){
+                        relatersId.add(Integer.parseInt(rl));
+                    }
+                    RelaterDb relaterDb = new RelaterDb();
+                    relaterDb.updateRelater(relatersId, id);
 
                     break;
                 case "assigned":
-                    // todo mail
+                    // todo mail send mail to the old and new employee
                     rdb.updateRequestAssign(requestid, id);
                     break;
                 case "status":
+                    // todo mail send mail to the assigned employee
                     rdb.updateRequestStatus(requestid, id);
                     break;
                 default:

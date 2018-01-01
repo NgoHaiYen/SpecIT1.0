@@ -34,7 +34,7 @@ public class AddRequestController extends HttpServlet {
                 r.setContent(request.getParameter("nd"));
                 r.setCreatedBy((Integer) session.getAttribute("id"));
                 r.setPriority(Integer.parseInt(request.getParameter("priorities")));
-                r.setDeadline(Constant.formatDateToSql(request.getParameter("date")));
+                r.setDeadline(Constant.formatDateToSqlFromView(request.getParameter("date")));
                 r.setBranchId(Integer.parseInt(request.getParameter("branches")));
                 String[] relater = request.getParameterValues("relater");
                 RequestDb rdb = new RequestDb();
@@ -43,7 +43,6 @@ public class AddRequestController extends HttpServlet {
                 session.setAttribute("myra", rdb.getNumberOfRequest(id, Constant.ALL));
                 session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
 
-                // todo mail
                 response.sendRedirect(request.getContextPath() + "/list");
             } else {
                 request.getRequestDispatcher("jsp/add.jsp").forward(request, response);

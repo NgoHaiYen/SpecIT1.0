@@ -15,14 +15,23 @@ public class Constant {
     public static int CLOSED = 5;
     public static int OUT_OF_DATE = 6;  // CANCELLED
 
-    public static String formatDateToSql(String date){
-        String[] dates = date.split("/");
-        return dates[2] + "-" + dates[0] + "-" + dates[1];
+    public static String formatDateToSqlFromView(String date){ // mm/dd/yyyy
+        if (date != null){
+            String[] dates = date.split("/");
+            if (dates.length == 3){
+                return dates[2] + "-" + dates[0] + "-" + dates[1];
+            }
+        }
+        return date; // yyyy/mm/dd
     }
 
-    public static String formateDateToClient(String date){
-        String[] dates = date.split("/");
-        return dates[2] + "-" + dates[1] + "-" + dates[0];
+    public static String formatDateToClientFromDb(String date){  //yyyy/mm/dd
+        if (date != null){
+            String[] dates = date.split("/");
+            if (dates.length == 3){
+                return dates[2] + "-" + dates[1] + "-" + dates[0];
+            }
+        }
+        return date;  // dd/mm/yyyy
     }
-
 }
