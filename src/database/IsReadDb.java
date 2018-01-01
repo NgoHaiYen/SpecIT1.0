@@ -49,15 +49,11 @@ public class IsReadDb {
         }
     }
 
-    public void updateStatus(IsRead i) {
+    public void renew(int requestId){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            PreparedStatement statement = conn.prepareStatement("update isread "
-                    + "set status = ? "
-                    + " where reader_id = ? and request_id = ?;");
-            statement.setInt(1, i.getStatus());
-            statement.setInt(2, i.getReaderId());
-            statement.setInt(3, i.getRequestId());
+            PreparedStatement statement = conn.prepareStatement("DELETE from isread where request_id = ?");
+            statement.setInt(1, requestId);
             statement.execute();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

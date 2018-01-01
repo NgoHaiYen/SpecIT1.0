@@ -8,6 +8,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Mail {
+    public static void main(String[] args) {
+        Mail mail = new Mail();
+        mail.sendMail("ngohaiyen12091997@gmail.com", "Hello i am here", "Test");
+    }
 
     public void sendMail(String receiver, String body, String subject){
         try {
@@ -42,8 +46,8 @@ public class Mail {
             msg.setText(body);
 
             Transport.send(msg);
-        } catch (MessagingException ex) {
-
+        } catch (MessagingException ignored) {
+            ignored.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

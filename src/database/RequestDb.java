@@ -1,17 +1,14 @@
 package database;
 
-import model.Branch;
 import model.Request;
 import utils.Constant;
 import utils.Mail;
 
-
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Statement;
 
 public class RequestDb {
     private Connection conn;
@@ -606,7 +603,7 @@ public class RequestDb {
 
     // update request from db
     public void updateRequest(Request request){
-        // todo delete from isread
+        deleteIsread(request.getId());
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET status = ?, priority = ?, " +
@@ -629,7 +626,7 @@ public class RequestDb {
 
     // update request priority
     public void updateRequestPriority(int requestId, int priorityId){
-        // todo delete from isread
+        deleteIsread(requestId);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET priority = ?, updated_at = CURRENT_TIMESTAMP " +
@@ -643,19 +640,31 @@ public class RequestDb {
             e.printStackTrace();
         }
     }
+    
+    private void deleteIsread(int requestId){
+        IsReadDb isReadDb = new IsReadDb();
+        isReadDb.renew(requestId);
+        isReadDb.closeConnection();
+    }
 
     // update request branch
     public void updateRequestBranch(int requestId, int branchId){
-        // todo delete from isread
+        deleteIsread(requestId);
+        
         // send mail to current branch
+        
+        String previousBranchLeaderMail = getLeaderBranchMail(requestId);
         Mail mail = new Mail();
         String body = "Yêu cầu " + getName(requestId) + " của bộ phận của bạn đã được chuyển tới bộ phận IT khác";
-        String previousBranchLeaderMail = getLeaderBranchMail(requestId);
-        mail.sendMail(previousBranchLeaderMail, body, "Thay đổi bộ phận IT");
-
-        // send mail assigned employee
-        mail.sendMail(getAssignedEmail(requestId), body, "Thay đổi bộ phận IT");
-
+        if (previousBranchLeaderMail != null){
+            mail.sendMail(previousBranchLeaderMail, body, "Thay đổi bộ phận IT");
+        }
+        
+        if (getAssignedEmail(requestId) != null){
+            // send mail assigned employee
+            mail.sendMail(getAssignedEmail(requestId), body, "Thay đổi bộ phận IT");
+        }
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String addSql = "UPDATE request SET branch_id = ?, team_id = null, assigned_to = null," +
@@ -669,8 +678,11 @@ public class RequestDb {
         }
 
         BranchDb bdb = new BranchDb();
-        body = "Yêu cầu mới đã được chuyển tới bộ phận của bạn";
-        mail.sendMail(bdb.getLeaderEmail(branchId), body, "Thay đổi bộ phận IT");
+        if (bdb.getLeaderEmail(branchId) != null){
+            body = "Yêu cầu mới đã được chuyển tới bộ phận của bạn";
+            mail.sendMail(bdb.getLeaderEmail(branchId), body, "Thay đổi bộ phận IT");
+        }
+        bdb.closeConnection();
     }
 
     private String getAssignedEmail(int requestId) {
@@ -696,11 +708,10 @@ public class RequestDb {
 
     // update request deadline
     public void updateRequestDeadline(int requestId, String deadline){
-        // todo delete from isread
+        deleteIsread(requestId);
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String addSql = "UPDATE request SET deadline = ?, updated_at = CURRENT_TIMESTAMP " +
-                    "WHERE request_id = ?";
+            String addSql = "UPDATE request SET deadline = ?, updated_at = CURRENT_TIMESTAMP WHERE request_id = ?";
             PreparedStatement statement = conn.prepareStatement(addSql);
             statement.setString(1, Constant.formatDateToSqlFromView(deadline));
             statement.setInt(2, requestId);
@@ -711,16 +722,26 @@ public class RequestDb {
         }
 
         // send mail to assigned employee
-        Mail mail = new Mail();
-        String body = "Yêu cầu " + getName(requestId) + " của bạn đã được thay đổi deadline tới ngày: " + deadline;
+
         String assignedMail = getAssignedEmail(requestId);
-        mail.sendMail(assignedMail, body, "Thay đổi deadline");
+        if (assignedMail != null){
+            Mail mail = new Mail();
+            String body = "Yêu cầu " + getName(requestId) + " của bạn đã được thay đổi deadline tới ngày: " + deadline;
+            mail.sendMail(assignedMail, body, "Thay đổi deadline");
+        }
     }
 
     // update request assign
     public void updateRequestAssign(int requestId, int assignId){
-        // todo mail send mail to the old and new employee
-        // todo delete from isread
+        // send mail to the assigned employee
+        String assignedMail = getAssignedEmail(requestId);
+        if (assignedMail != null){
+            Mail mail = new Mail();
+            String body = "Yêu cầu " + getName(requestId) + " của bạn đã được chuyển tới người khác";
+            mail.sendMail(assignedMail, body, "Thay đổi người thực hiện");
+        }
+
+        deleteIsread(requestId);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -734,12 +755,28 @@ public class RequestDb {
         catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        // send mail to the new assigned employee
+        assignedMail = getAssignedEmail(requestId);
+        if (assignedMail != null){
+            Mail mail = new Mail();
+            String body = "Yêu cầu mới đã được chuyển tới bạn";
+            mail.sendMail(assignedMail, body, "Thay đổi người thực hiện");
+        }
     }
 
     // update request status
     public void updateRequestStatus(int requestId, int status){
-        // todo mail send mail to the assigned employee
-        // todo delete from isread
+
+        deleteIsread(requestId);
+
+        // send mail to the assigned employee
+        String assignedMail = getAssignedEmail(requestId);
+        if (assignedMail != null){
+            Mail mail = new Mail();
+            String body = "Yêu cầu " + getName(requestId) + " của bạn đã được thay đổi trạng thái";
+            mail.sendMail(assignedMail, body, "Thay đổi trạng thái");
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

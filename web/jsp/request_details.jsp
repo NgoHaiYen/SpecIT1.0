@@ -103,7 +103,7 @@
                                     </select>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-primary" data-dismiss="modal">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                                     <!-- Lay du lieu tu csdl tu day-->
                                     <select class="selectpicker" id="assignedto">
                                         <c:forEach items="${employees}" var="assign" >
-                                            <option value="${employee.id}"${employee.id == request.assignedTo? 'selected' : ''}>${employee.name}</option>
+                                            <option value="${assign.id}"${assign.id == request.assignedTo? 'selected' : ''}>${assign.name}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -242,7 +242,7 @@
         <div class="col-sm-4">
             <label class="newrow">Bộ phận IT      :</label>${request.branchName}<br/>
             <label class="newrow">Người liên quan :</label>
-            <c:forEach var = "i" begin = "1" end = "${releginaters.size()}">
+            <c:forEach var = "i" begin = "1" end = "${releaters.size()}">
                 <c:if test="${i != 1}">
                     <c:out value=","/>
                 </c:if>
@@ -295,6 +295,7 @@
                         <h3 class="media-heading">${comment.name}
                             </br> <span class="glyphicon glyphicon-time"></span> <small> Replied :${comment.createdAt} </small></h3>
                         <p>${comment.content}</p>
+                        <p>${comment.note}</p>
                     </div>
                 </div>
             </div>

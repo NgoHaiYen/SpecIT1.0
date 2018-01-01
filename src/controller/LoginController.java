@@ -19,7 +19,6 @@ public class LoginController extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         if (request.getParameter("ajax") != null){
             session.invalidate();
-
         }
 
         String username = request.getParameter("user");

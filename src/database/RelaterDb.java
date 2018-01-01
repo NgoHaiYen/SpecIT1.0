@@ -1,9 +1,13 @@
 package database;
 
+import model.Employee;
 import model.Relater;
+import utils.Mail;
 
 import java.sql.*;
 import java.util.ArrayList;
+
+import static java.lang.Character.getName;
 
 public class RelaterDb {
     private Connection conn;
@@ -47,7 +51,15 @@ public class RelaterDb {
 
     // insert a relater to a request
     private void addRelater(int relaterId, int requestId) {
-        // todo send mail to the relater
+        // send mail to the assigned employee
+        EmployeeDb employeeDb = new EmployeeDb();
+        String assignedMail = employeeDb.getEmail(relaterId);
+        if (assignedMail != null){
+            Mail mail = new Mail();
+            String body = "Yêu cầu " + getName(requestId) + " đã được đánh dấu liên quan đến bạn";
+            mail.sendMail(assignedMail, body, "Người liên quan");
+        }
+        employeeDb.closeConnection();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -65,8 +77,6 @@ public class RelaterDb {
 
     // delete all relaters to a request
     private void deleteAllRelater(int requestId){
-        // todo send mail to the relater who is deleted
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
