@@ -477,9 +477,51 @@ public class RequestDb {
                 int i = rs.getInt(1);
                 if (i > 0) return i;
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+        return null;
+    }
+
+    // get branch by request id
+    public String getLeaderBranchMail(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select email from request join branch on request.branch_id = branch.branch_id " +
+                    " join employees where branch.leader_id = employees.employee_id" +
+                    " where request_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("email");
+            }
+        }
+        catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // get request name by id
+    public String getName(int id){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String s = "select subject from request where request_id = ?";
+
+            PreparedStatement statement = conn.prepareStatement(s);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("subject");
+            }
+        }
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;
@@ -664,9 +706,7 @@ public class RequestDb {
             statement.setInt(2, requestId);
             statement.execute();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

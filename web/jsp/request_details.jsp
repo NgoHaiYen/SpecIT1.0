@@ -96,14 +96,14 @@
                                 <div class="modal-body">
                                     <p>Chọn bộ phận IT:</p>
                                     <!-- Lay du lieu tu csdl tu day-->
-                                    <select class="selectpicker" name="branches" required>
+                                    <select class="selectpicker" id="branches" required>
                                         <c:forEach items="${branches}" var="branch" >
                                             <option value="${branch.id}"${branch.id == request.branchId? 'selected' : ''}>${branch.name}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="postajax('branch', ${request.id})" class="departPopup btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" onclick="postajax('branch', ${request.id}, $('#branches').val())" class="departPopup btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
