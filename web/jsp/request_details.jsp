@@ -124,7 +124,7 @@
                                     <h4 class="modal-title">Thay đổi Deadline</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="dForm" data-toggle="validator" role="form">
+                                    <form id="dForm" onsubmit="return false;" data-toggle="validator" role="form">
                                         <div class="form-group">
                                             <div class="date-form">
                                                 <label class="control-label">Deadline</label>
