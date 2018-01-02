@@ -45,8 +45,8 @@
                 <h4><a href="list">SpecIT</a></h4>
                 <!-- Buttons -->
                 <!-- Hien thi voi quyen manage role >3 ,co kha nang edit-->
-                <c:if test="${role >= 3}">
-                <div class="prioritybtn btncustom">
+                <c:if test="${id == request.createdBy}">
+                    <div class="prioritybtn btncustom">
                     <button type="button" class="btn btn-default custom" id="priority-change" name="priority-btn" data-toggle="modal" data-target="#priorityModal">
                         <span class="glyphicon glyphicon-pencil"></span>Thay đổi mức độ ưu tiên
                     </button>
@@ -85,7 +85,9 @@
                         </div>
                     </div>
                 </div>
+                </c:if>
 
+                <c:if test="${role >= 3}">
                 <div class="departbtn btncustom">
                     <button type="button" class="btn btn-default custom" data-toggle="modal" id="depart-btn" name="depart-btn" data-target="#departModal"> <span class="glyphicon glyphicon-envelope"></span>Thay đổi bộ phận IT</button>
                     <!-- Department Modal -->
@@ -140,7 +142,8 @@
                     </div>
                 </div>
 
-                <div class="deadlinebtn btncustom">
+                <c:if test="${id == request.createdBy}">
+                    <div class="deadlinebtn btncustom">
                     <button type="button" class="btn btn-default custom" id="time-change" name="deadline-btn" data-target="#deadlineModal" data-toggle="modal">
                         <span class="glyphicon glyphicon-calendar"></span>Thay đổi deadline
                     </button>
@@ -183,6 +186,7 @@
                         </div>
                     </div>
                 </div>
+                </c:if>
 
                 <div class="relevantbtn btncustom">
                     <button type="button" class="btn btn-default custom" id="relevant-change" name ="relevant-btn" data-toggle="modal" data-target="#relevanModal">
@@ -248,15 +252,15 @@
                 </c:if>
 
                 <c:if test="${id == request.createdBy}">
-                <div class="statuschangebtn btncustom">
-                    <select class="selectpicker" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
-                        <option value="1" data-icon="glyphicon-pencil">New</option>
-                        <option value="2" data-icon="glyphicon-play">Inprogress</option>
-                        <option value="3" data-icon="glyphicon-ok">Resolved</option>
-                        <option value="4" data-icon="glyphicon-remove">Cancel</option>
-                        <option value="5" data-icon="glyphicon-refresh">Feedback</option>
-                    </select>
-                </div>
+                    <div class="statuschangebtn btncustom">
+                        <select class="selectpicker" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
+                            <option value="1" data-icon="glyphicon-pencil">New</option>
+                            <option value="2" data-icon="glyphicon-play">Inprogress</option>
+                            <option value="3" data-icon="glyphicon-ok">Resolved</option>
+                            <option value="4" data-icon="glyphicon-remove">Cancel</option>
+                            <option value="5" data-icon="glyphicon-refresh">Feedback</option>
+                        </select>
+                    </div>
                 </c:if>
 
             </div>
@@ -309,7 +313,6 @@
                                 <small> Created: ${request.createdAt} </small>
                             </h3>
                             <p>${request.content}</p>
-                            <img src="image/${request.image}" class="img-rounded" alt="Không tìm thấy ảnh của lỗi !" style="max-width: 600px">
 
                             <!--Comment on this Request -->
                             <c:forEach var="comment" items="${comments}">

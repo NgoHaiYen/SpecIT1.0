@@ -112,6 +112,7 @@ public class ListController extends HttpServlet {
                     break;
                 default:
                     request.setAttribute("listname", "Danh sách việc tôi yêu cầu");
+                    requests = requestDb.getAllRequest(id, status);
                     break;
             }
         } else {
