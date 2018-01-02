@@ -18,7 +18,7 @@ public class LoginDb {
 
     public Employee checkLogin(String userName, String password) {
         try {
-            String s = "select employee_id, role_id from employees where username = ? and password = md5(?)";
+            String s = "select employee_id, role_id, name from employees where username = ? and password = md5(?)";
             PreparedStatement statement = conn.prepareStatement(s);
             statement.setString(1, userName);
             statement.setString(2, password);
@@ -28,6 +28,7 @@ public class LoginDb {
                 Employee e = new Employee();
                 e.setId(rs.getInt("employee_id"));
                 e.setRole(rs.getInt("role_id"));
+                e.setName(rs.getString("name"));
                 return e;
             }
         } catch (SQLException e) {

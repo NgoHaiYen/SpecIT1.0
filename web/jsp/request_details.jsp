@@ -30,7 +30,7 @@
     <div id="cssmenu">
         <ul>
             <li class="active"><a href="list"> SpecIT</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="#">You have logged in as ${username}</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
             <li style="float: right"><a href="login" onclick="logout()">Logout</a> </li>
@@ -376,42 +376,42 @@
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
     $(".prioriPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi mức độ ưu tiên.',{
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
     $(".subteamPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi subteam.',{
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
     $(".deadlinePopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi hạn chót.',{
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
     $(".assignPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi người thực hiện.',{
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
     $(".relevantPopup").click(function(){
         $.bootstrapGrowl('Đã thay đổi người liên quan.',{
             type: 'success',
             delay: 2000,
         });
-        setTimeout(location.reload(true),2000);
+        setTimeout(location.reload(true),6000);
     });
 
     function change(selBox) {

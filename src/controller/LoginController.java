@@ -34,6 +34,8 @@ public class LoginController extends HttpServlet {
             if (e != null){
                 session.setAttribute("role", e.getRole());
                 session.setAttribute("id", e.getId());
+                session.setAttribute("username",e.getName());
+                session.setAttribute("branch",e.getBranchId());
                 response.sendRedirect(request.getContextPath() + "/list");
             } else {
                 request.setAttribute("errMe", "Tên đăng nhập hoặc mật khẩu không đúng");
