@@ -246,7 +246,8 @@
 
                 </div>
                 </c:if>
-                <c:if test="${role == 1}">
+
+                <c:if test="${id == request.createdBy}">
                 <div class="statuschangebtn btncustom">
                     <select class="selectpicker" title="Thay đổi trạng thái" id="statuschange" name="status" onchange="change(this);">
                         <option value="1" data-icon="glyphicon-pencil">New</option>
@@ -426,6 +427,7 @@
             document.getElementById("evaluate").innerHTML = txt;
             selBox.selectedIndex = 0;
         }
+        postajax("status", ${request.id}, $(selBox).val());
     }
 
     function comment(){
@@ -466,8 +468,10 @@
             },
             url:"http://localhost:8080/SpecIT/details",
             success : function(responseText) {
+
             }
         }).fail(function($xhr) {
+
         });
     }
 
