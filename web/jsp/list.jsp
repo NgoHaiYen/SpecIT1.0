@@ -29,6 +29,10 @@
         table.dataTable{
             width: 98%;
         }
+
+        .table>tbody>tr>td{
+            vertical-align: middle;
+        }
     </style>
 </head>
 
@@ -124,18 +128,12 @@
                     },
                     url:"http://localhost:8080/SpecIT/list",
                     success : function(responseText) {
-                        if (responseText == "ok"){
 
-                        }
                     }
-                }).fail(function($xhr) {
-
+                }).done(function($xhr) {
+                    location.reload(true);
                 });
             }
-
-            $('.seen').click(function(event){
-                console.log(event.target.hide());
-            });
         </script>
 </body>
 </html>
