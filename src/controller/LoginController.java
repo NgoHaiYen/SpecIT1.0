@@ -20,12 +20,13 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("utf-8");
+
+        // get data from ajax: logout
         if (request.getParameter("ajax") != null){
             session.invalidate();
-        } else if (request.getParameter("forgotemail") != null){
-            System.out.println("forgot");
+        } else if (request.getParameter("forgotemail") != null){   // get data from ajax: forgot password
             forgotPassword(request.getParameter("forgotemail"));
-        } else {
+        } else {  // get data from form post
             String username = request.getParameter("user");
             String password = request.getParameter("pass");
             LoginDb loginDb = new LoginDb();
@@ -54,10 +55,10 @@ public class LoginController extends HttpServlet {
     }
 
     private void forgotPassword(String email){
+        // Update new password
         byte[] array = new byte[10]; // length is bounded by 7
         new Random().nextBytes(array);
         String newPass = new String(array, Charset.forName("UTF-8"));
-
 
         if (email != null){
             Mail mail = new Mail();

@@ -40,7 +40,7 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"></span></label>
-                            <input type="text" class="form-control" id="tencv" name="tencv" placeholder="Tên công việc" required>
+                            <input type="text" class="form-control" id="tencv" name="tencv" placeholder="Tên công việc" data-error="Vui lòng điền tên công việc" required>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="col-sm-12">
                         <label class="control-label">Nội dung công việc:</label>
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="nd" name="nd" required></textarea>
+                            <textarea class="form-control" rows="5" id="nd" name="nd" data-error="Vui lòng điền nội dung công việc" required></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
 

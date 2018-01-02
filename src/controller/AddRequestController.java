@@ -23,9 +23,11 @@ public class AddRequestController extends HttpServlet {
         HttpSession session = request.getSession();
         int id = (int) session.getAttribute("id");
 
+        // lấy thông tin button submit
         String button = request.getParameter("addrequest");
         if ("add".equals(button)) {
             boolean check = checkValidate(request);
+            // nếu đã validate
             if(check) {
                 String file = uploadImageToServer(request.getPart("chooseFile"), request);
 
@@ -45,7 +47,7 @@ public class AddRequestController extends HttpServlet {
                 session.setAttribute("myrn", rdb.getNumberOfRequest(id, Constant.NEW));
 
                 response.sendRedirect(request.getContextPath() + "/list");
-            } else {
+            } else {  // thông tin lỗi
                 request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
             }
         } else {
@@ -81,6 +83,7 @@ public class AddRequestController extends HttpServlet {
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }
 
+    // kiểm tra thông tin đã được điền vào form
     private boolean checkValidate(HttpServletRequest request) {
         ArrayList<String> values = new ArrayList<String>();
         values.add("tencv");
@@ -102,15 +105,16 @@ public class AddRequestController extends HttpServlet {
 
     private boolean checkValidate(HttpServletRequest request, String value){
         String check = request.getParameter(value);
-        if ((check == null) || (check.isEmpty())){
-            return false;
-        }
-        return true;
+        return (check != null) && (!check.isEmpty());
     }
 
     private String uploadImageToServer(Part filePart, HttpServletRequest request) throws IOException {
+        // nếu không thêm ảnh chứng minh
         if (filePart == null) return null;
+
+        // lấy thông tin ảnh chứng minh
         String fileName = Paths.get(filePart.getSubmittedFileName()).toString();
+        // kiểm tra định dạng ảnh
         if (checkImage(fileName)) {
             byte[] buffer = new byte[4096];
             long time = System.currentTimeMillis();
@@ -131,6 +135,7 @@ public class AddRequestController extends HttpServlet {
         return null;
     }
 
+    // check if it is an image file
     private boolean checkImage(String fileName) {
         String mimeType = getServletContext().getMimeType(fileName);
         return mimeType != null && mimeType.startsWith("image/");

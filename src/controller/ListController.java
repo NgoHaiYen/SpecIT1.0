@@ -22,8 +22,10 @@ public class ListController extends HttpServlet {
         HttpSession session = request.getSession();
         int userId = (int) session.getAttribute("id");
 
+        // get data from ajax
         String id = request.getParameter("requestid");
 
+        // send data to ajax
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
         response.setHeader("Cache-control", "no-cache, no-store");
@@ -58,6 +60,7 @@ public class ListController extends HttpServlet {
 
         addDataForNavi(request);
 
+        // get data
         int id = (int) session.getAttribute("id");
         RequestDb requestDb = new RequestDb();
         ArrayList<Request> requests = requestDb.getAllRequest(id, Constant.ALL);

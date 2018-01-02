@@ -312,7 +312,6 @@
                                 </br>
                                 <span class="glyphicon glyphicon-time" style="font-size: 20px;"></span>
                                 <small> Created: ${request.createdAt} </small>
-                                <img src="image/${request.image}" class="img-rounded" alt="Không tìm thấy ảnh của lỗi !" style="max-width: 100px">
                                 <p>${request.content}</p>
                             </h3>
 
@@ -365,8 +364,6 @@
         </div>
     </div>
     <!--Request Details -->
-
-
 
 <script src="js/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -479,6 +476,12 @@
         }).fail(function($xhr) {
 
         });
+
+        $.bootstrapGrowl('Đã thay đổi thông tin.',{
+            type: 'success',
+            delay: 3000,
+        });
+        setTimeout(location.reload(true));
     }
 
     logout = function(){
