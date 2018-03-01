@@ -375,48 +375,48 @@
 <script src="bootstrap/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript">
 
-    $(".departPopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi bộ phận IT.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
-    $(".prioriPopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi mức độ ưu tiên.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
-    $(".subteamPopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi subteam.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
-    $(".deadlinePopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi hạn chót.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
-    $(".assignPopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi người thực hiện.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
-    $(".relevantPopup").click(function(){
-        $.bootstrapGrowl('Đã thay đổi người liên quan.',{
-            type: 'success',
-            delay: 2000,
-        });
-        setTimeout(location.reload(true),6000);
-    });
+//    $(".departPopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi bộ phận IT.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
+//    $(".prioriPopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi mức độ ưu tiên.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
+//    $(".subteamPopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi subteam.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
+//    $(".deadlinePopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi hạn chót.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
+//    $(".assignPopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi người thực hiện.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
+//    $(".relevantPopup").click(function(){
+//        $.bootstrapGrowl('Đã thay đổi người liên quan.',{
+//            type: 'success',
+//            delay: 2000,
+//        });
+//        setTimeout(location.reload(true),6000);
+//    });
 
     function change(selBox) {
         if($(selBox).val() === '3') {

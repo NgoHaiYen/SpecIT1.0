@@ -4,15 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8"/>
   <title>Login</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/login.css"><link rel="shortcut icon" href="img/bug-fixing.png" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="shortcut icon" href="img/bug-fixing.png" />
 </head>
 <body>
 <div id="cssmenu">
@@ -38,7 +35,7 @@
 
           <div style="margin-bottom: 25px" class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input id="user" type="text" class="form-control" name="user" value="" placeholder="username" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+            <input data-bind="value: username" id="user" type="text" class="form-control" name="user" placeholder="username" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
           </div>
           <div class="help-block with-errors"></div>
 
@@ -80,11 +77,10 @@
   </div>
 </div>
 
-
-
 <script type="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="javascript" src="js/validation.js"></script>
 <script type="javascript" src="js/jquery.min.js"></script>
+<script type="javascript" src="js/knockout.js"></script>
 
 <script>
     function requestEmail(){
@@ -92,7 +88,7 @@
             type:"POST",
             cache:false,
             data: {
-                forgotemail: $('#forgotemail')
+                forgotemail: $('#forgotemail').value()
             },
             url:"http://localhost:8080/SpecIT/login",
             success : function(responseText) {

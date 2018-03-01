@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Request</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.css"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="slidebar.css"/>
+    <h:outputStylesheet library="css" name="main.css"/>
+    <h:outputStylesheet library="css" name="jquery.dataTables.min.css"/>
+
+    <link rel="shortcut icon" href="resources/img/bug-fixing.png" />
+</h:head>
+<h:body>
+    <ui:include src="navigation.xhtml"/>
+
+    <h:form>
+        <div class="container-fluid">
+            <div class="side-body">
+                <div>
+                    <table class="table table-hover" id="listmain">
+                        <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Tên công việc</th>
+                            <th>Mức độ ưu tiên</th>
+                            <th>Người yêu cầu</th>
+                            <th>Người thực hiện</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{userRequest.currentUser.assigned}" var="assigned">
+                                <td></td>
+                                <td>#{assigned.subject}</td>
+                                <td>#{assigned.priority.name}</td>
+                                <td>#{assigned.createdBy.name}</td>
+                                <td>#{assigned.assignedTo.name}</td>
+                                <td>#{assigned.deadline}</td>
+                                <td>#{assigned.status.name}</td>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <h:outputScript name="js/jquery.min.js"/>
+    <h:outputScript name="bootstrap/js/bootstrap.min.js"/>
+    <h:outputScript name="js/jquery.dataTables.min.js"/>
+    <h:outputScript name="js/dataTables.bootstrap.min.js"/>
+</h:body>
+</html>

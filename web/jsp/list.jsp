@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/slidebar.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css"/>
     <style type="text/css">
@@ -83,6 +82,7 @@
 
         <script>
             function postValue(a){
+                console.log("post: " + a);
                 document.getElementById('show').value = a;
                 document.getElementById('list').submit();
             }
