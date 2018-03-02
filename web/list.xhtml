@@ -36,8 +36,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <ui:repeat value="#{userRequest.currentUser.assigned}" var="assigned">
-                                <td></td>
+                            <ui:repeat value="#{userRequest.currentUser.assigned.toArray()}" var="assigned">
+                                <td><h:graphicImage value="#{assigned.image.url}"/></td>
                                 <td>#{assigned.subject}</td>
                                 <td>#{assigned.priority.name}</td>
                                 <td>#{assigned.createdBy.name}</td>

@@ -1,7 +1,7 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Employee {
     private int id;
@@ -19,40 +19,40 @@ public class Employee {
     private int branchId;
     private Branch branch;
 
-    private List<Request> created = new ArrayList<>(0);
-    private List<Request> assigned = new ArrayList<>(0);
-    private List<Request> relateRequests = new ArrayList<>(0);
-    private List<Request> reads = new ArrayList<>(0); // danh sách những request đã đọc
+    private Set<Request> created = new HashSet<>(0);
+    private Set<Request> assigned = new HashSet<>(0);
+    private Set<Request> relateRequests = new HashSet<>(0);
+    private Set<Request> reads = new HashSet<>(0); // danh sách những request đã đọc
 
-    public List<Request> getReads() {
+    public Set<Request> getReads() {
         return reads;
     }
 
-    public void setReads(List<Request> reads) {
+    public void setReads(Set<Request> reads) {
         this.reads = reads;
     }
 
-    public List<Request> getRelateRequests() {
+    public Set<Request> getRelateRequests() {
         return relateRequests;
     }
 
-    public void setRelateRequests(List<Request> relateRequests) {
+    public void setRelateRequests(Set<Request> relateRequests) {
         this.relateRequests = relateRequests;
     }
 
-    public List<Request> getAssigned() {
+    public Set<Request> getAssigned() {
         return assigned;
     }
 
-    public void setAssigned(List<Request> assigned) {
+    public void setAssigned(Set<Request> assigned) {
         this.assigned = assigned;
     }
 
-    public List<Request> getCreated() {
+    public Set<Request> getCreated() {
         return created;
     }
 
-    public void setCreated(List<Request> requests) {
+    public void setCreated(Set<Request> requests) {
         this.created = requests;
     }
 

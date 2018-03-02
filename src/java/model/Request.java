@@ -1,8 +1,8 @@
 package model;
 
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Request {
     private int id;
@@ -23,22 +23,22 @@ public class Request {
     private Date deletedAt;
     private boolean isRead;
     private Image image;
-    private List<Employee> relaters = new ArrayList<>(0);
-    private List<Employee> reads = new ArrayList<>(0);
+    private Set<Employee> relaters = new HashSet<>(0);
+    private Set<Employee> reads = new HashSet<>(0);
 
-    public List<Employee> getReads() {
+    public Set<Employee> getReads() {
         return reads;
     }
 
-    public void setReads(List<Employee> reads) {
+    public void setReads(Set<Employee> reads) {
         this.reads = reads;
     }
 
-    public List<Employee> getRelaters() {
+    public Set<Employee> getRelaters() {
         return relaters;
     }
 
-    public void setRelaters(List<Employee> relaters) {
+    public void setRelaters(Set<Employee> relaters) {
         this.relaters = relaters;
     }
 

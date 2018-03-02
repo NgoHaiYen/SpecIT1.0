@@ -6,18 +6,18 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BranchDb {
     // get all branch
-    public ArrayList<Branch> getAllBranch() {
-        ArrayList<Branch> branches = new ArrayList<>();
+    public HashSet<Branch> getAllBranch() {
+        HashSet<Branch> branches = new HashSet<>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            List results = session.createCriteria(Branch.class).list();
+            Set results = (Set) session.createCriteria(Branch.class).list();
             for (Object result : results){
                 Branch branch = (Branch) result;
                 branches.add(branch);

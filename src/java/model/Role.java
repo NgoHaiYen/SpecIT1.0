@@ -1,19 +1,19 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Role {
     private int id;
     private String name;
     private String description;
-    private List<Employee> employees = new ArrayList<>(0);
+    private Set<Employee> employees = new HashSet<>(0);
 
-    public List<Employee> getEmployees() {
+    public Set<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
+    public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
 

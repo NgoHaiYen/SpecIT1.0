@@ -7,14 +7,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class EmployeeDb {
     public static void main(String[] args) {
         EmployeeDb employeeDb = new EmployeeDb();
-        Employee e = employeeDb.getEmployeeById(1);
-        System.out.println(e.getAssigned().get(0).getImage().getUrl());
+        Employee e = employeeDb.getEmployeeById(2);
+        System.out.println(e.getAssigned().size());
     }
 
     public Employee checkLogin(String userName, String password) {
@@ -41,8 +41,8 @@ public class EmployeeDb {
     }
 
     // get all employee
-    public ArrayList<Employee> getAllEmployee(){
-        ArrayList<Employee> employees = new ArrayList<>();
+    public HashSet<Employee> getAllEmployee(){
+        HashSet<Employee> employees = new HashSet<>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {

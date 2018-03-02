@@ -1,13 +1,13 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Status {
     private int id;
     private String name;
 
-    private List<Request> requests = new ArrayList<>(0);
+    private Set<Request> requests = new HashSet<>(0);
 
     public Status() {
     }
@@ -17,11 +17,11 @@ public class Status {
         this.name = name;
     }
 
-    public List<Request> getRequests() {
+    public Set<Request> getRequests() {
         return requests;
     }
 
-    public void setRequests(List<Request> requests) {
+    public void setRequests(Set<Request> requests) {
         this.requests = requests;
     }
 

@@ -1,7 +1,7 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Branch {
     private int id;
@@ -10,23 +10,23 @@ public class Branch {
     private int leaderId;
     private Employee leader;
 
-    private List<Team> teams = new ArrayList<>(0);
+    private Set<Team> teams = new HashSet<>(0);
 
-    private List<Request> requests = new ArrayList<>(0);
+    private Set<Request> requests = new HashSet<>(0);
 
-    public List<Request> getRequests() {
+    public Set<Request> getRequests() {
         return requests;
     }
 
-    public void setRequests(List<Request> requests) {
+    public void setRequests(Set<Request> requests) {
         this.requests = requests;
     }
 
-    public List<Team> getTeams() {
+    public Set<Team> getTeams() {
         return teams;
     }
 
-    public void setTeams(List<Team> teams) {
+    public void setTeams(Set<Team> teams) {
         this.teams = teams;
     }
 

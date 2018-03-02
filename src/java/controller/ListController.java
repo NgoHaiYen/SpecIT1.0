@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 @WebServlet(name = "ListController")
 public class ListController extends HttpServlet {
@@ -58,7 +58,7 @@ public class ListController extends HttpServlet {
         // get data
         int id = (int) session.getAttribute("id");
         RequestDb requestDb = new RequestDb();
-        ArrayList<Request> requests = new ArrayList<>();
+        HashSet<Request> requests = new HashSet<>();
 //        requests = requestDb.getAllRequest(id, Constant.ALL);
 
         String t = request.getParameter("t");

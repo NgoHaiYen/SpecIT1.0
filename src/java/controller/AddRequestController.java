@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 @WebServlet(name = "AddRequestController")
 @MultipartConfig
@@ -65,18 +65,18 @@ public class AddRequestController extends HttpServlet {
         }
 
         // priorities
-        PriorityDb pdb = new PriorityDb();
-        ArrayList<Priority> priorities = pdb.getAllPriorities();
-        request.setAttribute("priorities", priorities);
+//        PriorityDb pdb = new PriorityDb();
+//        HashSet<Priority> priorities = pdb.getAllPriorities();
+//        request.setAttribute("priorities", priorities);
 
         // itteams
         BranchDb bdb = new BranchDb();
-        ArrayList<Branch> branches = bdb.getAllBranch();
+        HashSet<Branch> branches = bdb.getAllBranch();
         request.setAttribute("branches", branches);
 
         // employees
         EmployeeDb edb = new EmployeeDb();
-        ArrayList<Employee> employees = edb.getAllEmployee();
+        HashSet<Employee> employees = edb.getAllEmployee();
         request.setAttribute("employees", employees);
 
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
@@ -84,7 +84,7 @@ public class AddRequestController extends HttpServlet {
 
     // kiểm tra thông tin đã được điền vào form
     private boolean checkValidate(HttpServletRequest request) {
-        ArrayList<String> values = new ArrayList<>();
+        HashSet<String> values = new HashSet<>();
         values.add("tencv");
         values.add("priorities");
         values.add("date");
@@ -95,7 +95,7 @@ public class AddRequestController extends HttpServlet {
         return (relater != null) && checkValidate(request, values);
     }
 
-    private boolean checkValidate(HttpServletRequest request, ArrayList<String> values){
+    private boolean checkValidate(HttpServletRequest request, HashSet<String> values){
         for (String value:values) {
             if (!checkValidate(request, value)) return false;
         }

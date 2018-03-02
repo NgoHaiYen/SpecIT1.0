@@ -16,6 +16,7 @@ public class UserRequest implements Serializable {
     private Employee currentUser = (new EmployeeDb()).getEmployeeById(SessionUtil.getUserId());
 
     public Employee getCurrentUser() {
+        System.out.println(currentUser.getAssigned().size());
         return currentUser;
     }
 }

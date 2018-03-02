@@ -8,6 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class RequestDb {
+    public static void main(String[] args) {
+        RequestDb requestDb = new RequestDb();
+        Request request = requestDb.getRequestById(29);
+        System.out.println(request.getSubject());
+    }
+
     // get request by its id
     public Request getRequestById(int id){
         Session session = HibernateUtil.getSessionFactory().openSession();

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 @WebServlet(name = "RequestDetailsController")
 public class RequestDetailsController extends HttpServlet {
@@ -27,30 +27,30 @@ public class RequestDetailsController extends HttpServlet {
             Request r = rdb.getRequestById(id);
 
 //            RelaterDb relaterDb = new RelaterDb();
-//            ArrayList<Relater> relaters = relaterDb.getAllRelater(id);
+//            HashSet<Relater> relaters = relaterDb.getAllRelater(id);
 //
-////            ArrayList<Comment> comments = cdb.getAllComment(id);
+////            HashSet<Comment> comments = cdb.getAllComment(id);
 //
 //            request.setAttribute("request", r);
 //            request.setAttribute("relaters", relaters);
 //            request.setAttribute("comments", comments);
 
             // priorities
-            ArrayList<Priority> priorities = pdb.getAllPriorities();
-            request.setAttribute("priorities", priorities);
+//            HashSet<Priority> priorities = pdb.getAllPriorities();
+//            request.setAttribute("priorities", priorities);
 
             // branched
-            ArrayList<Branch> branches = bdb.getAllBranch();
-            request.setAttribute("branches", branches);
+//            HashSet<Branch> branches = bdb.getAllBranch();
+//            request.setAttribute("branches", branches);
 
             // branched
-            TeamDb teamDb = new TeamDb();
-            ArrayList<Team> subteams = teamDb.getAllTeams();
-            request.setAttribute("subteams", subteams);
+//            TeamDb teamDb = new TeamDb();
+//            HashSet<Team> subteams = teamDb.getAllTeams();
+//            request.setAttribute("subteams", subteams);
 
             // employees
-            ArrayList<Employee> employees = edb.getAllEmployee();
-            request.setAttribute("employees", employees);
+//            HashSet<Employee> employees = edb.getAllEmployee();
+//            request.setAttribute("employees", employees);
 
             request.getRequestDispatcher("jsp/request_details.jsp").forward(request, response);
         }
@@ -99,7 +99,7 @@ public class RequestDetailsController extends HttpServlet {
                 case "relater":
                     String relater = request.getParameter("changeValue");
                     System.out.println(relater);
-//                    ArrayList<Integer> relatersId = new ArrayList<>();
+//                    HashSet<Integer> relatersId = new HashSet<>();
 //                    for (String rl : relater){
 //                        relatersId.add(Integer.parseInt(rl));
 //                    }
