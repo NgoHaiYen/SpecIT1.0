@@ -9,10 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SpecIT</title>
     <link rel="stylesheet" href="css/login.css"><link rel="shortcut icon" href="img/bug-fixing.png" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mainmenu.css">
 

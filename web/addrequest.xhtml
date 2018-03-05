@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Request</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap-select.min.css"/>
+    <h:outputStylesheet library="css" name="slidebar.css"/>
+    <h:outputStylesheet library="css" name="login.css"/>
+    <h:outputStylesheet library="css" name="mainmenu.css"/>
+    <h:outputStylesheet library="css" name="addrequest.css"/>
+
+    <link rel="shortcut icon" href="resources/img/bug-fixing.png" />
+</h:head>
+<h:body>
+    <ui:include src="navigation.xhtml"/>
+
+    <div class="container-fluid">
+        <div class="side-body">
+            <h:form method="post" data-toggle="validator" accept-charset="UTF-8" enctype="multipart/form-data">
+                <div class="row">
+                    <h1> Thêm yêu cầu </h1>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"/></label>
+                            <h:inputText class="form-control" id="tencv" a:placeholder="Tên yêu cầu"/>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Mức độ ưu tiên:</label><br/>
+                            <h:selectOneMenu styleClass="selectpicker" value="#{addRequest.request.priority}">
+                                <f:selectItems value="#{addRequest.priorities}" var="priority"
+                                              itemLabel="#{priority.name}" itemValue="#{priority}"/>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Ngày hết hạn <span class="glyphicon glyphicon-asterisk" style="color:red"/></label>
+                            <div class='input-group date' id='datetimepicker'>
+                                <h:inputText class="form-control" data-error="Vui lòng chọn ngày"
+                                             value="#{addRequest.request.deadline}" required="true" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"/>
+                                </span>
+
+                            </div>
+                            <div class="help-block with-errors"/>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Bộ phận IT <span class="glyphicon glyphicon-asterisk" style="color:red"/></label><br/>
+                            <h:selectOneMenu styleClass="selectpicker" value="#{addRequest.request.branch}">
+                                <f:selectItems value="#{addRequest.branches}" var="branch"
+                                               itemLabel="#{branch.name}" itemValue="#{branch}"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6">
+                            <label>Người liên quan</label>
+                        <h:selectManyMenu styleClass="selectpicker">
+                            <f:selectItems value="#{addRequest.employees}" var="employee"
+                                           itemLabel="#{employee.name}" itemValue="#{employee}"/>
+                        </h:selectManyMenu>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label class="control-label">Nội dung công việc:</label>
+                        <div class="form-group">
+                            <h:inputTextarea class="form-control" rows="5" data-error="Vui lòng điền nội dung công việc"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="file-upload">
+                            <div class="file-select">
+                                <div class="file-select-button" id="fileName">Chọn ảnh upload</div>
+                                <div class="file-select-name" id="noFile">No file chosen...</div>
+                                <input type="file" name="chooseFile" accept="image/x-png,image/jpeg"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <h:commandButton style="margin-top: 10px;" value="Gửi yêu cầu" class="btn btn-info submit"/>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+    <h:outputScript>
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </h:outputScript>
+
+    <h:outputScript name="js/jquery.min.js"/>
+    <h:outputScript name="bootstrap/js/bootstrap.min.js"/>
+    <h:outputScript name="bootstrap/js/moment.js"/>
+    <h:outputScript name="bootstrap/js/bootstrap-select.min.js"/>
+    <h:outputScript name="bootstrap/js/bootstrap-datepicker.min.js"/>
+    <h:outputScript name="js/request.js"/>
+</h:body>
+</html>

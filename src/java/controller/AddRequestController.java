@@ -70,14 +70,14 @@ public class AddRequestController extends HttpServlet {
 //        request.setAttribute("priorities", priorities);
 
         // itteams
-        BranchDb bdb = new BranchDb();
-        HashSet<Branch> branches = bdb.getAllBranch();
-        request.setAttribute("branches", branches);
+//        BranchDb bdb = new BranchDb();
+//        HashSet<Branch> branches = bdb.getAllBranch();
+//        request.setAttribute("branches", branches);
 
         // employees
-        EmployeeDb edb = new EmployeeDb();
-        HashSet<Employee> employees = edb.getAllEmployee();
-        request.setAttribute("employees", employees);
+//        EmployeeDb edb = new EmployeeDb();
+//        HashSet<Employee> employees = edb.getAllEmployee();
+//        request.setAttribute("employees", employees);
 
         request.getRequestDispatcher("jsp/add.jsp").forward(request, response);
     }

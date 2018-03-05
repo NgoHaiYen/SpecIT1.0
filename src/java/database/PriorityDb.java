@@ -10,25 +10,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PriorityDb {
-    public ArrayList<Priority> getAllPriorities(){
-        ArrayList<Priority> priorities = new ArrayList<>();
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            List results = session.createCriteria(Priority.class).list();
-            for (Object result : results) {
-                Priority priority = (Priority) result;
-                priorities.add(priority);
+    private static ArrayList<Priority> priorities = null;
+
+    public static ArrayList<Priority> getAllPriorities(){
+        if (priorities == null) {
+            priorities = new ArrayList<>();
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+                List results = session.createCriteria(Priority.class).list();
+                for (Object result : results) {
+                    Priority priority = (Priority) result;
+                    priorities.add(priority);
+                }
+                tx.commit();
+            } catch (HibernateException e) {
+                if (tx != null) {
+                    tx.rollback();
+                }
+                e.printStackTrace();
+            } finally {
+                session.close();
             }
-            tx.commit();
-        } catch (HibernateException e){
-            if (tx != null){
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
         }
         return priorities;
     }

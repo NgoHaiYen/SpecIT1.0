@@ -7,16 +7,11 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 public class EmployeeDb {
-    public static void main(String[] args) {
-        EmployeeDb employeeDb = new EmployeeDb();
-        Employee e = employeeDb.getEmployeeById(2);
-        System.out.println(e.getAssigned().size());
-    }
-
     public Employee checkLogin(String userName, String password) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -40,26 +35,29 @@ public class EmployeeDb {
         return null;
     }
 
-    // get all employee
-    public HashSet<Employee> getAllEmployee(){
-        HashSet<Employee> employees = new HashSet<>();
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            List results = session.createCriteria(Employee.class).list();
+    private static List<Employee> employees = null;
 
-            for (Object result : results){
-                Employee employee = (Employee) result;
-                employees.add(employee);
+    // get all employee
+    public static List<Employee> getAllEmployee(){
+        if (employees == null) {
+            employees = new ArrayList<>();
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+                List results = session.createCriteria(Employee.class).list();
+
+                for (Object result : results) {
+                    Employee employee = (Employee) result;
+                    employees.add(employee);
+                }
+                tx.commit();
+            } catch (HibernateException e) {
+                if (tx != null) tx.rollback();
+                e.printStackTrace();
+            } finally {
+                session.close();
             }
-            tx.commit();
-        }
-        catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
         }
         return employees;
     }
