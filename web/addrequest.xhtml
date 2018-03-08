@@ -4,13 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:k="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
     <title>Request</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
     <h:outputStylesheet library="bootstrap" name="css/bootstrap-select.min.css"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap-datepicker.min.css"/>
     <h:outputStylesheet library="css" name="slidebar.css"/>
     <h:outputStylesheet library="css" name="login.css"/>
     <h:outputStylesheet library="css" name="mainmenu.css"/>
@@ -29,7 +32,9 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="tencv">Tên công việc <span class="glyphicon glyphicon-asterisk" style="color:red"/></label>
-                            <h:inputText class="form-control" id="tencv" a:placeholder="Tên yêu cầu"/>
+                            <h:inputText class="form-control" id="tencv" a:placeholder="Tên yêu cầu">
+                                <k:passThroughAttribute name="data-bind" value="value: name"/>
+                            </h:inputText>
                         </div>
                     </div>
 
@@ -46,14 +51,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>Ngày hết hạn <span class="glyphicon glyphicon-asterisk" style="color:red"/></label>
-                            <div class='input-group date' id='datetimepicker'>
-                                <h:inputText class="form-control" data-error="Vui lòng chọn ngày"
-                                             value="#{addRequest.request.deadline}" required="true" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"/>
-                                </span>
-
+                            <div class='form-group' id='datetimepicker'>
+                                <h:inputText a:type="date" class="form-control" data-error="Vui lòng chọn ngày"
+                                             value="#{addRequest.request.deadline}" required="true" a:min="" a:max="">
+                                    <k:passThroughAttribute name="data-bind" value="value: deadline"/>
+                                </h:inputText>
                             </div>
+
                             <div class="help-block with-errors"/>
                         </div>
                     </div>
@@ -66,7 +70,6 @@
                                                itemLabel="#{branch.name}" itemValue="#{branch}"/>
                             </h:selectOneMenu>
                         </div>
-
                     </div>
 
                     <div class="col-sm-6">
@@ -80,24 +83,29 @@
                     <div class="col-sm-12">
                         <label class="control-label">Nội dung công việc:</label>
                         <div class="form-group">
-                            <h:inputTextarea class="form-control" rows="5" data-error="Vui lòng điền nội dung công việc"/>
+                            <h:inputTextarea class="form-control" rows="5" data-bind="text: content">
+                                <k:passThroughAttribute name="data-bind" value="value: content"/>
+                            </h:inputTextarea>
                         </div>
-
                     </div>
 
                     <div class="col-sm-12">
                         <div class="file-upload">
                             <div class="file-select">
                                 <div class="file-select-button" id="fileName">Chọn ảnh upload</div>
-                                <div class="file-select-name" id="noFile">No file chosen...</div>
-                                <input type="file" name="chooseFile" accept="image/x-png,image/jpeg"/>
+                                <h:inputText a:type="file" accept="image/x-png,image/jpeg">
+                                    <k:passThroughAttribute name="data-bind" value="value: uploadImage"/>
+                                    <k:passThroughAttribute name="accept" value="image/x-png,image/jpeg"/>
+                                </h:inputText>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <h:commandButton style="margin-top: 10px;" value="Gửi yêu cầu" class="btn btn-info submit"/>
+                            <h:commandButton style="margin-top: 10px;" value="Gửi yêu cầu" class="btn btn-info submit" action="#{addRequest.addRequest}">
+                                <k:passThroughAttribute name="data-bind" value="enable: buttonEnabled"/>
+                            </h:commandButton>
                         </div>
                     </div>
                 </div>
@@ -105,17 +113,20 @@
         </div>
     </div>
 
-    <h:outputScript>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-    </h:outputScript>
 
     <h:outputScript name="js/jquery.min.js"/>
     <h:outputScript name="bootstrap/js/bootstrap.min.js"/>
     <h:outputScript name="bootstrap/js/moment.js"/>
     <h:outputScript name="bootstrap/js/bootstrap-select.min.js"/>
-    <h:outputScript name="bootstrap/js/bootstrap-datepicker.min.js"/>
+    <h:outputScript name="bootstrap/js/bootstrap-datetimepicker.min.js"/>
     <h:outputScript name="js/request.js"/>
+    <h:outputScript name="js/knockout.js"/>
+    <h:outputScript name="js/validate/addrequest.js"/>
+
+    <h:outputScript>
+        $(document).ready(function() {
+            $('.selectpicker').selectpicker();
+        });
+    </h:outputScript>
 </h:body>
 </html>

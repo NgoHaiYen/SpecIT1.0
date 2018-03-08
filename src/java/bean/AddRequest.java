@@ -3,6 +3,7 @@ package bean;
 import database.BranchDb;
 import database.EmployeeDb;
 import database.PriorityDb;
+import database.RequestDb;
 import model.*;
 
 import javax.faces.bean.ManagedBean;
@@ -19,6 +20,12 @@ public class AddRequest implements Serializable {
     private List<Branch> branches = BranchDb.getAllBranch();
     private List<Employee> employees = EmployeeDb.getAllEmployee();
     private Request request = new Request();
+
+    public String addRequest(){
+        RequestDb requestDb = new RequestDb();
+        requestDb.addNewRequest(request);
+        return "list";
+    }
 
     public List<Priority> getPriorities() {
         return priorities;

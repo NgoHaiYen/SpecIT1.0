@@ -3,6 +3,7 @@ package database;
 import helper.HibernateUtil;
 import helper.Mail;
 import model.Request;
+import model.Role;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -51,9 +52,24 @@ public class RequestDb {
     }
 
     // insert new request, relaters is id of the relaterss
-    public void addNewRequest(Request request, String[] relaters, String file){
-        // todo
-        // remember to mail
+    public Integer addNewRequest(Request request){
+        //todo remember to mail
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(request);
+            tx.commit();
+            return request.getId();  // get the id of the recent inserted id
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
     }
 
     // update request from db
