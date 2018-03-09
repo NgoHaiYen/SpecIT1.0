@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Image" table="image">
+        <id name="id" type="java.lang.Integer">
+            <column name="image_id"/>
+            <generator class="identity" />
+        </id>
+        <property name="requestId" type="int">
+            <column name="request_id" length="10" not-null="true"/>
+        </property>
+
+        <one-to-one name="request" class="model.Request" constrained="true"/>
+
+        <property name="url" type="string">
+            <column name="url_image" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

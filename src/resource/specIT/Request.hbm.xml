@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Request" table="request">
+        <id name="id" type="java.lang.Integer">
+            <column name="request_id" length="10"/>
+            <generator class="identity" />
+        </id>
+        <property name="subject" type="string">
+            <column name="subject" length="255" not-null="true"/>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="255" not-null="true"/>
+        </property>
+
+        <many-to-one name="createdBy" class="model.Employee" fetch="select">
+            <column name="created_by"/>
+        </many-to-one>
+
+        <many-to-one name="status" class="model.Status" fetch="select">
+            <column name="status" not-null="true"/>
+        </many-to-one>
+
+        <many-to-one name="priority" class="model.Priority" fetch="select">
+            <column name="priority" not-null="true"/>
+        </many-to-one>
+
+        <property name="deadline" type="date">
+            <column name="deadline" not-null="true"/>
+        </property>
+
+        <many-to-one name="assignedTo" class="model.Employee" fetch="select">
+            <column name="assigned_to"/>
+        </many-to-one>
+
+        <property name="rating" type="int">
+            <column name="rating"/>
+        </property>
+
+        <many-to-one name="team" class="model.Team" fetch="select">
+            <column name="team_id"/>
+        </many-to-one>
+
+        <many-to-one name="branch" class="model.Branch" fetch="select">
+            <column name="branch_id"/>
+        </many-to-one>
+
+        <property name="resolvedAt" type="date">
+            <column name="resolved_at"/>
+        </property>
+
+        <property name="closedAt" type="date">
+            <column name="closed_at"/>
+        </property>
+
+        <property name="createdAt" type="date">
+            <column name="create_at"/>
+        </property>
+
+        <property name="updatedAt" type="date">
+            <column name="updated_at"/>
+        </property>
+
+        <property name="deletedAt" type="date">
+            <column name="deleted_at"/>
+        </property>
+
+        <one-to-one name="image" class="model.Image" cascade="save-update"/>
+
+        <set name="relaters" table="relater" lazy="true" fetch="select" cascade="all" inverse="true">
+            <key>
+                <column name="request_id"/>
+            </key>
+            <many-to-many class="model.Employee">
+                <column name="employee_id"/>
+            </many-to-many>
+        </set>
+
+        <set name="reads" table="employees" lazy="true" fetch="select" cascade="all" inverse="true">
+            <key>
+                <column name="request_id" not-null="true" />
+            </key>
+            <many-to-many class="model.Employee">
+                <column name="employee_id" not-null="true" />
+            </many-to-many>
+        </set></class>
+</hibernate-mapping>

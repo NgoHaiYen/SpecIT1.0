@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Status" table="status">
+        <id name="id" type="java.lang.Integer">
+            <column name="status_id" length="11"/>
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="status_name" length="20" not-null="true" unique="true" />
+        </property>
+
+        <set name="requests" table="request" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="status_id" not-null="true"/>
+            </key>
+            <one-to-many class="model.Request"/>
+        </set>
+    </class>
+</hibernate-mapping>

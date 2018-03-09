@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Comment" table="comment">
+        <id name="id" type="java.lang.Integer">
+            <column name="comment_id" length="10"/>
+            <generator class="identity" />
+        </id>
+        <property name="type" type="int">
+            <column name="type" length="4"/>
+        </property>
+        <property name="content" type="string">
+            <column name="content"/>
+        </property>
+    </class>
+</hibernate-mapping>

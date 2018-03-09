@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Team" table="team">
+        <id name="id" type="java.lang.Integer">
+            <column name="team_id" length="10"/>
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="team_name" length="100" not-null="true" unique="true" />
+        </property>
+
+        <property name="subleaderId" type="int">
+            <column name="teamleader_id" length="100" not-null="true" unique="true" />
+        </property>
+        <one-to-one name="subleader" class="model.Employee" cascade="save-update"/>
+
+        <many-to-one name="itteam" class="model.Branch" fetch="select">
+            <column name="branch_id" not-null="true"/>
+        </many-to-one>
+        
+        <set name="requests" table="request" fetch="select" lazy="true" inverse="true">
+            <key>
+                <column name="team_id"/>
+            </key>
+            <one-to-many class="model.Request"/>
+        </set>
+    </class>
+</hibernate-mapping>

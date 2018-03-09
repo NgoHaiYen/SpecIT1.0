@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="model.Employee" table="employees">
+        <id name="id" type="java.lang.Integer">
+            <column name="employee_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" not-null="true" unique="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="username" length="15" not-null="true" unique="true" />
+        </property>
+        <property name="passWord" type="string">
+            <column name="password" length="50" not-null="true"/>
+        </property>
+
+        <property name="branchId" type="int">
+            <column name="branch_id" length="11" not-null="true"/>
+        </property>
+        <one-to-one name="branch" class="model.Branch" constrained="true"/>
+
+        <property name="teamId" type="int">
+            <column name="team_id" length="11" not-null="true"/>
+        </property>
+        <one-to-one name="team" class="model.Team" constrained="true"/>
+
+        <many-to-one name="role" class="model.Role" fetch="select">
+            <column name="role_id" not-null="true"/>
+        </many-to-one>
+
+        <set name="created" table="request" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="employee_id"/>
+            </key>
+            <one-to-many class="model.Request"/>
+        </set>
+
+        <set name="assigned" table="request" inverse="true" fetch="select" lazy="false">
+            <key>
+                <column name="assigned_to" not-null="true"/>
+            </key>
+            <one-to-many class="model.Request"/>
+        </set>
+
+        <set name="relateRequests" table="request" fetch="select" cascade="all" inverse="true" lazy="true">
+            <key>
+                <column name="employee_id"/>
+            </key>
+            <many-to-many class="model.Request">
+                <column name="request_id"/>
+            </many-to-many>
+        </set>
+
+        <set name="reads" table="request" fetch="select" cascade="all" inverse="true" lazy="true">
+            <key>
+                <column name="employee_id" not-null="true" />
+            </key>
+            <many-to-many class="model.Request">
+                <column name="request_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
