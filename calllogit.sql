@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
 -- Host: localhost    Database: calllogit
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,7 +37,7 @@ CREATE TABLE `branch` (
 
 LOCK TABLES `branch` WRITE;
 /*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-INSERT INTO `branch` VALUES (1,'IT Hà Nội',1),(2,'IT Đà Nẵng',2);
+INSERT INTO `branch` VALUES (1,'IT Hà Nội',3),(2,'IT Đà Nẵng',4);
 /*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +63,7 @@ CREATE TABLE `comment` (
   KEY `comment_id` (`comment_id`),
   CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`request_id`) REFERENCES `request` (`request_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,6 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,27,3,'Thay đổi mức độ ưu tiên: Cao -> Bình thường\nLý do: Chưa cần gấp',2,NULL,'2018-01-01 16:48:26',NULL),(2,27,4,'Thay đổi mức độ ưu tiên: Bình thường -> Thấp\nLý do: mới',2,NULL,'2018-01-01 16:54:43',NULL),(3,27,4,'Thay đổi mức độ ưu tiên: Thấp -> Cao\nLý do: Thiếu',2,NULL,'2018-01-01 16:55:27',NULL);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,23 +85,23 @@ DROP TABLE IF EXISTS `employees`;
 CREATE TABLE `employees` (
   `employee_id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
-  `phone` int(20) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `username` varchar(15) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
-  `Branch_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
   PRIMARY KEY (`employee_id`),
   KEY `team_id` (`team_id`),
   KEY `role` (`role_id`),
   KEY `employee_id` (`employee_id`),
   KEY `role_id` (`role_id`),
   KEY `team_id_2` (`team_id`),
-  KEY `Branch_id` (`Branch_id`),
+  KEY `Branch_id` (`branch_id`),
   CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +110,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Xuan',1234,'xuancan211@gmail.com','Xuan','827ccb0eea8a706c4c34a16891f84e7b',1,2,1),(2,'Admin',1234,'huyngo2k@gmail.com','admin1','e10adc3949ba59abbe56e057f20f883e',2,1,2),(3,'admin2',125,'ngohaiyen12091997@gmail.com','admin2','e10adc3949ba59abbe56e057f20f883e',3,2,1),(4,'Yến',1235454,'yourgod1989@gmail.com','yen','e10adc3949ba59abbe56e057f20f883e',3,1,1);
+INSERT INTO `employees` VALUES (1,'Xuan','1234','xuancan211@gmail.com','Xuan','e10adc3949ba59abbe56e057f20f883e',1,2,1),(2,'Admin','1234','huyngo2k@gmail.com','admin1','e10adc3949ba59abbe56e057f20f883e',2,1,2),(3,'admin2','125','ngohaiyen12091997@gmail.com','admin2','e10adc3949ba59abbe56e057f20f883e',1,2,1),(4,'Yến','1235454','yourgod1989@gmail.com','yen','e10adc3949ba59abbe56e057f20f883e',3,1,1),(5,'ad','1234','ad@gmail.com','ad','e10adc3949ba59abbe56e057f20f883e',2,1,2);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +124,7 @@ DROP TABLE IF EXISTS `image`;
 CREATE TABLE `image` (
   `request_id` int(10) NOT NULL,
   `url_image` varchar(255) NOT NULL,
+  `image_id` int(10) NOT NULL,
   KEY `request_id` (`request_id`),
   CONSTRAINT `image_ibfk_1` FOREIGN KEY (`request_id`) REFERENCES `request` (`request_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -136,7 +136,6 @@ CREATE TABLE `image` (
 
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES (27,'brokenscreen1514789394768.jpeg');
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +162,6 @@ CREATE TABLE `isread` (
 
 LOCK TABLES `isread` WRITE;
 /*!40000 ALTER TABLE `isread` DISABLE KEYS */;
-INSERT INTO `isread` VALUES (23,4),(24,4),(25,4),(26,4),(27,4);
 /*!40000 ALTER TABLE `isread` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +212,6 @@ CREATE TABLE `relater` (
 
 LOCK TABLES `relater` WRITE;
 /*!40000 ALTER TABLE `relater` DISABLE KEYS */;
-INSERT INTO `relater` VALUES (25,1,'2018-01-01'),(25,2,'2018-01-01'),(26,2,'2018-01-01'),(27,2,'2018-01-01'),(27,3,'2018-01-01');
 /*!40000 ALTER TABLE `relater` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +225,7 @@ DROP TABLE IF EXISTS `request`;
 CREATE TABLE `request` (
   `request_id` int(10) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
-  `content` text,
+  `content` varchar(255) DEFAULT NULL,
   `created_by` int(10) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `priority` tinyint(1) NOT NULL,
@@ -249,7 +246,7 @@ CREATE TABLE `request` (
   KEY `request_id` (`request_id`),
   CONSTRAINT `request_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `request_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +255,6 @@ CREATE TABLE `request` (
 
 LOCK TABLES `request` WRITE;
 /*!40000 ALTER TABLE `request` DISABLE KEYS */;
-INSERT INTO `request` VALUES (23,'Sửa màn hình','Màn hình bị vỡ',4,1,1,'2018-01-02',NULL,NULL,2,1,NULL,NULL,'2017-12-31 18:21:06',NULL,NULL),(24,'Sửa màn hình','Màn hình bị hỏng',4,1,1,'2017-12-25',NULL,NULL,1,2,NULL,NULL,'2017-12-31 18:25:24',NULL,NULL),(25,'Sửa bàn phím','Bàn phím hỏng',4,1,3,'2018-02-06',NULL,NULL,0,2,NULL,NULL,'2018-01-01 13:10:25',NULL,NULL),(26,'Sửa main','Main hỏng',4,1,1,'2018-02-07',NULL,NULL,0,2,NULL,NULL,'2018-01-01 13:48:23',NULL,NULL),(27,'Test','test',4,1,2,'2018-01-15',NULL,NULL,0,2,NULL,NULL,'2018-01-01 13:49:54','2018-01-01 19:06:43',NULL);
 /*!40000 ALTER TABLE `request` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,10 +318,10 @@ CREATE TABLE `team` (
   `team_id` int(11) NOT NULL AUTO_INCREMENT,
   `team_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `teamleader_id` int(11) NOT NULL,
-  `Branch_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
   PRIMARY KEY (`team_id`),
   KEY `team_id` (`team_id`),
-  KEY `Branch_id` (`Branch_id`)
+  KEY `Branch_id` (`branch_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -335,7 +331,7 @@ CREATE TABLE `team` (
 
 LOCK TABLES `team` WRITE;
 /*!40000 ALTER TABLE `team` DISABLE KEYS */;
-INSERT INTO `team` VALUES (1,'Team Hà Nội',4,1),(2,'Team Đà Nẵng',123,2);
+INSERT INTO `team` VALUES (1,'Team Hà Nội',4,1),(2,'Team Đà Nẵng',2,2);
 /*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -348,4 +344,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-01 21:13:48
+-- Dump completed on 2018-03-09 15:35:31
