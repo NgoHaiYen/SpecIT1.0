@@ -78,7 +78,7 @@ public class RequestDetailsController extends HttpServlet {
                     c.setType(2);
                     cdb.addComment(c);
 
-                    rdb.updateRequestPriority(requestid, id);
+//                    rdb.updateRequestPriority(requestid, id);
                     break;
                 case "branch":
                     rdb.updateRequestBranch(requestid, id);

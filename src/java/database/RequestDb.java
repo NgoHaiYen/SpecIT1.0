@@ -2,6 +2,7 @@ package database;
 
 import helper.HibernateUtil;
 import helper.Mail;
+import model.Priority;
 import model.Request;
 import model.Role;
 import org.hibernate.HibernateException;
@@ -74,14 +75,41 @@ public class RequestDb {
 
     // update request from db
     public void updateRequest(Request request){
-        // todo
-        // remember to mail
+        // todo mail
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(request);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 
     // update request priority
-    public void updateRequestPriority(int requestId, int priorityId){
+    public void updateRequestPriority(int requestId, Priority priority){
         // todo, mail
 
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Request request = (Request) session.get(Request.class, requestId);
+            request.setPriority(priority);
+            session.update(request);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
     
     private void deleteIsread(int requestId){
